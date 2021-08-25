@@ -775,6 +775,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
         // Tests Resource:-VirtualNetworkGatewayConnection with Ipsec Policies
         [Test]
         [RecordedTest]
+        [Ignore("TODO: TRACK2 - Might be test framework issue")]
         public async Task VirtualNetworkGatewayConnectionWithIpsecPoliciesTest()
         {
             string resourceGroupName = Recording.GenerateAssetName("csmrg");
@@ -975,6 +976,8 @@ namespace Azure.ResourceManager.Network.Tests.Tests
 
         // Tests Resource:-VirtualNetworkGatewayConnection 5 APIs & Set-Remove default site
         [Test]
+        [RecordedTest]
+        [Ignore("TODO: TRACK2 - Might be test framework issue")]
         public async Task VirtualNetworkGatewayConnectionOperationsApisTest()
         {
             string resourceGroupName = Recording.GenerateAssetName("csmrg");
@@ -1155,6 +1158,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
 
         // Tests Resource:-VirtualNetworkGatewayConnectionSharedKey 3 APIs:-
         [Test]
+        [RecordedTest]
         [Ignore("TODO: TRACK2 - Might be test framework issue")]
         public async Task VirtualNetworkGatewayConnectionSharedKeyOperationsApisTest()
         {
@@ -1282,6 +1286,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
 
         // Tests Resource:-VirtualNetworkGateway P2S APIs:-
         [Test]
+        [RecordedTest]
         [Ignore("Track2: Missing the value of a special environment variable, which is currently uncertain")]
         public async Task VirtualNetworkGatewayP2SOperationsApisTest()
         {
@@ -1467,6 +1472,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
 
         // Tests Resource:-VirtualNetworkGateway ActiveActive Feature Test:-
         [Test]
+        [RecordedTest]
         [Ignore("Track2: The current operation failed due to an intermittent error with gateway 'azsmnet123'. Please try again")]
         public async Task VirtualNetworkGatewayActiveActiveFeatureTest()
         {
@@ -1575,6 +1581,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
         }
 
         [Test]
+        [RecordedTest]
         [Ignore("Track2: Occasionally succeed in online")]
         public async Task VirtualNetworkGatewayBgpRouteApiTest()
         {
@@ -1727,6 +1734,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
         }
 
         [Test]
+        [RecordedTest]
         [Ignore("Track2: Missing the value of a special environment variable, which is currently uncertain")]
         public async Task VirtualNetworkGatewayGenerateVpnProfileTest()
         {
@@ -1856,6 +1864,7 @@ namespace Azure.ResourceManager.Network.Tests.Tests
         }
 
         [Test]
+        [RecordedTest]
         [Ignore("TODO: TRACK2 - Might be test framework issue")]
         public async Task VirtualNetworkGatewayVpnDeviceConfigurationApisTest()
         {

@@ -19,10 +19,48 @@ function Find-Mapping([string]$path) {
     }
     return $false
 }
+
+function Update-Branch([string]$CommitId, [string]$Path){
+    $file = $path + "\src\autorest.md"
+    $fileContent = Get-Content $file
+    $store = @()
+    foreach($item in $fileContent)
+    {
+        $store += $item.ToString().Replace("master",$CommitId)
+    }
+    $store | Out-File -FilePath $file
+}
+
+function Generate-Code($folder)
+{
+    & cd $folder
+}
+
+function Invoke-Block([scriptblock]$cmd) {
+    $cmd | Out-String | Write-Verbose
+    & $cmd
+
+    # Need to check both of these cases for errors as they represent different items
+    # - $?: did the powershell script block throw an error
+    # - $lastexitcode: did a windows command executed by the script block end in error
+    if ((-not $?) -or ($lastexitcode -ne 0)) {
+        if ($error -ne $null)
+        {
+            Write-Warning $error[0]
+        }
+        throw "Command failed to execute: $cmd"
+    }
+}
+
+
 function  MockTestInit {
     param(
         [Parameter()]
-        [string] $SpecsRepoPath
+        [string] $SpecsRepoPath,
+        [Parameter()]
+        [string] $SpecsVersion,
+        [Parameter()]
+        [string] $CommitId
     )
     begin {
         Write-Host "Mock Test Initialize Start."
@@ -84,24 +122,32 @@ function  MockTestInit {
         # Generate Sdk Track2 folder if it not exist
         foreach ($sdkName in $RPMapping.Keys) {
             if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
-                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts","sdk\")+ $RPMapping[$sdkName] + "\" + $sdkName
-                Write-Host $sdkName
+                $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.","")
+                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts","sdk\")+ $RPMapping[$sdkName] + "\Azure.Resourcemanager." + $generateSdkName
+                Write-Host $generateSdkName
                 Write-Host $generateSdkPath
-                dotnet new azuremgmt -p $sdkName -o $generateSdkPath
+                dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
+                Update-Branch -CommitId $CommitId -Path $generateSdkPath
                 $newGenerateSdk ++
+
+                # Generete new template src code
+                Invoke-Block {
+                    & cd $generateSdkPath"\src"
+                    & dotnet build /t:GenerateCode
+                }
             }
         }
         Write-Host "end"
     }
     end {
         Write-Host "Mock Test Initialize Completed."
-        Write-Host "New generate track2 RPs: $newGenerateSdk" 
+        Write-Host "New generated track2 RPs: $newGenerateSdk" 
+        Write-Host "srcBuildSucceedRp: $srcBuildSucceedRp" 
         Write-Host "mocktestSucceedRp: $mocktestSucceedRp" 
         Write-Host "testBuildSucceedRp: $testBuildSucceedRp" 
-        Write-Host "srcBuildSucceedRp: $srcBuildSucceedRp" 
         Write-Host "succeedTestcases: $succeedTestcases "
         Write-Host "totalTestcases: $totalTestcases "
     }
 }
 
-MockTestInit -SpecsRepoPath "D:\repo\azure-rest-api-specs"
+MockTestInit -SpecsRepoPath "D:\repo\azure-rest-api-specs" -CommitId "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"

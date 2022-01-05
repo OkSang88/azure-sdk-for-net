@@ -31,27 +31,22 @@ function Update-Branch([string]$CommitId, [string]$Path){
     $store | Out-File -FilePath $file
 }
 
-function Generate-Code($folder)
+function Generate-Code([string]$path) #[scriptblock]$cmd
 {
-    & cd $folder
-}
-
-function Invoke-Block([scriptblock]$cmd) {
-    $cmd | Out-String | Write-Verbose
-    & $cmd
-
-    # Need to check both of these cases for errors as they represent different items
-    # - $?: did the powershell script block throw an error
-    # - $lastexitcode: did a windows command executed by the script block end in error
-    if ((-not $?) -or ($lastexitcode -ne 0)) {
-        if ($error -ne $null)
-        {
-            Write-Warning $error[0]
+    try {
+        & cd $path
+        & dotnet build /t:GenerateCode
+        if ($?) {
+            & dotnet build
         }
-        throw "Command failed to execute: $cmd"
+        if ($?) {
+            $srcBuildSucceedRp++
+        }
+    }
+    catch {
+        Write-Host "error"
     }
 }
-
 
 function  MockTestInit {
     param(
@@ -68,6 +63,7 @@ function  MockTestInit {
         # a) mocktest-succeed-rp/test-build-succeed-rp/src-build-succeed-rp
         # b) each RP: succeed-testcases/total-testcases
         # c) total: succeed-testcases/total-testcases
+        $Error.Clear()
         $newGenerateSdk = 0
         $mocktestSucceedRp = 0
         $testBuildSucceedRp  = 0
@@ -90,8 +86,8 @@ function  MockTestInit {
         $RPMapping = [ordered]@{ }
         $readmePath = ''
         $folderNames | ForEach-Object {
-            $csharpReadmePath = "../azure-rest-api-specs/specification/$($_.Name)/resource-manager/readme.csharp.md"
-            $readmePath = "../azure-rest-api-specs/specification/$($_.Name)/resource-manager/readme.md"
+            $csharpReadmePath = "$($_.FullName)/resource-manager/readme.csharp.md"
+            $readmePath = "$($_.FullName)/resource-manager/readme.md"
             if (Test-Path $csharpReadmePath) {
                 $result = Find-Mapping($readmePath )
                 if ($result -ne $false) {
@@ -131,13 +127,9 @@ function  MockTestInit {
                 $newGenerateSdk ++
 
                 # Generete new template src code
-                Invoke-Block {
-                    & cd $generateSdkPath"\src"
-                    & dotnet build /t:GenerateCode
-                }
+                Generate-Code -path $generateSdkPath"\src"
             }
         }
-        Write-Host "end"
     }
     end {
         Write-Host "Mock Test Initialize Completed."

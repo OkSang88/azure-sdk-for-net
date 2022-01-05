@@ -119,7 +119,7 @@ function  MockTestInit {
         foreach ($sdkName in $RPMapping.Keys) {
             if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
                 $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.","")
-                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts","sdk\")+ $RPMapping[$sdkName] + "\Azure.Resourcemanager." + $generateSdkName
+                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts","sdk\")+ $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
                 Write-Host $generateSdkName
                 Write-Host $generateSdkPath
                 dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath

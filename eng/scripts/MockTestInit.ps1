@@ -61,8 +61,10 @@ function Generate-Mocktests([string]$path) {
     # build [src], if it fail, donot generate this RP's mocktests
     & cd $srcFolder
     & dotnet build
-    if (!$?) {
+    if ($?) {
         $Script:srcBuildSuccessedRp++
+    }
+    else {
         $Script:srcBuildErrorRPs += $RPName
         return
     }
@@ -102,6 +104,7 @@ function  MockTestInit {
         # b) each RP: succeed-testcases/total-testcases
         # c) total: succeed-testcases/total-testcases
         $Error.Clear()
+        $Script:allTrack2Sdk = 0
         $Script:newGenerateSdk = 0
         $Script:srcBuildSuccessedRp = 0
         $Script:testGenerateSuccesseddRp = 0
@@ -181,6 +184,7 @@ function  MockTestInit {
             foreach ($item in $curFolderPRs) {
                 if ($item.FullName.Contains("Azure.ResourceManager")) {
                     # Create mocktests folder if it not exist
+                    $Script:allTrack2Sdk++
                     Generate-Mocktests($item.FullName)
                 }
             }
@@ -188,13 +192,15 @@ function  MockTestInit {
     }
     end {
         Write-Host "Mock Test Initialize Completed."
+        Write-Host "Track2 SDK Total: $Script:allTrack2Sdk"
         Write-Host "New generated track2 RPs: $Script:newGenerateSdk" 
         Write-Host "srcBuildSuccessedRp: $Script:srcBuildSuccessedRp" 
         Write-Host "testGenerateSuccesseddRp: $Script:testGenerateSuccesseddRp" 
         Write-Host "testBuildSuccessedRp: $Script:testBuildSuccessedRp" 
-        Write-Host "succeedTestcases: $Script:succeedTestcases "
-        Write-Host "totalTestcases: $Script:totalTestcases "
-        Write-Host "Mock test build error RPs:$Script:mockErrorRPs"
+        # Write-Host "succeedTestcases: $Script:succeedTestcases "
+        # Write-Host "totalTestcases: $Script:totalTestcases "
+        Write-Host "Src build error RPs: $Script:srcBuildErrorRPs"
+        Write-Host "Mock test build error RPs: $Script:mockBuildErrorRPs"
     }
 }
 

@@ -8,14 +8,37 @@ function Find-Mapping([string]$path) {
             if ($outputFolderMatchResult -ne $false) {
                 $outputFolder = $matches[0].Replace("/", "")
             }
+
+            #rpName has mutiple match rules
             $rpNameMatchResult = $item -match "Azure\.Management\.[^\/]+"
             if ($rpNameMatchResult -ne $false) {
                 $rpName = $matches[0].Replace("Management", "ResourceManager")
+                break
             }
-            if (($outputFolder -ne '') -and ($rpName -ne '')) {
-                return @{ $rpName = $outputFolder }
+            $rpNameMatchResult = $item -match "Microsoft\.Azure\.[^\/]+"
+            if ($rpNameMatchResult -ne $false) {
+                $rpName = $matches[0].Replace("Microsoft.Azure", "Azure.ResourceManager")
+                break
+            }
+            $rpNameMatchResult = $item -match "management\/[^\/]+\/GeneratedProtocol"
+            if ($rpNameMatchResult -ne $false) {
+                $rpName = $matches[0].Replace("management/Microsoft.", "Azure.ResourceManager.").Replace("/GeneratedProtocol", "")
+                break
+            }
+            $rpNameMatchResult = $item -match "\(csharp-profile\)\/[^\/]+\/Management"
+            if ($rpNameMatchResult -ne $false) {
+                $outputFolder = $matches[0].Replace("(csharp-profile)/", "").Replace("/Management", "").ToLower()
+                $rpName = $matches[0].Replace("(csharp-profile)/", "Azure.ResourceManager.").Replace("/Management", "")
+                break
+            }
+            if ($rpNameMatchResult -eq $false) {
+                Write-Host $item
+                break
             }
         }
+    }
+    if (($outputFolder -ne '') -and ($rpName -ne '')) {
+        return @{ $rpName = $outputFolder }
     }
     return $false
 }
@@ -85,6 +108,9 @@ function Generate-Mocktests([string]$path) {
                 $Script:mockBuildErrorRPs += $RPName
             }
         }
+        else {
+            $Script:mockGenerateErrorRPs += $RPName
+        }
     }
 }
 
@@ -114,6 +140,7 @@ function  MockTestInit {
         $Script:totalTestcases = 0
 
         $Script:srcBuildErrorRPs = @()
+        $Script:mockGenerateErrorRPs = @()
         $Script:mockBuildErrorRPs = @()
     }
     process {
@@ -134,18 +161,33 @@ function  MockTestInit {
             $csharpReadmePath = "$($_.FullName)/resource-manager/readme.csharp.md"
             $readmePath = "$($_.FullName)/resource-manager/readme.md"
             if (Test-Path $csharpReadmePath) {
-                $result = Find-Mapping($readmePath )
+                $result = Find-Mapping($csharpReadmePath)
                 if ($result -ne $false) {
                     $RPMapping += $result
                 }
             }
             elseif (Test-Path $readmePath) {
-                $result = Find-Mapping($readmePath )
+                $result = Find-Mapping($readmePath)
                 if ($result -ne $false) {
                     $RPMapping += $result
                 }
             }
         }
+
+        $xx = @()
+        foreach ($item in $RPMapping.Keys) {
+            $xx += $RPMapping[$item].ToString()
+        }
+        $xx | Out-File -FilePath "d:\\mapping.txt"
+
+        $sdkhaha =@()
+        $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
+        foreach($item in $sdkFolder){
+            if (!($xx -contains $item.Name)) {
+                $sdkhaha += $item.Name.ToString()
+            }
+        }
+        $sdkhaha | Out-File -FilePath "d:\\sdk.txt"
 
         # Remove exist sdk from $RPMapping
         $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
@@ -200,6 +242,7 @@ function  MockTestInit {
         # Write-Host "succeedTestcases: $Script:succeedTestcases "
         # Write-Host "totalTestcases: $Script:totalTestcases "
         Write-Host "Src build error RPs: $Script:srcBuildErrorRPs"
+        Write-Host "Mock test generate error RPs: $Script:mockGenerateErrorRPs"
         Write-Host "Mock test build error RPs: $Script:mockBuildErrorRPs"
     }
 }

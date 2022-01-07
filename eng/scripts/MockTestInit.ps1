@@ -70,6 +70,7 @@ function Generate-Mocktests([string]$path) {
     $RPName = $path.Substring($count, $path.Length - $count).Replace("ResourceManager.", "")
     $mocktestsFolder = $path + "/mocktests"
     $srcFolder = $path + "/src"
+    $generatedFolder = $path + "/src/Generated"
     $md = $mocktestsFolder + "/autorest.tests.md"
     $csproj = ($mocktestsFolder + "/Azure.ResourceManager.Template.Tests.csproj").Replace("Template", $RPName)
 
@@ -81,19 +82,27 @@ function Generate-Mocktests([string]$path) {
         & dotnet new azmocktests -n $RPName
     }
 
+    # Check [Generated] folder is not empty
+    $count = (Get-ChildItem $generatedFolder).Count
     # build [src], if it fail, donot generate this RP's mocktests
-    & cd $srcFolder
-    & dotnet build
-    if ($?) {
-        $Script:srcBuildSuccessedRp++
+    if ($count -ne 0) {
+        & cd $srcFolder
+        & dotnet build
+        if ($?) {
+            $Script:srcBuildSuccessedRp++
+        }
+        else {
+            $Script:srcBuildErrorRPs += $RPName
+            return
+        }
     }
     else {
-        $Script:srcBuildErrorRPs += $RPName
+        $Script:codegenErrorRPs += $RPName
         return
     }
 
     # Generate and Build [mocktests]
-    if ((Test-Path $md) && (Test-Path $csproj)) {
+    if ((Test-Path $md) -and (Test-Path $csproj) -and ($count -ne 0)) {
         # please check luanch MockTest-Host. 
         # Ref: https://github.com/changlong-liu/azure-sdk-for-net/blob/20211222-doc-for-mock-test/doc/dev/Using-Mock-Test-Generation.md
         & autorest --use=D:\repo\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1 $md --testmodeler #--debug
@@ -139,6 +148,7 @@ function  MockTestInit {
         $Script:succeedTestcases = 0
         $Script:totalTestcases = 0
 
+        $Script:codegenErrorRPs = @()
         $Script:srcBuildErrorRPs = @()
         $Script:mockGenerateErrorRPs = @()
         $Script:mockBuildErrorRPs = @()
@@ -180,9 +190,9 @@ function  MockTestInit {
         }
         $xx | Out-File -FilePath "d:\\mapping.txt"
 
-        $sdkhaha =@()
+        $sdkhaha = @()
         $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
-        foreach($item in $sdkFolder){
+        foreach ($item in $sdkFolder) {
             if (!($xx -contains $item.Name)) {
                 $sdkhaha += $item.Name.ToString()
             }
@@ -202,21 +212,21 @@ function  MockTestInit {
             }
         }
 
-        # # Generate Sdk Track2 folder if it not exist
-        # foreach ($sdkName in $RPMapping.Keys) {
-        #     if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
-        #         $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
-        #         $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
-        #         Write-Host $generateSdkName
-        #         Write-Host $generateSdkPath
-        #         dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
-        #         Update-Branch -CommitId $CommitId -Path $generateSdkPath
-        #         $Script:newGenerateSdk ++
+        # Generate Sdk Track2 folder if it not exist
+        foreach ($sdkName in $RPMapping.Keys) {
+            if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
+                $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
+                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
+                Write-Host $generateSdkName
+                Write-Host $generateSdkPath
+                dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
+                Update-Branch -CommitId $CommitId -Path $generateSdkPath
+                $Script:newGenerateSdk ++
 
-        #         # Generete new template src code
-        #         Generate-Code -path $generateSdkPath"\src"
-        #     }
-        # }
+                # Generete new template src code
+                Generate-Code -path $generateSdkPath"\src"
+            }
+        }
 
         # Build all RPs, if it build succeess, run MockTest script
         $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
@@ -239,8 +249,9 @@ function  MockTestInit {
         Write-Host "srcBuildSuccessedRp: $Script:srcBuildSuccessedRp" 
         Write-Host "testGenerateSuccesseddRp: $Script:testGenerateSuccesseddRp" 
         Write-Host "testBuildSuccessedRp: $Script:testBuildSuccessedRp" 
-        # Write-Host "succeedTestcases: $Script:succeedTestcases "
-        # Write-Host "totalTestcases: $Script:totalTestcases "
+        Write-Host "[TODO]succeedTestcases: $Script:succeedTestcases "
+        Write-Host "[TODO]totalTestcases: $Script:totalTestcases "
+        Write-Host "Src generate error RPs: $Script:codegenErrorRPs"
         Write-Host "Src build error RPs: $Script:srcBuildErrorRPs"
         Write-Host "Mock test generate error RPs: $Script:mockGenerateErrorRPs"
         Write-Host "Mock test build error RPs: $Script:mockBuildErrorRPs"

@@ -75,7 +75,7 @@ function Generate-Mocktests([string]$path) {
     $csproj = ($mocktestsFolder + "/Azure.ResourceManager.Template.Tests.csproj").Replace("Template", $RPName)
 
     # Create [mocktests] folder
-    if (!(Test-Path $md) || !(Test-Path $csproj)) {
+    if (!(Test-Path $md) -or !(Test-Path $csproj)) {
         # please check [azmocktests] template has been imported
         New-Item -Path $path -Name "mocktests" -ItemType "directory"
         & cd $mocktestsFolder
@@ -89,7 +89,7 @@ function Generate-Mocktests([string]$path) {
         & cd $srcFolder
         & dotnet build
         if ($?) {
-            $Script:srcBuildSuccessedRp++
+            $Script:srcBuildSuccessedRp += $RPName
         }
         else {
             $Script:srcBuildErrorRPs += $RPName
@@ -107,11 +107,11 @@ function Generate-Mocktests([string]$path) {
         # Ref: https://github.com/changlong-liu/azure-sdk-for-net/blob/20211222-doc-for-mock-test/doc/dev/Using-Mock-Test-Generation.md
         & autorest --use=D:\repo\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1 $md --testmodeler #--debug
         if ($?) {
-            $Script:testGenerateSuccesseddRp++
+            $Script:testGenerateSuccesseddRp += $RPName
             & cd $mocktestsFolder
             & dotnet build
             if ($?) {
-                $Script:testBuildSuccessedRp++
+                $Script:testBuildSuccessedRp += $RPName
             }
             else {
                 $Script:mockBuildErrorRPs += $RPName
@@ -141,9 +141,9 @@ function  MockTestInit {
         $Error.Clear()
         $Script:allTrack2Sdk = 0
         $Script:newGenerateSdk = 0
-        $Script:srcBuildSuccessedRp = 0
-        $Script:testGenerateSuccesseddRp = 0
-        $Script:testBuildSuccessedRp = 0
+        $Script:srcBuildSuccessedRp = @()
+        $Script:testGenerateSuccesseddRp = @()
+        $Script:testBuildSuccessedRp = @()
 
         $Script:succeedTestcases = 0
         $Script:totalTestcases = 0
@@ -183,21 +183,6 @@ function  MockTestInit {
                 }
             }
         }
-
-        $xx = @()
-        foreach ($item in $RPMapping.Keys) {
-            $xx += $RPMapping[$item].ToString()
-        }
-        $xx | Out-File -FilePath "d:\\mapping.txt"
-
-        $sdkhaha = @()
-        $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
-        foreach ($item in $sdkFolder) {
-            if (!($xx -contains $item.Name)) {
-                $sdkhaha += $item.Name.ToString()
-            }
-        }
-        $sdkhaha | Out-File -FilePath "d:\\sdk.txt"
 
         # Remove exist sdk from $RPMapping
         $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
@@ -246,9 +231,9 @@ function  MockTestInit {
         Write-Host "Mock Test Initialize Completed."
         Write-Host "Track2 SDK Total: $Script:allTrack2Sdk"
         Write-Host "New generated track2 RPs: $Script:newGenerateSdk" 
-        Write-Host "srcBuildSuccessedRp: $Script:srcBuildSuccessedRp" 
-        Write-Host "testGenerateSuccesseddRp: $Script:testGenerateSuccesseddRp" 
-        Write-Host "testBuildSuccessedRp: $Script:testBuildSuccessedRp" 
+        Write-Host "srcBuildSuccessedRp: "$Script:srcBuildSuccessedRp.Count 
+        Write-Host "testGenerateSuccesseddRp: "$Script:testGenerateSuccesseddRp.Count 
+        Write-Host "testBuildSuccessedRp: "$Script:testBuildSuccessedRp.Count 
         Write-Host "[TODO]succeedTestcases: $Script:succeedTestcases "
         Write-Host "[TODO]totalTestcases: $Script:totalTestcases "
         Write-Host "Src generate error RPs: $Script:codegenErrorRPs"

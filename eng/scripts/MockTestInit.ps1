@@ -54,18 +54,11 @@ function Update-Branch([string]$CommitId, [string]$Path) {
 }
 
 function Generate-Code([string]$path) {
-    #[scriptblock]$cmd
     & cd $path
     & dotnet build /t:GenerateCode
-    # if ($?) {
-    #     & dotnet build
-    # }
-    # if ($?) {
-    #     $Script:srcBuildSuccessedRp++
-    # }
 }
 
-function Generate-Mocktests([string]$path) {
+function Generate-Mocktests([string]$path, [string]$autorestVersion) {
     $count = $path.IndexOf("ResourceManager.")
     $RPName = $path.Substring($count, $path.Length - $count).Replace("ResourceManager.", "")
     $mocktestsFolder = $path + "/mocktests"
@@ -105,7 +98,7 @@ function Generate-Mocktests([string]$path) {
     if ((Test-Path $md) -and (Test-Path $csproj) -and ($count -ne 0)) {
         # please check luanch MockTest-Host. 
         # Ref: https://github.com/changlong-liu/azure-sdk-for-net/blob/20211222-doc-for-mock-test/doc/dev/Using-Mock-Test-Generation.md
-        & autorest --use=D:\repo\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1 $md --testmodeler #--debug
+        & autorest --use=$autorestVersion $md --testmodeler --debug
         if ($?) {
             $Script:testGenerateSuccesseddRp += $RPName
             & cd $mocktestsFolder
@@ -128,9 +121,13 @@ function  MockTestInit {
         [Parameter()]
         [string] $SpecsRepoPath,
         [Parameter()]
+        [string] $AutorestVersion,
+        [Parameter()]
         [string] $SpecsVersion,
         [Parameter()]
-        [string] $CommitId
+        [string] $CommitId,
+        [Parameter()]
+        [bool] $GenerateNewSDKs = $false
     )
     begin {
         Write-Host "Mock Test Initialize Start."
@@ -154,62 +151,65 @@ function  MockTestInit {
         $Script:mockBuildErrorRPs = @()
     }
     process {
-        # Get Specs Repo
-        if (Test-Path $SpecsRepoPath) {
-            $folderNames = Get-ChildItem $SpecsRepoPath/specification
-        }
-        else {
-            git clone https://github.com/Azure/azure-rest-api-specs.git C:\ProgramData
-            $folderNames = Get-ChildItem C:\ProgramData\azure-rest-api-specs\specification
-        }
+        if ($GenerateNewSDKs) {
+            # Get Specs Repo
+            if (Test-Path $SpecsRepoPath) {
+                $folderNames = Get-ChildItem $SpecsRepoPath/specification
+            }
+            else {
+                git clone https://github.com/Azure/azure-rest-api-specs.git C:\ProgramData
+                $folderNames = Get-ChildItem C:\ProgramData\azure-rest-api-specs\specification
+            }
 
-        # Get RP Mapping
-        Write-Output "Start RP mapping "
-        $RPMapping = [ordered]@{ }
-        $readmePath = ''
-        $folderNames | ForEach-Object {
-            $csharpReadmePath = "$($_.FullName)/resource-manager/readme.csharp.md"
-            $readmePath = "$($_.FullName)/resource-manager/readme.md"
-            if (Test-Path $csharpReadmePath) {
-                $result = Find-Mapping($csharpReadmePath)
-                if ($result -ne $false) {
-                    $RPMapping += $result
+            # Get RP Mapping
+            Write-Output "Start RP mapping "
+            $RPMapping = [ordered]@{ }
+            $readmePath = ''
+            $folderNames | ForEach-Object {
+                $csharpReadmePath = "$($_.FullName)/resource-manager/readme.csharp.md"
+                $readmePath = "$($_.FullName)/resource-manager/readme.md"
+                if (Test-Path $csharpReadmePath) {
+                    $result = Find-Mapping($csharpReadmePath)
+                    if ($result -ne $false) {
+                        $RPMapping += $result
+                    }
+                }
+                elseif (Test-Path $readmePath) {
+                    $result = Find-Mapping($readmePath)
+                    if ($result -ne $false) {
+                        $RPMapping += $result
+                    }
                 }
             }
-            elseif (Test-Path $readmePath) {
-                $result = Find-Mapping($readmePath)
-                if ($result -ne $false) {
-                    $RPMapping += $result
+
+            # Remove exist sdk from $RPMapping
+            $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
+            $sdkExistFolder = @()
+            $sdkFolder  | ForEach-Object {
+                $sdkExistFolder += $_.Name
+                $curSdkFolder = @(Get-ChildItem $_) 
+                foreach ($existSdk in $curSdkFolder) {
+                    if ($RPMapping.Contains($existSdk.Name)) {
+                        $RPMapping.Remove($existSdk.Name)
+                    }
                 }
             }
-        }
 
-        # Remove exist sdk from $RPMapping
-        $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
-        $sdkExistFolder = @()
-        $sdkFolder  | ForEach-Object {
-            $sdkExistFolder += $_.Name
-            $curSdkFolder = @(Get-ChildItem $_) 
-            foreach ($existSdk in $curSdkFolder) {
-                if ($RPMapping.Contains($existSdk.Name)) {
-                    $RPMapping.Remove($existSdk.Name)
+            # Generete new Track2 SDKs using dotnet Template
+            Generate Sdk Track2 folder if it not exist
+            foreach ($sdkName in $RPMapping.Keys) {
+                if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
+                    $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
+                    $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
+                    Write-Host $generateSdkName
+                    Write-Host $generateSdkPath
+                    dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
+                    Update-Branch -CommitId $CommitId -Path $generateSdkPath
+                    $Script:newGenerateSdk ++
+    
+                    # Generete new template src code
+                    Generate-Code -path $generateSdkPath"\src"
                 }
-            }
-        }
-
-        # Generate Sdk Track2 folder if it not exist
-        foreach ($sdkName in $RPMapping.Keys) {
-            if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
-                $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
-                $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
-                Write-Host $generateSdkName
-                Write-Host $generateSdkPath
-                dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
-                Update-Branch -CommitId $CommitId -Path $generateSdkPath
-                $Script:newGenerateSdk ++
-
-                # Generete new template src code
-                Generate-Code -path $generateSdkPath"\src"
             }
         }
 
@@ -219,10 +219,10 @@ function  MockTestInit {
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
-                if ($item.FullName.Contains("Azure.ResourceManager")) {
+                if ($item.Name.Contains("Azure.ResourceManager")) {
                     # Create mocktests folder if it not exist
                     $Script:allTrack2Sdk++
-                    Generate-Mocktests($item.FullName)
+                    Generate-Mocktests -path $item.FullName -autorestVersion $AutorestVersion
                 }
             }
         }
@@ -243,4 +243,4 @@ function  MockTestInit {
     }
 }
 
-MockTestInit -SpecsRepoPath "D:\repo\azure-rest-api-specs" -CommitId "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
+MockTestInit -SpecsRepoPath "D:\repo\azure-rest-api-specs" -CommitId "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b" -AutorestVersion "D:\repo\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1" #-GenerateNewSDKs $true

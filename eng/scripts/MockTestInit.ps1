@@ -135,7 +135,6 @@ function  MockTestInit {
         # a) mocktest-succeed-rp/test-build-succeed-rp/src-build-succeed-rp
         # b) each RP: succeed-testcases/total-testcases
         # c) total: succeed-testcases/total-testcases
-        $Error.Clear()
         $Script:allTrack2Sdk = 0
         $Script:newGenerateSdk = 0
         $Script:srcBuildSuccessedRp = @()
@@ -151,18 +150,20 @@ function  MockTestInit {
         $Script:mockBuildErrorRPs = @()
     }
     process {
+        # Generate Track2 SDK Template
         if ($GenerateNewSDKs) {
-            # Get Specs Repo
             if (Test-Path $SpecsRepoPath) {
                 $folderNames = Get-ChildItem $SpecsRepoPath/specification
             }
             else {
-                git clone https://github.com/Azure/azure-rest-api-specs.git C:\ProgramData
-                $folderNames = Get-ChildItem C:\ProgramData\azure-rest-api-specs\specification
+                Write-Host -ForegroundColor Red "Cannot found $SpecsRepoPath, please input correct SpecsRepoPath."
+                Write-Host -ForegroundColor Red "MockTestInit script exit."
+                return
             }
 
-            # Get RP Mapping
+            # Get RP Mapping from azure-rest-api-specs repo of local
             Write-Output "Start RP mapping "
+            $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
             $RPMapping = [ordered]@{ }
             $readmePath = ''
             $folderNames | ForEach-Object {
@@ -183,7 +184,6 @@ function  MockTestInit {
             }
 
             # Remove exist sdk from $RPMapping
-            $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
             $sdkExistFolder = @()
             $sdkFolder  | ForEach-Object {
                 $sdkExistFolder += $_.Name
@@ -195,27 +195,19 @@ function  MockTestInit {
                 }
             }
 
-            # Generete new Track2 SDKs using dotnet Template
-            Generate Sdk Track2 folder if it not exist
+            # Generate Sdk Track2 folder if it not exist
             foreach ($sdkName in $RPMapping.Keys) {
                 if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
                     $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
                     $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
-                    Write-Host $generateSdkName
-                    Write-Host $generateSdkPath
                     dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
                     Update-Branch -CommitId $CommitId -Path $generateSdkPath
                     $Script:newGenerateSdk ++
-    
-                    # Generete new template src code
-                    Generate-Code -path $generateSdkPath"\src"
                 }
             }
         }
 
         # Build all RPs, if it build succeess, run MockTest script
-        $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
-        $sdkExistFolder = @()
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
@@ -226,8 +218,8 @@ function  MockTestInit {
                 }
             }
         }
-    }
-    end {
+
+        # All Successed Output statistical results
         Write-Host "Mock Test Initialize Completed."
         Write-Host "Track2 SDK Total: $Script:allTrack2Sdk"
         Write-Host "New generated track2 RPs: $Script:newGenerateSdk" 
@@ -243,4 +235,7 @@ function  MockTestInit {
     }
 }
 
-MockTestInit -SpecsRepoPath "D:\repo\azure-rest-api-specs" -CommitId "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b" -AutorestVersion "D:\repo\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1" #-GenerateNewSDKs $true
+$SpecsRepoPath = "D:\repo\azure-rest-api-specs"
+$commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
+$AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
+MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $true

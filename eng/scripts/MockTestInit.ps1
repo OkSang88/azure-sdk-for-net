@@ -52,12 +52,7 @@ function Update-Branch([string]$CommitId, [string]$Path) {
     $store | Out-File -FilePath $file
 }
 
-function Generate-Code([string]$path) {
-    & cd $path
-    & dotnet build /t:GenerateCode
-}
-
-function Generate-Mocktests([string]$path, [string]$autorestVersion) {
+function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     $count = $path.IndexOf("ResourceManager.")
     $RPName = $path.Substring($count, $path.Length - $count).Replace("ResourceManager.", "")
     $mocktestsFolder = $path + "/mocktests"
@@ -66,52 +61,59 @@ function Generate-Mocktests([string]$path, [string]$autorestVersion) {
     $md = $mocktestsFolder + "/autorest.tests.md"
     $csproj = ($mocktestsFolder + "/Azure.ResourceManager.Template.Tests.csproj").Replace("Template", $RPName)
 
-    # Create [mocktests] folder
+    # Create [mocktests] folder if it not exist
     if (!(Test-Path $md) -or !(Test-Path $csproj)) {
         # please check [azmocktests] template has been imported
-        New-Item -Path $path -Name "mocktests" -ItemType "directory"
+        if (!(Test-Path $mocktestsFolder)) {
+            New-Item -Path $path -Name "mocktests" -ItemType "directory"
+        }
         & cd $mocktestsFolder
         & dotnet new azmocktests -n $RPName
     }
 
-    # Check [Generated] folder is not empty
-    $count = (Get-ChildItem $generatedFolder).Count
-    # build [src], if it fail, donot generate this RP's mocktests
-    if ($count -ne 0) {
-        & cd $srcFolder
-        & dotnet build
-        if ($?) {
-            $Script:srcBuildSuccessedRp += $RPName
-        }
-        else {
-            $Script:srcBuildErrorRPs += $RPName
-            return
-        }
+    # Generate src code
+    & cd $path
+    & dotnet build /t:GenerateCode
+    if ($?) {
+        $Script:srcGenerateSuccessedRps += $RPName
     }
     else {
-        $Script:codegenErrorRPs += $RPName
+        $Script:srcGenerateErrorRps += $RPName
+        return
+    }
+    
+    # Build src code
+    & dotnet build
+    if ($?) {
+        $Script:srcBuildSuccessedRps += $RPName
+    }
+    else {
+        $Script:srcBuildErrorRps += $RPName
         return
     }
 
-    # Generate and Build [mocktests]
-    if ((Test-Path $md) -and (Test-Path $csproj) -and ($count -ne 0)) {
+    # Generate MockTest code
+    if ((Test-Path $md) -and (Test-Path $csproj)) {
         # please check luanch MockTest-Host. 
         # Ref: https://github.com/changlong-liu/azure-sdk-for-net/blob/20211222-doc-for-mock-test/doc/dev/Using-Mock-Test-Generation.md
-        & autorest --use=$autorestVersion $md --testmodeler --debug
+        & autorest --use=$autorestVersion $md --testmodeler="{}" --debug
         if ($?) {
-            $Script:testGenerateSuccesseddRp += $RPName
-            & cd $mocktestsFolder
-            & dotnet build
-            if ($?) {
-                $Script:testBuildSuccessedRp += $RPName
-            }
-            else {
-                $Script:mockBuildErrorRPs += $RPName
-            }
+            $Script:testGenerateSuccessedRps += $RPName
         }
         else {
-            $Script:mockGenerateErrorRPs += $RPName
+            $Script:testGenerateErrorRps += $RPName
+            return
         }
+    }
+
+    # Build MockTest code
+    & cd $mocktestsFolder
+    & dotnet build
+    if ($?) {
+        $Script:testBuildSuccessedRps += $RPName
+    }
+    else {
+        $Script:testBuildErrorRps += $RPName
     }
 }
 
@@ -136,17 +138,18 @@ function  MockTestInit {
         # c) total: succeed-testcases/total-testcases
         $Script:allTrack2Sdk = 0
         $Script:newGenerateSdk = 0
-        $Script:srcBuildSuccessedRp = @()
-        $Script:testGenerateSuccesseddRp = @()
-        $Script:testBuildSuccessedRp = @()
+        $Script:srcGenerateSuccessedRps = @()
+        $Script:srcBuildSuccessedRps = @()
+        $Script:testGenerateSuccessedRps = @()
+        $Script:testBuildSuccessedRps = @()
 
         $Script:succeedTestcases = 0
         $Script:totalTestcases = 0
 
-        $Script:codegenErrorRPs = @()
-        $Script:srcBuildErrorRPs = @()
-        $Script:mockGenerateErrorRPs = @()
-        $Script:mockBuildErrorRPs = @()
+        $Script:srcGenerateErrorRps = @()
+        $Script:srcBuildErrorRps = @()
+        $Script:testGenerateErrorRps = @()
+        $Script:testBuildErrorRps = @()
         $Script:RPMapping = [ordered]@{ }
 
     }
@@ -201,14 +204,14 @@ function  MockTestInit {
             }
         }
 
-        # Build all RPs, if it build succeess, run MockTest script
+        # Init All Track2 Sdk
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
                 if ($item.Name.Contains("Azure.ResourceManager")) {
                     # Create mocktests folder if it not exist
                     $Script:allTrack2Sdk++
-                    Generate-Mocktests -path $item.FullName -autorestVersion $AutorestVersion
+                    Update-AllGeneratedCode -path $item.FullName -autorestVersion $AutorestVersion
                 }
             }
         }
@@ -217,19 +220,20 @@ function  MockTestInit {
         Write-Host "Mock Test Initialize Completed."
         Write-Host "Track2 SDK Total: $Script:allTrack2Sdk"
         Write-Host "New generated track2 RPs: $Script:newGenerateSdk" 
-        Write-Host "srcBuildSuccessedRp: "$Script:srcBuildSuccessedRp.Count 
-        Write-Host "testGenerateSuccesseddRp: "$Script:testGenerateSuccesseddRp.Count 
-        Write-Host "testBuildSuccessedRp: "$Script:testBuildSuccessedRp.Count 
-        Write-Host "[TODO]succeedTestcases: $Script:succeedTestcases "
-        Write-Host "[TODO]totalTestcases: $Script:totalTestcases "
-        Write-Host "Src generate error RPs: $Script:codegenErrorRPs"
-        Write-Host "Src build error RPs: $Script:srcBuildErrorRPs"
-        Write-Host "Mock test generate error RPs: $Script:mockGenerateErrorRPs"
-        Write-Host "Mock test build error RPs: $Script:mockBuildErrorRPs"
+        Write-Host "srcGenerateSuccessedRps: "$Script:srcGenerateSuccessedRps.Count 
+        Write-Host "srcBuildSuccessedRps: "$Script:srcBuildSuccessedRps.Count 
+        Write-Host "testGenerateSuccesseddRps: "$Script:testGenerateSuccessedRps.Count 
+        Write-Host "testBuildSuccessedRps: "$Script:testBuildSuccessedRps.Count 
+        Write-Host "[TODO]succeedTestcases: $Script:succeedTestcases"
+        Write-Host "[TODO]totalTestcases: $Script:totalTestcases"
+        Write-Host "Src generate error RPs: $Script:srcGenerateErrorRps"
+        Write-Host "Src build error RPs: $Script:srcBuildErrorRps"
+        Write-Host "Mock test generate error RPs: $Script:testGenerateErrorRps"
+        Write-Host "Mock test build error RPs: $Script:testBuildErrorRps"
     }
 }
 
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
-MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $true
+MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion #-GenerateNewSDKs $true

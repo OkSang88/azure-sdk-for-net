@@ -38,9 +38,8 @@ function Find-Mapping([string]$path) {
         }
     }
     if (($outputFolder -ne '') -and ($rpName -ne '')) {
-        return @{ $rpName = $outputFolder }
+        $Script:RPMapping += @{ $rpName = $outputFolder }
     }
-    return $false
 }
 
 function Update-Branch([string]$CommitId, [string]$Path) {
@@ -148,6 +147,8 @@ function  MockTestInit {
         $Script:srcBuildErrorRPs = @()
         $Script:mockGenerateErrorRPs = @()
         $Script:mockBuildErrorRPs = @()
+        $Script:RPMapping = [ordered]@{ }
+
     }
     process {
         # Generate Track2 SDK Template
@@ -164,42 +165,35 @@ function  MockTestInit {
             # Get RP Mapping from azure-rest-api-specs repo of local
             Write-Output "Start RP mapping "
             $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
-            $RPMapping = [ordered]@{ }
             $readmePath = ''
             $folderNames | ForEach-Object {
                 $csharpReadmePath = "$($_.FullName)/resource-manager/readme.csharp.md"
                 $readmePath = "$($_.FullName)/resource-manager/readme.md"
                 if (Test-Path $csharpReadmePath) {
-                    $result = Find-Mapping($csharpReadmePath)
-                    if ($result -ne $false) {
-                        $RPMapping += $result
-                    }
+                    Find-Mapping($csharpReadmePath)
                 }
                 elseif (Test-Path $readmePath) {
-                    $result = Find-Mapping($readmePath)
-                    if ($result -ne $false) {
-                        $RPMapping += $result
-                    }
+                    Find-Mapping($readmePath)
                 }
             }
 
-            # Remove exist sdk from $RPMapping
+            # Remove exist sdk from $Script:RPMapping
             $sdkExistFolder = @()
             $sdkFolder  | ForEach-Object {
                 $sdkExistFolder += $_.Name
                 $curSdkFolder = @(Get-ChildItem $_) 
                 foreach ($existSdk in $curSdkFolder) {
-                    if ($RPMapping.Contains($existSdk.Name)) {
-                        $RPMapping.Remove($existSdk.Name)
+                    if ($Script:RPMapping.Contains($existSdk.Name)) {
+                        $Script:RPMapping.Remove($existSdk.Name)
                     }
                 }
             }
 
             # Generate Sdk Track2 folder if it not exist
-            foreach ($sdkName in $RPMapping.Keys) {
-                if ($sdkExistFolder.Contains($RPMapping[$sdkName])) {
+            foreach ($sdkName in $Script:RPMapping.Keys) {
+                if ($sdkExistFolder.Contains($Script:RPMapping[$sdkName])) {
                     $generateSdkName = $sdkName.ToString().Replace("Azure.ResourceManager.", "")
-                    $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
+                    $generateSdkPath = $PSScriptRoot.ToString().Replace("eng\scripts", "sdk\") + $Script:RPMapping[$sdkName] + "\Azure.ResourceManager." + $generateSdkName
                     dotnet new azuremgmt -p $generateSdkName -o $generateSdkPath
                     Update-Branch -CommitId $CommitId -Path $generateSdkPath
                     $Script:newGenerateSdk ++

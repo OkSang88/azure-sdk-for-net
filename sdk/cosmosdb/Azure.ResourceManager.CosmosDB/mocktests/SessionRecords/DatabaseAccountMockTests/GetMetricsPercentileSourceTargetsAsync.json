@@ -1,0 +1,65 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sourceRegion/West%20Central%20US/targetRegion/East%20US/percentile/metrics?api-version=2021-06-15\u0026$filter=%24filter%3D%28name.value%20eq%20%27Probabilistic%20Bounded%20Staleness%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%20%272017-11-19T23%3A53%3A55.2780000Z%27%20and%20endTime%20eq%20%272017-11-20T00%3A13%3A55.2780000Z",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220111.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "be84f13a6841fb30c609167f1985a5a2",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "369",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 11 Jan 2022 09:13:07 GMT",
+        "ETag": "W/\u0022171-gziqPhKWJ5kMYU6yHACeyJfGzDQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "startTime": "2022-01-11T09:13:07.802Z",
+            "endTime": "2022-01-11T09:13:07.802Z",
+            "timeGrain": "aaaaaaaaaaaaaaa",
+            "unit": "Count",
+            "name": {
+              "value": "aaaaaaaaaaaaaaa",
+              "localizedValue": "a"
+            },
+            "metricValues": [
+              {
+                "_count": 28,
+                "average": 6,
+                "maximum": 8,
+                "minimum": 29,
+                "timestamp": "2022-01-11T09:13:07.802Z",
+                "total": 19,
+                "P10": 6,
+                "P25": 10,
+                "P50": 28,
+                "P75": 20,
+                "P90": 9,
+                "P95": 26,
+                "P99": 27
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1421693948",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

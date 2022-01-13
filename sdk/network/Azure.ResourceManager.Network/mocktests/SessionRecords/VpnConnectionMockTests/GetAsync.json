@@ -1,0 +1,154 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1?api-version=2021-02-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "bfa1a1f0c8d5f1dbf01046219764a6b6",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2859",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:01:18 GMT",
+        "ETag": "W/\u0022b2b-5gFhX9TaWKaCJtZhE4h2DO9ES8w\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1",
+        "properties": {
+          "remoteVpnSite": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "routingWeight": 7,
+          "dpdTimeoutSeconds": 19,
+          "connectionStatus": "Unknown",
+          "vpnConnectionProtocolType": "IKEv2",
+          "ingressBytesTransferred": 30,
+          "egressBytesTransferred": 10,
+          "connectionBandwidth": 8,
+          "sharedKey": "aaaaaaaa",
+          "enableBgp": true,
+          "usePolicyBasedTrafficSelectors": true,
+          "ipsecPolicies": [
+            {
+              "saLifeTimeSeconds": 16,
+              "saDataSizeKilobytes": 30,
+              "ipsecEncryption": "None",
+              "ipsecIntegrity": "MD5",
+              "ikeEncryption": "DES",
+              "ikeIntegrity": "MD5",
+              "dhGroup": "None",
+              "pfsGroup": "None"
+            }
+          ],
+          "trafficSelectorPolicies": [
+            {
+              "localAddressRanges": [
+                "aaaaaaaa"
+              ],
+              "remoteAddressRanges": [
+                "aaaaaaaaaaaaaa"
+              ]
+            }
+          ],
+          "enableRateLimiting": true,
+          "enableInternetSecurity": true,
+          "useLocalAzureIpAddress": true,
+          "provisioningState": "Succeeded",
+          "vpnLinkConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "vpnSiteLink": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "routingWeight": 10,
+                "vpnLinkConnectionMode": "Default",
+                "connectionStatus": "Unknown",
+                "vpnConnectionProtocolType": "IKEv2",
+                "ingressBytesTransferred": 2,
+                "egressBytesTransferred": 25,
+                "connectionBandwidth": 9,
+                "sharedKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "enableBgp": true,
+                "usePolicyBasedTrafficSelectors": true,
+                "ipsecPolicies": [
+                  {
+                    "saLifeTimeSeconds": 13,
+                    "saDataSizeKilobytes": 18,
+                    "ipsecEncryption": "None",
+                    "ipsecIntegrity": "MD5",
+                    "ikeEncryption": "DES",
+                    "ikeIntegrity": "MD5",
+                    "dhGroup": "None",
+                    "pfsGroup": "None"
+                  }
+                ],
+                "enableRateLimiting": true,
+                "useLocalAzureIpAddress": true,
+                "provisioningState": "Succeeded",
+                "ingressNatRules": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                ],
+                "egressNatRules": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                ]
+              },
+              "name": "vpnConnection1",
+              "etag": "aaaaaaaaaa",
+              "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "routingConfiguration": {
+            "associatedRouteTable": {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            },
+            "propagatedRouteTables": {
+              "labels": [
+                "aaaaaaaaaaaaaaaaa"
+              ],
+              "ids": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ]
+            },
+            "vnetRoutes": {
+              "staticRoutes": [
+                {
+                  "name": "vpnConnection1",
+                  "addressPrefixes": [
+                    "aaaaaaaaa"
+                  ],
+                  "nextHopIpAddress": "aa"
+                }
+              ]
+            }
+          }
+        },
+        "name": "vpnConnection1",
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "472076332",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "158",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "faca3832c8978046fd5d9c99730a5b21",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "remoteVpnSite": {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2839",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:01:17 GMT",
+        "ETag": "W/\u0022b17-ssOpAN/a66RCjt/dkJZrvdrk/ns\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1",
+        "properties": {
+          "remoteVpnSite": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "routingWeight": 26,
+          "dpdTimeoutSeconds": 6,
+          "connectionStatus": "Unknown",
+          "vpnConnectionProtocolType": "IKEv2",
+          "ingressBytesTransferred": 16,
+          "egressBytesTransferred": 18,
+          "connectionBandwidth": 15,
+          "sharedKey": "a",
+          "enableBgp": true,
+          "usePolicyBasedTrafficSelectors": true,
+          "ipsecPolicies": [
+            {
+              "saLifeTimeSeconds": 5,
+              "saDataSizeKilobytes": 5,
+              "ipsecEncryption": "None",
+              "ipsecIntegrity": "MD5",
+              "ikeEncryption": "DES",
+              "ikeIntegrity": "MD5",
+              "dhGroup": "None",
+              "pfsGroup": "None"
+            }
+          ],
+          "trafficSelectorPolicies": [
+            {
+              "localAddressRanges": [
+                "aaaaaaaaaaaa"
+              ],
+              "remoteAddressRanges": [
+                "aaaaaaaaaaaa"
+              ]
+            }
+          ],
+          "enableRateLimiting": true,
+          "enableInternetSecurity": true,
+          "useLocalAzureIpAddress": true,
+          "provisioningState": "Succeeded",
+          "vpnLinkConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "vpnSiteLink": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "routingWeight": 5,
+                "vpnLinkConnectionMode": "Default",
+                "connectionStatus": "Unknown",
+                "vpnConnectionProtocolType": "IKEv2",
+                "ingressBytesTransferred": 10,
+                "egressBytesTransferred": 28,
+                "connectionBandwidth": 3,
+                "sharedKey": "aaaaaaaaa",
+                "enableBgp": true,
+                "usePolicyBasedTrafficSelectors": true,
+                "ipsecPolicies": [
+                  {
+                    "saLifeTimeSeconds": 7,
+                    "saDataSizeKilobytes": 28,
+                    "ipsecEncryption": "None",
+                    "ipsecIntegrity": "MD5",
+                    "ikeEncryption": "DES",
+                    "ikeIntegrity": "MD5",
+                    "dhGroup": "None",
+                    "pfsGroup": "None"
+                  }
+                ],
+                "enableRateLimiting": true,
+                "useLocalAzureIpAddress": true,
+                "provisioningState": "Succeeded",
+                "ingressNatRules": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                ],
+                "egressNatRules": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                ]
+              },
+              "name": "vpnConnection1",
+              "etag": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "type": "aaaaaaaaaaaaaaaa"
+            }
+          ],
+          "routingConfiguration": {
+            "associatedRouteTable": {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            },
+            "propagatedRouteTables": {
+              "labels": [
+                "aaaa"
+              ],
+              "ids": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ]
+            },
+            "vnetRoutes": {
+              "staticRoutes": [
+                {
+                  "name": "vpnConnection1",
+                  "addressPrefixes": [
+                    "aaaaaaa"
+                  ],
+                  "nextHopIpAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              ]
+            }
+          }
+        },
+        "name": "vpnConnection1",
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1444249732",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

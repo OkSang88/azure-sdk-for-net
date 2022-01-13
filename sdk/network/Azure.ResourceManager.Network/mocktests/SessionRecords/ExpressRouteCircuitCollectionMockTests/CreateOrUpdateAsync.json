@@ -1,0 +1,211 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "271",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "4ab6b80f79458d55af51c9cf89d2016b",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sku": {
+          "name": "Standard_MeteredData",
+          "tier": "Standard",
+          "family": "MeteredData"
+        },
+        "location": "Brazil South",
+        "properties": {
+          "allowClassicOperations": false,
+          "serviceProviderProperties": {
+            "serviceProviderName": "Equinix",
+            "peeringLocation": "Silicon Valley",
+            "bandwidthInMbps": 200
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "4667",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:06 GMT",
+        "ETag": "W/\u0022123b-pYkjkQCfJeaGMWhANV6JfOTv/eA\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+        "name": "circuitName",
+        "type": "aaaaaaaaaaaaaaaaa",
+        "location": "a",
+        "tags": {
+          "key70": "aaaa"
+        },
+        "sku": {
+          "name": "circuitName",
+          "tier": "Standard",
+          "family": "UnlimitedData"
+        },
+        "properties": {
+          "allowClassicOperations": true,
+          "circuitProvisioningState": "aaaaaa",
+          "serviceProviderProvisioningState": "NotProvisioned",
+          "authorizations": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "authorizationKey": "aaaaaaaaaaaaaaaaaaaaa",
+                "authorizationUseStatus": "Available",
+                "provisioningState": "Succeeded"
+              },
+              "name": "circuitName",
+              "etag": "aaaaaaaaaa",
+              "type": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "peerings": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "peeringType": "AzurePublicPeering",
+                "state": "Disabled",
+                "azureASN": 20,
+                "peerASN": 1087752272,
+                "primaryPeerAddressPrefix": "aaaaaaaaaaaaaa",
+                "secondaryPeerAddressPrefix": "aaaaa",
+                "primaryAzurePort": "aaaa",
+                "secondaryAzurePort": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "sharedKey": "aaaaaaaaa",
+                "vlanId": 11,
+                "microsoftPeeringConfig": {
+                  "advertisedPublicPrefixes": [
+                    "aaaaaaaaaaaaaaaaaa"
+                  ],
+                  "advertisedCommunities": [
+                    "aaaaaaaaaa"
+                  ],
+                  "advertisedPublicPrefixesState": "NotConfigured",
+                  "legacyMode": 13,
+                  "customerASN": 3,
+                  "routingRegistryName": "aaaaaaaaaaaaa"
+                },
+                "stats": {
+                  "primarybytesIn": 22,
+                  "primarybytesOut": 23,
+                  "secondarybytesIn": 14,
+                  "secondarybytesOut": 23
+                },
+                "provisioningState": "Succeeded",
+                "gatewayManagerEtag": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "lastModifiedBy": "aaaaaaaaaaaa",
+                "routeFilter": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "ipv6PeeringConfig": {
+                  "primaryPeerAddressPrefix": "a",
+                  "secondaryPeerAddressPrefix": "aaaaaaaaaaaaaaaaaaaa",
+                  "microsoftPeeringConfig": {
+                    "advertisedPublicPrefixes": [
+                      "aaaaaaaaaaaaaaa"
+                    ],
+                    "advertisedCommunities": [
+                      "aaaaaaaaaa"
+                    ],
+                    "advertisedPublicPrefixesState": "NotConfigured",
+                    "legacyMode": 4,
+                    "customerASN": 21,
+                    "routingRegistryName": "aaaa"
+                  },
+                  "routeFilter": {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  },
+                  "state": "Disabled"
+                },
+                "expressRouteConnection": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "connections": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                    "properties": {
+                      "expressRouteCircuitPeering": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      },
+                      "peerExpressRouteCircuitPeering": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      },
+                      "addressPrefix": "aaaaaaaaaaaaaaaa",
+                      "authorizationKey": "aaaaaaaaaaaa",
+                      "ipv6CircuitConnectionConfig": {
+                        "addressPrefix": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "circuitConnectionStatus": "Connected"
+                      },
+                      "circuitConnectionStatus": "Connected",
+                      "provisioningState": "Succeeded"
+                    },
+                    "name": "circuitName",
+                    "etag": "aaaaaaaaaa",
+                    "type": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ],
+                "peeredConnections": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                    "properties": {
+                      "expressRouteCircuitPeering": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      },
+                      "peerExpressRouteCircuitPeering": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      },
+                      "addressPrefix": "aaaaaaaaaaaaaaaaaaaaaaa",
+                      "circuitConnectionStatus": "Connected",
+                      "connectionName": "aaaaaaaaa",
+                      "authResourceGuid": "aaaaaaaaaaaaa",
+                      "provisioningState": "Succeeded"
+                    },
+                    "name": "circuitName",
+                    "etag": "aaaaaaaaaaaaaaaaaaa",
+                    "type": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ]
+              },
+              "name": "circuitName",
+              "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "type": "aaaaaaaaaaaaaa"
+            }
+          ],
+          "serviceKey": "aaaaaaa",
+          "serviceProviderNotes": "aaaaaaaaaaaaaa",
+          "serviceProviderProperties": {
+            "serviceProviderName": "aaaaaaaaaaaaaaaaaa",
+            "peeringLocation": "aaaaaa",
+            "bandwidthInMbps": 22
+          },
+          "expressRoutePort": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "bandwidthInGbps": 14,
+          "stag": 3,
+          "provisioningState": "Succeeded",
+          "gatewayManagerEtag": "aaaaaaaaaaaaaaaaaaaaa",
+          "globalReachEnabled": true
+        },
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "54297315",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

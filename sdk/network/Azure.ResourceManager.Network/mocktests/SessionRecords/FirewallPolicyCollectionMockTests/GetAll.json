@@ -1,0 +1,160 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies?api-version=2021-02-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "26cb18b3fda9539e0aad010e7b7dcda1",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2721",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:09 GMT",
+        "ETag": "W/\u0022aa1-3z6JjijoWshR4AjLYDUQY0ZbQHo\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/aaaa",
+            "name": "firewallPolicies",
+            "type": "aaa",
+            "location": "aaaaaaaaaaa",
+            "tags": {
+              "key3772": "aaaaaaaaaaaaaaa"
+            },
+            "properties": {
+              "ruleCollectionGroups": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ],
+              "provisioningState": "Succeeded",
+              "basePolicy": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "firewalls": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ],
+              "childPolicies": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ],
+              "threatIntelMode": "Alert",
+              "threatIntelWhitelist": {
+                "ipAddresses": [
+                  "aaaaaaaaaaaaa"
+                ],
+                "fqdns": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ]
+              },
+              "insights": {
+                "isEnabled": true,
+                "retentionDays": 18,
+                "logAnalyticsResources": {
+                  "workspaces": [
+                    {
+                      "region": "aaaaaaaaaaaaaaaaaa",
+                      "workspaceId": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      }
+                    }
+                  ],
+                  "defaultWorkspaceId": {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                }
+              },
+              "snat": {
+                "privateRanges": [
+                  "aaaaaaaaaa"
+                ]
+              },
+              "dnsSettings": {
+                "servers": [
+                  "aaaaaaaaaaaa"
+                ],
+                "enableProxy": true,
+                "requireProxyForNetworkRules": true
+              },
+              "intrusionDetection": {
+                "mode": "Off",
+                "configuration": {
+                  "signatureOverrides": [
+                    {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                      "mode": "Off"
+                    }
+                  ],
+                  "bypassTrafficSettings": [
+                    {
+                      "name": "firewallPolicies",
+                      "description": "aa",
+                      "protocol": "TCP",
+                      "sourceAddresses": [
+                        "aaaaaa"
+                      ],
+                      "destinationAddresses": [
+                        "aaaaaa"
+                      ],
+                      "destinationPorts": [
+                        "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      ],
+                      "sourceIpGroups": [
+                        "aaaaaaaaaaaaaaa"
+                      ],
+                      "destinationIpGroups": [
+                        "aaaaaaa"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "transportSecurity": {
+                "certificateAuthority": {
+                  "keyVaultSecretId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "name": "firewallPolicies"
+                }
+              },
+              "sku": {
+                "tier": "Standard"
+              }
+            },
+            "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "identity": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "tenantId": "00000000-0000-0000-0000-000000000000",
+              "type": "SystemAssigned",
+              "userAssignedIdentities": {
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key6765": {
+                  "principalId": "00000000-0000-0000-0000-000000000000",
+                  "clientId": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "641124298",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

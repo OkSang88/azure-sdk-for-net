@@ -1,0 +1,254 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "534",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "1e5240cda402e4458fe946b02c437362",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "location": "West US",
+        "properties": {
+          "managementIpConfiguration": {
+            "name": "azureFirewallMgmtIpConfiguration",
+            "properties": {
+              "subnet": {
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallManagementSubnet"
+              },
+              "publicIPAddress": {
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/managementPipName"
+              }
+            }
+          },
+          "threatIntelMode": "Alert",
+          "sku": {
+            "name": "AZFW_VNet",
+            "tier": "Standard"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "4148",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 07:59:58 GMT",
+        "ETag": "W/\u00221034-MEIgYHD0YyaGVPwv3fI2FGWZFMY\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall",
+        "name": "azurefirewall",
+        "type": "aaaaaaaaaaaaaaaaaaaa",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key1429": "aaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "applicationRuleCollections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "priority": 12198,
+                "action": {
+                  "type": "Allow"
+                },
+                "rules": [
+                  {
+                    "name": "azurefirewall",
+                    "description": "aaaaaa",
+                    "sourceAddresses": [
+                      "aaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "protocols": [
+                      {
+                        "protocolType": "Http",
+                        "port": 10703
+                      }
+                    ],
+                    "targetFqdns": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "fqdnTags": [
+                      "aaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "sourceIpGroups": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ]
+                  }
+                ],
+                "provisioningState": "Succeeded"
+              },
+              "name": "azurefirewall",
+              "etag": "aaaaaaaaaaa"
+            }
+          ],
+          "natRuleCollections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "priority": 49897,
+                "action": {
+                  "type": "Snat"
+                },
+                "rules": [
+                  {
+                    "name": "azurefirewall",
+                    "description": "aaaaaaaaaaaaaaaaaaaaa",
+                    "sourceAddresses": [
+                      "aaaaaaaaaaaaaaaaaa"
+                    ],
+                    "destinationAddresses": [
+                      "aa"
+                    ],
+                    "destinationPorts": [
+                      "aaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "protocols": [
+                      "TCP"
+                    ],
+                    "translatedAddress": "a",
+                    "translatedPort": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "translatedFqdn": "aaaaaaaaaaaaaaaa",
+                    "sourceIpGroups": [
+                      "aaaaaaaaa"
+                    ]
+                  }
+                ],
+                "provisioningState": "Succeeded"
+              },
+              "name": "azurefirewall",
+              "etag": "aaaaaaaaa"
+            }
+          ],
+          "networkRuleCollections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "priority": 14805,
+                "action": {
+                  "type": "Allow"
+                },
+                "rules": [
+                  {
+                    "name": "azurefirewall",
+                    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "protocols": [
+                      "TCP"
+                    ],
+                    "sourceAddresses": [
+                      "a"
+                    ],
+                    "destinationAddresses": [
+                      "aaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "destinationPorts": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "destinationFqdns": [
+                      "aaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "sourceIpGroups": [
+                      "aaaaa"
+                    ],
+                    "destinationIpGroups": [
+                      "a"
+                    ]
+                  }
+                ],
+                "provisioningState": "Succeeded"
+              },
+              "name": "azurefirewall",
+              "etag": "aaaaaaaaaaaaaaaa"
+            }
+          ],
+          "ipConfigurations": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "privateIPAddress": "aaaaaaaaaaa",
+                "subnet": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "publicIPAddress": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "provisioningState": "Succeeded"
+              },
+              "name": "azurefirewall",
+              "etag": "aaaaaaaaaaaaaaa",
+              "type": "aaaaaa"
+            }
+          ],
+          "managementIpConfiguration": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+            "properties": {
+              "privateIPAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "subnet": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "publicIPAddress": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "provisioningState": "Succeeded"
+            },
+            "name": "azurefirewall",
+            "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "type": "aa"
+          },
+          "provisioningState": "Succeeded",
+          "threatIntelMode": "Alert",
+          "virtualHub": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "firewallPolicy": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "hubIPAddresses": {
+            "publicIPs": {
+              "addresses": [
+                {
+                  "address": "aaaaaaaaaaaaa"
+                }
+              ],
+              "count": 17
+            },
+            "privateIPAddress": "aaaaaaaaaaaaaaaa"
+          },
+          "ipGroups": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "changeNumber": "aaaaaa"
+            }
+          ],
+          "sku": {
+            "name": "AZFW_VNet",
+            "tier": "Standard"
+          },
+          "additionalProperties": {
+            "key1098": "aaaaaaaa"
+          }
+        },
+        "zones": [
+          "aaaaaaaaaaaaaaa"
+        ],
+        "etag": "aaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "776061914",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

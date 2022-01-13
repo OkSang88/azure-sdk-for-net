@@ -1,0 +1,133 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectivityCheck?api-version=2021-02-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "197",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "d16040d038ee224b7a4f9bf7293cac5d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "source": {
+          "resourceId": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1"
+        },
+        "destination": {
+          "address": "192.168.100.4",
+          "port": 3389
+        },
+        "preferredIPVersion": "IPv4"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1273",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:43 GMT",
+        "ETag": "W/\u00224f9-93P/ZuOkvVinsxZYkNODS2kH4Bo\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "hops": [
+          {
+            "type": "aaaaaaaaaaaaaa",
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+            "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resourceId": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "nextHopIds": [
+              "aaaaa"
+            ],
+            "previousHopIds": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            ],
+            "links": [
+              {
+                "nextHopId": "aaaaaaaaaaaaaaaaa",
+                "linkType": "aaaaaaaaaaaaaaa",
+                "properties": {
+                  "roundTripTimeMin": 4081825293,
+                  "roundTripTimeAvg": 2795882073,
+                  "roundTripTimeMax": 2693374442
+                },
+                "issues": [
+                  {
+                    "origin": "Local",
+                    "severity": "Error",
+                    "type": "Unknown",
+                    "context": [
+                      {
+                        "key9817": "aaaaaaaaaaaaaa"
+                      }
+                    ]
+                  }
+                ],
+                "context": {
+                  "key6974": "aaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "resourceId": "aaaaaaaaaaaa"
+              }
+            ],
+            "previousLinks": [
+              {
+                "nextHopId": "aaaaaaaaaaaaaaaaaaaaa",
+                "linkType": "aaaaaaaaaa",
+                "properties": {
+                  "roundTripTimeMin": 2105720635,
+                  "roundTripTimeAvg": 300850299,
+                  "roundTripTimeMax": 728383118
+                },
+                "issues": [
+                  {
+                    "origin": "Local",
+                    "severity": "Error",
+                    "type": "Unknown",
+                    "context": [
+                      {
+                        "key2818": "aaaa"
+                      }
+                    ]
+                  }
+                ],
+                "context": {
+                  "key3784": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "resourceId": "aaaaaaaaaaaaaaaaaa"
+              }
+            ],
+            "issues": [
+              {
+                "origin": "Local",
+                "severity": "Error",
+                "type": "Unknown",
+                "context": [
+                  {
+                    "key6": "aaaaaaaaaaaa"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "connectionStatus": "Unknown",
+        "avgLatencyInMs": 26,
+        "minLatencyInMs": 29,
+        "maxLatencyInMs": 6,
+        "probesSent": 25,
+        "probesFailed": 17
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "730301376",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

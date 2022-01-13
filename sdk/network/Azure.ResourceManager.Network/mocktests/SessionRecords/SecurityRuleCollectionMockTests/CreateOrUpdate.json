@@ -1,0 +1,109 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "212",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "3d4d6ad65416ec38ad5b7b8c97ad8bc4",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "protocol": "*",
+          "sourcePortRange": "*",
+          "destinationPortRange": "8080",
+          "sourceAddressPrefix": "10.0.0.0/8",
+          "destinationAddressPrefix": "11.0.0.0/8",
+          "access": "Deny",
+          "priority": 100,
+          "direction": "Outbound"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1451",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:01:02 GMT",
+        "ETag": "W/\u00225ab-DwIZhkbrQOAm82RjWvZxXKens4M\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1",
+        "properties": {
+          "description": "a",
+          "protocol": "Tcp",
+          "sourcePortRange": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "destinationPortRange": "aaaaaaaaaaaaaaaaaa",
+          "sourceAddressPrefix": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sourceAddressPrefixes": [
+            "aaa"
+          ],
+          "sourceApplicationSecurityGroups": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "rule1",
+              "type": "a",
+              "location": "aaaaaaaaaaaaaaaa",
+              "tags": {
+                "key6841": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "properties": {
+                "resourceGuid": "aaaa",
+                "provisioningState": "Succeeded"
+              },
+              "etag": "aaaaaaaaaaaaaaaa"
+            }
+          ],
+          "destinationAddressPrefix": "aaaaaaaaaaaaaaaaaaa",
+          "destinationAddressPrefixes": [
+            "aaaaaaaaaaa"
+          ],
+          "destinationApplicationSecurityGroups": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "rule1",
+              "type": "aaaa",
+              "location": "aaaaaaaaaaaa",
+              "tags": {
+                "key5108": "aaaaaaaaaaaaaaaaaaaa"
+              },
+              "properties": {
+                "resourceGuid": "aaaaaaa",
+                "provisioningState": "Succeeded"
+              },
+              "etag": "a"
+            }
+          ],
+          "sourcePortRanges": [
+            "aaaaaa"
+          ],
+          "destinationPortRanges": [
+            "aaaaaaaaaaaa"
+          ],
+          "access": "Allow",
+          "priority": 7,
+          "direction": "Inbound",
+          "provisioningState": "Succeeded"
+        },
+        "name": "rule1",
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "473280229",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy/ruleCollectionGroups/ruleCollectionGroup1?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "31",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "951d8b2d5a49e2dc4575e2ed3219e447",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "priority": 100
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "902",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:09 GMT",
+        "ETag": "W/\u0022386-XypRV3E1o\u002BG6X95mQMUeDybuLMQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy/ruleCollectionGroups/ruleCollectionGroup1",
+        "properties": {
+          "priority": 23627,
+          "ruleCollections": [
+            {
+              "ruleCollectionType": "FirewallPolicyNatRuleCollection",
+              "name": "ruleCollectionGroup1",
+              "priority": 36033,
+              "action": {
+                "type": "DNAT"
+              },
+              "rules": [
+                {
+                  "name": "ruleCollectionGroup1",
+                  "description": "aaaaaaaaaaaaa",
+                  "ruleType": "ApplicationRule",
+                  "sourceAddresses": [
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  ],
+                  "destinationAddresses": [
+                    "aaaaaa"
+                  ],
+                  "protocols": [
+                    {
+                      "protocolType": "Http",
+                      "port": 463
+                    }
+                  ],
+                  "targetFqdns": [
+                    "aaaa"
+                  ],
+                  "targetUrls": [
+                    "aaaaaaaaaaaaaaaaaa"
+                  ],
+                  "fqdnTags": [
+                    "aaaaaaaaaaaaaaaa"
+                  ],
+                  "sourceIpGroups": [
+                    "aaaaaaaaaa"
+                  ],
+                  "terminateTLS": true,
+                  "webCategories": [
+                    "aaaaaaaaaaaaaaaaaa"
+                  ]
+                }
+              ]
+            }
+          ],
+          "provisioningState": "Succeeded"
+        },
+        "name": "ruleCollectionGroup1",
+        "etag": "aaaaaaaaaaaaaaa",
+        "type": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1261386852",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

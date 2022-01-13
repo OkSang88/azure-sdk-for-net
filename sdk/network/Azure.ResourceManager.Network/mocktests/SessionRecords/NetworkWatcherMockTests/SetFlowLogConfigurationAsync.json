@@ -1,0 +1,66 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/configureFlowLog?api-version=2021-02-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "249",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "55d7945d96206182ec6579a272383737",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "targetResourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/nsg1",
+        "properties": {
+          "storageId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/st1",
+          "enabled": true
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "409",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:44 GMT",
+        "ETag": "W/\u0022199-rKTq83qiDg2FL4BBFA7muY/I4/Y\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "targetResourceId": "aaaaaa",
+        "properties": {
+          "storageId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "enabled": true,
+          "retentionPolicy": {
+            "days": 6,
+            "enabled": true
+          },
+          "format": {
+            "type": "JSON",
+            "version": 24
+          }
+        },
+        "flowAnalyticsConfiguration": {
+          "networkWatcherFlowAnalyticsConfiguration": {
+            "enabled": true,
+            "workspaceId": "aaaaaaaaaa",
+            "workspaceRegion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "workspaceResourceId": "a",
+            "trafficAnalyticsInterval": 14
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "667770564",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

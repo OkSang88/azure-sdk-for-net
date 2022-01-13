@@ -1,0 +1,86 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/effectiveNetworkSecurityGroups?api-version=2021-02-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "9bbd27e587e5f4d62c59dbef8629a5db",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1310",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:34 GMT",
+        "ETag": "W/\u002251e-A4cpla836D0VeWO8JqYe0HJEOl4\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "networkSecurityGroup": {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            },
+            "association": {
+              "networkManager": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "subnet": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "networkInterface": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              }
+            },
+            "effectiveSecurityRules": [
+              {
+                "name": "effectiveNetworkSecurityGroups",
+                "protocol": "Tcp",
+                "sourcePortRange": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "destinationPortRange": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "sourcePortRanges": [
+                  "aaaaaaaaaaaaaaaaaaa"
+                ],
+                "destinationPortRanges": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "sourceAddressPrefix": "aaaaaaaaa",
+                "destinationAddressPrefix": "aaaaaaaaaaaaa",
+                "sourceAddressPrefixes": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "destinationAddressPrefixes": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "expandedSourceAddressPrefix": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "expandedDestinationAddressPrefix": [
+                  "aaaaaaaaaaaaaaaaa"
+                ],
+                "access": "Allow",
+                "priority": 6,
+                "direction": "Inbound"
+              }
+            ],
+            "tagMap": "aaaaaaa"
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1775006227",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

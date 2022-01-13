@@ -1,0 +1,191 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy?api-version=2021-02-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "603",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "228fe12861c1e4c23bffa7e262b680cd",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "location": "West US",
+        "properties": {
+          "threatIntelMode": "Alert",
+          "threatIntelWhitelist": {},
+          "insights": {
+            "isEnabled": true,
+            "retentionDays": 100,
+            "logAnalyticsResources": {
+              "defaultWorkspaceId": {
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace"
+              }
+            }
+          },
+          "snat": {},
+          "dnsSettings": {
+            "enableProxy": true,
+            "requireProxyForNetworkRules": false
+          },
+          "intrusionDetection": {
+            "mode": "Alert",
+            "configuration": {}
+          },
+          "transportSecurity": {
+            "certificateAuthority": {
+              "keyVaultSecretId": "https://kv/secret",
+              "name": "clientcert"
+            }
+          },
+          "sku": {
+            "tier": "Premium"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2726",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:09 GMT",
+        "ETag": "W/\u0022aa6-EKTXa627m/ntTGkKq6zDryOyhzg\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy",
+        "name": "firewallPolicy",
+        "type": "aaaaaaaaaaaaaaa",
+        "location": "aaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key8981": "aaaaaa"
+        },
+        "properties": {
+          "ruleCollectionGroups": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "provisioningState": "Succeeded",
+          "basePolicy": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "firewalls": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "childPolicies": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "threatIntelMode": "Alert",
+          "threatIntelWhitelist": {
+            "ipAddresses": [
+              "aaa"
+            ],
+            "fqdns": [
+              "aaaaaaaaaaaaaaaaaaaaaaa"
+            ]
+          },
+          "insights": {
+            "isEnabled": true,
+            "retentionDays": 24,
+            "logAnalyticsResources": {
+              "workspaces": [
+                {
+                  "region": "aaaaaaaaaaaaaaa",
+                  "workspaceId": {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                }
+              ],
+              "defaultWorkspaceId": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              }
+            }
+          },
+          "snat": {
+            "privateRanges": [
+              "aaaaaaaaaaaaaaaaaaaaaaa"
+            ]
+          },
+          "dnsSettings": {
+            "servers": [
+              "aaaaaaaaaaaaaaaaaaaaaa"
+            ],
+            "enableProxy": true,
+            "requireProxyForNetworkRules": true
+          },
+          "intrusionDetection": {
+            "mode": "Off",
+            "configuration": {
+              "signatureOverrides": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "mode": "Off"
+                }
+              ],
+              "bypassTrafficSettings": [
+                {
+                  "name": "firewallPolicy",
+                  "description": "aaaaaaaaaaa",
+                  "protocol": "TCP",
+                  "sourceAddresses": [
+                    "aaaaaaaaaaaaaaa"
+                  ],
+                  "destinationAddresses": [
+                    "aaaaaaaaa"
+                  ],
+                  "destinationPorts": [
+                    "aa"
+                  ],
+                  "sourceIpGroups": [
+                    "aaaaaaaaaaaaaaaaaaaaa"
+                  ],
+                  "destinationIpGroups": [
+                    "aaaa"
+                  ]
+                }
+              ]
+            }
+          },
+          "transportSecurity": {
+            "certificateAuthority": {
+              "keyVaultSecretId": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "name": "firewallPolicy"
+            }
+          },
+          "sku": {
+            "tier": "Standard"
+          }
+        },
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "SystemAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key7727": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1859888257",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

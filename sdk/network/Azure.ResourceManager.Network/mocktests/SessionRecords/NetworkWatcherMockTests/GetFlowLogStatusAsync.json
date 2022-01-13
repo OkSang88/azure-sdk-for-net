@@ -1,0 +1,62 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/queryFlowLogStatus?api-version=2021-02-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "117",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "f74ee252b40cd7e46781146d53e5087a",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "targetResourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/nsg1"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "372",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 13 Jan 2022 08:00:44 GMT",
+        "ETag": "W/\u0022174-jDn/4c5Ig5wbH\u002BCnh2NsjFH/TVk\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "targetResourceId": "aaaaaaaaaaaaaaaaaaaaa",
+        "properties": {
+          "storageId": "aa",
+          "enabled": true,
+          "retentionPolicy": {
+            "days": 9,
+            "enabled": true
+          },
+          "format": {
+            "type": "JSON",
+            "version": 6
+          }
+        },
+        "flowAnalyticsConfiguration": {
+          "networkWatcherFlowAnalyticsConfiguration": {
+            "enabled": true,
+            "workspaceId": "aaaaaa",
+            "workspaceRegion": "aaaaa",
+            "workspaceResourceId": "aaaaaa",
+            "trafficAnalyticsInterval": 2
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "820987284",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

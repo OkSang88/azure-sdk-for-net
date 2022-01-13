@@ -29,20 +29,20 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubPrivateEndpointConnections_Update
             string privateEndpointConnectionName = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e";
-            WebPubSub.PrivateEndpointConnectionData parameters = new WebPubSub.PrivateEndpointConnectionData()
+            PrivateEndpointConnectionData parameters = new PrivateEndpointConnectionData()
             {
-                PrivateEndpoint = new WebPubSub.Models.PrivateEndpoint()
+                PrivateEndpoint = new Models.PrivateEndpoint()
                 {
                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
                 },
-                PrivateLinkServiceConnectionState = new WebPubSub.Models.PrivateLinkServiceConnectionState()
+                PrivateLinkServiceConnectionState = new Models.PrivateLinkServiceConnectionState()
                 {
-                    Status = new WebPubSub.Models.PrivateLinkServiceConnectionStatus("Approved"),
+                    Status = new Models.PrivateLinkServiceConnectionStatus("Approved"),
                     ActionsRequired = "None",
                 },
             };
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetPrivateEndpointConnections();
             await collection.CreateOrUpdateAsync(privateEndpointConnectionName, parameters);
         }
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
             // Example: WebPubSubPrivateEndpointConnections_Get
             string privateEndpointConnectionName = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e";
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetPrivateEndpointConnections();
             await collection.GetAsync(privateEndpointConnectionName);
         }
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubPrivateEndpointConnections_List
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetPrivateEndpointConnections();
             await foreach (var _ in collection.GetAllAsync())
             {

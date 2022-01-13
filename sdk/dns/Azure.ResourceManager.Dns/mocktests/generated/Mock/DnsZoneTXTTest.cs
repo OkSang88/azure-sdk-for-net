@@ -11,7 +11,6 @@ using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
-using DnsManagementClient;
 
 namespace DnsManagementClient.Tests.Mock
 {

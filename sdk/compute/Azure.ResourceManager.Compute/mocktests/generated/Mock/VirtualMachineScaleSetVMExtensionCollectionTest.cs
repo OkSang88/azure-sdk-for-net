@@ -59,17 +59,17 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             await collection.GetAsync(vmExtensionName, expand);
         }
 
-        [RecordedTest]
-        public async Task GetAll()
-        {
-            // Example: List extensions in Vmss instance.
-            string expand = null;
+        //[RecordedTest]
+        //public async Task GetAll()
+        //{
+        //    // Example: List extensions in Vmss instance.
+        //    string expand = null;
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVMExtensions();
-            await foreach (var _ in collection.GetAllAsync(expand))
-            {
-            }
-        }
+        //    var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+        //    var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVMExtensions();
+        //    await foreach (var _ in collection.GetAllAsync(expand))
+        //    {
+        //    }
+        //}
     }
 }

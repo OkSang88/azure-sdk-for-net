@@ -66,16 +66,16 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             await diskAccess.UpdateAsync(diskAccess2);
         }
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResources()
-        {
-            // Example: List all possible private link resources under disk access resource.
-            var diskAccessId = Compute.DiskAccess.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDiskAccess");
-            var diskAccess = GetArmClient().GetDiskAccess(diskAccessId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResources()
+        //{
+        //    // Example: List all possible private link resources under disk access resource.
+        //    var diskAccessId = Compute.DiskAccess.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDiskAccess");
+        //    var diskAccess = GetArmClient().GetDiskAccess(diskAccessId);
 
-            await foreach (var _ in diskAccess.GetPrivateLinkResourcesAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in diskAccess.GetPrivateLinkResourcesAsync())
+        //    {
+        //    }
+        //}
     }
 }

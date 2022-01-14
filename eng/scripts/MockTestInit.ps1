@@ -143,9 +143,6 @@ function  MockTestInit {
         $Script:testGenerateSuccessedRps = @()
         $Script:testBuildSuccessedRps = @()
 
-        $Script:succeedTestcases = 0
-        $Script:totalTestcases = 0
-
         $Script:srcGenerateErrorRps = @()
         $Script:srcBuildErrorRps = @()
         $Script:testGenerateErrorRps = @()
@@ -224,8 +221,6 @@ function  MockTestInit {
         Write-Host "srcBuildSuccessedRps: "$Script:srcBuildSuccessedRps.Count 
         Write-Host "testGenerateSuccesseddRps: "$Script:testGenerateSuccessedRps.Count 
         Write-Host "testBuildSuccessedRps: "$Script:testBuildSuccessedRps.Count 
-        Write-Host "[TODO]succeedTestcases: $Script:succeedTestcases"
-        Write-Host "[TODO]totalTestcases: $Script:totalTestcases"
         Write-Host "Src generate error RPs: $Script:srcGenerateErrorRps"
         Write-Host "Src build error RPs: $Script:srcBuildErrorRps"
         Write-Host "Mock test generate error RPs: $Script:testGenerateErrorRps"
@@ -236,4 +231,5 @@ function  MockTestInit {
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
-MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion #-GenerateNewSDKs $true
+$GenerateNewSDKs = $true
+MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs

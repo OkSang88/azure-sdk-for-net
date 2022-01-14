@@ -58,17 +58,17 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             await serviceBusNamespace.UpdateAsync(parameters);
         }
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResources()
-        {
-            // Example: NameSpacePrivateLinkResourcesGet
-            var serviceBusNamespaceId = ServiceBus.ServiceBusNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2924");
-            var serviceBusNamespace = GetArmClient().GetServiceBusNamespace(serviceBusNamespaceId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResources()
+        //{
+        //    // Example: NameSpacePrivateLinkResourcesGet
+        //    var serviceBusNamespaceId = ServiceBus.ServiceBusNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2924");
+        //    var serviceBusNamespace = GetArmClient().GetServiceBusNamespace(serviceBusNamespaceId);
 
-            await foreach (var _ in serviceBusNamespace.GetPrivateLinkResourcesAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in serviceBusNamespace.GetPrivateLinkResourcesAsync())
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task CheckNameAvailabilityDisasterRecoveryConfig()

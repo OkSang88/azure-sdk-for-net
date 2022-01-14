@@ -57,17 +57,17 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             await deploymentScript.UpdateAsync(tags);
         }
 
-        [RecordedTest]
-        public async Task GetLogs()
-        {
-            // Example: DeploymentScriptsGetLogs
-            var deploymentScriptId = Resources.DeploymentScript.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "script-rg", "MyDeploymentScript");
-            var deploymentScript = GetArmClient().GetDeploymentScript(deploymentScriptId);
+        //[RecordedTest]
+        //public async Task GetLogs()
+        //{
+        //    // Example: DeploymentScriptsGetLogs
+        //    var deploymentScriptId = Resources.DeploymentScript.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "script-rg", "MyDeploymentScript");
+        //    var deploymentScript = GetArmClient().GetDeploymentScript(deploymentScriptId);
 
-            await foreach (var _ in deploymentScript.GetLogsAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in deploymentScript.GetLogsAsync())
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task ScriptLogGet()

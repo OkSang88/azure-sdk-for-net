@@ -70,18 +70,18 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await webSite.StopWebSiteNetworkTraceAsync();
         }
 
-        [RecordedTest]
-        public async Task GetNetworkTraces()
-        {
-            // Example: Get NetworkTraces for a site
-            var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp");
-            var webSite = GetArmClient().GetWebSite(webSiteId);
-            string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
+        //[RecordedTest]
+        //public async Task GetNetworkTraces()
+        //{
+        //    // Example: Get NetworkTraces for a site
+        //    var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp");
+        //    var webSite = GetArmClient().GetWebSite(webSiteId);
+        //    string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
 
-            await foreach (var _ in webSite.GetNetworkTracesAsync(operationId))
-            {
-            }
-        }
+        //    await foreach (var _ in webSite.GetNetworkTracesAsync(operationId))
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task GetNetworkTraceOperationV2()
@@ -94,30 +94,30 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await webSite.GetNetworkTraceOperationV2Async(operationId);
         }
 
-        [RecordedTest]
-        public async Task GetNetworkTracesV2()
-        {
-            // Example: Get NetworkTraces for a site
-            var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp");
-            var webSite = GetArmClient().GetWebSite(webSiteId);
-            string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
+        //[RecordedTest]
+        //public async Task GetNetworkTracesV2()
+        //{
+        //    // Example: Get NetworkTraces for a site
+        //    var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp");
+        //    var webSite = GetArmClient().GetWebSite(webSiteId);
+        //    string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
 
-            await foreach (var _ in webSite.GetNetworkTracesV2Async(operationId))
-            {
-            }
-        }
+        //    await foreach (var _ in webSite.GetNetworkTracesV2Async(operationId))
+        //    {
+        //    }
+        //}
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResources()
-        {
-            // Example: Get private link resources of a site
-            var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite");
-            var webSite = GetArmClient().GetWebSite(webSiteId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResources()
+        //{
+        //    // Example: Get private link resources of a site
+        //    var webSiteId = AppService.WebSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite");
+        //    var webSite = GetArmClient().GetWebSite(webSiteId);
 
-            await foreach (var _ in webSite.GetPrivateLinkResourcesAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in webSite.GetPrivateLinkResourcesAsync())
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task StartNetworkTrace()

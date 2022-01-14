@@ -80,16 +80,16 @@ new KeyVault.Models.AccessPolicyEntry(tenantId: Guid.Parse("00000000-0000-0000-0
             await vault.UpdateAccessPolicyAsync(operationKind, parameters);
         }
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResources()
-        {
-            // Example: KeyVaultListPrivateLinkResources
-            var vaultId = KeyVault.Vault.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-vault");
-            var vault = GetArmClient().GetVault(vaultId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResources()
+        //{
+        //    // Example: KeyVaultListPrivateLinkResources
+        //    var vaultId = KeyVault.Vault.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-vault");
+        //    var vault = GetArmClient().GetVault(vaultId);
 
-            await foreach (var _ in vault.GetPrivateLinkResourcesAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in vault.GetPrivateLinkResourcesAsync())
+        //    {
+        //    }
+        //}
     }
 }

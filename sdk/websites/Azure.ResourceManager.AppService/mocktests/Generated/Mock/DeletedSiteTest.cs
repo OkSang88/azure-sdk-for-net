@@ -34,16 +34,16 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await deletedSite.GetAsync();
         }
 
-        [RecordedTest]
-        public async Task GetDeletedWebAppSnapshots()
-        {
-            // Example: Get Deleted Web App Snapshots
-            var deletedSiteId = AppService.DeletedSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "9");
-            var deletedSite = GetArmClient().GetDeletedSite(deletedSiteId);
+        //[RecordedTest]
+        //public async Task GetDeletedWebAppSnapshots()
+        //{
+        //    // Example: Get Deleted Web App Snapshots
+        //    var deletedSiteId = AppService.DeletedSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "9");
+        //    var deletedSite = GetArmClient().GetDeletedSite(deletedSiteId);
 
-            await foreach (var _ in deletedSite.GetDeletedWebAppSnapshotsAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in deletedSite.GetDeletedWebAppSnapshotsAsync())
+        //    {
+        //    }
+        //}
     }
 }

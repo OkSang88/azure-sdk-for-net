@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
 using Insights;
-using Insights.Models;
 
 namespace Insights.Tests.Mock
 {

@@ -49,7 +49,7 @@ function Run-MockTests {
         # record each error cases
         foreach ($item in $response) {
             if ($item.Tostring().Contains("Failed!  - Failed:") -or ($item.Tostring().Contains("Passed!  - Failed:"))) {
-                $FinalStatics += @{ $RPName.Replace("Azure.ResourceManager","") = $item.Substring(0, $item.IndexOf(", Duration")) }
+                $FinalStatics += @{ $RPName.Replace("Azure.ResourceManager.","") = $item.Substring(0, $item.IndexOf(", Duration")) }
                 break
             }
             if ($item.Tostring().Contains("Error Message:")) {

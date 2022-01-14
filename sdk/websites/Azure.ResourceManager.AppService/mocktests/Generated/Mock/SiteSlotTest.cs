@@ -70,18 +70,18 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await siteSlot.StopWebSiteNetworkTraceSlotAsync();
         }
 
-        [RecordedTest]
-        public async Task GetNetworkTracesSlot()
-        {
-            // Example: Get NetworkTraces for a site
-            var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp", "Production");
-            var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
-            string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
+        //[RecordedTest]
+        //public async Task GetNetworkTracesSlot()
+        //{
+        //    // Example: Get NetworkTraces for a site
+        //    var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp", "Production");
+        //    var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
+        //    string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
 
-            await foreach (var _ in siteSlot.GetNetworkTracesSlotAsync(operationId))
-            {
-            }
-        }
+        //    await foreach (var _ in siteSlot.GetNetworkTracesSlotAsync(operationId))
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task GetNetworkTraceOperationSlotV2()
@@ -94,30 +94,30 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await siteSlot.GetNetworkTraceOperationSlotV2Async(operationId);
         }
 
-        [RecordedTest]
-        public async Task GetNetworkTracesSlotV2()
-        {
-            // Example: Get NetworkTraces for a site
-            var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp", "Production");
-            var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
-            string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
+        //[RecordedTest]
+        //public async Task GetNetworkTracesSlotV2()
+        //{
+        //    // Example: Get NetworkTraces for a site
+        //    var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "SampleApp", "Production");
+        //    var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
+        //    string operationId = "c291433b-53ad-4c49-8cae-0a293eae1c6d";
 
-            await foreach (var _ in siteSlot.GetNetworkTracesSlotV2Async(operationId))
-            {
-            }
-        }
+        //    await foreach (var _ in siteSlot.GetNetworkTracesSlotV2Async(operationId))
+        //    {
+        //    }
+        //}
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResourcesSlot()
-        {
-            // Example: Get private link resources of a site
-            var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite", "stage");
-            var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResourcesSlot()
+        //{
+        //    // Example: Get private link resources of a site
+        //    var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite", "stage");
+        //    var siteSlot = GetArmClient().GetSiteSlot(siteSlotId);
 
-            await foreach (var _ in siteSlot.GetPrivateLinkResourcesSlotAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in siteSlot.GetPrivateLinkResourcesSlotAsync())
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task StartNetworkTraceSlot()

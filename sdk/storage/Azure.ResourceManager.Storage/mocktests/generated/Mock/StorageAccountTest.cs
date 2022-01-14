@@ -289,17 +289,17 @@ new Storage.Models.BlobRestoreRange(startRange: "container/blobpath1",endRange: 
             await storageAccount.RevokeUserDelegationKeysAsync();
         }
 
-        [RecordedTest]
-        public async Task GetPrivateLinkResources()
-        {
-            // Example: StorageAccountListPrivateLinkResources
-            var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527");
-            var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
+        //[RecordedTest]
+        //public async Task GetPrivateLinkResources()
+        //{
+        //    // Example: StorageAccountListPrivateLinkResources
+        //    var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527");
+        //    var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
 
-            await foreach (var _ in storageAccount.GetPrivateLinkResourcesAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in storageAccount.GetPrivateLinkResourcesAsync())
+        //    {
+        //    }
+        //}
 
         [RecordedTest]
         public async Task ManagementPolicyGet()

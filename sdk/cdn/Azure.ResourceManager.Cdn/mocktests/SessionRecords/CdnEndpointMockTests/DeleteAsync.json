@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220112.1",
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220113.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "54198868e950694f03f1a0ea379cb8b5",
@@ -20,7 +20,7 @@
         "Connection": "keep-alive",
         "Content-Length": "0",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 12 Jan 2022 07:53:43 GMT",
+        "Date": "Thu, 13 Jan 2022 08:37:08 GMT",
         "Keep-Alive": "timeout=5",
         "Retry-After": "1",
         "X-Powered-By": "Express"
@@ -33,7 +33,7 @@
       "RequestHeaders": {
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager/1.0.0-alpha.20220112.1",
+          "azsdk-net-ResourceManager/1.0.0-alpha.20220113.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "471fe8b49776abae1413bd668f069c41",
@@ -43,33 +43,33 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "3089",
+        "Content-Length": "3138",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 12 Jan 2022 07:53:43 GMT",
-        "ETag": "W/\u0022c11-FSex32cZ6N5dJgvI1J9/i04R7gU\u0022",
+        "Date": "Thu, 13 Jan 2022 08:37:08 GMT",
+        "ETag": "W/\u0022c42-Rzs78ip51KsnZ4FvbtOsfFImU6o\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1",
         "name": "endpoint1",
-        "type": "aaaaaa",
+        "type": "aaaaaaaaaaa",
         "systemData": {
-          "createdBy": "aaaaaaaaaaaaaaaa",
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
           "createdByType": "user",
-          "createdAt": "2022-01-12T07:53:43.594Z",
-          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaa",
+          "createdAt": "2022-01-13T08:37:08.241Z",
+          "lastModifiedBy": "aaaaaaaaaa",
           "lastModifiedByType": "user",
-          "lastModifiedAt": "2022-01-12T07:53:43.594Z"
+          "lastModifiedAt": "2022-01-13T08:37:08.241Z"
         },
         "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "tags": {
-          "key3695": "aaaaaaaaaa"
+          "key3726": "a"
         },
         "properties": {
-          "originPath": "aaa",
+          "originPath": "aaaaaaaaaaaaaaa",
           "contentTypesToCompress": [
-            "aaaaaaaaaaaaa"
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           ],
           "originHostHeader": "aaaaaaaaaaaaaaaaaaa",
           "isCompressionEnabled": true,
@@ -77,13 +77,13 @@
           "isHttpsAllowed": true,
           "queryStringCachingBehavior": "IgnoreQueryString",
           "optimizationType": "GeneralWebDelivery",
-          "probePath": "aaa",
+          "probePath": "aaaaaaaaaaaaaaaaaaaaaa",
           "geoFilters": [
             {
-              "relativePath": "aaaaaaaaaaaa",
+              "relativePath": "aaaaaaaaaaaaaaaaaaaaaaaaa",
               "action": "Block",
               "countryCodes": [
-                "aaaaaaaa"
+                "aaaaaaaaaaaaaaaaaaaa"
               ]
             }
           ],
@@ -92,23 +92,23 @@
           },
           "urlSigningKeys": [
             {
-              "keyId": "aaaaaaaaaaaaaaaaaa",
+              "keyId": "a",
               "keySourceParameters": {
                 "@odata.type": "#Microsoft.Azure.Cdn.Models.KeyVaultSigningKeyParameters",
-                "subscriptionId": "aaaaaaaaaaaa",
-                "resourceGroupName": "aaaaaaaaaaaa",
-                "vaultName": "aaaa",
-                "secretName": "aaaaaaaaaaaaaaaaaaa",
-                "secretVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "subscriptionId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "resourceGroupName": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "vaultName": "aaaaaaaaaa",
+                "secretName": "aaaa",
+                "secretVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               }
             }
           ],
           "deliveryPolicy": {
-            "description": "aaaaaaaaaa",
+            "description": "aaaaaaaaaaaaaa",
             "rules": [
               {
                 "name": "endpoint1",
-                "order": 2,
+                "order": 24,
                 "conditions": [
                   {
                     "name": "RemoteAddress",
@@ -117,7 +117,7 @@
                       "operator": "Any",
                       "negateCondition": true,
                       "matchValues": [
-                        "aaa"
+                        "aaaaaaaaaaaaaa"
                       ],
                       "transforms": [
                         "Lowercase"
@@ -132,7 +132,7 @@
                       "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
                       "cacheBehavior": "BypassCache",
                       "cacheType": "All",
-                      "cacheDuration": "aaaaaaaaaaaaaaaaaaaaa"
+                      "cacheDuration": "aaaaaaa"
                     }
                   }
                 ]
@@ -142,22 +142,22 @@
           "webApplicationFirewallPolicyLink": {
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
           },
-          "hostName": "aaaaaaaaaaaaaaaaaaaaa",
+          "hostName": "aaaaaaaaaaaa",
           "origins": [
             {
               "name": "endpoint1",
               "properties": {
-                "hostName": "aaaa",
-                "httpPort": 826,
-                "httpsPort": 55846,
-                "originHostHeader": "aaaaaaaaaaaaaaaa",
-                "priority": 4,
-                "weight": 517,
+                "hostName": "aaaaaaaaa",
+                "httpPort": 58846,
+                "httpsPort": 11180,
+                "originHostHeader": "aaaaaaaaa",
+                "priority": 3,
+                "weight": 651,
                 "enabled": true,
-                "privateLinkAlias": "aaaaaaaaaaaaaaa",
-                "privateLinkResourceId": "aaaaaaaaaa",
-                "privateLinkLocation": "aaaaaaaa",
-                "privateLinkApprovalMessage": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "privateLinkAlias": "aaaaaaaaaaaaa",
+                "privateLinkResourceId": "aaaaaa",
+                "privateLinkLocation": "aa",
+                "privateLinkApprovalMessage": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               }
             }
           ],
@@ -166,24 +166,24 @@
               "name": "endpoint1",
               "properties": {
                 "healthProbeSettings": {
-                  "probePath": "aaaaaaaaaaaaaaaaaaaaaa",
+                  "probePath": "aaaaaaaaaaaaaaaaaa",
                   "probeRequestType": "NotSet",
                   "probeProtocol": "NotSet",
-                  "probeIntervalInSeconds": 163
+                  "probeIntervalInSeconds": 41
                 },
                 "origins": [
                   {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                   }
                 ],
-                "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 48,
+                "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 35,
                 "responseBasedOriginErrorDetectionSettings": {
                   "responseBasedDetectedErrorTypes": "None",
-                  "responseBasedFailoverThresholdPercentage": 15,
+                  "responseBasedFailoverThresholdPercentage": 18,
                   "httpErrorRanges": [
                     {
-                      "begin": 878,
-                      "end": 989
+                      "begin": 974,
+                      "end": 329
                     }
                   ]
                 }

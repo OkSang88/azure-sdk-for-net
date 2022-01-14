@@ -85,28 +85,28 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             await subnet.UnprepareNetworkPoliciesAsync(unprepareNetworkPoliciesRequestParameters);
         }
 
-        [RecordedTest]
-        public async Task GetResourceNavigationLinks()
-        {
-            // Example: Get Resource Navigation Links
-            var subnetId = Network.Subnet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vnet", "subnet");
-            var subnet = GetArmClient().GetSubnet(subnetId);
+        //[RecordedTest]
+        //public async Task GetResourceNavigationLinks()
+        //{
+        //    // Example: Get Resource Navigation Links
+        //    var subnetId = Network.Subnet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vnet", "subnet");
+        //    var subnet = GetArmClient().GetSubnet(subnetId);
 
-            await foreach (var _ in subnet.GetResourceNavigationLinksAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in subnet.GetResourceNavigationLinksAsync())
+        //    {
+        //    }
+        //}
 
-        [RecordedTest]
-        public async Task GetServiceAssociationLinks()
-        {
-            // Example: Get Service Association Links
-            var subnetId = Network.Subnet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vnet", "subnet");
-            var subnet = GetArmClient().GetSubnet(subnetId);
+        //[RecordedTest]
+        //public async Task GetServiceAssociationLinks()
+        //{
+        //    // Example: Get Service Association Links
+        //    var subnetId = Network.Subnet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vnet", "subnet");
+        //    var subnet = GetArmClient().GetSubnet(subnetId);
 
-            await foreach (var _ in subnet.GetServiceAssociationLinksAsync())
-            {
-            }
-        }
+        //    await foreach (var _ in subnet.GetServiceAssociationLinksAsync())
+        //    {
+        //    }
+        //}
     }
 }

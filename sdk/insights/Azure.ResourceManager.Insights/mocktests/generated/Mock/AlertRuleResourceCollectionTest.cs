@@ -12,7 +12,6 @@ using Azure.Core;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
 using Insights;
-using Insights.Models;
 
 namespace Insights.Tests.Mock
 {
@@ -25,45 +24,45 @@ namespace Insights.Tests.Mock
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
         }
 
-        [RecordedTest]
-        public async Task CreateOrUpdate()
-        {
-            // Example: Create or update an alert rule
-            string ruleName = "chiricutin";
-            Insights.AlertRuleResourceData parameters = new Insights.AlertRuleResourceData(location: "West US", namePropertiesName: "chiricutin", isEnabled: true, condition: new Insights.Models.ThresholdRuleCondition(operator: Insights.Models.ConditionOperator.GreaterThan,threshold: 3)
-{
-                WindowSize = TimeSpan.Parse("PT5M"), TimeAggregation = Insights.Models.TimeAggregationOperator.Total, OdataType = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", DataSource = new Insights.Models.RuleMetricDataSource()
-                {
-                    MetricName = "Requests",
-                    OdataType = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                    ResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
-                }, })
-{
-                Description = "Pura Vida", };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
-            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
-        }
+//        [RecordedTest]
+//        public async Task CreateOrUpdate()
+//        {
+//            // Example: Create or update an alert rule
+//            string ruleName = "chiricutin";
+//            AlertRuleResourceData parameters = new Insights.AlertRuleResourceData(location: "West US", namePropertiesName: "chiricutin", isEnabled: true, condition: new Insights.Models.ThresholdRuleCondition(operator: Insights.Models.ConditionOperator.GreaterThan,threshold: 3)
+//{
+//                WindowSize = TimeSpan.Parse("PT5M"), TimeAggregation = Insights.Models.TimeAggregationOperator.Total, OdataType = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", DataSource = new Insights.Models.RuleMetricDataSource()
+//                {
+//                    MetricName = "Requests",
+//                    OdataType = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+//                    ResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+//                }, })
+//{
+//                Description = "Pura Vida", };
+//            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+//            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
+//            await collection.CreateOrUpdateAsync(ruleName, parameters);
+//        }
 
-        [RecordedTest]
-        public async Task Get()
-        {
-            // Example: Get an alert rule
-            string ruleName = "chiricutin";
+        //[RecordedTest]
+        //public async Task Get()
+        //{
+        //    // Example: Get an alert rule
+        //    string ruleName = "chiricutin";
 
-            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
-            await collection.GetAsync(ruleName);
-        }
+        //    var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
+        //    await collection.GetAsync(ruleName);
+        //}
 
-        [RecordedTest]
-        public async Task GetAll()
-        {
-            // Example: List alert rules
+        //[RecordedTest]
+        //public async Task GetAll()
+        //{
+        //    // Example: List alert rules
 
-            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
-            await foreach (var _ in collection.GetAllAsync())
-            {
-            }
-        }
+        //    var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetAlertRuleResources();
+        //    await foreach (var _ in collection.GetAllAsync())
+        //    {
+        //    }
+        //}
     }
 }

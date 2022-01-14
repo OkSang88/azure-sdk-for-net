@@ -17,7 +17,11 @@ function Run-MockTests {
 
     $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
     $RPList = @()
+    $FailedList = @()
     $FinalStatics = @{}
+    if (-not(Test-Path $ResultOutFolder)) {
+        New-Item -Path $ResultOutFolder -ItemType "directory"
+    }
     # Find mocktest build pass RP
     $sdkFolder  | ForEach-Object {
         $curFolderPRs = Get-ChildItem($_)
@@ -26,11 +30,23 @@ function Run-MockTests {
                 # let .sln test target to mocktests
                 Update-Sln -path $item -RPName $item.Name
 
+                # check src\Generated is not empty
+                if (-not (Test-Path "$item\src\Generated")) {
+                    continue
+                }
+                $srcFolder = Get-ChildItem "$item\src\Generated"
+                if ($null -eq $srcFolder) {
+                    continue
+                }
+
                 # build
                 & cd $item
                 & dotnet build
                 if ($?) {
                     $RPList += $item.ToString()
+                }
+                else {
+                    $FailedList += $item.ToString()
                 }
             }
         }
@@ -64,13 +80,15 @@ function Run-MockTests {
             }
             $pre = $item
         }
-        $response | Out-File -FilePath "d:\test.log"
-        $allResult | Out-File -FilePath "d:\Result\$RPName.log"
+        $allResult | Out-File -FilePath "$ResultOutFolder\$RPName.log"
+        Write-Host "$RPName.log has been recorded"
     }
     Write-Host -ForegroundColor Green "Run Mock Tests has been completed"
     Write-Host -ForegroundColor Green "Error cases record to $ResultOutFolder"
     Write-Host -ForegroundColor Green "Statistics: "
     $FinalStatics
+    $RPList | Out-File -FilePath "$ResultOutFolder\RPList.txt"
+    $FailedList | Out-File -FilePath "$ResultOutFolder\FailedList.txt"
 }
 
 # [Warning] The script will change each Track2 .sln file tests project target

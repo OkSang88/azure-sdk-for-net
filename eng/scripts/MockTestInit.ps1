@@ -72,7 +72,8 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
 
     # Generate src code
-    & autorest --use=$autorestVersion $srcMd
+    & cd $srcFolder
+    & dotnet build /t:GenerateCode
     if ($?) {
         $Script:srcGenerateSuccessedRps += $RPName
     }
@@ -82,7 +83,6 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
     
     # Build src code
-    & cd $srcFolder
     & dotnet build
     if ($?) {
         $Script:srcBuildSuccessedRps += $RPName
@@ -128,7 +128,9 @@ function  MockTestInit {
         [Parameter()]
         [string] $CommitId,
         [Parameter()]
-        [bool] $GenerateNewSDKs = $false
+        [bool] $GenerateNewSDKs = $false,
+        [Parameter()]
+        [array] $IgnoreRP
     )
     begin {
         Write-Host "Mock Test Initialize Start."
@@ -206,7 +208,7 @@ function  MockTestInit {
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
-                if ($item.Name.Contains("Azure.ResourceManager")) {
+                if ($item.Name.Contains("Azure.ResourceManager") -and (-not ($IgnoreRP.Contains($item.Name)))) {
                     # Create mocktests folder if it not exist
                     $Script:allTrack2Sdk++
                     Update-AllGeneratedCode -path $item.FullName -autorestVersion $AutorestVersion
@@ -226,11 +228,22 @@ function  MockTestInit {
         Write-Host "Src build error RPs: $Script:srcBuildErrorRps"
         Write-Host "Mock test generate error RPs: $Script:testGenerateErrorRps"
         Write-Host "Mock test build error RPs: $Script:testBuildErrorRps"
+        $Script:srcBuildSuccessedRps | Out-File -FilePath "D:\InitResult\src.log"
+        $Script:testBuildSuccessedRps | Out-File -FilePath "D:\InitResult\test.log"
     }
 }
 
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
-$GenerateNewSDKs = $false
-MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs
+$GenerateNewSDKs = $true
+$Temp = @("Cdn", "DeviceUpdate", "Dns" ,"EdgeOrder" ,"ExtendedLocation" ,"Insights",
+ "StoragePool","ConnectedVMwarevSphere", "Sql", "WebPubSub","MachineLearningServices",
+ "AppConfiguration","Communication","Compute","ConnectedVMwareSphere","CosmosDB","EventHubs","KeyVault",
+ "Network" ,"Resources","ServiceBus","Storage","AppService")
+ $IgnoreRP = @()
+ foreach($item in $Temp)
+ {
+     $IgnoreRP += "Azure.ResourceManager."+$item
+ }
+MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs -IgnoreRP $IgnoreRP

@@ -128,7 +128,9 @@ function  MockTestInit {
         [Parameter()]
         [string] $CommitId,
         [Parameter()]
-        [bool] $GenerateNewSDKs = $false
+        [bool] $GenerateNewSDKs = $false,
+        [Parameter()]
+        [array] $IgnoreRP
     )
     begin {
         Write-Host "Mock Test Initialize Start."
@@ -237,4 +239,4 @@ $IgnoreRP = @("Cdn", "DeviceUpdate", "Dns" ,"EdgeOrder" ,"ExtendedLocation" ,"In
  "StoragePool","ConnectedVMwarevSphere", "Sql", "WebPubSub","MachineLearningServices",
  "AppConfiguration","Communication","Compute","ConnectedVMwareSphere","CosmosDB","EventHub","KeyVault",
  "Network" ,"Resources","ServiceBus","Storage","AppService")
-MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs
+MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs -IgnoreRP $IgnoreRP

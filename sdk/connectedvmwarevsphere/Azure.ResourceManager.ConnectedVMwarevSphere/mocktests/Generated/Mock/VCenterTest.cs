@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var vCenter = GetArmClient().GetVCenter(vCenterId);
             bool? force = null;
 
-            await vCenter.DeleteAsync(force);
+            await vCenter.DeleteAsync(true, force);
         }
 
         [RecordedTest]

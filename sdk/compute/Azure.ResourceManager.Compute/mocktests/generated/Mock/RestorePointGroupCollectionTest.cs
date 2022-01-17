@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["myTag1"] = "tagValue1", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetRestorePointGroups();
-            await collection.CreateOrUpdateAsync(restorePointCollectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, restorePointCollectionName, parameters);
         }
 
         [RecordedTest]

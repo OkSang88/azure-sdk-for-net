@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             var managedHsmId = KeyVault.ManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "hsm-group", "hsm1");
             var managedHsm = GetArmClient().GetManagedHsm(managedHsmId);
 
-            await managedHsm.DeleteAsync();
+            await managedHsm.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -55,19 +55,19 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             {
             };
             parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["Dept"] = "hsm", ["Environment"] = "dogfood", ["Slice"] = "A", });
-            await managedHsm.UpdateAsync(parameters);
+            await managedHsm.UpdateAsync(true, parameters);
         }
 
-        //[RecordedTest]
-        //public async Task GetMHSMPrivateLinkResourcesByMhsmResource()
-        //{
-        //    // Example: KeyVaultListPrivateLinkResources
-        //    var managedHsmId = KeyVault.ManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-mhsm");
-        //    var managedHsm = GetArmClient().GetManagedHsm(managedHsmId);
+        [RecordedTest]
+        public async Task GetMHSMPrivateLinkResourcesByMhsmResource()
+        {
+            // Example: KeyVaultListPrivateLinkResources
+            var managedHsmId = KeyVault.ManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-mhsm");
+            var managedHsm = GetArmClient().GetManagedHsm(managedHsmId);
 
-        //    //await foreach (var _ in managedHsm.GetMHSMPrivateLinkResourcesByMhsmResourceAsync())
-        //    //{
-        //    //}
-        //}
+            await foreach (var _ in managedHsm.GetMHSMPrivateLinkResourcesByMhsmResourceAsync())
+            {
+            }
+        }
     }
 }

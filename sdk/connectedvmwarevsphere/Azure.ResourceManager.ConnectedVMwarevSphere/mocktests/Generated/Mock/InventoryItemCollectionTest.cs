@@ -33,7 +33,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
 
             var vCenterId = ConnectedVMwarevSphere.VCenter.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVCenter");
             var collection = GetArmClient().GetVCenter(vCenterId).GetInventoryItems();
-            await collection.CreateOrUpdateAsync(inventoryItemName, body);
+            await collection.CreateOrUpdateAsync(true, inventoryItemName, body);
         }
 
         [RecordedTest]

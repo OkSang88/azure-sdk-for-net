@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var networkWatcherId = Network.NetworkWatcher.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1");
             var collection = GetArmClient().GetNetworkWatcher(networkWatcherId).GetPacketCaptures();
-            await collection.CreateOrUpdateAsync(packetCaptureName, parameters);
+            await collection.CreateOrUpdateAsync(true, packetCaptureName, parameters);
         }
 
         [RecordedTest]

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcherId = Network.NetworkWatcher.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1");
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
 
-            await networkWatcher.DeleteAsync();
+            await networkWatcher.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -78,7 +78,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.VerificationIPFlowParameters parameters = new Network.Models.VerificationIPFlowParameters(targetResourceId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1", direction: new Network.Models.Direction("Outbound"), protocol: new Network.Models.IpFlowProtocol("TCP"), localPort: "80", remotePort: "80", localIPAddress: "10.2.0.4", remoteIPAddress: "121.10.1.1");
 
-            await networkWatcher.VerifyIPFlowAsync(parameters);
+            await networkWatcher.VerifyIPFlowAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -92,7 +92,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 TargetNicResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1",
             };
 
-            await networkWatcher.GetNextHopAsync(parameters);
+            await networkWatcher.GetNextHopAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -103,7 +103,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.SecurityGroupViewParameters parameters = new Network.Models.SecurityGroupViewParameters(targetResourceId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1");
 
-            await networkWatcher.GetVMSecurityRulesAsync(parameters);
+            await networkWatcher.GetVMSecurityRulesAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -114,7 +114,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.TroubleshootingParameters parameters = new Network.Models.TroubleshootingParameters(targetResourceId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1", storageId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/st1", storagePath: "https://st1.blob.core.windows.net/cn1");
 
-            await networkWatcher.GetTroubleshootingAsync(parameters);
+            await networkWatcher.GetTroubleshootingAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -125,7 +125,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.QueryTroubleshootingParameters parameters = new Network.Models.QueryTroubleshootingParameters(targetResourceId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1");
 
-            await networkWatcher.GetTroubleshootingResultAsync(parameters);
+            await networkWatcher.GetTroubleshootingResultAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -136,7 +136,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.FlowLogInformation parameters = new Network.Models.FlowLogInformation(targetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/nsg1", storageId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/st1", enabled: true);
 
-            await networkWatcher.SetFlowLogConfigurationAsync(parameters);
+            await networkWatcher.SetFlowLogConfigurationAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -147,7 +147,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkWatcher = GetArmClient().GetNetworkWatcher(networkWatcherId);
             Network.Models.FlowLogStatusParameters parameters = new Network.Models.FlowLogStatusParameters(targetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/nsg1");
 
-            await networkWatcher.GetFlowLogStatusAsync(parameters);
+            await networkWatcher.GetFlowLogStatusAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -165,7 +165,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 PreferredIPVersion = new Network.Models.IPVersion("IPv4"),
             };
 
-            await networkWatcher.CheckConnectivityAsync(parameters);
+            await networkWatcher.CheckConnectivityAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -179,7 +179,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 State = "washington",
             }, startTime: DateTimeOffset.Parse("2017-09-07T00:00:00Z"), endTime: DateTimeOffset.Parse("2017-09-10T00:00:00Z"));
 
-            await networkWatcher.GetAzureReachabilityReportAsync(parameters);
+            await networkWatcher.GetAzureReachabilityReportAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -195,7 +195,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 City = "seattle",
             };
 
-            await networkWatcher.GetAvailableProvidersAsync(parameters);
+            await networkWatcher.GetAvailableProvidersAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -208,7 +208,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 {
 new Network.Models.NetworkConfigurationDiagnosticProfile(direction: new Network.Models.Direction("Inbound"),protocol: "TCP",source: "10.1.0.4",destination: "12.11.12.14",destinationPort: "12100"),});
 
-            await networkWatcher.GetNetworkConfigurationDiagnosticAsync(parameters);
+            await networkWatcher.GetNetworkConfigurationDiagnosticAsync(true, parameters);
         }
     }
 }

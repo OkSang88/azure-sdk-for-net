@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             };
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["Dept"] = "hsm", ["Environment"] = "dogfood", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group")).GetManagedHsms();
-            await collection.CreateOrUpdateAsync(name, parameters);
+            await collection.CreateOrUpdateAsync(true, name, parameters);
         }
 
         [RecordedTest]

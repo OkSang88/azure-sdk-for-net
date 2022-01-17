@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkInterfaceTapConfigurationId = Network.NetworkInterfaceTapConfiguration.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-networkinterface", "test-tapconfiguration");
             var networkInterfaceTapConfiguration = GetArmClient().GetNetworkInterfaceTapConfiguration(networkInterfaceTapConfigurationId);
 
-            await networkInterfaceTapConfiguration.DeleteAsync();
+            await networkInterfaceTapConfiguration.DeleteAsync(true);
         }
     }
 }

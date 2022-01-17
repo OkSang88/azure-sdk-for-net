@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineRunCommandId = Compute.VirtualMachineRunCommand.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVM", "myRunCommand");
             var virtualMachineRunCommand = GetArmClient().GetVirtualMachineRunCommand(virtualMachineRunCommandId);
 
-            await virtualMachineRunCommand.DeleteAsync();
+            await virtualMachineRunCommand.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -60,7 +60,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await virtualMachineRunCommand.UpdateAsync(runCommand);
+            await virtualMachineRunCommand.UpdateAsync(true, runCommand);
         }
     }
 }

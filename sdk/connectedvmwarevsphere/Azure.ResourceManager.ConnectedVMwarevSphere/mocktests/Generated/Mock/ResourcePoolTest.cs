@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var resourcePool = GetArmClient().GetResourcePool(resourcePoolId);
             bool? force = null;
 
-            await resourcePool.DeleteAsync(force);
+            await resourcePool.DeleteAsync(true, force);
         }
 
         [RecordedTest]

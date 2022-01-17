@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
 
             var siteSlotId = AppService.SiteSlot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite", "stage");
             var collection = GetArmClient().GetSiteSlot(siteSlotId).GetSiteSlotPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, privateEndpointWrapper);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, privateEndpointWrapper);
         }
 
         [RecordedTest]

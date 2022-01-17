@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubId = EventHubs.EventHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2661", "sdk-EventHub-6681");
             var collection = GetArmClient().GetEventHub(eventHubId).GetConsumerGroups();
-            await collection.CreateOrUpdateAsync(consumerGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, consumerGroupName, parameters);
         }
 
         [RecordedTest]

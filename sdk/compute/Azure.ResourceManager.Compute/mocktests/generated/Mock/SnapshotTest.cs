@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var snapshotId = Compute.Snapshot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "mySnapshot");
             var snapshot = GetArmClient().GetSnapshot(snapshotId);
 
-            await snapshot.DeleteAsync();
+            await snapshot.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -56,7 +56,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 DiskSizeGB = 20,
             };
 
-            await snapshot.UpdateAsync(snapshot2);
+            await snapshot.UpdateAsync(true, snapshot2);
         }
 
         [RecordedTest]
@@ -67,7 +67,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var snapshot = GetArmClient().GetSnapshot(snapshotId);
             Compute.Models.GrantAccessData grantAccessData = new Compute.Models.GrantAccessData(access: new Compute.Models.AccessLevel("Read"), durationInSeconds: 300);
 
-            await snapshot.GrantAccessAsync(grantAccessData);
+            await snapshot.GrantAccessAsync(true, grantAccessData);
         }
 
         [RecordedTest]
@@ -77,7 +77,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var snapshotId = Compute.Snapshot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "mySnapshot");
             var snapshot = GetArmClient().GetSnapshot(snapshotId);
 
-            await snapshot.RevokeAccessAsync();
+            await snapshot.RevokeAccessAsync(true);
         }
     }
 }

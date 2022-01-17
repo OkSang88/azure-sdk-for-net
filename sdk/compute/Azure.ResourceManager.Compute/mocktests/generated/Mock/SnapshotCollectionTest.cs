@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetSnapshots();
-            await collection.CreateOrUpdateAsync(snapshotName, snapshot);
+            await collection.CreateOrUpdateAsync(true, snapshotName, snapshot);
         }
 
         [RecordedTest]
@@ -57,7 +57,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetSnapshots();
-            await collection.CreateOrUpdateAsync(snapshotName, snapshot);
+            await collection.CreateOrUpdateAsync(true, snapshotName, snapshot);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetSnapshots();
-            await collection.CreateOrUpdateAsync(snapshotName, snapshot);
+            await collection.CreateOrUpdateAsync(true, snapshotName, snapshot);
         }
 
         [RecordedTest]

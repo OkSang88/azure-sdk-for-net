@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             var templateSpecId = Resources.TemplateSpec.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "templateSpecRG", "simpleTemplateSpec");
             var templateSpec = GetArmClient().GetTemplateSpec(templateSpecId);
 
-            await templateSpec.DeleteAsync();
+            await templateSpec.DeleteAsync(true);
         }
 
         [RecordedTest]

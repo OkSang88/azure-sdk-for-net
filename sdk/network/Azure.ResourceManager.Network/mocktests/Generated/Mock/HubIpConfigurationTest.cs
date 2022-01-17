@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var hubIpConfigurationId = Network.HubIpConfiguration.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "hub1", "ipconfig1");
             var hubIpConfiguration = GetArmClient().GetHubIpConfiguration(hubIpConfigurationId);
 
-            await hubIpConfiguration.DeleteAsync();
+            await hubIpConfiguration.DeleteAsync(true);
         }
     }
 }

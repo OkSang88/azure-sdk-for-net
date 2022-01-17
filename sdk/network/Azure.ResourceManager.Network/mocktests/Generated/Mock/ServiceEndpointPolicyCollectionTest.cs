@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetServiceEndpointPolicies();
-            await collection.CreateOrUpdateAsync(serviceEndpointPolicyName, parameters);
+            await collection.CreateOrUpdateAsync(true, serviceEndpointPolicyName, parameters);
         }
 
         [RecordedTest]
@@ -49,7 +49,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetServiceEndpointPolicies();
-            await collection.CreateOrUpdateAsync(serviceEndpointPolicyName, parameters);
+            await collection.CreateOrUpdateAsync(true, serviceEndpointPolicyName, parameters);
         }
 
         [RecordedTest]

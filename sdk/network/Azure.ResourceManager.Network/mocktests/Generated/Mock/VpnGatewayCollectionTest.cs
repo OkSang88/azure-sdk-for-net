@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetVpnGateways();
-            await collection.CreateOrUpdateAsync(gatewayName, vpnGatewayParameters);
+            await collection.CreateOrUpdateAsync(true, gatewayName, vpnGatewayParameters);
         }
 
         [RecordedTest]

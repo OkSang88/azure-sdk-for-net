@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
 
-            await cloudService.DeleteAsync();
+            await cloudService.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
             Compute.Models.CloudServiceUpdate parameters = new Compute.Models.CloudServiceUpdate();
 
-            await cloudService.UpdateAsync(parameters);
+            await cloudService.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -73,7 +73,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
 
-            await cloudService.PowerOnAsync();
+            await cloudService.PowerOnAsync(true);
         }
 
         [RecordedTest]
@@ -83,7 +83,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
 
-            await cloudService.PowerOffAsync();
+            await cloudService.PowerOffAsync(true);
         }
 
         [RecordedTest]
@@ -96,7 +96,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 {
 "ContosoFrontend_IN_0","ContosoBackend_IN_1",});
 
-            await cloudService.RestartAsync(parameters);
+            await cloudService.RestartAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -109,7 +109,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 {
 "ContosoFrontend_IN_0","ContosoBackend_IN_1",});
 
-            await cloudService.ReimageAsync(parameters);
+            await cloudService.ReimageAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -122,7 +122,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 {
 "ContosoFrontend_IN_0","ContosoBackend_IN_1",});
 
-            await cloudService.RebuildAsync(parameters);
+            await cloudService.RebuildAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -135,7 +135,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 {
 "ContosoFrontend_IN_0","ContosoBackend_IN_1",});
 
-            await cloudService.DeleteInstancesAsync(parameters);
+            await cloudService.DeleteInstancesAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -147,7 +147,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             int updateDomain = 1;
             Compute.Models.UpdateDomain parameters = null;
 
-            await cloudService.WalkUpdateDomainCloudServicesUpdateDomainAsync(updateDomain, parameters);
+            await cloudService.WalkUpdateDomainCloudServicesUpdateDomainAsync(true, updateDomain, parameters);
         }
 
         [RecordedTest]

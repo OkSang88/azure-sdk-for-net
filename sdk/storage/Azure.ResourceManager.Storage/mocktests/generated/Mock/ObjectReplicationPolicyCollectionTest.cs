@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "dst112");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetObjectReplicationPolicies();
-            await collection.CreateOrUpdateAsync(objectReplicationPolicyId, properties);
+            await collection.CreateOrUpdateAsync(true, objectReplicationPolicyId, properties);
         }
 
         [RecordedTest]
@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "src1122");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetObjectReplicationPolicies();
-            await collection.CreateOrUpdateAsync(objectReplicationPolicyId, properties);
+            await collection.CreateOrUpdateAsync(true, objectReplicationPolicyId, properties);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "dst112");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetObjectReplicationPolicies();
-            await collection.CreateOrUpdateAsync(objectReplicationPolicyId, properties);
+            await collection.CreateOrUpdateAsync(true, objectReplicationPolicyId, properties);
         }
 
         [RecordedTest]
@@ -84,7 +84,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "src1122");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetObjectReplicationPolicies();
-            await collection.CreateOrUpdateAsync(objectReplicationPolicyId, properties);
+            await collection.CreateOrUpdateAsync(true, objectReplicationPolicyId, properties);
         }
 
         [RecordedTest]

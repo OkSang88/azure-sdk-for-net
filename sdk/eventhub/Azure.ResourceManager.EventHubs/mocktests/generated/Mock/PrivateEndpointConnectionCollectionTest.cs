@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2924");
             var collection = GetArmClient().GetEventHubNamespace(eventHubNamespaceId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, parameters);
         }
 
         [RecordedTest]

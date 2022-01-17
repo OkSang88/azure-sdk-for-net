@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualHubId = Network.VirtualHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualHub1");
             var collection = GetArmClient().GetVirtualHub(virtualHubId).GetVirtualHubRouteTableV2s();
-            await collection.CreateOrUpdateAsync(routeTableName, virtualHubRouteTableV2Parameters);
+            await collection.CreateOrUpdateAsync(true, routeTableName, virtualHubRouteTableV2Parameters);
         }
 
         [RecordedTest]

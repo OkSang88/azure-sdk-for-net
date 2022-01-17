@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResurceGroupSample", "NamespaceSample");
             var eventHubNamespace = GetArmClient().GetEventHubNamespace(eventHubNamespaceId);
 
-            await eventHubNamespace.DeleteAsync();
+            await eventHubNamespace.DeleteAsync(true);
         }
 
         [RecordedTest]

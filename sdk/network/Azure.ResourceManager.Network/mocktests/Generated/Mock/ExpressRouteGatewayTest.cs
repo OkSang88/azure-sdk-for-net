@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteGatewayId = Network.ExpressRouteGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "expressRouteGatewayName");
             var expressRouteGateway = GetArmClient().GetExpressRouteGateway(expressRouteGatewayId);
 
-            await expressRouteGateway.DeleteAsync();
+            await expressRouteGateway.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteGateway = GetArmClient().GetExpressRouteGateway(expressRouteGatewayId);
             Network.Models.TagsObject expressRouteGatewayParameters = new Network.Models.TagsObject();
 
-            await expressRouteGateway.UpdateAsync(expressRouteGatewayParameters);
+            await expressRouteGateway.UpdateAsync(true, expressRouteGatewayParameters);
         }
     }
 }

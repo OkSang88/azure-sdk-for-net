@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteUserProvidedFunctionAppId = AppService.StaticSiteUserProvidedFunctionApp.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0", "testFunctionApp");
             var staticSiteUserProvidedFunctionApp = GetArmClient().GetStaticSiteUserProvidedFunctionApp(staticSiteUserProvidedFunctionAppId);
 
-            await staticSiteUserProvidedFunctionApp.DeleteAsync();
+            await staticSiteUserProvidedFunctionApp.DeleteAsync(true);
         }
     }
 }

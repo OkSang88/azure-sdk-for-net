@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
             var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
-            await collection.CreateOrUpdateAsync(runCommandName, runCommand);
+            await collection.CreateOrUpdateAsync(true, runCommandName, runCommand);
         }
 
         [RecordedTest]

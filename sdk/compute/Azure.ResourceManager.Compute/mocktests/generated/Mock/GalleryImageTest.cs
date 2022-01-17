@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var galleryImage = GetArmClient().GetGalleryImage(galleryImageId);
 
-            await galleryImage.DeleteAsync();
+            await galleryImage.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -59,7 +59,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 Identifier = new Compute.Models.GalleryImageIdentifier(publisher: "myPublisherName", offer: "myOfferName", sku: "mySkuName"),
             };
 
-            await galleryImage.UpdateAsync(galleryImage2);
+            await galleryImage.UpdateAsync(true, galleryImage2);
         }
     }
 }

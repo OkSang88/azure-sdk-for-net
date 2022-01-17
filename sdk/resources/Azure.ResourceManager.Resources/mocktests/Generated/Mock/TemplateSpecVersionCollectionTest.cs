@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
 
             var templateSpecId = Resources.TemplateSpec.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "templateSpecRG", "simpleTemplateSpec");
             var collection = GetArmClient().GetTemplateSpec(templateSpecId).GetTemplateSpecVersions();
-            await collection.CreateOrUpdateAsync(templateSpecVersion, templateSpecVersionModel);
+            await collection.CreateOrUpdateAsync(true, templateSpecVersion, templateSpecVersionModel);
         }
 
         [RecordedTest]

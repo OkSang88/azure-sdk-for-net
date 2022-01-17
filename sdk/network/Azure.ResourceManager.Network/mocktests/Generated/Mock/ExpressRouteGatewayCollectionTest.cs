@@ -48,7 +48,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName")).GetExpressRouteGateways();
-            await collection.CreateOrUpdateAsync(expressRouteGatewayName, putExpressRouteGatewayParameters);
+            await collection.CreateOrUpdateAsync(true, expressRouteGatewayName, putExpressRouteGatewayParameters);
         }
 
         [RecordedTest]
@@ -61,15 +61,15 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             await collection.GetAsync(expressRouteGatewayName);
         }
 
-        //[RecordedTest]
-        //public async Task GetAll()
-        //{
-        //    // Example: ExpressRouteGatewayListByResourceGroup
+        [RecordedTest]
+        public async Task GetAll()
+        {
+            // Example: ExpressRouteGatewayListByResourceGroup
 
-        //    var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName")).GetExpressRouteGateways();
-        //    await foreach (var _ in collection.GetAllAsync())
-        //    {
-        //    }
-        //}
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName")).GetExpressRouteGateways();
+            await foreach (var _ in collection.GetAllAsync())
+            {
+            }
+        }
     }
 }

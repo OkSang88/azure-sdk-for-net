@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkPeeringId = Network.VirtualNetworkPeering.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "peerTest", "vnet1", "peer");
             var virtualNetworkPeering = GetArmClient().GetVirtualNetworkPeering(virtualNetworkPeeringId);
 
-            await virtualNetworkPeering.DeleteAsync();
+            await virtualNetworkPeering.DeleteAsync(true);
         }
     }
 }

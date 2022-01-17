@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res4228", "sto2434");
             var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
 
-            await storageAccount.DeleteAsync();
+            await storageAccount.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -263,7 +263,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res4228", "sto2434");
             var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
 
-            await storageAccount.FailoverAsync();
+            await storageAccount.FailoverAsync(true);
         }
 
         [RecordedTest]
@@ -276,7 +276,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 {
 new Storage.Models.BlobRestoreRange(startRange: "container/blobpath1",endRange: "container/blobpath2"),new Storage.Models.BlobRestoreRange(startRange: "container2/blobpath3",endRange: ""),});
 
-            await storageAccount.RestoreBlobRangesAsync(parameters);
+            await storageAccount.RestoreBlobRangesAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -289,17 +289,17 @@ new Storage.Models.BlobRestoreRange(startRange: "container/blobpath1",endRange: 
             await storageAccount.RevokeUserDelegationKeysAsync();
         }
 
-        //[RecordedTest]
-        //public async Task GetPrivateLinkResources()
-        //{
-        //    // Example: StorageAccountListPrivateLinkResources
-        //    var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527");
-        //    var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
+        [RecordedTest]
+        public async Task GetPrivateLinkResources()
+        {
+            // Example: StorageAccountListPrivateLinkResources
+            var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527");
+            var storageAccount = GetArmClient().GetStorageAccount(storageAccountId);
 
-        //    await foreach (var _ in storageAccount.GetPrivateLinkResourcesAsync())
-        //    {
-        //    }
-        //}
+            await foreach (var _ in storageAccount.GetPrivateLinkResourcesAsync())
+            {
+            }
+        }
 
         [RecordedTest]
         public async Task ManagementPolicyGet()
@@ -318,7 +318,7 @@ new Storage.Models.BlobRestoreRange(startRange: "container/blobpath1",endRange: 
             var managementPolicyId = Storage.ManagementPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527", "default");
             var managementPolicy = GetArmClient().GetManagementPolicy(managementPolicyId);
 
-            await managementPolicy.DeleteAsync();
+            await managementPolicy.DeleteAsync(true);
         }
 
         [RecordedTest]

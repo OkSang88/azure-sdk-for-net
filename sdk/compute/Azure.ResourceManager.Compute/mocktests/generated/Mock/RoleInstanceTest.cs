@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var roleInstanceId = Compute.RoleInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}", "{roleInstance-name}");
             var roleInstance = GetArmClient().GetRoleInstance(roleInstanceId);
 
-            await roleInstance.DeleteAsync();
+            await roleInstance.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var roleInstanceId = Compute.RoleInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}", "{roleInstance-name}");
             var roleInstance = GetArmClient().GetRoleInstance(roleInstanceId);
 
-            await roleInstance.RestartAsync();
+            await roleInstance.RestartAsync(true);
         }
 
         [RecordedTest]
@@ -73,7 +73,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var roleInstanceId = Compute.RoleInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}", "{roleInstance-name}");
             var roleInstance = GetArmClient().GetRoleInstance(roleInstanceId);
 
-            await roleInstance.ReimageAsync();
+            await roleInstance.ReimageAsync(true);
         }
 
         [RecordedTest]
@@ -83,7 +83,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var roleInstanceId = Compute.RoleInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}", "{roleInstance-name}");
             var roleInstance = GetArmClient().GetRoleInstance(roleInstanceId);
 
-            await roleInstance.RebuildAsync();
+            await roleInstance.RebuildAsync(true);
         }
     }
 }

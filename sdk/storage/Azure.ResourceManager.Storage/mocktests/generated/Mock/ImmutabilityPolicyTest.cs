@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var immutabilityPolicy = GetArmClient().GetImmutabilityPolicy(immutabilityPolicyId);
             string ifMatch = "\"8d59f81a7fa7be0\"";
 
-            await immutabilityPolicy.DeleteAsync(ifMatch);
+            await immutabilityPolicy.DeleteAsync(true, ifMatch);
         }
 
         [RecordedTest]

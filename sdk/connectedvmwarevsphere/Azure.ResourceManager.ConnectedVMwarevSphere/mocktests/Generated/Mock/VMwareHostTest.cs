@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var vMwareHost = GetArmClient().GetVMwareHost(vMwareHostId);
             bool? force = null;
 
-            await vMwareHost.DeleteAsync(force);
+            await vMwareHost.DeleteAsync(true, force);
         }
 
         [RecordedTest]

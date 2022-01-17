@@ -55,7 +55,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineScaleSet = GetArmClient().GetVirtualMachineScaleSet(virtualMachineScaleSetId);
             bool? forceDeletion = true;
 
-            await virtualMachineScaleSet.DeleteAsync(forceDeletion);
+            await virtualMachineScaleSet.DeleteAsync(true, forceDeletion);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineScaleSetId = Compute.VirtualMachineScaleSet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "{vmss-name}");
             var virtualMachineScaleSet = GetArmClient().GetVirtualMachineScaleSet(virtualMachineScaleSetId);
 
-            await virtualMachineScaleSet.StartExtensionUpgradeVirtualMachineScaleSetRollingUpgradeAsync();
+            await virtualMachineScaleSet.StartExtensionUpgradeVirtualMachineScaleSetRollingUpgradeAsync(true);
         }
     }
 }

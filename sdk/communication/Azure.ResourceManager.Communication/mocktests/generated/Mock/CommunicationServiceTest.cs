@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Communication.Tests.Mock
             var communicationServiceId = Communication.CommunicationService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "MyResourceGroup", "MyCommunicationResource");
             var communicationService = GetArmClient().GetCommunicationService(communicationServiceId);
 
-            await communicationService.DeleteAsync();
+            await communicationService.DeleteAsync(true);
         }
 
         [RecordedTest]

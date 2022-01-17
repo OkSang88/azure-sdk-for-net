@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var securityRuleId = Network.SecurityRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testnsg", "rule1");
             var securityRule = GetArmClient().GetSecurityRule(securityRuleId);
 
-            await securityRule.DeleteAsync();
+            await securityRule.DeleteAsync(true);
         }
     }
 }

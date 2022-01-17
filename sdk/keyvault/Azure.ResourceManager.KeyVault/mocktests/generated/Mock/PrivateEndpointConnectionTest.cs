@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             var privateEndpointConnectionId = KeyVault.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-vault", "sample-pec");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

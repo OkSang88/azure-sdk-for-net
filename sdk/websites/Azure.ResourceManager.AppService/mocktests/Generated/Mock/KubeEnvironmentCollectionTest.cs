@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/examplerg")).GetKubeEnvironments();
-            await collection.CreateOrUpdateAsync(name, kubeEnvironmentEnvelope);
+            await collection.CreateOrUpdateAsync(true, name, kubeEnvironmentEnvelope);
         }
 
         [RecordedTest]

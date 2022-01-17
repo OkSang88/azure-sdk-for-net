@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg")).GetVirtualNetworks();
-            await collection.CreateOrUpdateAsync(virtualNetworkName, body);
+            await collection.CreateOrUpdateAsync(true, virtualNetworkName, body);
         }
 
         [RecordedTest]

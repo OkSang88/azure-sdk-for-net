@@ -46,7 +46,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg")).GetVCenters();
-            await collection.CreateOrUpdateAsync(vcenterName, body);
+            await collection.CreateOrUpdateAsync(true, vcenterName, body);
         }
 
         [RecordedTest]

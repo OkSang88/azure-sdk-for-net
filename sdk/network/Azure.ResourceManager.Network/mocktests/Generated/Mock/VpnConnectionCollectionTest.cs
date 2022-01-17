@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var vpnGatewayId = Network.VpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1");
             var collection = GetArmClient().GetVpnGateway(vpnGatewayId).GetVpnConnections();
-            await collection.CreateOrUpdateAsync(connectionName, vpnConnectionParameters);
+            await collection.CreateOrUpdateAsync(true, connectionName, vpnConnectionParameters);
         }
 
         [RecordedTest]

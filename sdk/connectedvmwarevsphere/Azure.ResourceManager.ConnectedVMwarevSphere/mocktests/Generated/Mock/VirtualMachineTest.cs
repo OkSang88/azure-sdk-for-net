@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
             bool? force = null;
 
-            await virtualMachine.DeleteAsync(force);
+            await virtualMachine.DeleteAsync(true, force);
         }
 
         [RecordedTest]
@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
             ConnectedVMwarevSphere.Models.VirtualMachineUpdate body = new ConnectedVMwarevSphere.Models.VirtualMachineUpdate();
 
-            await virtualMachine.UpdateAsync(body);
+            await virtualMachine.UpdateAsync(true, body);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
                 SkipShutdown = true,
             };
 
-            await virtualMachine.StopAsync(body);
+            await virtualMachine.StopAsync(true, body);
         }
 
         [RecordedTest]
@@ -78,7 +78,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "DemoVM");
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
 
-            await virtualMachine.StartAsync();
+            await virtualMachine.StartAsync(true);
         }
 
         [RecordedTest]
@@ -88,7 +88,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "DemoVM");
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
 
-            await virtualMachine.RestartAsync();
+            await virtualMachine.RestartAsync(true);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var appServicePlanId = AppService.AppServicePlan.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "testsf6141");
             var appServicePlan = GetArmClient().GetAppServicePlan(appServicePlanId);
 
-            await appServicePlan.DeleteAsync();
+            await appServicePlan.DeleteAsync(true);
         }
 
         [RecordedTest]

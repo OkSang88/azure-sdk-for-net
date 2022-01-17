@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusTopicId = ServiceBus.ServiceBusTopic.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "sdk-Namespace-1349", "sdk-Topics-8740");
             var collection = GetArmClient().GetServiceBusTopic(serviceBusTopicId).GetServiceBusSubscriptions();
-            await collection.CreateOrUpdateAsync(subscriptionName, parameters);
+            await collection.CreateOrUpdateAsync(true, subscriptionName, parameters);
         }
 
         [RecordedTest]

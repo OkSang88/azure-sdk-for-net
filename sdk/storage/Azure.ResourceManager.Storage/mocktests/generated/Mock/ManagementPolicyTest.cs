@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var managementPolicyId = Storage.ManagementPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527", "default");
             var managementPolicy = GetArmClient().GetManagementPolicy(managementPolicyId);
 
-            await managementPolicy.DeleteAsync();
+            await managementPolicy.DeleteAsync(true);
         }
     }
 }

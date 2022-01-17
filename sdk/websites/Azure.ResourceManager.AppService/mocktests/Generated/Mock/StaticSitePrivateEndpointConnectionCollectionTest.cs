@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
 
             var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite");
             var collection = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId).GetStaticSitePrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, privateEndpointWrapper);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, privateEndpointWrapper);
         }
 
         [RecordedTest]

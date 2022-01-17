@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var expressRouteCircuitId = Network.ExpressRouteCircuit.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "circuitName");
             var collection = GetArmClient().GetExpressRouteCircuit(expressRouteCircuitId).GetExpressRouteCircuitAuthorizations();
-            await collection.CreateOrUpdateAsync(authorizationName, authorizationParameters);
+            await collection.CreateOrUpdateAsync(true, authorizationName, authorizationParameters);
         }
 
         [RecordedTest]

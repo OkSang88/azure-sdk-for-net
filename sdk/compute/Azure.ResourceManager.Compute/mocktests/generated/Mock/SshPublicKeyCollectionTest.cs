@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetSshPublicKeys();
-            await collection.CreateOrUpdateAsync(sshPublicKeyName, parameters);
+            await collection.CreateOrUpdateAsync(true, sshPublicKeyName, parameters);
         }
 
         [RecordedTest]

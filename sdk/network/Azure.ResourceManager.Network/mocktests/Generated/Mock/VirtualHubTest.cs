@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualHubId = Network.VirtualHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualHub1");
             var virtualHub = GetArmClient().GetVirtualHub(virtualHubId);
 
-            await virtualHub.DeleteAsync();
+            await virtualHub.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 VirtualWanResourceType = "ExpressRouteConnection",
             };
 
-            await virtualHub.GetEffectiveVirtualHubRoutesAsync(effectiveRoutesParameters);
+            await virtualHub.GetEffectiveVirtualHubRoutesAsync(true, effectiveRoutesParameters);
         }
 
         [RecordedTest]
@@ -83,7 +83,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 VirtualWanResourceType = "RouteTable",
             };
 
-            await virtualHub.GetEffectiveVirtualHubRoutesAsync(effectiveRoutesParameters);
+            await virtualHub.GetEffectiveVirtualHubRoutesAsync(true, effectiveRoutesParameters);
         }
 
         [RecordedTest]
@@ -94,7 +94,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualHub = GetArmClient().GetVirtualHub(virtualHubId);
             Network.Models.EffectiveRoutesParameters effectiveRoutesParameters = new Network.Models.EffectiveRoutesParameters();
 
-            await virtualHub.GetEffectiveVirtualHubRoutesAsync(effectiveRoutesParameters);
+            await virtualHub.GetEffectiveVirtualHubRoutesAsync(true, effectiveRoutesParameters);
         }
     }
 }

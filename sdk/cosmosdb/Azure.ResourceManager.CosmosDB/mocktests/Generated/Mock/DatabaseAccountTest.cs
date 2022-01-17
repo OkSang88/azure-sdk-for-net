@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountId = CosmosDB.DatabaseAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1");
             var databaseAccount = GetArmClient().GetDatabaseAccount(databaseAccountId);
 
-            await databaseAccount.DeleteAsync();
+            await databaseAccount.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -81,7 +81,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
                 NetworkAclBypass = CosmosDB.Models.NetworkAclBypass.AzureServices,
             };
 
-            await databaseAccount.UpdateAsync(updateParameters);
+            await databaseAccount.UpdateAsync(true, updateParameters);
         }
 
         [RecordedTest]
@@ -98,7 +98,7 @@ LocationName = "eastus", FailoverPriority = 0, },new CosmosDB.Models.FailoverPol
 {
 LocationName = "westus", FailoverPriority = 1, },});
 
-            await databaseAccount.FailoverPriorityChangeAsync(failoverParameters);
+            await databaseAccount.FailoverPriorityChangeAsync(true, failoverParameters);
         }
 
         [RecordedTest]
@@ -139,7 +139,7 @@ LocationName = "westus", FailoverPriority = 1, },});
             var databaseAccount = GetArmClient().GetDatabaseAccount(databaseAccountId);
             CosmosDB.Models.RegionForOnlineOffline regionParameterForOffline = new CosmosDB.Models.RegionForOnlineOffline(region: default /* don't find example value for this parameter!*/);
 
-            await databaseAccount.OfflineRegionAsync(regionParameterForOffline);
+            await databaseAccount.OfflineRegionAsync(true, regionParameterForOffline);
         }
 
         [RecordedTest]
@@ -150,7 +150,7 @@ LocationName = "westus", FailoverPriority = 1, },});
             var databaseAccount = GetArmClient().GetDatabaseAccount(databaseAccountId);
             CosmosDB.Models.RegionForOnlineOffline regionParameterForOnline = new CosmosDB.Models.RegionForOnlineOffline(region: default /* don't find example value for this parameter!*/);
 
-            await databaseAccount.OnlineRegionAsync(regionParameterForOnline);
+            await databaseAccount.OnlineRegionAsync(true, regionParameterForOnline);
         }
 
         [RecordedTest]
@@ -171,7 +171,7 @@ LocationName = "westus", FailoverPriority = 1, },});
             var databaseAccount = GetArmClient().GetDatabaseAccount(databaseAccountId);
             CosmosDB.Models.DatabaseAccountRegenerateKeyOptions keyToRegenerate = new CosmosDB.Models.DatabaseAccountRegenerateKeyOptions(keyKind: new CosmosDB.Models.KeyKind("primary"));
 
-            await databaseAccount.RegenerateKeyAsync(keyToRegenerate);
+            await databaseAccount.RegenerateKeyAsync(true, keyToRegenerate);
         }
 
         [RecordedTest]

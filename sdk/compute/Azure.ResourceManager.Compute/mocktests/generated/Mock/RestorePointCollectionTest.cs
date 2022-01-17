@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var restorePointGroupId = Compute.RestorePointGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "rpcName");
             var collection = GetArmClient().GetRestorePointGroup(restorePointGroupId).GetRestorePoints();
-            await collection.CreateOrUpdateAsync(restorePointName, parameters);
+            await collection.CreateOrUpdateAsync(true, restorePointName, parameters);
         }
 
         [RecordedTest]

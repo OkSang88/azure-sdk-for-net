@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var routeFilterRuleId = Network.RouteFilterRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "filterName", "ruleName");
             var routeFilterRule = GetArmClient().GetRouteFilterRule(routeFilterRuleId);
 
-            await routeFilterRule.DeleteAsync();
+            await routeFilterRule.DeleteAsync(true);
         }
     }
 }

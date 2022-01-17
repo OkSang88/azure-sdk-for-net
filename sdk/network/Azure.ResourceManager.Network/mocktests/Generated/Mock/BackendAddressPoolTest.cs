@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var backendAddressPoolId = Network.BackendAddressPool.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "lb", "backend");
             var backendAddressPool = GetArmClient().GetBackendAddressPool(backendAddressPoolId);
 
-            await backendAddressPool.DeleteAsync();
+            await backendAddressPool.DeleteAsync(true);
         }
     }
 }

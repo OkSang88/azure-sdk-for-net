@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
 
             var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "default");
             var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetMachineExtensions();
-            await collection.CreateOrUpdateAsync(extensionName, extensionParameters);
+            await collection.CreateOrUpdateAsync(true, extensionName, extensionParameters);
         }
 
         [RecordedTest]

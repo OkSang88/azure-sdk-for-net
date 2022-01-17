@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var objectReplicationPolicyId = Storage.ObjectReplicationPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527", "{objectReplicationPolicy-Id}");
             var objectReplicationPolicy = GetArmClient().GetObjectReplicationPolicy(objectReplicationPolicyId);
 
-            await objectReplicationPolicy.DeleteAsync();
+            await objectReplicationPolicy.DeleteAsync(true);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var diskEncryptionSetId = Compute.DiskEncryptionSet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDiskEncryptionSet");
             var diskEncryptionSet = GetArmClient().GetDiskEncryptionSet(diskEncryptionSetId);
 
-            await diskEncryptionSet.DeleteAsync();
+            await diskEncryptionSet.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -64,7 +64,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 RotationToLatestKeyVersionEnabled = true,
             };
 
-            await diskEncryptionSet.UpdateAsync(diskEncryptionSet2);
+            await diskEncryptionSet.UpdateAsync(true, diskEncryptionSet2);
         }
 
         [RecordedTest]
@@ -84,7 +84,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 RotationToLatestKeyVersionEnabled = true,
             };
 
-            await diskEncryptionSet.UpdateAsync(diskEncryptionSet2);
+            await diskEncryptionSet.UpdateAsync(true, diskEncryptionSet2);
         }
 
         [RecordedTest]
@@ -105,7 +105,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await diskEncryptionSet.UpdateAsync(diskEncryptionSet2);
+            await diskEncryptionSet.UpdateAsync(true, diskEncryptionSet2);
         }
 
         [RecordedTest]

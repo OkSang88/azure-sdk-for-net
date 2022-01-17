@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var mongoDBDatabaseId = CosmosDB.MongoDBDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var mongoDBDatabase = GetArmClient().GetMongoDBDatabase(mongoDBDatabaseId);
 
-            await mongoDBDatabase.DeleteAsync();
+            await mongoDBDatabase.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -61,7 +61,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountMongodbDatabaseThroughputSettingId = CosmosDB.DatabaseAccountMongodbDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountMongodbDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountMongodbDatabaseThroughputSetting(databaseAccountMongodbDatabaseThroughputSettingId);
 
-            await databaseAccountMongodbDatabaseThroughputSetting.MigrateMongoDBDatabaseToAutoscaleAsync();
+            await databaseAccountMongodbDatabaseThroughputSetting.MigrateMongoDBDatabaseToAutoscaleAsync(true);
         }
 
         [RecordedTest]
@@ -71,7 +71,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountMongodbDatabaseThroughputSettingId = CosmosDB.DatabaseAccountMongodbDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountMongodbDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountMongodbDatabaseThroughputSetting(databaseAccountMongodbDatabaseThroughputSettingId);
 
-            await databaseAccountMongodbDatabaseThroughputSetting.MigrateMongoDBDatabaseToManualThroughputAsync();
+            await databaseAccountMongodbDatabaseThroughputSetting.MigrateMongoDBDatabaseToManualThroughputAsync(true);
         }
     }
 }

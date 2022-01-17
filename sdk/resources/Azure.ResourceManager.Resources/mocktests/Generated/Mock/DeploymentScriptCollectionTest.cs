@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/script-rg")).GetDeploymentScripts();
-            await collection.CreateOrUpdateAsync(scriptName, deploymentScript);
+            await collection.CreateOrUpdateAsync(true, scriptName, deploymentScript);
         }
 
         [RecordedTest]
@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/script-rg")).GetDeploymentScripts();
-            await collection.CreateOrUpdateAsync(scriptName, deploymentScript);
+            await collection.CreateOrUpdateAsync(true, scriptName, deploymentScript);
         }
 
         [RecordedTest]
@@ -82,7 +82,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/script-rg")).GetDeploymentScripts();
-            await collection.CreateOrUpdateAsync(scriptName, deploymentScript);
+            await collection.CreateOrUpdateAsync(true, scriptName, deploymentScript);
         }
 
         [RecordedTest]
@@ -108,7 +108,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/script-rg")).GetDeploymentScripts();
-            await collection.CreateOrUpdateAsync(scriptName, deploymentScript);
+            await collection.CreateOrUpdateAsync(true, scriptName, deploymentScript);
         }
 
         [RecordedTest]
@@ -135,7 +135,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/script-rg")).GetDeploymentScripts();
-            await collection.CreateOrUpdateAsync(scriptName, deploymentScript);
+            await collection.CreateOrUpdateAsync(true, scriptName, deploymentScript);
         }
 
         [RecordedTest]

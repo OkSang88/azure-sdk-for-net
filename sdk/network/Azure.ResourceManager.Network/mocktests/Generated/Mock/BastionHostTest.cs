@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var bastionHostId = Network.BastionHost.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "bastionhosttenant");
             var bastionHost = GetArmClient().GetBastionHost(bastionHostId);
 
-            await bastionHost.DeleteAsync();
+            await bastionHost.DeleteAsync(true);
         }
     }
 }

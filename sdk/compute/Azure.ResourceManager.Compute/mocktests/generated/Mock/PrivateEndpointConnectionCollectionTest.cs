@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var diskAccessId = Compute.DiskAccess.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDiskAccess");
             var collection = GetArmClient().GetDiskAccess(diskAccessId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, privateEndpointConnection);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, privateEndpointConnection);
         }
 
         [RecordedTest]

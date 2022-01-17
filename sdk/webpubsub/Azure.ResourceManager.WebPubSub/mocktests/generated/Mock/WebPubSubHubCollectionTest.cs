@@ -29,11 +29,11 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubHubs_CreateOrUpdate
             string hubName = "exampleHub";
-            WebPubSubHubData parameters = new WebPubSubHubData(properties: new Models.WebPubSubHubProperties());
+            WebPubSub.WebPubSubHubData parameters = new WebPubSub.WebPubSubHubData(properties: new WebPubSub.Models.WebPubSubHubProperties());
 
-            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetWebPubSubHubs();
-            await collection.CreateOrUpdateAsync(hubName, parameters);
+            await collection.CreateOrUpdateAsync(true, hubName, parameters);
         }
 
         [RecordedTest]
@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
             // Example: WebPubSubHubs_Get
             string hubName = "exampleHub";
 
-            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetWebPubSubHubs();
             await collection.GetAsync(hubName);
         }
@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubHubs_List
 
-            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetWebPubSubHubs();
             await foreach (var _ in collection.GetAllAsync())
             {

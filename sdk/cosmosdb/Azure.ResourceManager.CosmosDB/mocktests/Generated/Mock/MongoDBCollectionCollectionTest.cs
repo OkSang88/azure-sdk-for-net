@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             createUpdateMongoDBCollectionParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
             var mongoDBDatabaseId = CosmosDB.MongoDBDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var collection = GetArmClient().GetMongoDBDatabase(mongoDBDatabaseId).GetMongoDBCollections();
-            await collection.CreateOrUpdateAsync(collectionName, createUpdateMongoDBCollectionParameters);
+            await collection.CreateOrUpdateAsync(true, collectionName, createUpdateMongoDBCollectionParameters);
         }
 
         [RecordedTest]

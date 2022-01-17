@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var expressRouteCircuitId = Network.ExpressRouteCircuit.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "circuitName");
             var collection = GetArmClient().GetExpressRouteCircuit(expressRouteCircuitId).GetExpressRouteCircuitPeerings();
-            await collection.CreateOrUpdateAsync(peeringName, peeringParameters);
+            await collection.CreateOrUpdateAsync(true, peeringName, peeringParameters);
         }
 
         [RecordedTest]

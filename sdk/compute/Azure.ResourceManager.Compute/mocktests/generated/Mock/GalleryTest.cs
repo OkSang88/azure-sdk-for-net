@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryId = Compute.Gallery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName");
             var gallery = GetArmClient().GetGallery(galleryId);
 
-            await gallery.DeleteAsync();
+            await gallery.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 Description = "This is the gallery description.",
             };
 
-            await gallery.UpdateAsync(gallery2);
+            await gallery.UpdateAsync(true, gallery2);
         }
 
         [RecordedTest]
@@ -79,7 +79,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var gallery = GetArmClient().GetGallery(galleryId);
             Compute.Models.SharingUpdate sharingUpdate = new Compute.Models.SharingUpdate(operationType: new Compute.Models.SharingUpdateOperationTypes("Add"));
 
-            await gallery.UpdateGallerySharingProfileAsync(sharingUpdate);
+            await gallery.UpdateGallerySharingProfileAsync(true, sharingUpdate);
         }
 
         [RecordedTest]
@@ -90,7 +90,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var gallery = GetArmClient().GetGallery(galleryId);
             Compute.Models.SharingUpdate sharingUpdate = new Compute.Models.SharingUpdate(operationType: new Compute.Models.SharingUpdateOperationTypes("Reset"));
 
-            await gallery.UpdateGallerySharingProfileAsync(sharingUpdate);
+            await gallery.UpdateGallerySharingProfileAsync(true, sharingUpdate);
         }
     }
 }

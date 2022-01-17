@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             var deletedManagedHsmId = KeyVault.DeletedManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "westus", "hsm1");
             var deletedManagedHsm = GetArmClient().GetDeletedManagedHsm(deletedManagedHsmId);
 
-            await deletedManagedHsm.PurgeDeletedAsync();
+            await deletedManagedHsm.PurgeDeletedAsync(true);
         }
     }
 }

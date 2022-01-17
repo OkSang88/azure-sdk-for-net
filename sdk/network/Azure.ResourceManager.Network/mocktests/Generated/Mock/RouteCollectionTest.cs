@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var routeTableId = Network.RouteTable.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testrt");
             var collection = GetArmClient().GetRouteTable(routeTableId).GetRoutes();
-            await collection.CreateOrUpdateAsync(routeName, routeParameters);
+            await collection.CreateOrUpdateAsync(true, routeName, routeParameters);
         }
 
         [RecordedTest]

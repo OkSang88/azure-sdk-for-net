@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             Compute.DiskAccessData diskAccess = new Compute.DiskAccessData(location: "West US");
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDiskAccesses();
-            await collection.CreateOrUpdateAsync(diskAccessName, diskAccess);
+            await collection.CreateOrUpdateAsync(true, diskAccessName, diskAccess);
         }
 
         [RecordedTest]

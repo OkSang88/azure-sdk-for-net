@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var eventHubId = EventHubs.EventHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-5357", "sdk-EventHub-6547");
             var eventHub = GetArmClient().GetEventHub(eventHubId);
 
-            await eventHub.DeleteAsync();
+            await eventHub.DeleteAsync(true);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             createUpdateGremlinGraphParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
             var gremlinDatabaseId = CosmosDB.GremlinDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var collection = GetArmClient().GetGremlinDatabase(gremlinDatabaseId).GetGremlinGraphs();
-            await collection.CreateOrUpdateAsync(graphName, createUpdateGremlinGraphParameters);
+            await collection.CreateOrUpdateAsync(true, graphName, createUpdateGremlinGraphParameters);
         }
 
         [RecordedTest]

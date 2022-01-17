@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9101")).GetStorageAccounts();
-            await collection.CreateOrUpdateAsync(accountName, parameters);
+            await collection.CreateOrUpdateAsync(true, accountName, parameters);
         }
 
         [RecordedTest]
@@ -88,7 +88,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9101")).GetStorageAccounts();
-            await collection.CreateOrUpdateAsync(accountName, parameters);
+            await collection.CreateOrUpdateAsync(true, accountName, parameters);
         }
 
         [RecordedTest]
@@ -128,7 +128,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9101")).GetStorageAccounts();
-            await collection.CreateOrUpdateAsync(accountName, parameters);
+            await collection.CreateOrUpdateAsync(true, accountName, parameters);
         }
 
         [RecordedTest]

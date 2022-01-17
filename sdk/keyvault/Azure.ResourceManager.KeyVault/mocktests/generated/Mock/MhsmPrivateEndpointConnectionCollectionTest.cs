@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
 
             var managedHsmId = KeyVault.ManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-mhsm");
             var collection = GetArmClient().GetManagedHsm(managedHsmId).GetMhsmPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, properties);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, properties);
         }
 
         [RecordedTest]

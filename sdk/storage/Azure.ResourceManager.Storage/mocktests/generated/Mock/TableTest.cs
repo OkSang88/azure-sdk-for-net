@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var tableId = Storage.Table.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328", "table6185");
             var table = GetArmClient().GetTable(tableId);
 
-            await table.DeleteAsync();
+            await table.DeleteAsync(true);
         }
 
         [RecordedTest]

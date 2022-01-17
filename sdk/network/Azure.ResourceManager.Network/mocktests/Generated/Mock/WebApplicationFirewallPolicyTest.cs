@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var webApplicationFirewallPolicyId = Network.WebApplicationFirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "Policy1");
             var webApplicationFirewallPolicy = GetArmClient().GetWebApplicationFirewallPolicy(webApplicationFirewallPolicyId);
 
-            await webApplicationFirewallPolicy.DeleteAsync();
+            await webApplicationFirewallPolicy.DeleteAsync(true);
         }
     }
 }

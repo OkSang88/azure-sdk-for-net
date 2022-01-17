@@ -82,7 +82,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var azureFirewallId = Network.AzureFirewall.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "azurefirewall");
             var azureFirewall = GetArmClient().GetAzureFirewall(azureFirewallId);
 
-            await azureFirewall.DeleteAsync();
+            await azureFirewall.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -93,7 +93,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var azureFirewall = GetArmClient().GetAzureFirewall(azureFirewallId);
             Network.Models.TagsObject parameters = new Network.Models.TagsObject();
 
-            await azureFirewall.UpdateAsync(parameters);
+            await azureFirewall.UpdateAsync(true, parameters);
         }
     }
 }

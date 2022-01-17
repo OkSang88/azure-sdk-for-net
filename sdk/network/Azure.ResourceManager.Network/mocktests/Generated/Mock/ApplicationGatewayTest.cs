@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationGatewayId = Network.ApplicationGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "appgw");
             var applicationGateway = GetArmClient().GetApplicationGateway(applicationGatewayId);
 
-            await applicationGateway.DeleteAsync();
+            await applicationGateway.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationGatewayId = Network.ApplicationGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "appgw");
             var applicationGateway = GetArmClient().GetApplicationGateway(applicationGatewayId);
 
-            await applicationGateway.StartAsync();
+            await applicationGateway.StartAsync(true);
         }
 
         [RecordedTest]
@@ -75,7 +75,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationGatewayId = Network.ApplicationGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "appgw");
             var applicationGateway = GetArmClient().GetApplicationGateway(applicationGatewayId);
 
-            await applicationGateway.StopAsync();
+            await applicationGateway.StopAsync(true);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationGateway = GetArmClient().GetApplicationGateway(applicationGatewayId);
             string expand = null;
 
-            await applicationGateway.BackendHealthAsync(expand);
+            await applicationGateway.BackendHealthAsync(true, expand);
         }
 
         [RecordedTest]
@@ -112,7 +112,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
             string expand = null;
 
-            await applicationGateway.BackendHealthOnDemandAsync(probeRequest, expand);
+            await applicationGateway.BackendHealthOnDemandAsync(true, probeRequest, expand);
         }
 
         [RecordedTest]

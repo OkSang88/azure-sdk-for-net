@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var routeTableId = Network.RouteTable.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testrt");
             var routeTable = GetArmClient().GetRouteTable(routeTableId);
 
-            await routeTable.DeleteAsync();
+            await routeTable.DeleteAsync(true);
         }
 
         [RecordedTest]

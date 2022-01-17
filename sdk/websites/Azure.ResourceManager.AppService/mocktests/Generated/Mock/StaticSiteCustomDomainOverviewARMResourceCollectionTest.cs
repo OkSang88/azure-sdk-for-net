@@ -33,7 +33,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
 
             var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0");
             var collection = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId).GetStaticSiteCustomDomainOverviewARMResources();
-            await collection.CreateOrUpdateAsync(domainName, staticSiteCustomDomainRequestPropertiesEnvelope);
+            await collection.CreateOrUpdateAsync(true, domainName, staticSiteCustomDomainRequestPropertiesEnvelope);
         }
 
         [RecordedTest]

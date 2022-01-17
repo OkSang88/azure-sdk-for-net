@@ -69,7 +69,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetVirtualNetworkGatewayConnections();
-            await collection.CreateOrUpdateAsync(virtualNetworkGatewayConnectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, virtualNetworkGatewayConnectionName, parameters);
         }
 
         [RecordedTest]

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var applicationGatewayId = Network.ApplicationGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "appgw");
             var collection = GetArmClient().GetApplicationGateway(applicationGatewayId).GetApplicationGatewayPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(connectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, connectionName, parameters);
         }
 
         [RecordedTest]

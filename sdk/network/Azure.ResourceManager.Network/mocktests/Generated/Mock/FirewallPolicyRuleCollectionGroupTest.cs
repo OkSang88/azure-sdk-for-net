@@ -71,7 +71,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var firewallPolicyRuleCollectionGroupId = Network.FirewallPolicyRuleCollectionGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy", "ruleCollectionGroup1");
             var firewallPolicyRuleCollectionGroup = GetArmClient().GetFirewallPolicyRuleCollectionGroup(firewallPolicyRuleCollectionGroupId);
 
-            await firewallPolicyRuleCollectionGroup.DeleteAsync();
+            await firewallPolicyRuleCollectionGroup.DeleteAsync(true);
         }
     }
 }

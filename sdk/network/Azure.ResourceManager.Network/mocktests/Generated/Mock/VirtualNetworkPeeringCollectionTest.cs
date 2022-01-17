@@ -46,7 +46,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "peerTest", "vnet1");
             var collection = GetArmClient().GetVirtualNetwork(virtualNetworkId).GetVirtualNetworkPeerings();
-            await collection.CreateOrUpdateAsync(virtualNetworkPeeringName, virtualNetworkPeeringParameters, syncRemoteAddressSpace);
+            await collection.CreateOrUpdateAsync(true, virtualNetworkPeeringName, virtualNetworkPeeringParameters, syncRemoteAddressSpace);
         }
 
         [RecordedTest]
@@ -69,7 +69,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "peerTest", "vnet1");
             var collection = GetArmClient().GetVirtualNetwork(virtualNetworkId).GetVirtualNetworkPeerings();
-            await collection.CreateOrUpdateAsync(virtualNetworkPeeringName, virtualNetworkPeeringParameters, syncRemoteAddressSpace);
+            await collection.CreateOrUpdateAsync(true, virtualNetworkPeeringName, virtualNetworkPeeringParameters, syncRemoteAddressSpace);
         }
 
         [RecordedTest]

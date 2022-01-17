@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var kubeEnvironmentId = AppService.KubeEnvironment.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "examplerg", "examplekenv");
             var kubeEnvironment = GetArmClient().GetKubeEnvironment(kubeEnvironmentId);
 
-            await kubeEnvironment.DeleteAsync();
+            await kubeEnvironment.DeleteAsync(true);
         }
 
         [RecordedTest]

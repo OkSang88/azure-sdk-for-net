@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualNetwork = GetArmClient().GetVirtualNetwork(virtualNetworkId);
             bool? force = null;
 
-            await virtualNetwork.DeleteAsync(force);
+            await virtualNetwork.DeleteAsync(true, force);
         }
 
         [RecordedTest]

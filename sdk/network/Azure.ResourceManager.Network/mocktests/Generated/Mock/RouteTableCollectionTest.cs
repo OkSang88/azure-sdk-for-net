@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetRouteTables();
-            await collection.CreateOrUpdateAsync(routeTableName, parameters);
+            await collection.CreateOrUpdateAsync(true, routeTableName, parameters);
         }
 
         [RecordedTest]
@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetRouteTables();
-            await collection.CreateOrUpdateAsync(routeTableName, parameters);
+            await collection.CreateOrUpdateAsync(true, routeTableName, parameters);
         }
 
         [RecordedTest]

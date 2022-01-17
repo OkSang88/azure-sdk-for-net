@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryId = Compute.Gallery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName");
             var collection = GetArmClient().GetGallery(galleryId).GetGalleryApplications();
-            await collection.CreateOrUpdateAsync(galleryApplicationName, galleryApplication);
+            await collection.CreateOrUpdateAsync(true, galleryApplicationName, galleryApplication);
         }
 
         [RecordedTest]

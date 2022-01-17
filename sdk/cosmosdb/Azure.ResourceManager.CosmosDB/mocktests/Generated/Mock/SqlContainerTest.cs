@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var sqlContainerId = CosmosDB.SqlContainer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName");
             var sqlContainer = GetArmClient().GetSqlContainer(sqlContainerId);
 
-            await sqlContainer.DeleteAsync();
+            await sqlContainer.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -56,7 +56,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
                 Location = "North Europe",
             };
 
-            await sqlContainer.RetrieveContinuousBackupInformationAsync(location);
+            await sqlContainer.RetrieveContinuousBackupInformationAsync(true, location);
         }
 
         [RecordedTest]
@@ -76,7 +76,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountSqlDatabaseContainerThroughputSettingId = CosmosDB.DatabaseAccountSqlDatabaseContainerThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName");
             var databaseAccountSqlDatabaseContainerThroughputSetting = GetArmClient().GetDatabaseAccountSqlDatabaseContainerThroughputSetting(databaseAccountSqlDatabaseContainerThroughputSettingId);
 
-            await databaseAccountSqlDatabaseContainerThroughputSetting.MigrateSqlContainerToAutoscaleAsync();
+            await databaseAccountSqlDatabaseContainerThroughputSetting.MigrateSqlContainerToAutoscaleAsync(true);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountSqlDatabaseContainerThroughputSettingId = CosmosDB.DatabaseAccountSqlDatabaseContainerThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName");
             var databaseAccountSqlDatabaseContainerThroughputSetting = GetArmClient().GetDatabaseAccountSqlDatabaseContainerThroughputSetting(databaseAccountSqlDatabaseContainerThroughputSettingId);
 
-            await databaseAccountSqlDatabaseContainerThroughputSetting.MigrateSqlContainerToManualThroughputAsync();
+            await databaseAccountSqlDatabaseContainerThroughputSetting.MigrateSqlContainerToManualThroughputAsync(true);
         }
     }
 }

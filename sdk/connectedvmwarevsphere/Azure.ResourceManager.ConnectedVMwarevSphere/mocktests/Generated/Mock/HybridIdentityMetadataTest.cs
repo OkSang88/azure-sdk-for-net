@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var hybridIdentityMetadataId = ConnectedVMwarevSphere.HybridIdentityMetadata.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm", "default");
             var hybridIdentityMetadata = GetArmClient().GetHybridIdentityMetadata(hybridIdentityMetadataId);
 
-            await hybridIdentityMetadata.DeleteAsync();
+            await hybridIdentityMetadata.DeleteAsync(true);
         }
     }
 }

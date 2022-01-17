@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var loadBalancerId = Network.LoadBalancer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "lb1");
             var collection = GetArmClient().GetLoadBalancer(loadBalancerId).GetInboundNatRules();
-            await collection.CreateOrUpdateAsync(inboundNatRuleName, inboundNatRuleParameters);
+            await collection.CreateOrUpdateAsync(true, inboundNatRuleName, inboundNatRuleParameters);
         }
 
         [RecordedTest]

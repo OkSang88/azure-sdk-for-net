@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var firewallPolicyId = Network.FirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy");
             var collection = GetArmClient().GetFirewallPolicy(firewallPolicyId).GetFirewallPolicyRuleCollectionGroups();
-            await collection.CreateOrUpdateAsync(ruleCollectionGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleCollectionGroupName, parameters);
         }
 
         [RecordedTest]
@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var firewallPolicyId = Network.FirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy");
             var collection = GetArmClient().GetFirewallPolicy(firewallPolicyId).GetFirewallPolicyRuleCollectionGroups();
-            await collection.CreateOrUpdateAsync(ruleCollectionGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleCollectionGroupName, parameters);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var firewallPolicyId = Network.FirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy");
             var collection = GetArmClient().GetFirewallPolicy(firewallPolicyId).GetFirewallPolicyRuleCollectionGroups();
-            await collection.CreateOrUpdateAsync(ruleCollectionGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleCollectionGroupName, parameters);
         }
 
         [RecordedTest]
@@ -80,7 +80,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var firewallPolicyId = Network.FirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy");
             var collection = GetArmClient().GetFirewallPolicy(firewallPolicyId).GetFirewallPolicyRuleCollectionGroups();
-            await collection.CreateOrUpdateAsync(ruleCollectionGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleCollectionGroupName, parameters);
         }
 
         [RecordedTest]

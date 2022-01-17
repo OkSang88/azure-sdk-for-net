@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var blobContainerId = Storage.BlobContainer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res4079", "sto4506", "container9689");
             var blobContainer = GetArmClient().GetBlobContainer(blobContainerId);
 
-            await blobContainer.DeleteAsync();
+            await blobContainer.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -126,7 +126,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var blobContainerId = Storage.BlobContainer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res1782", "sto7069", "container6397");
             var blobContainer = GetArmClient().GetBlobContainer(blobContainerId);
 
-            await blobContainer.ObjectLevelWormAsync();
+            await blobContainer.ObjectLevelWormAsync(true);
         }
 
         [RecordedTest]
@@ -148,7 +148,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var immutabilityPolicy = GetArmClient().GetImmutabilityPolicy(immutabilityPolicyId);
             string ifMatch = "\"8d59f81a7fa7be0\"";
 
-            await immutabilityPolicy.DeleteAsync(ifMatch);
+            await immutabilityPolicy.DeleteAsync(true, ifMatch);
         }
 
         [RecordedTest]

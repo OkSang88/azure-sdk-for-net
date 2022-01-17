@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var sqlDatabaseId = CosmosDB.SqlDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var sqlDatabase = GetArmClient().GetSqlDatabase(sqlDatabaseId);
 
-            await sqlDatabase.DeleteAsync();
+            await sqlDatabase.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -61,7 +61,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountSqlDatabaseThroughputSettingId = CosmosDB.DatabaseAccountSqlDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountSqlDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountSqlDatabaseThroughputSetting(databaseAccountSqlDatabaseThroughputSettingId);
 
-            await databaseAccountSqlDatabaseThroughputSetting.MigrateSqlDatabaseToAutoscaleAsync();
+            await databaseAccountSqlDatabaseThroughputSetting.MigrateSqlDatabaseToAutoscaleAsync(true);
         }
 
         [RecordedTest]
@@ -71,7 +71,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountSqlDatabaseThroughputSettingId = CosmosDB.DatabaseAccountSqlDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountSqlDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountSqlDatabaseThroughputSetting(databaseAccountSqlDatabaseThroughputSettingId);
 
-            await databaseAccountSqlDatabaseThroughputSetting.MigrateSqlDatabaseToManualThroughputAsync();
+            await databaseAccountSqlDatabaseThroughputSetting.MigrateSqlDatabaseToManualThroughputAsync(true);
         }
     }
 }

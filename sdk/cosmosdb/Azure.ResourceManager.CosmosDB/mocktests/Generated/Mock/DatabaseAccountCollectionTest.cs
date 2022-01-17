@@ -75,7 +75,7 @@ LocationName = "eastus", FailoverPriority = 1, IsZoneRedundant = false, },})
             };
             createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDatabaseAccounts();
-            await collection.CreateOrUpdateAsync(accountName, createUpdateParameters);
+            await collection.CreateOrUpdateAsync(true, accountName, createUpdateParameters);
         }
 
         [RecordedTest]
@@ -94,7 +94,7 @@ LocationName = "southcentralus", FailoverPriority = 0, IsZoneRedundant = false, 
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDatabaseAccounts();
-            await collection.CreateOrUpdateAsync(accountName, createUpdateParameters);
+            await collection.CreateOrUpdateAsync(true, accountName, createUpdateParameters);
         }
 
         [RecordedTest]
@@ -136,7 +136,7 @@ LocationName = "southcentralus", FailoverPriority = 0, IsZoneRedundant = false, 
             };
             createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDatabaseAccounts();
-            await collection.CreateOrUpdateAsync(accountName, createUpdateParameters);
+            await collection.CreateOrUpdateAsync(true, accountName, createUpdateParameters);
         }
 
         [RecordedTest]

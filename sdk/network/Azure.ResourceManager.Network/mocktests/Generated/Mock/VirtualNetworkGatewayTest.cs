@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.DeleteAsync();
+            await virtualNetworkGateway.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.TagsObject parameters = new Network.Models.TagsObject();
 
-            await virtualNetworkGateway.UpdateAsync(parameters);
+            await virtualNetworkGateway.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -76,7 +76,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             string gatewayVip = null;
 
-            await virtualNetworkGateway.ResetAsync(gatewayVip);
+            await virtualNetworkGateway.ResetAsync(true, gatewayVip);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.ResetVpnClientSharedKeyAsync();
+            await virtualNetworkGateway.ResetVpnClientSharedKeyAsync(true);
         }
 
         [RecordedTest]
@@ -97,7 +97,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.VpnClientParameters parameters = new Network.Models.VpnClientParameters();
 
-            await virtualNetworkGateway.GeneratevpnclientpackageAsync(parameters);
+            await virtualNetworkGateway.GeneratevpnclientpackageAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -108,7 +108,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.VpnClientParameters parameters = new Network.Models.VpnClientParameters();
 
-            await virtualNetworkGateway.GenerateVpnProfileAsync(parameters);
+            await virtualNetworkGateway.GenerateVpnProfileAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -118,7 +118,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.GetVpnProfilePackageUrlAsync();
+            await virtualNetworkGateway.GetVpnProfilePackageUrlAsync(true);
         }
 
         [RecordedTest]
@@ -129,7 +129,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             string peer = null;
 
-            await virtualNetworkGateway.GetBgpPeerStatusAsync(peer);
+            await virtualNetworkGateway.GetBgpPeerStatusAsync(true, peer);
         }
 
         [RecordedTest]
@@ -149,7 +149,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.GetLearnedRoutesAsync();
+            await virtualNetworkGateway.GetLearnedRoutesAsync(true);
         }
 
         [RecordedTest]
@@ -160,7 +160,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             string peer = "test";
 
-            await virtualNetworkGateway.GetAdvertisedRoutesAsync(peer);
+            await virtualNetworkGateway.GetAdvertisedRoutesAsync(true, peer);
         }
 
         [RecordedTest]
@@ -171,7 +171,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.VpnClientIPsecParameters vpnclientIpsecParams = new Network.Models.VpnClientIPsecParameters(saLifeTimeSeconds: 86473, saDataSizeKilobytes: 429497, ipsecEncryption: new Network.Models.IpsecEncryption("AES256"), ipsecIntegrity: new Network.Models.IpsecIntegrity("SHA256"), ikeEncryption: new Network.Models.IkeEncryption("AES256"), ikeIntegrity: new Network.Models.IkeIntegrity("SHA384"), dhGroup: new Network.Models.DhGroup("DHGroup2"), pfsGroup: new Network.Models.PfsGroup("PFS2"));
 
-            await virtualNetworkGateway.SetVpnclientIpsecParametersAsync(vpnclientIpsecParams);
+            await virtualNetworkGateway.SetVpnclientIpsecParametersAsync(true, vpnclientIpsecParams);
         }
 
         [RecordedTest]
@@ -181,7 +181,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.GetVpnclientIpsecParametersAsync();
+            await virtualNetworkGateway.GetVpnclientIpsecParametersAsync(true);
         }
 
         [RecordedTest]
@@ -195,7 +195,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 FilterData = "{'TracingFlags': 11,'MaxPacketBufferSize': 120,'MaxFileSize': 200,'Filters': [{'SourceSubnets': ['20.1.1.0/24'],'DestinationSubnets': ['10.1.1.0/24'],'SourcePort': [500],'DestinationPort': [4500],'Protocol': 6,'TcpFlags': 16,'CaptureSingleDirectionTrafficOnly': true}]}",
             };
 
-            await virtualNetworkGateway.StartPacketCaptureAsync(parameters);
+            await virtualNetworkGateway.StartPacketCaptureAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -206,7 +206,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.VpnPacketCaptureStartParameters parameters = null;
 
-            await virtualNetworkGateway.StartPacketCaptureAsync(parameters);
+            await virtualNetworkGateway.StartPacketCaptureAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -220,7 +220,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 SasUrl = "https://teststorage.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-09-13T07:44:05Z&st=2019-09-06T23:44:05Z&spr=https&sig=V1h9D1riltvZMI69d6ihENnFo%2FrCvTqGgjO2lf%2FVBhE%3D",
             };
 
-            await virtualNetworkGateway.StopPacketCaptureAsync(parameters);
+            await virtualNetworkGateway.StopPacketCaptureAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -230,7 +230,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayId = Network.VirtualNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "p2s-vnet-test", "vpnp2sgw");
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
 
-            await virtualNetworkGateway.GetVpnclientConnectionHealthAsync();
+            await virtualNetworkGateway.GetVpnclientConnectionHealthAsync(true);
         }
 
         [RecordedTest]
@@ -241,7 +241,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGateway = GetArmClient().GetVirtualNetworkGateway(virtualNetworkGatewayId);
             Network.Models.P2SVpnConnectionRequest request = new Network.Models.P2SVpnConnectionRequest();
 
-            await virtualNetworkGateway.DisconnectVirtualNetworkGatewayVpnConnectionsAsync(request);
+            await virtualNetworkGateway.DisconnectVirtualNetworkGatewayVpnConnectionsAsync(true, request);
         }
     }
 }

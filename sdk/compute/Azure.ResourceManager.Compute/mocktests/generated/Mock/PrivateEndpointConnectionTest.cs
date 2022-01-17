@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var privateEndpointConnectionId = Compute.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDiskAccess", "myPrivateEndpointConnection");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

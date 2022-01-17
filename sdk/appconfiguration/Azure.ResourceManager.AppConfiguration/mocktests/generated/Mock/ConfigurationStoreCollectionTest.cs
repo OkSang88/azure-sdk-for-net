@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             };
             configStoreCreationParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["myTag"] = "myTagValue", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetConfigurationStores();
-            await collection.CreateOrUpdateAsync(configStoreName, configStoreCreationParameters);
+            await collection.CreateOrUpdateAsync(true, configStoreName, configStoreCreationParameters);
         }
 
         [RecordedTest]
@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             };
             configStoreCreationParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["myTag"] = "myTagValue", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetConfigurationStores();
-            await collection.CreateOrUpdateAsync(configStoreName, configStoreCreationParameters);
+            await collection.CreateOrUpdateAsync(true, configStoreName, configStoreCreationParameters);
         }
 
         [RecordedTest]

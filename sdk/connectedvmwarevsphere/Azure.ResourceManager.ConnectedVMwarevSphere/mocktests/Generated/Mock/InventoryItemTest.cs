@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var inventoryItemId = ConnectedVMwarevSphere.InventoryItem.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVCenter", "testItem");
             var inventoryItem = GetArmClient().GetInventoryItem(inventoryItemId);
 
-            await inventoryItem.DeleteAsync();
+            await inventoryItem.DeleteAsync(true);
         }
     }
 }

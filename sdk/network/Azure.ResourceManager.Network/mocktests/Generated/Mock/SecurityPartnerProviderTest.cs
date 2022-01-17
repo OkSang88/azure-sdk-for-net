@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var securityPartnerProviderId = Network.SecurityPartnerProvider.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "securityPartnerProvider");
             var securityPartnerProvider = GetArmClient().GetSecurityPartnerProvider(securityPartnerProviderId);
 
-            await securityPartnerProvider.DeleteAsync();
+            await securityPartnerProvider.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitConnectionId = Network.ExpressRouteCircuitConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ExpressRouteARMCircuitA", "AzurePrivatePeering", "circuitConnectionUSAUS");
             var expressRouteCircuitConnection = GetArmClient().GetExpressRouteCircuitConnection(expressRouteCircuitConnectionId);
 
-            await expressRouteCircuitConnection.DeleteAsync();
+            await expressRouteCircuitConnection.DeleteAsync(true);
         }
     }
 }

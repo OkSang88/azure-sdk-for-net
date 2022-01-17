@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             Network.DdosProtectionPlanData parameters = new Network.DdosProtectionPlanData(location: "westus");
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDdosProtectionPlans();
-            await collection.CreateOrUpdateAsync(ddosProtectionPlanName, parameters);
+            await collection.CreateOrUpdateAsync(true, ddosProtectionPlanName, parameters);
         }
 
         [RecordedTest]

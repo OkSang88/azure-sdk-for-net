@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var expressRouteCrossConnectionId = Network.ExpressRouteCrossConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "CrossConnection-SiliconValley", "<circuitServiceKey>");
             var collection = GetArmClient().GetExpressRouteCrossConnection(expressRouteCrossConnectionId).GetExpressRouteCrossConnectionPeerings();
-            await collection.CreateOrUpdateAsync(peeringName, peeringParameters);
+            await collection.CreateOrUpdateAsync(true, peeringName, peeringParameters);
         }
 
         [RecordedTest]

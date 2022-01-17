@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var cosmosTableId = CosmosDB.CosmosTable.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "tableName");
             var cosmosTable = GetArmClient().GetCosmosTable(cosmosTableId);
 
-            await cosmosTable.DeleteAsync();
+            await cosmosTable.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -61,7 +61,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountTableThroughputSettingId = CosmosDB.DatabaseAccountTableThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "tableName");
             var databaseAccountTableThroughputSetting = GetArmClient().GetDatabaseAccountTableThroughputSetting(databaseAccountTableThroughputSettingId);
 
-            await databaseAccountTableThroughputSetting.MigrateTableToAutoscaleAsync();
+            await databaseAccountTableThroughputSetting.MigrateTableToAutoscaleAsync(true);
         }
 
         [RecordedTest]
@@ -71,7 +71,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountTableThroughputSettingId = CosmosDB.DatabaseAccountTableThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "tableName");
             var databaseAccountTableThroughputSetting = GetArmClient().GetDatabaseAccountTableThroughputSetting(databaseAccountTableThroughputSettingId);
 
-            await databaseAccountTableThroughputSetting.MigrateTableToManualThroughputAsync();
+            await databaseAccountTableThroughputSetting.MigrateTableToManualThroughputAsync(true);
         }
     }
 }

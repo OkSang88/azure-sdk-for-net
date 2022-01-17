@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetProximityPlacementGroups();
-            await collection.CreateOrUpdateAsync(proximityPlacementGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, proximityPlacementGroupName, parameters);
         }
 
         [RecordedTest]

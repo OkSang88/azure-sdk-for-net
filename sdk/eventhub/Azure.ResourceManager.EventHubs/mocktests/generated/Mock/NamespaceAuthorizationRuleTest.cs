@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var namespaceAuthorizationRuleId = EventHubs.NamespaceAuthorizationRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-8980", "sdk-Authrules-8929");
             var namespaceAuthorizationRule = GetArmClient().GetNamespaceAuthorizationRule(namespaceAuthorizationRuleId);
 
-            await namespaceAuthorizationRule.DeleteAsync();
+            await namespaceAuthorizationRule.DeleteAsync(true);
         }
 
         [RecordedTest]

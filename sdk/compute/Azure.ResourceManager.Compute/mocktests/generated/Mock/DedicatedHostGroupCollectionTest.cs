@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["department"] = "finance", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDedicatedHostGroups();
-            await collection.CreateOrUpdateAsync(hostGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, hostGroupName, parameters);
         }
 
         [RecordedTest]

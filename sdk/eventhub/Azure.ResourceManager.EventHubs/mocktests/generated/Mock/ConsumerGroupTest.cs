@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var consumerGroupId = EventHubs.ConsumerGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2661", "sdk-EventHub-6681", "sdk-ConsumerGroup-5563");
             var consumerGroup = GetArmClient().GetConsumerGroup(consumerGroupId);
 
-            await consumerGroup.DeleteAsync();
+            await consumerGroup.DeleteAsync(true);
         }
     }
 }

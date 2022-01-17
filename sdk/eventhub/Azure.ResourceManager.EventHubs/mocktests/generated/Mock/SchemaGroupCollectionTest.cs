@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "alitest", "ali-ua-test-eh-system-1");
             var collection = GetArmClient().GetEventHubNamespace(eventHubNamespaceId).GetSchemaGroups();
-            await collection.CreateOrUpdateAsync(schemaGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, schemaGroupName, parameters);
         }
 
         [RecordedTest]

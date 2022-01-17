@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resource-group-name", "{storage-account-name}");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetEncryptionScopes();
-            await collection.CreateOrUpdateAsync(encryptionScopeName, encryptionScope);
+            await collection.CreateOrUpdateAsync(true, encryptionScopeName, encryptionScope);
         }
 
         [RecordedTest]
@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resource-group-name", "{storage-account-name}");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetEncryptionScopes();
-            await collection.CreateOrUpdateAsync(encryptionScopeName, encryptionScope);
+            await collection.CreateOrUpdateAsync(true, encryptionScopeName, encryptionScope);
         }
 
         [RecordedTest]

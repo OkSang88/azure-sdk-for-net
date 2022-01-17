@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var serviceEndpointPolicyId = Network.ServiceEndpointPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "serviceEndpointPolicy1");
             var serviceEndpointPolicy = GetArmClient().GetServiceEndpointPolicy(serviceEndpointPolicyId);
 
-            await serviceEndpointPolicy.DeleteAsync();
+            await serviceEndpointPolicy.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusNamespaceId = ServiceBus.ServiceBusNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-1617");
             var collection = GetArmClient().GetServiceBusNamespace(serviceBusNamespaceId).GetServiceBusTopics();
-            await collection.CreateOrUpdateAsync(topicName, parameters);
+            await collection.CreateOrUpdateAsync(true, topicName, parameters);
         }
 
         [RecordedTest]

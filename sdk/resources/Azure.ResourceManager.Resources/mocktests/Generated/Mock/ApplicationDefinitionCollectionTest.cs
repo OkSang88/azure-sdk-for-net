@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg")).GetApplicationDefinitions();
-            await collection.CreateOrUpdateAsync(applicationDefinitionName, parameters);
+            await collection.CreateOrUpdateAsync(true, applicationDefinitionName, parameters);
         }
 
         [RecordedTest]

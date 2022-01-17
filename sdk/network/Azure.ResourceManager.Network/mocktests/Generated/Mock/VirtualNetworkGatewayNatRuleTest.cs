@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkGatewayNatRuleId = Network.VirtualNetworkGatewayNatRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1", "natRule1");
             var virtualNetworkGatewayNatRule = GetArmClient().GetVirtualNetworkGatewayNatRule(virtualNetworkGatewayNatRuleId);
 
-            await virtualNetworkGatewayNatRule.DeleteAsync();
+            await virtualNetworkGatewayNatRule.DeleteAsync(true);
         }
     }
 }

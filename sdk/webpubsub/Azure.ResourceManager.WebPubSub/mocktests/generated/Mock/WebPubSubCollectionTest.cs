@@ -30,29 +30,29 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSub_CreateOrUpdate
             string resourceName = "myWebPubSubService";
-           WebPubSubData parameters = new WebPubSubData(location: "eastus")
+            WebPubSub.WebPubSubData parameters = new WebPubSub.WebPubSubData(location: "eastus")
             {
-                Sku = new Models.WebPubSubSku(name: "Standard_S1")
+                Sku = new WebPubSub.Models.WebPubSubSku(name: "Standard_S1")
                 {
-                    Tier = new Models.WebPubSubSkuTier("Standard"),
+                    Tier = new WebPubSub.Models.WebPubSubSkuTier("Standard"),
                     Capacity = 1,
                 },
-                Identity = new Models.ManagedIdentity()
+                Identity = new WebPubSub.Models.ManagedIdentity()
                 {
-                    Type = new Models.ManagedIdentityType("SystemAssigned"),
+                    Type = new WebPubSub.Models.ManagedIdentityType("SystemAssigned"),
                 },
-                Tls = new Models.WebPubSubTlsSettings()
+                Tls = new WebPubSub.Models.WebPubSubTlsSettings()
                 {
                     ClientCertEnabled = false,
                 },
-                LiveTraceConfiguration = new Models.LiveTraceConfiguration()
+                LiveTraceConfiguration = new WebPubSub.Models.LiveTraceConfiguration()
                 {
                     Enabled = "false",
                 },
-                NetworkAcls = new Models.WebPubSubNetworkAcls()
+                NetworkAcls = new WebPubSub.Models.WebPubSubNetworkAcls()
                 {
-                    DefaultAction = new Models.AclAction("Deny"),
-                    PublicNetwork = new Models.NetworkAcl(),
+                    DefaultAction = new WebPubSub.Models.AclAction("Deny"),
+                    PublicNetwork = new WebPubSub.Models.NetworkAcl(),
                 },
                 PublicNetworkAccess = "Enabled",
                 DisableLocalAuth = false,
@@ -60,7 +60,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
             };
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["key1"] = "value1", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetWebPubSubs();
-            await collection.CreateOrUpdateAsync(resourceName, parameters);
+            await collection.CreateOrUpdateAsync(true, resourceName, parameters);
         }
 
         [RecordedTest]

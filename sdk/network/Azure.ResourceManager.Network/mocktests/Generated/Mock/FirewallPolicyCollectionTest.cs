@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetFirewallPolicies();
-            await collection.CreateOrUpdateAsync(firewallPolicyName, parameters);
+            await collection.CreateOrUpdateAsync(true, firewallPolicyName, parameters);
         }
 
         [RecordedTest]

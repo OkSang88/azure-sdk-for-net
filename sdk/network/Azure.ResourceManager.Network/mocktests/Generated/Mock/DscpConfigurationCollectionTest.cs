@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDscpConfigurations();
-            await collection.CreateOrUpdateAsync(dscpConfigurationName, parameters);
+            await collection.CreateOrUpdateAsync(true, dscpConfigurationName, parameters);
         }
 
         [RecordedTest]

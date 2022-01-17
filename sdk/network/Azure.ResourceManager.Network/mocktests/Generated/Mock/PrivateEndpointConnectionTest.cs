@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var privateEndpointConnectionId = Network.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testPls", "testPlePeConnection");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

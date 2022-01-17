@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetPublicIPAddresses();
-            await collection.CreateOrUpdateAsync(publicIpAddressName, parameters);
+            await collection.CreateOrUpdateAsync(true, publicIpAddressName, parameters);
         }
 
         [RecordedTest]
@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetPublicIPAddresses();
-            await collection.CreateOrUpdateAsync(publicIpAddressName, parameters);
+            await collection.CreateOrUpdateAsync(true, publicIpAddressName, parameters);
         }
 
         [RecordedTest]
@@ -76,7 +76,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetPublicIPAddresses();
-            await collection.CreateOrUpdateAsync(publicIpAddressName, parameters);
+            await collection.CreateOrUpdateAsync(true, publicIpAddressName, parameters);
         }
 
         [RecordedTest]

@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "subnet-test", "vnetname");
             var collection = GetArmClient().GetVirtualNetwork(virtualNetworkId).GetSubnets();
-            await collection.CreateOrUpdateAsync(subnetName, subnetParameters);
+            await collection.CreateOrUpdateAsync(true, subnetName, subnetParameters);
         }
 
         [RecordedTest]
@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "subnet-test", "vnetname");
             var collection = GetArmClient().GetVirtualNetwork(virtualNetworkId).GetSubnets();
-            await collection.CreateOrUpdateAsync(subnetName, subnetParameters);
+            await collection.CreateOrUpdateAsync(true, subnetName, subnetParameters);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "subnet-test", "vnetname");
             var collection = GetArmClient().GetVirtualNetwork(virtualNetworkId).GetSubnets();
-            await collection.CreateOrUpdateAsync(subnetName, subnetParameters);
+            await collection.CreateOrUpdateAsync(true, subnetName, subnetParameters);
         }
 
         [RecordedTest]

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var blobInventoryPolicyId = Storage.BlobInventoryPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527", "default");
             var blobInventoryPolicy = GetArmClient().GetBlobInventoryPolicy(blobInventoryPolicyId);
 
-            await blobInventoryPolicy.DeleteAsync();
+            await blobInventoryPolicy.DeleteAsync(true);
         }
     }
 }

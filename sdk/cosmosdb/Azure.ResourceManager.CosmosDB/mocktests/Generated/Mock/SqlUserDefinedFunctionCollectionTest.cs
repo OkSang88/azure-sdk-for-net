@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
 
             var sqlContainerId = CosmosDB.SqlContainer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName");
             var collection = GetArmClient().GetSqlContainer(sqlContainerId).GetSqlUserDefinedFunctions();
-            await collection.CreateOrUpdateAsync(userDefinedFunctionName, createUpdateSqlUserDefinedFunctionParameters);
+            await collection.CreateOrUpdateAsync(true, userDefinedFunctionName, createUpdateSqlUserDefinedFunctionParameters);
         }
 
         [RecordedTest]

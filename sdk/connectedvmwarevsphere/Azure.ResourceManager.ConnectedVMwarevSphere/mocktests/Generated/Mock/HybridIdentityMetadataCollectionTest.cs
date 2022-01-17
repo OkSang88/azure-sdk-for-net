@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
 
             var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
             var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
-            await collection.CreateOrUpdateAsync(metadataName, body);
+            await collection.CreateOrUpdateAsync(true, metadataName, body);
         }
 
         [RecordedTest]

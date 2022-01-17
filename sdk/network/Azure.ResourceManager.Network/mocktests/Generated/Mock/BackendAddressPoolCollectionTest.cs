@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var loadBalancerId = Network.LoadBalancer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "lb");
             var collection = GetArmClient().GetLoadBalancer(loadBalancerId).GetBackendAddressPools();
-            await collection.CreateOrUpdateAsync(backendAddressPoolName, parameters);
+            await collection.CreateOrUpdateAsync(true, backendAddressPoolName, parameters);
         }
 
         [RecordedTest]

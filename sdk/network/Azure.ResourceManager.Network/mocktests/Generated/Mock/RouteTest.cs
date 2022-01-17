@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var routeId = Network.Route.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testrt", "route1");
             var route = GetArmClient().GetRoute(routeId);
 
-            await route.DeleteAsync();
+            await route.DeleteAsync(true);
         }
     }
 }

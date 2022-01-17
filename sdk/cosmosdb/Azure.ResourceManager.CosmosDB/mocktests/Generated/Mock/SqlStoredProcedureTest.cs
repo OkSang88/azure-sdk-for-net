@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var sqlStoredProcedureId = CosmosDB.SqlStoredProcedure.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName", "storedProcedureName");
             var sqlStoredProcedure = GetArmClient().GetSqlStoredProcedure(sqlStoredProcedureId);
 
-            await sqlStoredProcedure.DeleteAsync();
+            await sqlStoredProcedure.DeleteAsync(true);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "exampleResourceGroup", "sdk-Namespace-8859");
             var collection = GetArmClient().GetEventHubNamespace(eventHubNamespaceId).GetDisasterRecoveries();
-            await collection.CreateOrUpdateAsync(@alias, parameters);
+            await collection.CreateOrUpdateAsync(true, @alias, parameters);
         }
 
         [RecordedTest]

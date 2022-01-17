@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnSiteLinkConnectionId = Network.VpnSiteLinkConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1", "vpnConnection1", "Connection-Link1");
             var vpnSiteLinkConnection = GetArmClient().GetVpnSiteLinkConnection(vpnSiteLinkConnectionId);
 
-            await vpnSiteLinkConnection.ResetConnectionVpnLinkConnectionAsync();
+            await vpnSiteLinkConnection.ResetConnectionVpnLinkConnectionAsync(true);
         }
 
         [RecordedTest]
@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnSiteLinkConnectionId = Network.VpnSiteLinkConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1", "vpnConnection1", "Connection-Link1");
             var vpnSiteLinkConnection = GetArmClient().GetVpnSiteLinkConnection(vpnSiteLinkConnectionId);
 
-            await vpnSiteLinkConnection.GetIkeSasVpnLinkConnectionAsync();
+            await vpnSiteLinkConnection.GetIkeSasVpnLinkConnectionAsync(true);
         }
     }
 }

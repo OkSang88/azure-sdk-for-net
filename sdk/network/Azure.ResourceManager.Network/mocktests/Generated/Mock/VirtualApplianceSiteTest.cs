@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualApplianceSiteId = Network.VirtualApplianceSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nva", "site1");
             var virtualApplianceSite = GetArmClient().GetVirtualApplianceSite(virtualApplianceSiteId);
 
-            await virtualApplianceSite.DeleteAsync();
+            await virtualApplianceSite.DeleteAsync(true);
         }
     }
 }

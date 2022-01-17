@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRoutePortId = Network.ExpressRoutePort.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "portName");
             var expressRoutePort = GetArmClient().GetExpressRoutePort(expressRoutePortId);
 
-            await expressRoutePort.DeleteAsync();
+            await expressRoutePort.DeleteAsync(true);
         }
 
         [RecordedTest]

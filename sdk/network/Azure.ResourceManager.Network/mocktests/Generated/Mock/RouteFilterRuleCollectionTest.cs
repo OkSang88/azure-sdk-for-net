@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var routeFilterId = Network.RouteFilter.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "filterName");
             var collection = GetArmClient().GetRouteFilter(routeFilterId).GetRouteFilterRules();
-            await collection.CreateOrUpdateAsync(ruleName, routeFilterRuleParameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, routeFilterRuleParameters);
         }
 
         [RecordedTest]

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualWANId = Network.VirtualWAN.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualWan1");
             var virtualWAN = GetArmClient().GetVirtualWAN(virtualWANId);
 
-            await virtualWAN.DeleteAsync();
+            await virtualWAN.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -78,7 +78,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 AuthenticationMethod = new Network.Models.AuthenticationMethod("EAPTLS"),
             };
 
-            await virtualWAN.GeneratevirtualwanvpnserverconfigurationvpnprofileAsync(vpnClientParams);
+            await virtualWAN.GeneratevirtualwanvpnserverconfigurationvpnprofileAsync(true, vpnClientParams);
         }
 
         [RecordedTest]
@@ -89,7 +89,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualWAN = GetArmClient().GetVirtualWAN(virtualWANId);
             Network.Models.GetVpnSitesConfigurationRequest request = new Network.Models.GetVpnSitesConfigurationRequest(outputBlobSasUrl: "https://blobcortextesturl.blob.core.windows.net/folderforconfig/vpnFile?sp=rw&se=2018-01-10T03%3A42%3A04Z&sv=2017-04-17&sig=WvXrT5bDmDFfgHs%2Brz%2BjAu123eRCNE9BO0eQYcPDT7pY%3D&sr=b");
 
-            await virtualWAN.DownloadVpnSitesConfigurationAsync(request);
+            await virtualWAN.DownloadVpnSitesConfigurationAsync(true, request);
         }
 
         [RecordedTest]
@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualWANId = Network.VirtualWAN.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "wan1");
             var virtualWAN = GetArmClient().GetVirtualWAN(virtualWANId);
 
-            await virtualWAN.GetVpnServerConfigurationsAssociatedWithVirtualWanAsync();
+            await virtualWAN.GetVpnServerConfigurationsAssociatedWithVirtualWanAsync(true);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnSiteId = Network.VpnSite.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpnSite1");
             var vpnSite = GetArmClient().GetVpnSite(vpnSiteId);
 
-            await vpnSite.DeleteAsync();
+            await vpnSite.DeleteAsync(true);
         }
 
         [RecordedTest]

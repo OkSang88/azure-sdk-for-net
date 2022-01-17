@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             createUpdateCassandraTableParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
             var cassandraKeyspaceId = CosmosDB.CassandraKeyspace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "keyspaceName");
             var collection = GetArmClient().GetCassandraKeyspace(cassandraKeyspaceId).GetCassandraTables();
-            await collection.CreateOrUpdateAsync(tableName, createUpdateCassandraTableParameters);
+            await collection.CreateOrUpdateAsync(true, tableName, createUpdateCassandraTableParameters);
         }
 
         [RecordedTest]

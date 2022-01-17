@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var schemaGroupId = EventHubs.SchemaGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "alitest", "ali-ua-test-eh-system-1", "testSchemaGroup1");
             var schemaGroup = GetArmClient().GetSchemaGroup(schemaGroupId);
 
-            await schemaGroup.DeleteAsync();
+            await schemaGroup.DeleteAsync(true);
         }
     }
 }

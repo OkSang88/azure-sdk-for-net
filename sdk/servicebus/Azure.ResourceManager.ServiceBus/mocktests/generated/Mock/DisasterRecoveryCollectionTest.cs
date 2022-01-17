@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusNamespaceId = ServiceBus.ServiceBusNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ardsouzatestRG", "sdk-Namespace-8860");
             var collection = GetArmClient().GetServiceBusNamespace(serviceBusNamespaceId).GetDisasterRecoveries();
-            await collection.CreateOrUpdateAsync(@alias, parameters);
+            await collection.CreateOrUpdateAsync(true, @alias, parameters);
         }
 
         [RecordedTest]

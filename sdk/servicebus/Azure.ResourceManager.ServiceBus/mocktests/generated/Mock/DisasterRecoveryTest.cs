@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             var disasterRecoveryId = ServiceBus.DisasterRecovery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "SouthCentralUS", "sdk-Namespace-8860", "sdk-DisasterRecovery-3814");
             var disasterRecovery = GetArmClient().GetDisasterRecovery(disasterRecoveryId);
 
-            await disasterRecovery.DeleteAsync();
+            await disasterRecovery.DeleteAsync(true);
         }
 
         [RecordedTest]

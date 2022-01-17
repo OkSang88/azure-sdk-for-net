@@ -45,7 +45,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetTenants().GetAll().GetEnumerator().Current.GetDeployments();
-            await collection.CreateOrUpdateAsync(deploymentName, parameters);
+            await collection.CreateOrUpdateAsync(true, deploymentName, parameters);
         }
     }
 }

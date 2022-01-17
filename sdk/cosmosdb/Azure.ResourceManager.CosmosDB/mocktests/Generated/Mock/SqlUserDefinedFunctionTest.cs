@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var sqlUserDefinedFunctionId = CosmosDB.SqlUserDefinedFunction.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName", "userDefinedFunctionName");
             var sqlUserDefinedFunction = GetArmClient().GetSqlUserDefinedFunction(sqlUserDefinedFunctionId);
 
-            await sqlUserDefinedFunction.DeleteAsync();
+            await sqlUserDefinedFunction.DeleteAsync(true);
         }
     }
 }

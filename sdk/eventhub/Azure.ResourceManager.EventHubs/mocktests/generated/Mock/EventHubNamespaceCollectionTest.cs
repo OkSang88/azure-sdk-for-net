@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResurceGroupSample")).GetEventHubNamespaces();
-            await collection.CreateOrUpdateAsync(namespaceName, parameters);
+            await collection.CreateOrUpdateAsync(true, namespaceName, parameters);
         }
 
         [RecordedTest]

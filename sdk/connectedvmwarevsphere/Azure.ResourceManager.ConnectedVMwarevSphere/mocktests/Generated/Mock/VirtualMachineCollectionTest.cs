@@ -48,7 +48,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg")).GetVirtualMachines();
-            await collection.CreateOrUpdateAsync(virtualMachineName, body);
+            await collection.CreateOrUpdateAsync(true, virtualMachineName, body);
         }
 
         [RecordedTest]

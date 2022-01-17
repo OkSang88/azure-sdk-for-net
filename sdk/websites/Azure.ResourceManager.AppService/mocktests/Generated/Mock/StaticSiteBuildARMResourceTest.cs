@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteBuildARMResourceId = AppService.StaticSiteBuildARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0", "12");
             var staticSiteBuildARMResource = GetArmClient().GetStaticSiteBuildARMResource(staticSiteBuildARMResourceId);
 
-            await staticSiteBuildARMResource.DeleteAsync();
+            await staticSiteBuildARMResource.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -114,7 +114,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
                 FunctionLanguage = "testFunctionLanguage",
             };
 
-            await staticSiteBuildARMResource.CreateZipDeploymentForStaticSiteBuildAsync(staticSiteZipDeploymentEnvelope);
+            await staticSiteBuildARMResource.CreateZipDeploymentForStaticSiteBuildAsync(true, staticSiteZipDeploymentEnvelope);
         }
     }
 }

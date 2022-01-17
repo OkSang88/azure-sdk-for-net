@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             var deletedVaultId = KeyVault.DeletedVault.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "westus", "sample-vault");
             var deletedVault = GetArmClient().GetDeletedVault(deletedVaultId);
 
-            await deletedVault.PurgeDeletedAsync();
+            await deletedVault.PurgeDeletedAsync(true);
         }
     }
 }

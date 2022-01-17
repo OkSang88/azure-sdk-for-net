@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var certificateId = AppService.Certificate.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg123", "testc6282");
             var certificate = GetArmClient().GetCertificate(certificateId);
 
-            await certificate.DeleteAsync();
+            await certificate.DeleteAsync(true);
         }
 
         [RecordedTest]

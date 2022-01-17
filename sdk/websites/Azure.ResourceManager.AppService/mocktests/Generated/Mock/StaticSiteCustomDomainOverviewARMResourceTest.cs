@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteCustomDomainOverviewARMResourceId = AppService.StaticSiteCustomDomainOverviewARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0", "custom.domain.net");
             var staticSiteCustomDomainOverviewARMResource = GetArmClient().GetStaticSiteCustomDomainOverviewARMResource(staticSiteCustomDomainOverviewARMResourceId);
 
-            await staticSiteCustomDomainOverviewARMResource.DeleteAsync();
+            await staticSiteCustomDomainOverviewARMResource.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteCustomDomainOverviewARMResource = GetArmClient().GetStaticSiteCustomDomainOverviewARMResource(staticSiteCustomDomainOverviewARMResourceId);
             AppService.Models.StaticSiteCustomDomainRequestPropertiesARMResource staticSiteCustomDomainRequestPropertiesEnvelope = new AppService.Models.StaticSiteCustomDomainRequestPropertiesARMResource();
 
-            await staticSiteCustomDomainOverviewARMResource.ValidateCustomDomainCanBeAddedToStaticSiteAsync(staticSiteCustomDomainRequestPropertiesEnvelope);
+            await staticSiteCustomDomainOverviewARMResource.ValidateCustomDomainCanBeAddedToStaticSiteAsync(true, staticSiteCustomDomainRequestPropertiesEnvelope);
         }
     }
 }

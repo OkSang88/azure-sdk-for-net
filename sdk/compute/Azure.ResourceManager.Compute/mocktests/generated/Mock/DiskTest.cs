@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var diskId = Compute.Disk.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDisk");
             var disk = GetArmClient().GetDisk(diskId);
 
-            await disk.DeleteAsync();
+            await disk.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -57,7 +57,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 BurstingEnabled = true,
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -88,7 +88,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 SupportsHibernation = true,
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -102,7 +102,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 Tier = "P30",
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -116,7 +116,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 BurstingEnabled = false,
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -130,7 +130,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 NetworkAccessPolicy = new Compute.Models.NetworkAccessPolicy("AllowAll"),
             };
 
-            await disk.UpdateAsync(disk2);
+            await disk.UpdateAsync(true, disk2);
         }
 
         [RecordedTest]
@@ -141,7 +141,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var disk = GetArmClient().GetDisk(diskId);
             Compute.Models.GrantAccessData grantAccessData = new Compute.Models.GrantAccessData(access: new Compute.Models.AccessLevel("Read"), durationInSeconds: 300);
 
-            await disk.GrantAccessAsync(grantAccessData);
+            await disk.GrantAccessAsync(true, grantAccessData);
         }
 
         [RecordedTest]
@@ -151,7 +151,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var diskId = Compute.Disk.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDisk");
             var disk = GetArmClient().GetDisk(diskId);
 
-            await disk.RevokeAccessAsync();
+            await disk.RevokeAccessAsync(true);
         }
     }
 }

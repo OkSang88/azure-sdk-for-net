@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             var configurationStoreId = AppConfiguration.ConfigurationStore.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "contoso");
             var configurationStore = GetArmClient().GetConfigurationStore(configurationStoreId);
 
-            await configurationStore.DeleteAsync();
+            await configurationStore.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             var configurationStore = GetArmClient().GetConfigurationStore(configurationStoreId);
             AppConfiguration.Models.ConfigurationStoreUpdateOptions configurationStoreUpdateOptions = null; /* Can't find this parameter in example, please provide value here!*/
 
-            await configurationStore.UpdateAsync(configurationStoreUpdateOptions);
+            await configurationStore.UpdateAsync(true, configurationStoreUpdateOptions);
         }
 
         [RecordedTest]
@@ -64,7 +64,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             var configurationStore = GetArmClient().GetConfigurationStore(configurationStoreId);
             AppConfiguration.Models.ConfigurationStoreUpdateOptions configurationStoreUpdateOptions = null; /* Can't find this parameter in example, please provide value here!*/
 
-            await configurationStore.UpdateAsync(configurationStoreUpdateOptions);
+            await configurationStore.UpdateAsync(true, configurationStoreUpdateOptions);
         }
 
         [RecordedTest]

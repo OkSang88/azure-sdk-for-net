@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 HyperVGeneration = new Compute.Models.HyperVGenerationTypes("V1"),
             };
 
-            await image.UpdateAsync(parameters);
+            await image.UpdateAsync(true, parameters);
         }
     }
 }

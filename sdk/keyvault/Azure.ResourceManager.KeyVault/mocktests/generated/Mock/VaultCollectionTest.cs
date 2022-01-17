@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             });
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group")).GetVaults();
-            await collection.CreateOrUpdateAsync(vaultName, parameters);
+            await collection.CreateOrUpdateAsync(true, vaultName, parameters);
         }
 
         [RecordedTest]
@@ -58,7 +58,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             });
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group")).GetVaults();
-            await collection.CreateOrUpdateAsync(vaultName, parameters);
+            await collection.CreateOrUpdateAsync(true, vaultName, parameters);
         }
 
         [RecordedTest]

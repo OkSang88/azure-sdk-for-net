@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var packetCaptureId = Network.PacketCapture.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "pc1");
             var packetCapture = GetArmClient().GetPacketCapture(packetCaptureId);
 
-            await packetCapture.DeleteAsync();
+            await packetCapture.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var packetCaptureId = Network.PacketCapture.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "pc1");
             var packetCapture = GetArmClient().GetPacketCapture(packetCaptureId);
 
-            await packetCapture.StopAsync();
+            await packetCapture.StopAsync(true);
         }
 
         [RecordedTest]
@@ -61,7 +61,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var packetCaptureId = Network.PacketCapture.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "pc1");
             var packetCapture = GetArmClient().GetPacketCapture(packetCaptureId);
 
-            await packetCapture.GetStatusAsync();
+            await packetCapture.GetStatusAsync(true);
         }
     }
 }

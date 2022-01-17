@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
 
             var vaultId = KeyVault.Vault.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-vault");
             var collection = GetArmClient().GetVault(vaultId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, properties);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, properties);
         }
 
         [RecordedTest]

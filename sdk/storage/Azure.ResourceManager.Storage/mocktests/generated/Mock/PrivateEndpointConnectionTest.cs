@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var privateEndpointConnectionId = Storage.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res6977", "sto2527", "{privateEndpointConnectionName}");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

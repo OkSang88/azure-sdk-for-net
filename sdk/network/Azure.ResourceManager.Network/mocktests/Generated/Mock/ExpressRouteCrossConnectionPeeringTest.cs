@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCrossConnectionPeeringId = Network.ExpressRouteCrossConnectionPeering.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "CrossConnection-SiliconValley", "<circuitServiceKey>", "AzurePrivatePeering");
             var expressRouteCrossConnectionPeering = GetArmClient().GetExpressRouteCrossConnectionPeering(expressRouteCrossConnectionPeeringId);
 
-            await expressRouteCrossConnectionPeering.DeleteAsync();
+            await expressRouteCrossConnectionPeering.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCrossConnectionPeering = GetArmClient().GetExpressRouteCrossConnectionPeering(expressRouteCrossConnectionPeeringId);
             string devicePath = "primary";
 
-            await expressRouteCrossConnectionPeering.GetArpTableExpressRouteCrossConnectionAsync(devicePath);
+            await expressRouteCrossConnectionPeering.GetArpTableExpressRouteCrossConnectionAsync(true, devicePath);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCrossConnectionPeering = GetArmClient().GetExpressRouteCrossConnectionPeering(expressRouteCrossConnectionPeeringId);
             string devicePath = "primary";
 
-            await expressRouteCrossConnectionPeering.GetRoutesTableSummaryExpressRouteCrossConnectionAsync(devicePath);
+            await expressRouteCrossConnectionPeering.GetRoutesTableSummaryExpressRouteCrossConnectionAsync(true, devicePath);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCrossConnectionPeering = GetArmClient().GetExpressRouteCrossConnectionPeering(expressRouteCrossConnectionPeeringId);
             string devicePath = "primary";
 
-            await expressRouteCrossConnectionPeering.GetRoutesTableExpressRouteCrossConnectionAsync(devicePath);
+            await expressRouteCrossConnectionPeering.GetRoutesTableExpressRouteCrossConnectionAsync(true, devicePath);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetAvailabilitySets();
-            await collection.CreateOrUpdateAsync(availabilitySetName, parameters);
+            await collection.CreateOrUpdateAsync(true, availabilitySetName, parameters);
         }
     }
 }

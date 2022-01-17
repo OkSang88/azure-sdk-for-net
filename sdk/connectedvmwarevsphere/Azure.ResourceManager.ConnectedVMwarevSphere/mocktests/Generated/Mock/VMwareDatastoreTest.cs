@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var vMwareDatastore = GetArmClient().GetVMwareDatastore(vMwareDatastoreId);
             bool? force = null;
 
-            await vMwareDatastore.DeleteAsync(force);
+            await vMwareDatastore.DeleteAsync(true, force);
         }
 
         [RecordedTest]

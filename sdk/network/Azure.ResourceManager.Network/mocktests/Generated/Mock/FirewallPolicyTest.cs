@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var firewallPolicyId = Network.FirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "firewallPolicy");
             var firewallPolicy = GetArmClient().GetFirewallPolicy(firewallPolicyId);
 
-            await firewallPolicy.DeleteAsync();
+            await firewallPolicy.DeleteAsync(true);
         }
     }
 }

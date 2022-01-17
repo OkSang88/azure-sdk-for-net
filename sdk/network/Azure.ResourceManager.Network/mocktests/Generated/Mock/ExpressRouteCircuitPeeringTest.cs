@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitPeeringId = Network.ExpressRouteCircuitPeering.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "circuitName", "peeringName");
             var expressRouteCircuitPeering = GetArmClient().GetExpressRouteCircuitPeering(expressRouteCircuitPeeringId);
 
-            await expressRouteCircuitPeering.DeleteAsync();
+            await expressRouteCircuitPeering.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitPeering = GetArmClient().GetExpressRouteCircuitPeering(expressRouteCircuitPeeringId);
             string devicePath = "devicePath";
 
-            await expressRouteCircuitPeering.GetArpTableExpressRouteCircuitAsync(devicePath);
+            await expressRouteCircuitPeering.GetArpTableExpressRouteCircuitAsync(true, devicePath);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitPeering = GetArmClient().GetExpressRouteCircuitPeering(expressRouteCircuitPeeringId);
             string devicePath = "devicePath";
 
-            await expressRouteCircuitPeering.GetRoutesTableExpressRouteCircuitAsync(devicePath);
+            await expressRouteCircuitPeering.GetRoutesTableExpressRouteCircuitAsync(true, devicePath);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitPeering = GetArmClient().GetExpressRouteCircuitPeering(expressRouteCircuitPeeringId);
             string devicePath = "devicePath";
 
-            await expressRouteCircuitPeering.GetRoutesTableSummaryExpressRouteCircuitAsync(devicePath);
+            await expressRouteCircuitPeering.GetRoutesTableSummaryExpressRouteCircuitAsync(true, devicePath);
         }
 
         [RecordedTest]

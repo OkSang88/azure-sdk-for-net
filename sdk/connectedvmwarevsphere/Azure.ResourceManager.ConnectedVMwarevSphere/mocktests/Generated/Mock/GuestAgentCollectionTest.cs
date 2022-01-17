@@ -45,7 +45,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
 
             var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
             var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetGuestAgents();
-            await collection.CreateOrUpdateAsync(name, body);
+            await collection.CreateOrUpdateAsync(true, name, body);
         }
 
         [RecordedTest]

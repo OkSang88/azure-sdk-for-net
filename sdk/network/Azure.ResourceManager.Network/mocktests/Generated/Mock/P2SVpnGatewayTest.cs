@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var p2SVpnGatewayId = Network.P2SVpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "p2sVpnGateway1");
             var p2SVpnGateway = GetArmClient().GetP2SVpnGateway(p2SVpnGatewayId);
 
-            await p2SVpnGateway.DeleteAsync();
+            await p2SVpnGateway.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var p2SVpnGateway = GetArmClient().GetP2SVpnGateway(p2SVpnGatewayId);
             Network.Models.TagsObject p2SVpnGatewayParameters = new Network.Models.TagsObject();
 
-            await p2SVpnGateway.UpdateAsync(p2SVpnGatewayParameters);
+            await p2SVpnGateway.UpdateAsync(true, p2SVpnGatewayParameters);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var p2SVpnGatewayId = Network.P2SVpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "p2sVpnGateway1");
             var p2SVpnGateway = GetArmClient().GetP2SVpnGateway(p2SVpnGatewayId);
 
-            await p2SVpnGateway.ResetAsync();
+            await p2SVpnGateway.ResetAsync(true);
         }
 
         [RecordedTest]
@@ -77,7 +77,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 AuthenticationMethod = new Network.Models.AuthenticationMethod("EAPTLS"),
             };
 
-            await p2SVpnGateway.GenerateVpnProfileAsync(parameters);
+            await p2SVpnGateway.GenerateVpnProfileAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -87,7 +87,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var p2SVpnGatewayId = Network.P2SVpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "p2sVpnGateway1");
             var p2SVpnGateway = GetArmClient().GetP2SVpnGateway(p2SVpnGatewayId);
 
-            await p2SVpnGateway.GetP2SVpnConnectionHealthAsync();
+            await p2SVpnGateway.GetP2SVpnConnectionHealthAsync(true);
         }
 
         [RecordedTest]
@@ -101,7 +101,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 OutputBlobSasUrl = "https://blobcortextesturl.blob.core.windows.net/folderforconfig/p2sconnectionhealths?sp=rw&se=2018-01-10T03%3A42%3A04Z&sv=2017-04-17&sig=WvXrT5bDmDFfgHs%2Brz%2BjAu123eRCNE9BO0eQYcPDT7pY%3D&sr=b",
             };
 
-            await p2SVpnGateway.GetP2SVpnConnectionHealthDetailedAsync(request);
+            await p2SVpnGateway.GetP2SVpnConnectionHealthDetailedAsync(true, request);
         }
 
         [RecordedTest]
@@ -112,7 +112,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var p2SVpnGateway = GetArmClient().GetP2SVpnGateway(p2SVpnGatewayId);
             Network.Models.P2SVpnConnectionRequest request = new Network.Models.P2SVpnConnectionRequest();
 
-            await p2SVpnGateway.DisconnectP2SVpnConnectionsAsync(request);
+            await p2SVpnGateway.DisconnectP2SVpnConnectionsAsync(true, request);
         }
     }
 }

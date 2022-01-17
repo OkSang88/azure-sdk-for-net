@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualRouterId = Network.VirtualRouter.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualRouter");
             var virtualRouter = GetArmClient().GetVirtualRouter(virtualRouterId);
 
-            await virtualRouter.DeleteAsync();
+            await virtualRouter.DeleteAsync(true);
         }
     }
 }

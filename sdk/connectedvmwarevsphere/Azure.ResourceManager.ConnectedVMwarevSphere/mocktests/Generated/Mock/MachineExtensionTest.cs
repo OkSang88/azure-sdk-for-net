@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var machineExtensionId = ConnectedVMwarevSphere.MachineExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myMachine", "MMA");
             var machineExtension = GetArmClient().GetMachineExtension(machineExtensionId);
 
-            await machineExtension.DeleteAsync();
+            await machineExtension.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             ,
             };
 
-            await machineExtension.UpdateAsync(extensionParameters);
+            await machineExtension.UpdateAsync(true, extensionParameters);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryApplicationVersionId = Compute.GalleryApplicationVersion.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryApplicationName", "1.0.0");
             var galleryApplicationVersion = GetArmClient().GetGalleryApplicationVersion(galleryApplicationVersionId);
 
-            await galleryApplicationVersion.DeleteAsync();
+            await galleryApplicationVersion.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await galleryApplicationVersion.UpdateAsync(galleryApplicationVersion2);
+            await galleryApplicationVersion.UpdateAsync(true, galleryApplicationVersion2);
         }
     }
 }

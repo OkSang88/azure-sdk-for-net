@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             Network.BastionHostData parameters = new Network.BastionHostData();
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetBastionHosts();
-            await collection.CreateOrUpdateAsync(bastionHostName, parameters);
+            await collection.CreateOrUpdateAsync(true, bastionHostName, parameters);
         }
 
         [RecordedTest]

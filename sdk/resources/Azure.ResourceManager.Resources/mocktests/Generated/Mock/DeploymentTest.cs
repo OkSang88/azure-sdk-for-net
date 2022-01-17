@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             ,
             };
 
-            await deployment.WhatIfAsync(location, properties);
+            await deployment.WhatIfAsync(true, location, properties);
         }
 
         [RecordedTest]
@@ -60,7 +60,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             ,
             };
 
-            await deployment.WhatIfAsync(location, properties);
+            await deployment.WhatIfAsync(true, location, properties);
         }
 
         [RecordedTest]
@@ -79,7 +79,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             ,
             };
 
-            await deployment.WhatIfAsync(location, properties);
+            await deployment.WhatIfAsync(true, location, properties);
         }
 
         [RecordedTest]
@@ -98,7 +98,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             ,
             };
 
-            await deployment.WhatIfAsync(location, properties);
+            await deployment.WhatIfAsync(true, location, properties);
         }
     }
 }

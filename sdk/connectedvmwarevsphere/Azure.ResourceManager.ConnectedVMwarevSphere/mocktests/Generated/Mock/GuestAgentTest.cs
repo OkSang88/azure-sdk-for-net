@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var guestAgentId = ConnectedVMwarevSphere.GuestAgent.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm", "default");
             var guestAgent = GetArmClient().GetGuestAgent(guestAgentId);
 
-            await guestAgent.DeleteAsync();
+            await guestAgent.DeleteAsync(true);
         }
     }
 }

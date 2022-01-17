@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryApplicationId = Compute.GalleryApplication.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryApplicationName");
             var galleryApplication = GetArmClient().GetGalleryApplication(galleryApplicationId);
 
-            await galleryApplication.DeleteAsync();
+            await galleryApplication.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -60,7 +60,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 SupportedOSType = Compute.Models.OperatingSystemTypes.Windows,
             };
 
-            await galleryApplication.UpdateAsync(galleryApplication2);
+            await galleryApplication.UpdateAsync(true, galleryApplication2);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var ipAllocationId = Network.IpAllocation.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-ipallocation");
             var ipAllocation = GetArmClient().GetIpAllocation(ipAllocationId);
 
-            await ipAllocation.DeleteAsync();
+            await ipAllocation.DeleteAsync(true);
         }
 
         [RecordedTest]

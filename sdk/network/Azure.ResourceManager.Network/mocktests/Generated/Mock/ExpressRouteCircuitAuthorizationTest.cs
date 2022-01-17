@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitAuthorizationId = Network.ExpressRouteCircuitAuthorization.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "circuitName", "authorizationName");
             var expressRouteCircuitAuthorization = GetArmClient().GetExpressRouteCircuitAuthorization(expressRouteCircuitAuthorizationId);
 
-            await expressRouteCircuitAuthorization.DeleteAsync();
+            await expressRouteCircuitAuthorization.DeleteAsync(true);
         }
     }
 }

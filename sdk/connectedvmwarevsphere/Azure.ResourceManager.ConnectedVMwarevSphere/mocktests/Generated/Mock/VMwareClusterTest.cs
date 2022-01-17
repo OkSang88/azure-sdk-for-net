@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var vMwareCluster = GetArmClient().GetVMwareCluster(vMwareClusterId);
             bool? force = null;
 
-            await vMwareCluster.DeleteAsync(force);
+            await vMwareCluster.DeleteAsync(true, force);
         }
 
         [RecordedTest]

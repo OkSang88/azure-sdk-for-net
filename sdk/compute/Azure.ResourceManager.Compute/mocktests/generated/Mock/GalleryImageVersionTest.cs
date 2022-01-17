@@ -76,7 +76,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryImageVersionId = Compute.GalleryImageVersion.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName", "1.0.0");
             var galleryImageVersion = GetArmClient().GetGalleryImageVersion(galleryImageVersionId);
 
-            await galleryImageVersion.DeleteAsync();
+            await galleryImageVersion.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -97,7 +97,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await galleryImageVersion.UpdateAsync(galleryImageVersion2);
+            await galleryImageVersion.UpdateAsync(true, galleryImageVersion2);
         }
 
         [RecordedTest]
@@ -112,7 +112,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 StorageProfile = new Compute.Models.GalleryImageVersionStorageProfile(),
             };
 
-            await galleryImageVersion.UpdateAsync(galleryImageVersion2);
+            await galleryImageVersion.UpdateAsync(true, galleryImageVersion2);
         }
     }
 }

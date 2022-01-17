@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var disasterRecoveryId = EventHubs.DisasterRecovery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "exampleResourceGroup", "sdk-Namespace-5849", "sdk-DisasterRecovery-3814");
             var disasterRecovery = GetArmClient().GetDisasterRecovery(disasterRecoveryId);
 
-            await disasterRecovery.DeleteAsync();
+            await disasterRecovery.DeleteAsync(true);
         }
 
         [RecordedTest]

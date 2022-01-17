@@ -31,7 +31,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var tableServiceId = Storage.TableService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328");
             var collection = GetArmClient().GetTableService(tableServiceId).GetTables();
-            await collection.CreateOrUpdateAsync(tableName);
+            await collection.CreateOrUpdateAsync(true, tableName);
         }
 
         [RecordedTest]

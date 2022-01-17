@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             var migrationConfigPropertiesId = ServiceBus.MigrationConfigProperties.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "sdk-Namespace-41", "$default");
             var migrationConfigProperties = GetArmClient().GetMigrationConfigProperties(migrationConfigPropertiesId);
 
-            await migrationConfigProperties.DeleteAsync();
+            await migrationConfigProperties.DeleteAsync(true);
         }
 
         [RecordedTest]

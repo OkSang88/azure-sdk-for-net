@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var expressRouteCircuitId = Network.ExpressRouteCircuit.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "circuitName");
             var expressRouteCircuit = GetArmClient().GetExpressRouteCircuit(expressRouteCircuitId);
 
-            await expressRouteCircuit.DeleteAsync();
+            await expressRouteCircuit.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var privateEndpointConnectionId = CosmosDB.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "privateEndpointConnectionName");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

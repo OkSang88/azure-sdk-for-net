@@ -40,7 +40,7 @@ new Network.Models.ManagedRuleSet(ruleSetType: "OWASP",ruleSetVersion: "3.2"),})
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetWebApplicationFirewallPolicies();
-            await collection.CreateOrUpdateAsync(policyName, parameters);
+            await collection.CreateOrUpdateAsync(true, policyName, parameters);
         }
 
         [RecordedTest]

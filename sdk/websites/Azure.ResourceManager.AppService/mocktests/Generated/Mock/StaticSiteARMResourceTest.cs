@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0");
             var staticSiteARMResource = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId);
 
-            await staticSiteARMResource.DeleteAsync();
+            await staticSiteARMResource.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -144,7 +144,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0");
             var staticSiteARMResource = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId);
 
-            await staticSiteARMResource.DetachAsync();
+            await staticSiteARMResource.DetachAsync(true);
         }
 
         [RecordedTest]
@@ -199,17 +199,17 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
             await staticSiteARMResource.GetStaticSiteSecretsAsync();
         }
 
-        //[RecordedTest]
-        //public async Task GetPrivateLinkResources()
-        //{
-        //    // Example: Get private link resources of a site
-        //    var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite");
-        //    var staticSiteARMResource = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId);
+        [RecordedTest]
+        public async Task GetPrivateLinkResources()
+        {
+            // Example: Get private link resources of a site
+            var staticSiteARMResourceId = AppService.StaticSiteARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testSite");
+            var staticSiteARMResource = GetArmClient().GetStaticSiteARMResource(staticSiteARMResourceId);
 
-        //    await foreach (var _ in staticSiteARMResource.GetPrivateLinkResourcesAsync())
-        //    {
-        //    }
-        //}
+            await foreach (var _ in staticSiteARMResource.GetPrivateLinkResourcesAsync())
+            {
+            }
+        }
 
         [RecordedTest]
         public async Task ResetApiKey()
@@ -241,7 +241,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
                 FunctionLanguage = "testFunctionLanguage",
             };
 
-            await staticSiteARMResource.CreateZipDeploymentForStaticSiteAsync(staticSiteZipDeploymentEnvelope);
+            await staticSiteARMResource.CreateZipDeploymentForStaticSiteAsync(true, staticSiteZipDeploymentEnvelope);
         }
     }
 }

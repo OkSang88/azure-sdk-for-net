@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusNamespaceId = ServiceBus.ServiceBusNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-6914");
             var collection = GetArmClient().GetServiceBusNamespace(serviceBusNamespaceId).GetNamespaceAuthorizationRules();
-            await collection.CreateOrUpdateAsync(authorizationRuleName, parameters);
+            await collection.CreateOrUpdateAsync(true, authorizationRuleName, parameters);
         }
 
         [RecordedTest]

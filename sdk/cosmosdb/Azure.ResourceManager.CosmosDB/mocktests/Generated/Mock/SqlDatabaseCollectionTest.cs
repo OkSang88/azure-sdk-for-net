@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             createUpdateSqlDatabaseParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
             var databaseAccountId = CosmosDB.DatabaseAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1");
             var collection = GetArmClient().GetDatabaseAccount(databaseAccountId).GetSqlDatabases();
-            await collection.CreateOrUpdateAsync(databaseName, createUpdateSqlDatabaseParameters);
+            await collection.CreateOrUpdateAsync(true, databaseName, createUpdateSqlDatabaseParameters);
         }
 
         [RecordedTest]

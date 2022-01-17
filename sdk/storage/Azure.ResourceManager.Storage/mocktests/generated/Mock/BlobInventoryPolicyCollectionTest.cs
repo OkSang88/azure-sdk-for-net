@@ -47,7 +47,7 @@ IncludeBlobVersions = true, IncludeSnapshots = true, }, }),new Storage.Models.Bl
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "sto9699");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetBlobInventoryPolicies();
-            await collection.CreateOrUpdateAsync(blobInventoryPolicyName, properties);
+            await collection.CreateOrUpdateAsync(true, blobInventoryPolicyName, properties);
         }
 
         [RecordedTest]

@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-nic");
             var networkInterface = GetArmClient().GetNetworkInterface(networkInterfaceId);
 
-            await networkInterface.DeleteAsync();
+            await networkInterface.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -64,7 +64,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nic1");
             var networkInterface = GetArmClient().GetNetworkInterface(networkInterfaceId);
 
-            await networkInterface.GetEffectiveRouteTableAsync();
+            await networkInterface.GetEffectiveRouteTableAsync(true);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nic1");
             var networkInterface = GetArmClient().GetNetworkInterface(networkInterfaceId);
 
-            await networkInterface.GetEffectiveNetworkSecurityGroupsAsync();
+            await networkInterface.GetEffectiveNetworkSecurityGroupsAsync(true);
         }
 
         [RecordedTest]

@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Default-NotificationHubs-AustraliaEast", "sdk-Namespace-5357");
             var collection = GetArmClient().GetEventHubNamespace(eventHubNamespaceId).GetEventHubs();
-            await collection.CreateOrUpdateAsync(eventHubName, parameters);
+            await collection.CreateOrUpdateAsync(true, eventHubName, parameters);
         }
 
         [RecordedTest]

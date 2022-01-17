@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var virtualMachineId = Compute.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVM");
             var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetVirtualMachineRunCommands();
-            await collection.CreateOrUpdateAsync(runCommandName, runCommand);
+            await collection.CreateOrUpdateAsync(true, runCommandName, runCommand);
         }
 
         [RecordedTest]

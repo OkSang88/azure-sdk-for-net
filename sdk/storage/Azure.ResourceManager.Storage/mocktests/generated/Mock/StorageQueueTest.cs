@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             var storageQueueId = Storage.StorageQueue.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328", "queue6185");
             var storageQueue = GetArmClient().GetStorageQueue(storageQueueId);
 
-            await storageQueue.DeleteAsync();
+            await storageQueue.DeleteAsync(true);
         }
 
         [RecordedTest]

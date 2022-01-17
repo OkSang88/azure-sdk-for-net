@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
 
             var sqlContainerId = CosmosDB.SqlContainer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName", "containerName");
             var collection = GetArmClient().GetSqlContainer(sqlContainerId).GetSqlStoredProcedures();
-            await collection.CreateOrUpdateAsync(storedProcedureName, createUpdateSqlStoredProcedureParameters);
+            await collection.CreateOrUpdateAsync(true, storedProcedureName, createUpdateSqlStoredProcedureParameters);
         }
 
         [RecordedTest]

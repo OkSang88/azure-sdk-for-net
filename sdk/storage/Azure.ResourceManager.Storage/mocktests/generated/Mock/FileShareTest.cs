@@ -58,7 +58,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
             string xMsSnapshot = null;
             string include = null;
 
-            await fileShare.DeleteAsync(xMsSnapshot, include);
+            await fileShare.DeleteAsync(true, xMsSnapshot, include);
         }
 
         [RecordedTest]

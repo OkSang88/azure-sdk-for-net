@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var proximityPlacementGroupId = Compute.ProximityPlacementGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myProximityPlacementGroup");
             var proximityPlacementGroup = GetArmClient().GetProximityPlacementGroup(proximityPlacementGroupId);
 
-            await proximityPlacementGroup.DeleteAsync();
+            await proximityPlacementGroup.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetNetworkProfiles();
-            await collection.CreateOrUpdateAsync(networkProfileName, parameters);
+            await collection.CreateOrUpdateAsync(true, networkProfileName, parameters);
         }
 
         [RecordedTest]

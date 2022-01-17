@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var flowLogId = Network.FlowLog.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "fl");
             var flowLog = GetArmClient().GetFlowLog(flowLogId);
 
-            await flowLog.DeleteAsync();
+            await flowLog.DeleteAsync(true);
         }
 
         [RecordedTest]

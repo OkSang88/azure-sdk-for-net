@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualHubRouteTableV2Id = Network.VirtualHubRouteTableV2.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualHub1", "virtualHubRouteTable1a");
             var virtualHubRouteTableV2 = GetArmClient().GetVirtualHubRouteTableV2(virtualHubRouteTableV2Id);
 
-            await virtualHubRouteTableV2.DeleteAsync();
+            await virtualHubRouteTableV2.DeleteAsync(true);
         }
     }
 }

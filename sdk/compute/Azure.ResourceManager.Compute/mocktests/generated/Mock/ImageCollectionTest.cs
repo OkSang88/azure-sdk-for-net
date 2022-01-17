@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -95,7 +95,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -119,7 +119,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -146,7 +146,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -170,7 +170,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -187,7 +187,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -208,7 +208,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -232,7 +232,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]
@@ -256,7 +256,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetImages();
-            await collection.CreateOrUpdateAsync(imageName, parameters);
+            await collection.CreateOrUpdateAsync(true, imageName, parameters);
         }
 
         [RecordedTest]

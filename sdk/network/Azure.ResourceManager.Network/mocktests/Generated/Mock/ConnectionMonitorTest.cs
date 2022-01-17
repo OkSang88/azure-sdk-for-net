@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var connectionMonitorId = Network.ConnectionMonitor.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "cm1");
             var connectionMonitor = GetArmClient().GetConnectionMonitor(connectionMonitorId);
 
-            await connectionMonitor.DeleteAsync();
+            await connectionMonitor.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var connectionMonitorId = Network.ConnectionMonitor.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "cm1");
             var connectionMonitor = GetArmClient().GetConnectionMonitor(connectionMonitorId);
 
-            await connectionMonitor.StopAsync();
+            await connectionMonitor.StopAsync(true);
         }
 
         [RecordedTest]
@@ -73,7 +73,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var connectionMonitorId = Network.ConnectionMonitor.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "cm1");
             var connectionMonitor = GetArmClient().GetConnectionMonitor(connectionMonitorId);
 
-            await connectionMonitor.StartAsync();
+            await connectionMonitor.StartAsync(true);
         }
 
         [RecordedTest]
@@ -83,7 +83,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var connectionMonitorId = Network.ConnectionMonitor.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nw1", "cm1");
             var connectionMonitor = GetArmClient().GetConnectionMonitor(connectionMonitorId);
 
-            await connectionMonitor.QueryAsync();
+            await connectionMonitor.QueryAsync(true);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             var serviceBusQueueId = ServiceBus.ServiceBusQueue.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-183", "sdk-Queues-8708");
             var serviceBusQueue = GetArmClient().GetServiceBusQueue(serviceBusQueueId);
 
-            await serviceBusQueue.DeleteAsync();
+            await serviceBusQueue.DeleteAsync(true);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetCustomIpPrefixes();
-            await collection.CreateOrUpdateAsync(customIpPrefixName, parameters);
+            await collection.CreateOrUpdateAsync(true, customIpPrefixName, parameters);
         }
 
         [RecordedTest]

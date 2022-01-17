@@ -69,7 +69,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -118,7 +118,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -167,7 +167,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -216,7 +216,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -259,7 +259,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -312,7 +312,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -361,7 +361,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -423,7 +423,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -484,7 +484,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -542,7 +542,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -594,7 +594,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -646,7 +646,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -703,7 +703,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -763,7 +763,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -816,7 +816,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -879,7 +879,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -941,7 +941,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1005,7 +1005,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1064,7 +1064,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1116,7 +1116,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1168,7 +1168,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1224,7 +1224,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1284,7 +1284,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1337,7 +1337,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]
@@ -1390,7 +1390,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
-            await collection.CreateOrUpdateAsync(vmScaleSetName, parameters);
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
         }
 
         [RecordedTest]

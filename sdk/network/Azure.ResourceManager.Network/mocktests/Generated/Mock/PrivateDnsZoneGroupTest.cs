@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var privateDnsZoneGroupId = Network.PrivateDnsZoneGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testPe", "testPdnsgroup");
             var privateDnsZoneGroup = GetArmClient().GetPrivateDnsZoneGroup(privateDnsZoneGroupId);
 
-            await privateDnsZoneGroup.DeleteAsync();
+            await privateDnsZoneGroup.DeleteAsync(true);
         }
     }
 }

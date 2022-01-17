@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var fileServiceId = Storage.FileService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res346", "sto666");
             var collection = GetArmClient().GetFileService(fileServiceId).GetFileShares();
-            await collection.CreateOrUpdateAsync(shareName, fileShare, expand);
+            await collection.CreateOrUpdateAsync(true, shareName, fileShare, expand);
         }
 
         [RecordedTest]
@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var fileServiceId = Storage.FileService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328");
             var collection = GetArmClient().GetFileService(fileServiceId).GetFileShares();
-            await collection.CreateOrUpdateAsync(shareName, fileShare, expand);
+            await collection.CreateOrUpdateAsync(true, shareName, fileShare, expand);
         }
 
         [RecordedTest]
@@ -66,7 +66,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var fileServiceId = Storage.FileService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res346", "sto666");
             var collection = GetArmClient().GetFileService(fileServiceId).GetFileShares();
-            await collection.CreateOrUpdateAsync(shareName, fileShare, expand);
+            await collection.CreateOrUpdateAsync(true, shareName, fileShare, expand);
         }
 
         [RecordedTest]

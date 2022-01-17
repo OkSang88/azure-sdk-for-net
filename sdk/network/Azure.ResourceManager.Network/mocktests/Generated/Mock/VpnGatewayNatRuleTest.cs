@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnGatewayNatRuleId = Network.VpnGatewayNatRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1", "natRule1");
             var vpnGatewayNatRule = GetArmClient().GetVpnGatewayNatRule(vpnGatewayNatRuleId);
 
-            await vpnGatewayNatRule.DeleteAsync();
+            await vpnGatewayNatRule.DeleteAsync(true);
         }
     }
 }

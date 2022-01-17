@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
 
             var configurationStoreId = AppConfiguration.ConfigurationStore.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "contoso");
             var collection = GetArmClient().GetConfigurationStore(configurationStoreId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, privateEndpointConnection);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, privateEndpointConnection);
         }
 
         [RecordedTest]

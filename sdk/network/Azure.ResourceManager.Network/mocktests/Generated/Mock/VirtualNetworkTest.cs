@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var virtualNetworkId = Network.VirtualNetwork.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-vnet");
             var virtualNetwork = GetArmClient().GetVirtualNetwork(virtualNetworkId);
 
-            await virtualNetwork.DeleteAsync();
+            await virtualNetwork.DeleteAsync(true);
         }
 
         [RecordedTest]

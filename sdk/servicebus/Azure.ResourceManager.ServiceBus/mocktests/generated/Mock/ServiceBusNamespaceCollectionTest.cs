@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             };
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["tag1"] = "value1", ["tag2"] = "value2", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ArunMonocle")).GetServiceBusNamespaces();
-            await collection.CreateOrUpdateAsync(namespaceName, parameters);
+            await collection.CreateOrUpdateAsync(true, namespaceName, parameters);
         }
 
         [RecordedTest]

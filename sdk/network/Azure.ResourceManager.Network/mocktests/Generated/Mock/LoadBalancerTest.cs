@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var loadBalancerId = Network.LoadBalancer.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "lb");
             var loadBalancer = GetArmClient().GetLoadBalancer(loadBalancerId);
 
-            await loadBalancer.DeleteAsync();
+            await loadBalancer.DeleteAsync(true);
         }
 
         [RecordedTest]

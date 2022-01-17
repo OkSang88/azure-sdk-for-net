@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             var privateEndpointConnectionId = ServiceBus.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-3285", "928c44d5-b7c6-423b-b6fa-811e0c27b3e0");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

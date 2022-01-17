@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "mynic");
             var collection = GetArmClient().GetNetworkInterface(networkInterfaceId).GetNetworkInterfaceTapConfigurations();
-            await collection.CreateOrUpdateAsync(tapConfigurationName, tapConfigurationParameters);
+            await collection.CreateOrUpdateAsync(true, tapConfigurationName, tapConfigurationParameters);
         }
 
         [RecordedTest]

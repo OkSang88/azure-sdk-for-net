@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var ipGroupId = Network.IpGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "ipGroups1");
             var ipGroup = GetArmClient().GetIpGroup(ipGroupId);
 
-            await ipGroup.DeleteAsync();
+            await ipGroup.DeleteAsync(true);
         }
 
         [RecordedTest]

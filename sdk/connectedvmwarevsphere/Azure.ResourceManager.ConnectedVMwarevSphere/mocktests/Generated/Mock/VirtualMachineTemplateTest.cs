@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             var virtualMachineTemplate = GetArmClient().GetVirtualMachineTemplate(virtualMachineTemplateId);
             bool? force = null;
 
-            await virtualMachineTemplate.DeleteAsync(force);
+            await virtualMachineTemplate.DeleteAsync(true, force);
         }
 
         [RecordedTest]

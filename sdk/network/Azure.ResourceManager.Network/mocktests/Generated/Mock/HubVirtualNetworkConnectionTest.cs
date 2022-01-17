@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var hubVirtualNetworkConnectionId = Network.HubVirtualNetworkConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualHub1", "connection1");
             var hubVirtualNetworkConnection = GetArmClient().GetHubVirtualNetworkConnection(hubVirtualNetworkConnectionId);
 
-            await hubVirtualNetworkConnection.DeleteAsync();
+            await hubVirtualNetworkConnection.DeleteAsync(true);
         }
     }
 }

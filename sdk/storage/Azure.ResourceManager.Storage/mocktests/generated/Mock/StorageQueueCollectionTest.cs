@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var queueServiceId = Storage.QueueService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328");
             var collection = GetArmClient().GetQueueService(queueServiceId).GetStorageQueues();
-            await collection.CreateOrUpdateAsync(queueName, queue);
+            await collection.CreateOrUpdateAsync(true, queueName, queue);
         }
 
         [RecordedTest]
@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var queueServiceId = Storage.QueueService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res3376", "sto328");
             var collection = GetArmClient().GetQueueService(queueServiceId).GetStorageQueues();
-            await collection.CreateOrUpdateAsync(queueName, queue);
+            await collection.CreateOrUpdateAsync(true, queueName, queue);
         }
 
         [RecordedTest]

@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var expressRouteGatewayId = Network.ExpressRouteGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "gateway-2");
             var collection = GetArmClient().GetExpressRouteGateway(expressRouteGatewayId).GetExpressRouteConnections();
-            await collection.CreateOrUpdateAsync(connectionName, putExpressRouteConnectionParameters);
+            await collection.CreateOrUpdateAsync(true, connectionName, putExpressRouteConnectionParameters);
         }
 
         [RecordedTest]
@@ -57,16 +57,16 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             await collection.GetAsync(connectionName);
         }
 
-        //[RecordedTest]
-        //public async Task GetAll()
-        //{
-        //    // Example: ExpressRouteConnectionList
+        [RecordedTest]
+        public async Task GetAll()
+        {
+            // Example: ExpressRouteConnectionList
 
-        //    var expressRouteGatewayId = Network.ExpressRouteGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "expressRouteGatewayName");
-        //    var collection = GetArmClient().GetExpressRouteGateway(expressRouteGatewayId).GetExpressRouteConnections();
-        //    await foreach (var _ in collection.GetAllAsync())
-        //    {
-        //    }
-        //}
+            var expressRouteGatewayId = Network.ExpressRouteGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "expressRouteGatewayName");
+            var collection = GetArmClient().GetExpressRouteGateway(expressRouteGatewayId).GetExpressRouteConnections();
+            await foreach (var _ in collection.GetAllAsync())
+            {
+            }
+        }
     }
 }

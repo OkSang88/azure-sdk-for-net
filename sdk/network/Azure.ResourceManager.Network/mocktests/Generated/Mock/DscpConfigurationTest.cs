@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var dscpConfigurationId = Network.DscpConfiguration.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "mydscpConfig");
             var dscpConfiguration = GetArmClient().GetDscpConfiguration(dscpConfigurationId);
 
-            await dscpConfiguration.DeleteAsync();
+            await dscpConfiguration.DeleteAsync(true);
         }
     }
 }

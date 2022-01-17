@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
 
             var databaseAccountId = CosmosDB.DatabaseAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1");
             var collection = GetArmClient().GetDatabaseAccount(databaseAccountId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, parameters);
         }
 
         [RecordedTest]

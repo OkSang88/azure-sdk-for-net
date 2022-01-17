@@ -55,7 +55,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
             bool? forceDeletion = true;
 
-            await virtualMachine.DeleteAsync(forceDeletion);
+            await virtualMachine.DeleteAsync(true, forceDeletion);
         }
 
         [RecordedTest]
@@ -98,7 +98,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 NetworkProfile = new Compute.Models.NetworkProfile(),
             };
 
-            await virtualMachine.UpdateAsync(parameters);
+            await virtualMachine.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -141,7 +141,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 NetworkProfile = new Compute.Models.NetworkProfile(),
             };
 
-            await virtualMachine.UpdateAsync(parameters);
+            await virtualMachine.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -193,7 +193,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineId = Compute.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "VMName");
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
 
-            await virtualMachine.ReapplyAsync();
+            await virtualMachine.ReapplyAsync(true);
         }
 
         [RecordedTest]
@@ -207,7 +207,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 TempDisk = true,
             };
 
-            await virtualMachine.ReimageAsync(parameters);
+            await virtualMachine.ReimageAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -238,7 +238,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineId = Compute.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroupName", "myVMName");
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
 
-            await virtualMachine.AssessPatchesAsync();
+            await virtualMachine.AssessPatchesAsync(true);
         }
 
         [RecordedTest]
@@ -255,7 +255,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 },
             };
 
-            await virtualMachine.InstallPatchesAsync(installPatchesInput);
+            await virtualMachine.InstallPatchesAsync(true, installPatchesInput);
         }
 
         [RecordedTest]
@@ -266,7 +266,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
             Compute.Models.RunCommandInput parameters = new Compute.Models.RunCommandInput(commandId: "RunPowerShellScript");
 
-            await virtualMachine.RunCommandAsync(parameters);
+            await virtualMachine.RunCommandAsync(true, parameters);
         }
     }
 }

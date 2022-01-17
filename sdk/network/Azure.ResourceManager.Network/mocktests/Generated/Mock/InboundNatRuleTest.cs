@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var inboundNatRuleId = Network.InboundNatRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "lb1", "natRule1.1");
             var inboundNatRule = GetArmClient().GetInboundNatRule(inboundNatRuleId);
 
-            await inboundNatRule.DeleteAsync();
+            await inboundNatRule.DeleteAsync(true);
         }
     }
 }

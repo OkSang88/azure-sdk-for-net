@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetPrivateLinkServices();
-            await collection.CreateOrUpdateAsync(serviceName, parameters);
+            await collection.CreateOrUpdateAsync(true, serviceName, parameters);
         }
 
         [RecordedTest]

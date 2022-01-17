@@ -54,7 +54,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var networkProfileId = Network.NetworkProfile.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "networkProfile1");
             var networkProfile = GetArmClient().GetNetworkProfile(networkProfileId);
 
-            await networkProfile.DeleteAsync();
+            await networkProfile.DeleteAsync(true);
         }
 
         [RecordedTest]

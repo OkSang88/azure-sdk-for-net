@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var publicIPPrefixId = Network.PublicIPPrefix.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-ipprefix");
             var publicIPPrefix = GetArmClient().GetPublicIPPrefix(publicIPPrefixId);
 
-            await publicIPPrefix.DeleteAsync();
+            await publicIPPrefix.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Resources.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG")).GetTemplateSpecs();
-            await collection.CreateOrUpdateAsync(templateSpecName, templateSpec);
+            await collection.CreateOrUpdateAsync(true, templateSpecName, templateSpec);
         }
 
         [RecordedTest]

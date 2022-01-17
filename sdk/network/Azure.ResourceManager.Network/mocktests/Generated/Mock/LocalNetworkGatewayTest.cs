@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var localNetworkGatewayId = Network.LocalNetworkGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "localgw");
             var localNetworkGateway = GetArmClient().GetLocalNetworkGateway(localNetworkGatewayId);
 
-            await localNetworkGateway.DeleteAsync();
+            await localNetworkGateway.DeleteAsync(true);
         }
 
         [RecordedTest]

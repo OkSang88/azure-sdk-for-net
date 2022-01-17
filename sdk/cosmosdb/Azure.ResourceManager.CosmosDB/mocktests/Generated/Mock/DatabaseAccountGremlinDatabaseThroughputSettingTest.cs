@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountGremlinDatabaseThroughputSettingId = CosmosDB.DatabaseAccountGremlinDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountGremlinDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountGremlinDatabaseThroughputSetting(databaseAccountGremlinDatabaseThroughputSettingId);
 
-            await databaseAccountGremlinDatabaseThroughputSetting.MigrateGremlinDatabaseToAutoscaleAsync();
+            await databaseAccountGremlinDatabaseThroughputSetting.MigrateGremlinDatabaseToAutoscaleAsync(true);
         }
 
         [RecordedTest]
@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             var databaseAccountGremlinDatabaseThroughputSettingId = CosmosDB.DatabaseAccountGremlinDatabaseThroughputSetting.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var databaseAccountGremlinDatabaseThroughputSetting = GetArmClient().GetDatabaseAccountGremlinDatabaseThroughputSetting(databaseAccountGremlinDatabaseThroughputSettingId);
 
-            await databaseAccountGremlinDatabaseThroughputSetting.MigrateGremlinDatabaseToManualThroughputAsync();
+            await databaseAccountGremlinDatabaseThroughputSetting.MigrateGremlinDatabaseToManualThroughputAsync(true);
         }
     }
 }

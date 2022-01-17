@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationSecurityGroupId = Network.ApplicationSecurityGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "test-asg");
             var applicationSecurityGroup = GetArmClient().GetApplicationSecurityGroup(applicationSecurityGroupId);
 
-            await applicationSecurityGroup.DeleteAsync();
+            await applicationSecurityGroup.DeleteAsync(true);
         }
 
         [RecordedTest]

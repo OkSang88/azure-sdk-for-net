@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnGatewayId = Network.VpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1");
             var vpnGateway = GetArmClient().GetVpnGateway(vpnGatewayId);
 
-            await vpnGateway.DeleteAsync();
+            await vpnGateway.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnGateway = GetArmClient().GetVpnGateway(vpnGatewayId);
             Network.Models.TagsObject vpnGatewayParameters = new Network.Models.TagsObject();
 
-            await vpnGateway.UpdateAsync(vpnGatewayParameters);
+            await vpnGateway.UpdateAsync(true, vpnGatewayParameters);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnGatewayId = Network.VpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "vpngw");
             var vpnGateway = GetArmClient().GetVpnGateway(vpnGatewayId);
 
-            await vpnGateway.ResetAsync();
+            await vpnGateway.ResetAsync(true);
         }
 
         [RecordedTest]
@@ -77,7 +77,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 FilterData = "{'TracingFlags': 11,'MaxPacketBufferSize': 120,'MaxFileSize': 200,'Filters': [{'SourceSubnets': ['20.1.1.0/24'],'DestinationSubnets': ['10.1.1.0/24'],'SourcePort': [500],'DestinationPort': [4500],'Protocol': 6,'TcpFlags': 16,'CaptureSingleDirectionTrafficOnly': true}]}",
             };
 
-            await vpnGateway.StartPacketCaptureAsync(parameters);
+            await vpnGateway.StartPacketCaptureAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -88,7 +88,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var vpnGateway = GetArmClient().GetVpnGateway(vpnGatewayId);
             Network.Models.VpnGatewayPacketCaptureStartParameters parameters = null;
 
-            await vpnGateway.StartPacketCaptureAsync(parameters);
+            await vpnGateway.StartPacketCaptureAsync(true, parameters);
         }
 
         [RecordedTest]
@@ -102,7 +102,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
                 SasUrl = "https://teststorage.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-09-13T07:44:05Z&st=2019-09-06T23:44:05Z&spr=https&sig=V1h9D1riltvZMI69d6ihENnFo%2FrCvTqGgjO2lf%2FVBhE%3D",
             };
 
-            await vpnGateway.StopPacketCaptureAsync(parameters);
+            await vpnGateway.StopPacketCaptureAsync(true, parameters);
         }
     }
 }

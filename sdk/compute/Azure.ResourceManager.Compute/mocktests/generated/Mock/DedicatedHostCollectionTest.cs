@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["department"] = "HR", });
             var dedicatedHostGroupId = Compute.DedicatedHostGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDedicatedHostGroup");
             var collection = GetArmClient().GetDedicatedHostGroup(dedicatedHostGroupId).GetDedicatedHosts();
-            await collection.CreateOrUpdateAsync(hostName, parameters);
+            await collection.CreateOrUpdateAsync(true, hostName, parameters);
         }
 
         [RecordedTest]

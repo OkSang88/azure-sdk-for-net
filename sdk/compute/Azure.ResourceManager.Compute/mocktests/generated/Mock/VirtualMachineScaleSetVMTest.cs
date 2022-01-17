@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
             bool? forceDeletion = true;
 
-            await virtualMachineScaleSetVM.DeleteAsync(forceDeletion);
+            await virtualMachineScaleSetVM.DeleteAsync(true, forceDeletion);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
             Compute.Models.RunCommandInput parameters = new Compute.Models.RunCommandInput(commandId: "RunPowerShellScript");
 
-            await virtualMachineScaleSetVM.RunCommandAsync(parameters);
+            await virtualMachineScaleSetVM.RunCommandAsync(true, parameters);
         }
     }
 }

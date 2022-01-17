@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Communication.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup")).GetCommunicationServices();
-            await collection.CreateOrUpdateAsync(communicationServiceName, parameters);
+            await collection.CreateOrUpdateAsync(true, communicationServiceName, parameters);
         }
 
         [RecordedTest]

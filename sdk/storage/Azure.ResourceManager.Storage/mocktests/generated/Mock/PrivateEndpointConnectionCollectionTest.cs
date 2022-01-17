@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Storage.Tests.Mock
 
             var storageAccountId = Storage.StorageAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "res7687", "sto9699");
             var collection = GetArmClient().GetStorageAccount(storageAccountId).GetPrivateEndpointConnections();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionName, properties);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionName, properties);
         }
 
         [RecordedTest]

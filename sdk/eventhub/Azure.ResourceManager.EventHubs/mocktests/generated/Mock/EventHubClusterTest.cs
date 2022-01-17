@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             var eventHubClusterId = EventHubs.EventHubCluster.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "testCluster");
             var eventHubCluster = GetArmClient().GetEventHubCluster(eventHubClusterId);
 
-            await eventHubCluster.DeleteAsync();
+            await eventHubCluster.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -55,7 +55,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             {
             };
             parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["tag3"] = "value3", ["tag4"] = "value4", });
-            await eventHubCluster.UpdateAsync(parameters);
+            await eventHubCluster.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]

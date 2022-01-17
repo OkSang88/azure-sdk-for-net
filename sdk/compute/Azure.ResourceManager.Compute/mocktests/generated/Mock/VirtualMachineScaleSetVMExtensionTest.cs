@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var virtualMachineScaleSetVMExtensionId = Compute.VirtualMachineScaleSetVMExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
             var virtualMachineScaleSetVMExtension = GetArmClient().GetVirtualMachineScaleSetVMExtension(virtualMachineScaleSetVMExtensionId);
 
-            await virtualMachineScaleSetVMExtension.DeleteAsync();
+            await virtualMachineScaleSetVMExtension.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             ,
             };
 
-            await virtualMachineScaleSetVMExtension.UpdateAsync(extensionParameters);
+            await virtualMachineScaleSetVMExtension.UpdateAsync(true, extensionParameters);
         }
     }
 }

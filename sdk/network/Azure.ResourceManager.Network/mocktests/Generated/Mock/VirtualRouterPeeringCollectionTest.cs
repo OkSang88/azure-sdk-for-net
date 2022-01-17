@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualRouterId = Network.VirtualRouter.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualRouter");
             var collection = GetArmClient().GetVirtualRouter(virtualRouterId).GetVirtualRouterPeerings();
-            await collection.CreateOrUpdateAsync(peeringName, parameters);
+            await collection.CreateOrUpdateAsync(true, peeringName, parameters);
         }
 
         [RecordedTest]

@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CrossConnection-SiliconValley")).GetExpressRouteCrossConnections();
-            await collection.CreateOrUpdateAsync(crossConnectionName, parameters);
+            await collection.CreateOrUpdateAsync(true, crossConnectionName, parameters);
         }
 
         [RecordedTest]

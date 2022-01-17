@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var vpnGatewayId = Network.VpnGateway.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "gateway1");
             var collection = GetArmClient().GetVpnGateway(vpnGatewayId).GetVpnGatewayNatRules();
-            await collection.CreateOrUpdateAsync(natRuleName, natRuleParameters);
+            await collection.CreateOrUpdateAsync(true, natRuleName, natRuleParameters);
         }
 
         [RecordedTest]

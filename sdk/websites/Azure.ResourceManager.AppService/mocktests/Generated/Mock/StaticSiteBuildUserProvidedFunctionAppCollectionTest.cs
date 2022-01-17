@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.AppService.Tests.Mock
 
             var staticSiteBuildARMResourceId = AppService.StaticSiteBuildARMResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg", "testStaticSite0", "default");
             var collection = GetArmClient().GetStaticSiteBuildARMResource(staticSiteBuildARMResourceId).GetStaticSiteBuildUserProvidedFunctionApps();
-            await collection.CreateOrUpdateAsync(functionAppName, staticSiteUserProvidedFunctionEnvelope, isForced);
+            await collection.CreateOrUpdateAsync(true, functionAppName, staticSiteUserProvidedFunctionEnvelope, isForced);
         }
 
         [RecordedTest]

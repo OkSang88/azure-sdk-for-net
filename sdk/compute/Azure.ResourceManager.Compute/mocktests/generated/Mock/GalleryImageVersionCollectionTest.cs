@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]
@@ -91,7 +91,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]
@@ -113,7 +113,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]
@@ -139,7 +139,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]
@@ -166,7 +166,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
 
             var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
             var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
-            await collection.CreateOrUpdateAsync(galleryImageVersionName, galleryImageVersion);
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
         }
 
         [RecordedTest]

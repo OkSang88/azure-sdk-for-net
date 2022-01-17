@@ -45,7 +45,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var networkVirtualApplianceId = Network.NetworkVirtualAppliance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nva");
             var collection = GetArmClient().GetNetworkVirtualAppliance(networkVirtualApplianceId).GetVirtualApplianceSites();
-            await collection.CreateOrUpdateAsync(siteName, parameters);
+            await collection.CreateOrUpdateAsync(true, siteName, parameters);
         }
 
         [RecordedTest]

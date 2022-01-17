@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusSubscriptionId = ServiceBus.ServiceBusSubscription.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "sdk-Namespace-1319", "sdk-Topics-2081", "sdk-Subscriptions-8691");
             var collection = GetArmClient().GetServiceBusSubscription(serviceBusSubscriptionId).GetServiceBusRules();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -49,7 +49,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusSubscriptionId = ServiceBus.ServiceBusSubscription.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "sdk-Namespace-1319", "sdk-Topics-2081", "sdk-Subscriptions-8691");
             var collection = GetArmClient().GetServiceBusSubscription(serviceBusSubscriptionId).GetServiceBusRules();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -68,7 +68,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
 
             var serviceBusSubscriptionId = ServiceBus.ServiceBusSubscription.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "resourceGroupName", "sdk-Namespace-1319", "sdk-Topics-2081", "sdk-Subscriptions-8691");
             var collection = GetArmClient().GetServiceBusSubscription(serviceBusSubscriptionId).GetServiceBusRules();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]

@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
 
             var eventHubNamespaceId = EventHubs.EventHubNamespace.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ArunMonocle", "sdk-Namespace-2702");
             var collection = GetArmClient().GetEventHubNamespace(eventHubNamespaceId).GetNamespaceAuthorizationRules();
-            await collection.CreateOrUpdateAsync(authorizationRuleName, parameters);
+            await collection.CreateOrUpdateAsync(true, authorizationRuleName, parameters);
         }
 
         [RecordedTest]

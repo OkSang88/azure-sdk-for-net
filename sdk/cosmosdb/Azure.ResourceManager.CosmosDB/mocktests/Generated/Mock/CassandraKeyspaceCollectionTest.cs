@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             createUpdateCassandraKeyspaceParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
             var databaseAccountId = CosmosDB.DatabaseAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1");
             var collection = GetArmClient().GetDatabaseAccount(databaseAccountId).GetCassandraKeyspaces();
-            await collection.CreateOrUpdateAsync(keyspaceName, createUpdateCassandraKeyspaceParameters);
+            await collection.CreateOrUpdateAsync(true, keyspaceName, createUpdateCassandraKeyspaceParameters);
         }
 
         [RecordedTest]

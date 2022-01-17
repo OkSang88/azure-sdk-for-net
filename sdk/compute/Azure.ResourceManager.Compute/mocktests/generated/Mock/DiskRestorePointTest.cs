@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var diskRestorePoint = GetArmClient().GetDiskRestorePoint(diskRestorePointId);
             Compute.Models.GrantAccessData grantAccessData = new Compute.Models.GrantAccessData(access: new Compute.Models.AccessLevel("Read"), durationInSeconds: 300);
 
-            await diskRestorePoint.GrantAccessAsync(grantAccessData);
+            await diskRestorePoint.GrantAccessAsync(true, grantAccessData);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var diskRestorePointId = Compute.DiskRestorePoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "rpc", "vmrp", "TestDisk45ceb03433006d1baee0_b70cd924-3362-4a80-93c2-9415eaa12745");
             var diskRestorePoint = GetArmClient().GetDiskRestorePoint(diskRestorePointId);
 
-            await diskRestorePoint.RevokeAccessAsync();
+            await diskRestorePoint.RevokeAccessAsync(true);
         }
     }
 }

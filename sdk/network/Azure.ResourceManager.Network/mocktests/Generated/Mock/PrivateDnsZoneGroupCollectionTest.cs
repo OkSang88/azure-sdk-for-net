@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var privateEndpointId = Network.PrivateEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testPe");
             var collection = GetArmClient().GetPrivateEndpoint(privateEndpointId).GetPrivateDnsZoneGroups();
-            await collection.CreateOrUpdateAsync(privateDnsZoneGroupName, parameters);
+            await collection.CreateOrUpdateAsync(true, privateDnsZoneGroupName, parameters);
         }
 
         [RecordedTest]

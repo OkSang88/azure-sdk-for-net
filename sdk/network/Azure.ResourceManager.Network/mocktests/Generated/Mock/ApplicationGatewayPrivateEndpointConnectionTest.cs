@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
             var applicationGatewayPrivateEndpointConnectionId = Network.ApplicationGatewayPrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "appgw", "connection1");
             var applicationGatewayPrivateEndpointConnection = GetArmClient().GetApplicationGatewayPrivateEndpointConnection(applicationGatewayPrivateEndpointConnectionId);
 
-            await applicationGatewayPrivateEndpointConnection.DeleteAsync();
+            await applicationGatewayPrivateEndpointConnection.DeleteAsync(true);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             var serviceBusSubscriptionId = ServiceBus.ServiceBusSubscription.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "sdk-Namespace-5882", "sdk-Topics-1804", "sdk-Subscriptions-3670");
             var serviceBusSubscription = GetArmClient().GetServiceBusSubscription(serviceBusSubscriptionId);
 
-            await serviceBusSubscription.DeleteAsync();
+            await serviceBusSubscription.DeleteAsync(true);
         }
     }
 }

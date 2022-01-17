@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var virtualHubId = Network.VirtualHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "virtualHub1");
             var collection = GetArmClient().GetVirtualHub(virtualHubId).GetHubVirtualNetworkConnections();
-            await collection.CreateOrUpdateAsync(connectionName, hubVirtualNetworkConnectionParameters);
+            await collection.CreateOrUpdateAsync(true, connectionName, hubVirtualNetworkConnectionParameters);
         }
 
         [RecordedTest]

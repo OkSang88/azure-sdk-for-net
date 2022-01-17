@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.Network.Tests.Mock
 
             var networkSecurityGroupId = Network.NetworkSecurityGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "testnsg");
             var collection = GetArmClient().GetNetworkSecurityGroup(networkSecurityGroupId).GetSecurityRules();
-            await collection.CreateOrUpdateAsync(securityRuleName, securityRuleParameters);
+            await collection.CreateOrUpdateAsync(true, securityRuleName, securityRuleParameters);
         }
 
         [RecordedTest]

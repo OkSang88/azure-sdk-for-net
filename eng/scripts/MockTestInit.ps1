@@ -206,7 +206,7 @@ function  MockTestInit {
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
-                if ($item.Name.Contains("Azure.ResourceManager")) {
+                if ($item.Name.Contains("Azure.ResourceManager") -and (-not ($IgnoreRP.Contains($item.Name)))) {
                     # Create mocktests folder if it not exist
                     $Script:allTrack2Sdk++
                     Update-AllGeneratedCode -path $item.FullName -autorestVersion $AutorestVersion
@@ -232,5 +232,9 @@ function  MockTestInit {
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
-$GenerateNewSDKs = $false
+$GenerateNewSDKs = $true
+$IgnoreRP = @("Cdn", "DeviceUpdate", "Dns" ,"EdgeOrder" ,"ExtendedLocation" ,"Insights",
+ "StoragePool","ConnectedVMwarevSphere", "Sql", "WebPubSub","MachineLearningServices",
+ "AppConfiguration","Communication","Compute","ConnectedVMwareSphere","CosmosDB","EventHub","KeyVault",
+ "Network" ,"Resources","ServiceBus","Storage","AppService")
 MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs

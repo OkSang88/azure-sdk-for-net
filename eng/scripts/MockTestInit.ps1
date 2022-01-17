@@ -55,14 +55,14 @@ function Update-Branch([string]$CommitId, [string]$Path) {
 function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     $count = $path.IndexOf("ResourceManager.")
     $RPName = $path.Substring($count, $path.Length - $count).Replace("ResourceManager.", "")
-    $mocktestsFolder = $path + "/mocktests"
     $srcFolder = $path + "/src"
-    $generatedFolder = $path + "/src/Generated"
-    $md = $mocktestsFolder + "/autorest.tests.md"
+    $srcMd = $srcFolder+"/autorest.md" 
+    $mocktestsFolder = $path + "/mocktests"
+    $mockMd = $mocktestsFolder + "/autorest.tests.md"
     $csproj = ($mocktestsFolder + "/Azure.ResourceManager.Template.Tests.csproj").Replace("Template", $RPName)
 
     # Create [mocktests] folder if it not exist
-    if (!(Test-Path $md) -or !(Test-Path $csproj)) {
+    if (!(Test-Path $mockMd) -or !(Test-Path $csproj)) {
         # please check [azmocktests] template has been imported
         if (!(Test-Path $mocktestsFolder)) {
             New-Item -Path $path -Name "mocktests" -ItemType "directory"
@@ -72,8 +72,7 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
 
     # Generate src code
-    & cd $path
-    & dotnet build /t:GenerateCode
+    & autorest --use=$autorestVersion $srcMd
     if ($?) {
         $Script:srcGenerateSuccessedRps += $RPName
     }
@@ -83,6 +82,7 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
     
     # Build src code
+    & cd $srcFolder
     & dotnet build
     if ($?) {
         $Script:srcBuildSuccessedRps += $RPName
@@ -93,10 +93,10 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
 
     # Generate MockTest code
-    if ((Test-Path $md) -and (Test-Path $csproj)) {
+    if ((Test-Path $mockMd) -and (Test-Path $csproj)) {
         # please check luanch MockTest-Host. 
         # Ref: https://github.com/changlong-liu/azure-sdk-for-net/blob/20211222-doc-for-mock-test/doc/dev/Using-Mock-Test-Generation.md
-        & autorest --use=$autorestVersion $md --testmodeler="{}" --debug
+        & autorest --use=$autorestVersion $mockMd --testmodeler="{}" --debug
         if ($?) {
             $Script:testGenerateSuccessedRps += $RPName
         }
@@ -202,6 +202,7 @@ function  MockTestInit {
         }
 
         # Init All Track2 Sdk
+        $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
         $sdkFolder  | ForEach-Object {
             $curFolderPRs = Get-ChildItem($_)
             foreach ($item in $curFolderPRs) {
@@ -231,5 +232,5 @@ function  MockTestInit {
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"
-$GenerateNewSDKs = $true
+$GenerateNewSDKs = $false
 MockTestInit -SpecsRepoPath $SpecsRepoPath -CommitId $commitId -AutorestVersion $AutorestVersion -GenerateNewSDKs $GenerateNewSDKs

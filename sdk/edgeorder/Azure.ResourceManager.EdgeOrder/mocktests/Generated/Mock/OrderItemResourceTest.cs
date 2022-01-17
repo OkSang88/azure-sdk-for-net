@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             var orderItemResourceId = EdgeOrder.OrderItemResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "TestRG", "TestOrderItemName01");
             var orderItemResource = GetArmClient().GetOrderItemResource(orderItemResourceId);
 
-            await orderItemResource.DeleteAsync();
+            await orderItemResource.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -64,7 +64,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             };
             string ifMatch = null;
 
-            await orderItemResource.UpdateAsync(orderItemUpdateParameter, ifMatch);
+            await orderItemResource.UpdateAsync(true, orderItemUpdateParameter, ifMatch);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             var orderItemResource = GetArmClient().GetOrderItemResource(orderItemResourceId);
             EdgeOrder.Models.ReturnOrderItemDetails returnOrderItemDetails = new EdgeOrder.Models.ReturnOrderItemDetails(returnReason: "Order returned");
 
-            await orderItemResource.ReturnOrderItemAsync(returnOrderItemDetails);
+            await orderItemResource.ReturnOrderItemAsync(true, returnOrderItemDetails);
         }
     }
 }

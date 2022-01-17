@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             };
             orderItemResource.Tags.ReplaceWith(new Dictionary<string, string>() { ["carrot"] = "vegetable", ["mango"] = "fruit", });
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestRG")).GetOrderItemResources();
-            await collection.CreateOrUpdateAsync(orderItemName, orderItemResource);
+            await collection.CreateOrUpdateAsync(true, orderItemName, orderItemResource);
         }
 
         [RecordedTest]

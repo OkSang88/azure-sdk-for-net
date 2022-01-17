@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestRG")).GetAddressResources();
-            await collection.CreateOrUpdateAsync(addressName, addressResource);
+            await collection.CreateOrUpdateAsync(true, addressName, addressResource);
         }
 
         [RecordedTest]

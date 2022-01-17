@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             var addressResourceId = EdgeOrder.AddressResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "TestRG", "TestAddressName1");
             var addressResource = GetArmClient().GetAddressResource(addressResourceId);
 
-            await addressResource.DeleteAsync();
+            await addressResource.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -71,7 +71,7 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             };
             string ifMatch = null;
 
-            await addressResource.UpdateAsync(addressUpdateParameter, ifMatch);
+            await addressResource.UpdateAsync(true, addressUpdateParameter, ifMatch);
         }
     }
 }

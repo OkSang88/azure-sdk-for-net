@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> the event level. </summary>
     public enum EventLevel

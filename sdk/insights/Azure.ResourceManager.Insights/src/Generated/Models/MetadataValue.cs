@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Represents a metric metadata value. </summary>
     public partial class MetadataValue

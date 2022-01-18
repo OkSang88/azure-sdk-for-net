@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using Azure.Core;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> An alert status properties. </summary>
     public partial class MetricAlertStatusProperties

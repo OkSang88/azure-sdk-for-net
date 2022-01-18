@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> A rule metric data source. The discriminator value is always RuleMetricDataSource in this case. </summary>
     public partial class RuleMetricDataSource : RuleDataSource

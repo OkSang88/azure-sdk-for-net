@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> The repeating times at which this profile begins. This element is not used if the FixedDate element is used. </summary>
     public partial class Recurrence

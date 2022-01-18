@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Represents a baseline metadata value. </summary>
     public partial class BaselineMetadataValue

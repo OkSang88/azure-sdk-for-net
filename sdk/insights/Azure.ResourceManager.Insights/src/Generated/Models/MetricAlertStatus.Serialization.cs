@@ -8,18 +8,33 @@
 using System.Text.Json;
 using Azure.Core;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     public partial class MetricAlertStatus
     {
         internal static MetricAlertStatus DeserializeMetricAlertStatus(JsonElement element)
         {
+            Optional<string> name = default;
+            Optional<string> id = default;
+            Optional<string> type = default;
             Optional<MetricAlertStatusProperties> properties = default;
-            ResourceIdentifier id = default;
-            string name = default;
-            ResourceType type = default;
             foreach (var property in element.EnumerateObject())
             {
+                if (property.NameEquals("name"))
+                {
+                    name = property.Value.GetString();
+                    continue;
+                }
+                if (property.NameEquals("id"))
+                {
+                    id = property.Value.GetString();
+                    continue;
+                }
+                if (property.NameEquals("type"))
+                {
+                    type = property.Value.GetString();
+                    continue;
+                }
                 if (property.NameEquals("properties"))
                 {
                     if (property.Value.ValueKind == JsonValueKind.Null)
@@ -30,23 +45,8 @@ namespace Insights.Models
                     properties = MetricAlertStatusProperties.DeserializeMetricAlertStatusProperties(property.Value);
                     continue;
                 }
-                if (property.NameEquals("id"))
-                {
-                    id = new ResourceIdentifier(property.Value.GetString());
-                    continue;
-                }
-                if (property.NameEquals("name"))
-                {
-                    name = property.Value.GetString();
-                    continue;
-                }
-                if (property.NameEquals("type"))
-                {
-                    type = property.Value.GetString();
-                    continue;
-                }
             }
-            return new MetricAlertStatus(id, name, type, properties.Value);
+            return new MetricAlertStatus(name.Value, id.Value, type.Value, properties.Value);
         }
     }
 }

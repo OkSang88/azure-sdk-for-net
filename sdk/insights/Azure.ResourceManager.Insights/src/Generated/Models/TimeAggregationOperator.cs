@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Aggregation operators allowed in a rule. </summary>
     public enum TimeAggregationOperator

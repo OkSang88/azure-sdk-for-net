@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case. </summary>
     public partial class RuleManagementEventDataSource : RuleDataSource

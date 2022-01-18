@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> An alert incident indicates the activation status of an alert rule. </summary>
     public partial class Incident

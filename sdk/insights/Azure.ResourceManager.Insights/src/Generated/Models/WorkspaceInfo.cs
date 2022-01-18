@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Information about a Log Analytics Workspace. </summary>
     public partial class WorkspaceInfo

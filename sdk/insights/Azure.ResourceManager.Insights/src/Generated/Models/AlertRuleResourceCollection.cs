@@ -7,9 +7,8 @@
 
 using System.Collections.Generic;
 using Azure.Core;
-using Insights;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Represents a collection of alert rule resources. </summary>
     internal partial class AlertRuleResourceCollection
@@ -17,17 +16,17 @@ namespace Insights.Models
         /// <summary> Initializes a new instance of AlertRuleResourceCollection. </summary>
         internal AlertRuleResourceCollection()
         {
-            Value = new ChangeTrackingList<AlertRuleResourceData>();
+            Value = new ChangeTrackingList<AlertRuleResource>();
         }
 
         /// <summary> Initializes a new instance of AlertRuleResourceCollection. </summary>
         /// <param name="value"> the values for the alert rule resources. </param>
-        internal AlertRuleResourceCollection(IReadOnlyList<AlertRuleResourceData> value)
+        internal AlertRuleResourceCollection(IReadOnlyList<AlertRuleResource> value)
         {
             Value = value;
         }
 
         /// <summary> the values for the alert rule resources. </summary>
-        public IReadOnlyList<AlertRuleResourceData> Value { get; }
+        public IReadOnlyList<AlertRuleResource> Value { get; }
     }
 }

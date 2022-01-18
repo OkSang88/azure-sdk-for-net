@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> A management event rule condition. </summary>
     public partial class ManagementEventRuleCondition : RuleCondition

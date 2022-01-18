@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Azure.Core;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     public partial class SingleBaseline
     {

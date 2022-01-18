@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     internal static partial class ScaleDirectionExtensions
     {

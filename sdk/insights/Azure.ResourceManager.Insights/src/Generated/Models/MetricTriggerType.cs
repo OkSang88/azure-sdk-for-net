@@ -8,14 +8,14 @@
 using System;
 using System.ComponentModel;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Metric Trigger Evaluation Type. </summary>
     public readonly partial struct MetricTriggerType : IEquatable<MetricTriggerType>
     {
         private readonly string _value;
 
-        /// <summary> Initializes a new instance of <see cref="MetricTriggerType"/>. </summary>
+        /// <summary> Determines if two <see cref="MetricTriggerType"/> values are the same. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
         public MetricTriggerType(string value)
         {

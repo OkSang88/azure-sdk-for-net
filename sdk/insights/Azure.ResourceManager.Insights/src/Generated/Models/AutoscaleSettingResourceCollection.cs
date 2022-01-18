@@ -8,9 +8,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Insights;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Represents a collection of autoscale setting resources. </summary>
     internal partial class AutoscaleSettingResourceCollection
@@ -18,7 +17,7 @@ namespace Insights.Models
         /// <summary> Initializes a new instance of AutoscaleSettingResourceCollection. </summary>
         /// <param name="value"> the values for the autoscale setting resources. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
-        internal AutoscaleSettingResourceCollection(IEnumerable<AutoscaleSettingResourceData> value)
+        internal AutoscaleSettingResourceCollection(IEnumerable<AutoscaleSettingResource> value)
         {
             if (value == null)
             {
@@ -31,14 +30,14 @@ namespace Insights.Models
         /// <summary> Initializes a new instance of AutoscaleSettingResourceCollection. </summary>
         /// <param name="value"> the values for the autoscale setting resources. </param>
         /// <param name="nextLink"> URL to get the next set of results. </param>
-        internal AutoscaleSettingResourceCollection(IReadOnlyList<AutoscaleSettingResourceData> value, string nextLink)
+        internal AutoscaleSettingResourceCollection(IReadOnlyList<AutoscaleSettingResource> value, string nextLink)
         {
             Value = value;
             NextLink = nextLink;
         }
 
         /// <summary> the values for the autoscale setting resources. </summary>
-        public IReadOnlyList<AutoscaleSettingResourceData> Value { get; }
+        public IReadOnlyList<AutoscaleSettingResource> Value { get; }
         /// <summary> URL to get the next set of results. </summary>
         public string NextLink { get; }
     }

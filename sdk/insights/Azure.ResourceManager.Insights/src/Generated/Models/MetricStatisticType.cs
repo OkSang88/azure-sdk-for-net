@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> the metric statistic type. How the metrics from multiple instances are combined. </summary>
     public enum MetricStatisticType

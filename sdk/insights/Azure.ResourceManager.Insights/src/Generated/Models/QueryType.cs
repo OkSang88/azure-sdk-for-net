@@ -8,14 +8,14 @@
 using System;
 using System.ComponentModel;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Set value to &apos;ResultAccount&apos;. </summary>
     public readonly partial struct QueryType : IEquatable<QueryType>
     {
         private readonly string _value;
 
-        /// <summary> Initializes a new instance of <see cref="QueryType"/>. </summary>
+        /// <summary> Determines if two <see cref="QueryType"/> values are the same. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
         public QueryType(string value)
         {

@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> A rule condition based on a certain number of locations failing. </summary>
     public partial class LocationThresholdRuleCondition : RuleCondition

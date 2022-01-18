@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Describes a receiver that should be resubscribed. </summary>
     public partial class EnableRequest

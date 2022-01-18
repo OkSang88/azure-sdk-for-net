@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Specify action need to be taken when rule type is Alert. </summary>
     public partial class AlertingAction : Action

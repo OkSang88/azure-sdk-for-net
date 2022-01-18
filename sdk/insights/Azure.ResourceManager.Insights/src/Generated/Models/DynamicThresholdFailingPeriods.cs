@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> The minimum number of violations required within the selected lookback time window required to raise an alert. </summary>
     public partial class DynamicThresholdFailingPeriods

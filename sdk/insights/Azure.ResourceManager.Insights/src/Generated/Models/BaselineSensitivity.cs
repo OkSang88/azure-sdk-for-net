@@ -8,14 +8,14 @@
 using System;
 using System.ComponentModel;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> the sensitivity of the baseline. </summary>
     public readonly partial struct BaselineSensitivity : IEquatable<BaselineSensitivity>
     {
         private readonly string _value;
 
-        /// <summary> Initializes a new instance of <see cref="BaselineSensitivity"/>. </summary>
+        /// <summary> Determines if two <see cref="BaselineSensitivity"/> values are the same. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
         public BaselineSensitivity(string value)
         {

@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> the operator that is used to compare the metric data and the threshold. </summary>
     public enum ComparisonOperationType

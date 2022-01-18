@@ -8,14 +8,14 @@
 using System;
 using System.ComponentModel;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Severity Level of Alert. </summary>
     public readonly partial struct AlertSeverity : IEquatable<AlertSeverity>
     {
         private readonly string _value;
 
-        /// <summary> Initializes a new instance of <see cref="AlertSeverity"/>. </summary>
+        /// <summary> Determines if two <see cref="AlertSeverity"/> values are the same. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
         public AlertSeverity(string value)
         {

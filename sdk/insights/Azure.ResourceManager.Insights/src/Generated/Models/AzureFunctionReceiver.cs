@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> An azure function receiver. </summary>
     public partial class AzureFunctionReceiver

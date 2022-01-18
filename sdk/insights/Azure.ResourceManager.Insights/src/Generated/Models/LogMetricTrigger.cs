@@ -5,7 +5,7 @@
 
 #nullable disable
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> A log metrics trigger descriptor. </summary>
     public partial class LogMetricTrigger

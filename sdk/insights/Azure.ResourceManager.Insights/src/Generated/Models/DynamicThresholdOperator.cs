@@ -8,14 +8,14 @@
 using System;
 using System.ComponentModel;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> The operator used to compare the metric value against the threshold. </summary>
     public readonly partial struct DynamicThresholdOperator : IEquatable<DynamicThresholdOperator>
     {
         private readonly string _value;
 
-        /// <summary> Initializes a new instance of <see cref="DynamicThresholdOperator"/>. </summary>
+        /// <summary> Determines if two <see cref="DynamicThresholdOperator"/> values are the same. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is null. </exception>
         public DynamicThresholdOperator(string value)
         {

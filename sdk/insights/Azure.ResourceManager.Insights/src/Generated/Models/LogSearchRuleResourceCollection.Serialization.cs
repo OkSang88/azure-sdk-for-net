@@ -8,15 +8,14 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure.Core;
-using Insights;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     internal partial class LogSearchRuleResourceCollection
     {
         internal static LogSearchRuleResourceCollection DeserializeLogSearchRuleResourceCollection(JsonElement element)
         {
-            Optional<IReadOnlyList<LogSearchRuleResourceData>> value = default;
+            Optional<IReadOnlyList<LogSearchRuleResource>> value = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("value"))
@@ -26,10 +25,10 @@ namespace Insights.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    List<LogSearchRuleResourceData> array = new List<LogSearchRuleResourceData>();
+                    List<LogSearchRuleResource> array = new List<LogSearchRuleResource>();
                     foreach (var item in property.Value.EnumerateArray())
                     {
-                        array.Add(LogSearchRuleResourceData.DeserializeLogSearchRuleResourceData(item));
+                        array.Add(LogSearchRuleResource.DeserializeLogSearchRuleResource(item));
                     }
                     value = array;
                     continue;

@@ -8,23 +8,22 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure.Core;
-using Insights;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     internal partial class LogProfileCollection
     {
         internal static LogProfileCollection DeserializeLogProfileCollection(JsonElement element)
         {
-            IReadOnlyList<LogProfileResourceData> value = default;
+            IReadOnlyList<LogProfileResource> value = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("value"))
                 {
-                    List<LogProfileResourceData> array = new List<LogProfileResourceData>();
+                    List<LogProfileResource> array = new List<LogProfileResource>();
                     foreach (var item in property.Value.EnumerateArray())
                     {
-                        array.Add(LogProfileResourceData.DeserializeLogProfileResourceData(item));
+                        array.Add(LogProfileResource.DeserializeLogProfileResource(item));
                     }
                     value = array;
                     continue;

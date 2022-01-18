@@ -8,7 +8,7 @@
 using System.Collections.Generic;
 using Azure.Core;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> The autoscale setting object for patch operations. </summary>
     public partial class AutoscaleSettingResourcePatch

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     /// <summary> Specify action need to be taken when rule type is converting log to metric. </summary>
     public partial class LogToMetricAction : Action

@@ -8,15 +8,14 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure.Core;
-using Insights;
 
-namespace Insights.Models
+namespace Azure.ResourceManager.Insights.Models
 {
     internal partial class ActionGroupList
     {
         internal static ActionGroupList DeserializeActionGroupList(JsonElement element)
         {
-            Optional<IReadOnlyList<ActionGroupResourceData>> value = default;
+            Optional<IReadOnlyList<ActionGroupResource>> value = default;
             Optional<string> nextLink = default;
             foreach (var property in element.EnumerateObject())
             {
@@ -27,10 +26,10 @@ namespace Insights.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    List<ActionGroupResourceData> array = new List<ActionGroupResourceData>();
+                    List<ActionGroupResource> array = new List<ActionGroupResource>();
                     foreach (var item in property.Value.EnumerateArray())
                     {
-                        array.Add(ActionGroupResourceData.DeserializeActionGroupResourceData(item));
+                        array.Add(ActionGroupResource.DeserializeActionGroupResource(item));
                     }
                     value = array;
                     continue;

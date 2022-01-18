@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.DeviceUpdate.Tests.Mock
             var privateEndpointConnectionProxyId = DeviceUpdate.PrivateEndpointConnectionProxy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "test-rg", "contoso", "peexample01");
             var privateEndpointConnectionProxy = GetArmClient().GetPrivateEndpointConnectionProxy(privateEndpointConnectionProxyId);
 
-            await privateEndpointConnectionProxy.DeleteAsync();
+            await privateEndpointConnectionProxy.DeleteAsync(true);
         }
 
         [RecordedTest]

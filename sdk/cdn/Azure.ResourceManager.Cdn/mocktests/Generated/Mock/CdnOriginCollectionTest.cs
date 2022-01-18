@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var cdnEndpointId = Cdn.CdnEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var collection = GetArmClient().GetCdnEndpoint(cdnEndpointId).GetCdnOrigins();
-            await collection.CreateOrUpdateAsync(originName, origin);
+            await collection.CreateOrUpdateAsync(true, originName, origin);
         }
 
         [RecordedTest]

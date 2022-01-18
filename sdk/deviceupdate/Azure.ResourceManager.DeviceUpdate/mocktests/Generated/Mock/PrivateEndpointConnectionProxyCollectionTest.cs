@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.DeviceUpdate.Tests.Mock
 
             var deviceUpdateAccountId = DeviceUpdate.DeviceUpdateAccount.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "test-rg", "contoso");
             var collection = GetArmClient().GetDeviceUpdateAccount(deviceUpdateAccountId).GetPrivateEndpointConnectionProxies();
-            await collection.CreateOrUpdateAsync(privateEndpointConnectionProxyId, privateEndpointConnectionProxy);
+            await collection.CreateOrUpdateAsync(true, privateEndpointConnectionProxyId, privateEndpointConnectionProxy);
         }
 
         [RecordedTest]

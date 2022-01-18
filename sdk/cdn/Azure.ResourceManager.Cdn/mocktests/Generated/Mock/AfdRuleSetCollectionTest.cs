@@ -31,7 +31,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var profileId = Cdn.Profile.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1");
             var collection = GetArmClient().GetProfile(profileId).GetAfdRuleSets();
-            await collection.CreateOrUpdateAsync(ruleSetName);
+            await collection.CreateOrUpdateAsync(true, ruleSetName);
         }
 
         [RecordedTest]

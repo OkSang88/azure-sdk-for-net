@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var profileId = Cdn.Profile.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1");
             var collection = GetArmClient().GetProfile(profileId).GetCdnEndpoints();
-            await collection.CreateOrUpdateAsync(endpointName, endpointInput);
+            await collection.CreateOrUpdateAsync(true, endpointName, endpointInput);
         }
 
         [RecordedTest]

@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdSecretId = Cdn.AfdSecret.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "secret1");
             var afdSecret = GetArmClient().GetAfdSecret(afdSecretId);
 
-            await afdSecret.DeleteAsync();
+            await afdSecret.DeleteAsync(true);
         }
     }
 }

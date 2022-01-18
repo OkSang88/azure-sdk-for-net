@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var cdnEndpointId = Cdn.CdnEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var collection = GetArmClient().GetCdnEndpoint(cdnEndpointId).GetCdnCustomDomains();
-            await collection.CreateOrUpdateAsync(customDomainName, customDomainProperties);
+            await collection.CreateOrUpdateAsync(true, customDomainName, customDomainProperties);
         }
 
         [RecordedTest]

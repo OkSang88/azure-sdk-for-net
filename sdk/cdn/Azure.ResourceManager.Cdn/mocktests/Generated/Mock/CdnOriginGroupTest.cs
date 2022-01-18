@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnOriginGroupId = Cdn.CdnOriginGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1", "originGroup1");
             var cdnOriginGroup = GetArmClient().GetCdnOriginGroup(cdnOriginGroupId);
 
-            await cdnOriginGroup.DeleteAsync();
+            await cdnOriginGroup.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 },
             };
 
-            await cdnOriginGroup.UpdateAsync(originGroupUpdateProperties);
+            await cdnOriginGroup.UpdateAsync(true, originGroupUpdateProperties);
         }
     }
 }

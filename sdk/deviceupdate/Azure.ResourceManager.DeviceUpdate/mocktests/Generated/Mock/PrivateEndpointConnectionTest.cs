@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.DeviceUpdate.Tests.Mock
             var privateEndpointConnectionId = DeviceUpdate.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "test-rg", "contoso", "peexample01");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
-            await privateEndpointConnection.DeleteAsync();
+            await privateEndpointConnection.DeleteAsync(true);
         }
     }
 }

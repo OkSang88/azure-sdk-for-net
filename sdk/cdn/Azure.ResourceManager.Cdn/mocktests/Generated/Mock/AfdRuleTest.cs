@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdRuleId = Cdn.AfdRule.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "ruleSet1", "rule1");
             var afdRule = GetArmClient().GetAfdRule(afdRuleId);
 
-            await afdRule.DeleteAsync();
+            await afdRule.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -56,7 +56,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 Order = 1,
             };
 
-            await afdRule.UpdateAsync(ruleUpdateProperties);
+            await afdRule.UpdateAsync(true, ruleUpdateProperties);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdSecurityPolicyId = Cdn.AfdSecurityPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "securityPolicy1");
             var afdSecurityPolicy = GetArmClient().GetAfdSecurityPolicy(afdSecurityPolicyId);
 
-            await afdSecurityPolicy.DeleteAsync();
+            await afdSecurityPolicy.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 },
             };
 
-            await afdSecurityPolicy.UpdateAsync(securityPolicyProperties);
+            await afdSecurityPolicy.UpdateAsync(true, securityPolicyProperties);
         }
     }
 }

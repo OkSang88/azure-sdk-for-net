@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdOriginGroupId = Cdn.AfdOriginGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "origingroup1");
             var afdOriginGroup = GetArmClient().GetAfdOriginGroup(afdOriginGroupId);
 
-            await afdOriginGroup.DeleteAsync();
+            await afdOriginGroup.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -69,7 +69,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = 5,
             };
 
-            await afdOriginGroup.UpdateAsync(originGroupUpdateProperties);
+            await afdOriginGroup.UpdateAsync(true, originGroupUpdateProperties);
         }
 
         [RecordedTest]

@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var afdOriginGroupId = Cdn.AfdOriginGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "origingroup1");
             var collection = GetArmClient().GetAfdOriginGroup(afdOriginGroupId).GetAfdOrigins();
-            await collection.CreateOrUpdateAsync(originName, origin);
+            await collection.CreateOrUpdateAsync(true, originName, origin);
         }
 
         [RecordedTest]

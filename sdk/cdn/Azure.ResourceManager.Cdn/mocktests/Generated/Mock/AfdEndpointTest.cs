@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdEndpointId = Cdn.AfdEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var afdEndpoint = GetArmClient().GetAfdEndpoint(afdEndpointId);
 
-            await afdEndpoint.DeleteAsync();
+            await afdEndpoint.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -57,7 +57,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 EnabledState = new Cdn.Models.EnabledState("Enabled"),
             };
 
-            await afdEndpoint.UpdateAsync(endpointUpdateProperties);
+            await afdEndpoint.UpdateAsync(true, endpointUpdateProperties);
         }
 
         [RecordedTest]
@@ -70,7 +70,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 {
 "/folder1",});
 
-            await afdEndpoint.PurgeContentAsync(contents);
+            await afdEndpoint.PurgeContentAsync(true, contents);
         }
 
         [RecordedTest]

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnEndpointId = Cdn.CdnEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var cdnEndpoint = GetArmClient().GetCdnEndpoint(cdnEndpointId);
 
-            await cdnEndpoint.DeleteAsync();
+            await cdnEndpoint.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnEndpoint = GetArmClient().GetCdnEndpoint(cdnEndpointId);
             Cdn.Models.EndpointUpdateOptions endpointUpdateProperties = new Cdn.Models.EndpointUpdateOptions();
 
-            await cdnEndpoint.UpdateAsync(endpointUpdateProperties);
+            await cdnEndpoint.UpdateAsync(true, endpointUpdateProperties);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnEndpointId = Cdn.CdnEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var cdnEndpoint = GetArmClient().GetCdnEndpoint(cdnEndpointId);
 
-            await cdnEndpoint.StartAsync();
+            await cdnEndpoint.StartAsync(true);
         }
 
         [RecordedTest]
@@ -73,7 +73,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnEndpointId = Cdn.CdnEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var cdnEndpoint = GetArmClient().GetCdnEndpoint(cdnEndpointId);
 
-            await cdnEndpoint.StopAsync();
+            await cdnEndpoint.StopAsync(true);
         }
 
         [RecordedTest]
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 {
 "/folder1",});
 
-            await cdnEndpoint.PurgeContentAsync(contentFilePaths);
+            await cdnEndpoint.PurgeContentAsync(true, contentFilePaths);
         }
 
         [RecordedTest]
@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 {
 "/folder1",});
 
-            await cdnEndpoint.LoadContentAsync(contentFilePaths);
+            await cdnEndpoint.LoadContentAsync(true, contentFilePaths);
         }
 
         [RecordedTest]

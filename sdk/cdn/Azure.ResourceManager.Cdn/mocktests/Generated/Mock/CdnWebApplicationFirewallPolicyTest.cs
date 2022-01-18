@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnWebApplicationFirewallPolicyId = Cdn.CdnWebApplicationFirewallPolicy.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "Policy1");
             var cdnWebApplicationFirewallPolicy = GetArmClient().GetCdnWebApplicationFirewallPolicy(cdnWebApplicationFirewallPolicyId);
 
-            await cdnWebApplicationFirewallPolicy.DeleteAsync();
+            await cdnWebApplicationFirewallPolicy.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnWebApplicationFirewallPolicy = GetArmClient().GetCdnWebApplicationFirewallPolicy(cdnWebApplicationFirewallPolicyId);
             Cdn.Models.CdnWebApplicationFirewallPolicyPatchOptions cdnWebApplicationFirewallPolicyPatchParameters = new Cdn.Models.CdnWebApplicationFirewallPolicyPatchOptions();
 
-            await cdnWebApplicationFirewallPolicy.UpdateAsync(cdnWebApplicationFirewallPolicyPatchParameters);
+            await cdnWebApplicationFirewallPolicy.UpdateAsync(true, cdnWebApplicationFirewallPolicyPatchParameters);
         }
     }
 }

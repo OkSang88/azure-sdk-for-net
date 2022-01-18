@@ -59,7 +59,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
 
             var afdEndpointId = Cdn.AfdEndpoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1");
             var collection = GetArmClient().GetAfdEndpoint(afdEndpointId).GetAfdRoutes();
-            await collection.CreateOrUpdateAsync(routeName, route);
+            await collection.CreateOrUpdateAsync(true, routeName, route);
         }
 
         [RecordedTest]

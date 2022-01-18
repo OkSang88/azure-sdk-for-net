@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnOriginId = Cdn.CdnOrigin.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1", "origin1");
             var cdnOrigin = GetArmClient().GetCdnOrigin(cdnOriginId);
 
-            await cdnOrigin.DeleteAsync();
+            await cdnOrigin.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 PrivateLinkAlias = "APPSERVER.d84e61f0-0870-4d24-9746-7438fa0019d1.westus2.azure.privatelinkservice",
             };
 
-            await cdnOrigin.UpdateAsync(originUpdateProperties);
+            await cdnOrigin.UpdateAsync(true, originUpdateProperties);
         }
     }
 }

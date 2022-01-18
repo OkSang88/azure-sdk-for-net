@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdCustomDomainId = Cdn.AfdCustomDomain.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "domain1");
             var afdCustomDomain = GetArmClient().GetAfdCustomDomain(afdCustomDomainId);
 
-            await afdCustomDomain.DeleteAsync();
+            await afdCustomDomain.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 },
             };
 
-            await afdCustomDomain.UpdateAsync(customDomainUpdateProperties);
+            await afdCustomDomain.UpdateAsync(true, customDomainUpdateProperties);
         }
 
         [RecordedTest]
@@ -75,7 +75,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdCustomDomainId = Cdn.AfdCustomDomain.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "domain1");
             var afdCustomDomain = GetArmClient().GetAfdCustomDomain(afdCustomDomainId);
 
-            await afdCustomDomain.RefreshValidationTokenAsync();
+            await afdCustomDomain.RefreshValidationTokenAsync(true);
         }
     }
 }

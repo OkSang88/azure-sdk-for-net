@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdOriginId = Cdn.AfdOrigin.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "origingroup1", "origin1");
             var afdOrigin = GetArmClient().GetAfdOrigin(afdOriginId);
 
-            await afdOrigin.DeleteAsync();
+            await afdOrigin.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -59,7 +59,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 EnabledState = new Cdn.Models.EnabledState("Enabled"),
             };
 
-            await afdOrigin.UpdateAsync(originUpdateProperties);
+            await afdOrigin.UpdateAsync(true, originUpdateProperties);
         }
     }
 }

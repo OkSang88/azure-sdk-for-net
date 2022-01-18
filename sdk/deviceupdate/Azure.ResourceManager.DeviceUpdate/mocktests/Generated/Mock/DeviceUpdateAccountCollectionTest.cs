@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.DeviceUpdate.Tests.Mock
             DeviceUpdate.DeviceUpdateAccountData account = new DeviceUpdate.DeviceUpdateAccountData(location: "westus2");
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg")).GetDeviceUpdateAccounts();
-            await collection.CreateOrUpdateAsync(accountName, account);
+            await collection.CreateOrUpdateAsync(true, accountName, account);
         }
 
         [RecordedTest]

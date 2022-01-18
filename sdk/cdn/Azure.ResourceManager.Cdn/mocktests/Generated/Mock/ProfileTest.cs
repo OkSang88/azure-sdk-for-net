@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var profileId = Cdn.Profile.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1");
             var profile = GetArmClient().GetProfile(profileId);
 
-            await profile.DeleteAsync();
+            await profile.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var profile = GetArmClient().GetProfile(profileId);
             Cdn.Models.ProfileUpdateOptions profileUpdateParameters = new Cdn.Models.ProfileUpdateOptions();
 
-            await profile.UpdateAsync(profileUpdateParameters);
+            await profile.UpdateAsync(true, profileUpdateParameters);
         }
 
         [RecordedTest]

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnCustomDomainId = Cdn.CdnCustomDomain.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1", "www-someDomain-net");
             var cdnCustomDomain = GetArmClient().GetCdnCustomDomain(cdnCustomDomainId);
 
-            await cdnCustomDomain.DeleteAsync();
+            await cdnCustomDomain.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnCustomDomainId = Cdn.CdnCustomDomain.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1", "www-someDomain-net");
             var cdnCustomDomain = GetArmClient().GetCdnCustomDomain(cdnCustomDomainId);
 
-            await cdnCustomDomain.DisableCustomHttpsAsync();
+            await cdnCustomDomain.DisableCustomHttpsAsync(true);
         }
 
         [RecordedTest]
@@ -63,7 +63,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnCustomDomain = GetArmClient().GetCdnCustomDomain(cdnCustomDomainId);
             Cdn.Models.CustomDomainHttpsOptions customDomainHttpsParameters = null;
 
-            await cdnCustomDomain.EnableCustomHttpsAsync(customDomainHttpsParameters);
+            await cdnCustomDomain.EnableCustomHttpsAsync(true, customDomainHttpsParameters);
         }
 
         [RecordedTest]
@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var cdnCustomDomain = GetArmClient().GetCdnCustomDomain(cdnCustomDomainId);
             Cdn.Models.CustomDomainHttpsOptions customDomainHttpsParameters = null;
 
-            await cdnCustomDomain.EnableCustomHttpsAsync(customDomainHttpsParameters);
+            await cdnCustomDomain.EnableCustomHttpsAsync(true, customDomainHttpsParameters);
         }
     }
 }

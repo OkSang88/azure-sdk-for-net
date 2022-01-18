@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.DeviceUpdate.Tests.Mock
             var deviceUpdateInstanceId = DeviceUpdate.DeviceUpdateInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "test-rg", "contoso", "blue");
             var deviceUpdateInstance = GetArmClient().GetDeviceUpdateInstance(deviceUpdateInstanceId);
 
-            await deviceUpdateInstance.DeleteAsync();
+            await deviceUpdateInstance.DeleteAsync(true);
         }
 
         [RecordedTest]

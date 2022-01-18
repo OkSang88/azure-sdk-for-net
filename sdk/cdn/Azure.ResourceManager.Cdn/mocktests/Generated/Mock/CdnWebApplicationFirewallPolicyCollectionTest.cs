@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetCdnWebApplicationFirewallPolicies();
-            await collection.CreateOrUpdateAsync(policyName, cdnWebApplicationFirewallPolicy);
+            await collection.CreateOrUpdateAsync(true, policyName, cdnWebApplicationFirewallPolicy);
         }
 
         [RecordedTest]

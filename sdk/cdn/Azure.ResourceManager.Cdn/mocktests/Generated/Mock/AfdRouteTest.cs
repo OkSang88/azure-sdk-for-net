@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
             var afdRouteId = Cdn.AfdRoute.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "RG", "profile1", "endpoint1", "route1");
             var afdRoute = GetArmClient().GetAfdRoute(afdRouteId);
 
-            await afdRoute.DeleteAsync();
+            await afdRoute.DeleteAsync(true);
         }
 
         [RecordedTest]
@@ -78,7 +78,7 @@ namespace Azure.ResourceManager.Cdn.Tests.Mock
                 EnabledState = new Cdn.Models.EnabledState("Enabled"),
             };
 
-            await afdRoute.UpdateAsync(routeUpdateProperties);
+            await afdRoute.UpdateAsync(true, routeUpdateProperties);
         }
     }
 }

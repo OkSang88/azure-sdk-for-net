@@ -1,0 +1,117 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgName/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/graphs/graphName?api-version=2021-06-15",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "28c46762f879ba20232e8eac77b6ee74",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1183",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:50 GMT",
+        "ETag": "W/\u002249f-jER8oT7W8MbEFtYxsLuejAe\u002BNOQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgName/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/graphs/graphName",
+        "name": "graphName",
+        "type": "/Microsoft.DocumentDB/databaseAccounts",
+        "location": "aaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key985": "aaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "resource": {
+            "id": "aaaaaaaaaaaaaaaaaaa",
+            "indexingPolicy": {
+              "automatic": true,
+              "indexingMode": "consistent",
+              "includedPaths": [
+                {
+                  "path": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "indexes": [
+                    {
+                      "dataType": "String",
+                      "precision": 8,
+                      "kind": "Hash"
+                    }
+                  ]
+                }
+              ],
+              "excludedPaths": [
+                {
+                  "path": "aaaaaaaaaaaaa"
+                }
+              ],
+              "compositeIndexes": [
+                [
+                  {
+                    "path": "aaa",
+                    "order": "ascending"
+                  }
+                ]
+              ],
+              "spatialIndexes": [
+                {
+                  "path": "aaaaaaaaaaaaaaaaa",
+                  "types": [
+                    "Point"
+                  ]
+                }
+              ]
+            },
+            "partitionKey": {
+              "paths": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ],
+              "kind": "Hash",
+              "version": 2,
+              "systemKey": true
+            },
+            "defaultTtl": 18,
+            "uniqueKeyPolicy": {
+              "uniqueKeys": [
+                {
+                  "paths": [
+                    "aaaaaaaaaaaaa"
+                  ]
+                }
+              ]
+            },
+            "conflictResolutionPolicy": {
+              "mode": "LastWriterWins",
+              "conflictResolutionPath": "aaaaa",
+              "conflictResolutionProcedure": "aaaaaa"
+            },
+            "_rid": "aaaaaaaaaaaaaaaaaaaaa",
+            "_ts": 20,
+            "_etag": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "options": {
+            "throughput": 10,
+            "autoscaleSettings": {
+              "maxThroughput": 26
+            }
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "472260342",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

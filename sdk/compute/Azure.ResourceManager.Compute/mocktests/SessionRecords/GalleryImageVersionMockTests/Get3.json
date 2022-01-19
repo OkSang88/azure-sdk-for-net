@@ -1,0 +1,108 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0?api-version=2021-07-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "02ef94c63e3a1aad4fb73ff32dc9f1d2",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1291",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:22 GMT",
+        "ETag": "W/\u002250b-B12h/2f9IRJ6qsI8cKL8GqJHQoA\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0",
+        "name": "1.0.0",
+        "type": "/Microsoft.Compute/galleries",
+        "location": "aaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key2648": "aaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "publishingProfile": {
+            "targetRegions": [
+              {
+                "name": "aaaaaaaaaaaaaaaaaa",
+                "regionalReplicaCount": 6,
+                "storageAccountType": "Standard_LRS",
+                "encryption": {
+                  "osDiskImage": {
+                    "diskEncryptionSetId": "aaaaaaa"
+                  },
+                  "dataDiskImages": [
+                    {
+                      "diskEncryptionSetId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "lun": 22
+                    }
+                  ]
+                }
+              }
+            ],
+            "replicaCount": 2,
+            "excludeFromLatest": true,
+            "publishedDate": "2022-01-19T07:24:22.555Z",
+            "endOfLifeDate": "2022-01-19T07:24:22.555Z",
+            "storageAccountType": "Standard_LRS",
+            "replicationMode": "Full"
+          },
+          "provisioningState": "Succeeded",
+          "storageProfile": {
+            "source": {
+              "id": "aaaaaaaaaaa",
+              "uri": "aaaaaaaaaaaaaaaaaa"
+            },
+            "osDiskImage": {
+              "sizeInGB": 28,
+              "hostCaching": "None",
+              "source": {
+                "id": "aaa",
+                "uri": "aaaaaaaaaaaaaaaaaaaaa"
+              }
+            },
+            "dataDiskImages": [
+              {
+                "sizeInGB": 25,
+                "hostCaching": "None",
+                "source": {
+                  "id": "aaaaaaaaaaaaaaaaaaaa",
+                  "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "lun": 17
+              }
+            ]
+          },
+          "replicationStatus": {
+            "aggregatedState": "Unknown",
+            "summary": [
+              {
+                "region": "aaaaaaaaaaaaaaaaaaa",
+                "state": "Unknown",
+                "details": "aaaaaaaaaaaaaaa",
+                "progress": 26
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1147679257",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints?api-version=2020-09-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "502501cf7930ab6a8a7a91fca5bc3b6b",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2929",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:24 GMT",
+        "ETag": "W/\u0022b71-rc8T9FZ7uvrb/hMKpC9Ox66NvuE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Cdn/profiles",
+            "systemData": {
+              "createdBy": "aaaaaaaaaaaaaaaaaa",
+              "createdByType": "user",
+              "createdAt": "2022-01-19T07:23:24.280Z",
+              "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "lastModifiedByType": "user",
+              "lastModifiedAt": "2022-01-19T07:23:24.280Z"
+            },
+            "location": "a",
+            "tags": {
+              "key7287": "aaa"
+            },
+            "properties": {
+              "originPath": "aa",
+              "contentTypesToCompress": [
+                "aaaaa"
+              ],
+              "originHostHeader": "aaaaaaaaaaaaaaaaaaaa",
+              "isCompressionEnabled": true,
+              "isHttpAllowed": true,
+              "isHttpsAllowed": true,
+              "queryStringCachingBehavior": "IgnoreQueryString",
+              "optimizationType": "GeneralWebDelivery",
+              "probePath": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "geoFilters": [
+                {
+                  "relativePath": "aaaaaaaaaaaaaaaa",
+                  "action": "Block",
+                  "countryCodes": [
+                    "aaaaaaaaaaaaa"
+                  ]
+                }
+              ],
+              "defaultOriginGroup": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "urlSigningKeys": [
+                {
+                  "keyId": "aaaa",
+                  "keySourceParameters": {
+                    "@odata.type": "#Microsoft.Azure.Cdn.Models.KeyVaultSigningKeyParameters",
+                    "subscriptionId": "aaaaaaaa",
+                    "resourceGroupName": "aaaaaaaaaaaaaaaa",
+                    "vaultName": "a",
+                    "secretName": "aaaaaaaaaaaa",
+                    "secretVersion": "aaaa"
+                  }
+                }
+              ],
+              "deliveryPolicy": {
+                "description": "aaaaaaaaaaaaaaa",
+                "rules": [
+                  {
+                    "name": "aaaaaa",
+                    "order": 8,
+                    "conditions": [
+                      {
+                        "name": "RemoteAddress",
+                        "parameters": {
+                          "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+                          "operator": "Any",
+                          "negateCondition": true,
+                          "matchValues": [
+                            "aaaaaaaaa"
+                          ],
+                          "transforms": [
+                            "Lowercase"
+                          ]
+                        }
+                      }
+                    ],
+                    "actions": [
+                      {
+                        "name": "CacheExpiration",
+                        "parameters": {
+                          "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+                          "cacheBehavior": "BypassCache",
+                          "cacheType": "All",
+                          "cacheDuration": "aaaaaaaaa"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "webApplicationFirewallPolicyLink": {
+                "id": "aaaaaaaaa"
+              },
+              "hostName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "origins": [
+                {
+                  "name": "mockName",
+                  "properties": {
+                    "hostName": "aaaaaaaaa",
+                    "httpPort": 56689,
+                    "httpsPort": 64986,
+                    "originHostHeader": "aaaaaaaaaaaaaaaaaaaa",
+                    "priority": 1,
+                    "weight": 476,
+                    "enabled": true,
+                    "privateLinkAlias": "aaaaaaaaaaaaaaaaaaaaaa",
+                    "privateLinkResourceId": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                    "privateLinkLocation": "aaaaaa",
+                    "privateLinkApprovalMessage": "aaaaaaaaaaaa"
+                  }
+                }
+              ],
+              "originGroups": [
+                {
+                  "name": "mockName",
+                  "properties": {
+                    "healthProbeSettings": {
+                      "probePath": "aaaaaaaaaaa",
+                      "probeRequestType": "NotSet",
+                      "probeProtocol": "NotSet",
+                      "probeIntervalInSeconds": 208
+                    },
+                    "origins": [
+                      {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                      }
+                    ],
+                    "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 0,
+                    "responseBasedOriginErrorDetectionSettings": {
+                      "responseBasedDetectedErrorTypes": "None",
+                      "responseBasedFailoverThresholdPercentage": 55,
+                      "httpErrorRanges": [
+                        {
+                          "begin": 475,
+                          "end": 943
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "resourceState": "Creating",
+              "provisioningState": "Succeeded"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "415711790",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

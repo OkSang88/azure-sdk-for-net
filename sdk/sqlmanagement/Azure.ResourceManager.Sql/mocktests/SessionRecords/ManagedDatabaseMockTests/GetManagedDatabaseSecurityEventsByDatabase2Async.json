@@ -1,0 +1,62 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/databases/database1/securityEvents?api-version=2020-11-01-preview",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "cee1dd50a2499f5c248c55e8123fdc1c",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "723",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:04 GMT",
+        "ETag": "W/\u00222d3-29CMETMysqPNl1I\u002BFyWXE9UFwkQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/databases/database1/securityEvents/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Sql/managedInstances",
+            "properties": {
+              "eventTime": "2022-01-19T07:31:04.320Z",
+              "securityEventType": "Undefined",
+              "subscription": "aaaaaaa",
+              "server": "aaaaaaaaaaa",
+              "database": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "clientIp": "aaaaaaaa",
+              "applicationName": "aaaaaaaaaaaaaaa",
+              "principalName": "aaaaaaaaaaa",
+              "securityEventSqlInjectionAdditionalProperties": {
+                "threatId": "aaaaaaaaaaaaaaaaa",
+                "statement": "aaaaaaaa",
+                "statementHighlightOffset": 5,
+                "statementHighlightLength": 17,
+                "errorCode": 20,
+                "errorSeverity": 25,
+                "errorMessage": "aa"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "120004690",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

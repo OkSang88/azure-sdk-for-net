@@ -1,0 +1,144 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ConstosoRG/providers/Microsoft.Compute/cloudServices/%7Bcs-name%7D?api-version=2021-03-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "173",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "12304cb9ec02c112add169592cd9b28a",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "packageUrl": "{PackageUrl}",
+          "configuration": "{ServiceConfiguration}",
+          "upgradeMode": "Auto",
+          "roleProfile": {},
+          "networkProfile": {}
+        },
+        "tags": {},
+        "location": "westus"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2153",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:19 GMT",
+        "ETag": "W/\u0022869-LfsKDusb78vV5URKfjXh1msO9u0\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ConstosoRG/providers/Microsoft.Compute/cloudServices/%7Bcs-name%7D",
+        "name": "%7Bcs-name%7D",
+        "type": "/Microsoft.Compute/cloudServices",
+        "location": "aaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key6084": "aaaaa"
+        },
+        "properties": {
+          "packageUrl": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "configuration": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "configurationUrl": "aaaaaaaaaaaaaaaaa",
+          "startCloudService": true,
+          "allowModelOverride": true,
+          "upgradeMode": "Auto",
+          "roleProfile": {
+            "roles": [
+              {
+                "name": "aaaaaa",
+                "sku": {
+                  "name": "aaaaaaaaaaaaaaaaaaaaa",
+                  "tier": "aaaaaaaaaaaaa",
+                  "capacity": 28
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateUrl": "aaaaaaaa"
+                  }
+                ]
+              }
+            ]
+          },
+          "networkProfile": {
+            "loadBalancerConfigurations": [
+              {
+                "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "name": "aaaaaaaaaaaaaaaaaa",
+                "properties": {
+                  "frontendIPConfigurations": [
+                    {
+                      "name": "aaaaaaaaaaaa",
+                      "properties": {
+                        "publicIPAddress": {
+                          "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                        },
+                        "subnet": {
+                          "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                        },
+                        "privateIPAddress": "aaaa"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "swappableCloudService": {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          },
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "aaaa",
+                "properties": {
+                  "publisher": "aaaaaaaaaaaaaaaaaaaa",
+                  "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "typeHandlerVersion": "aaaa",
+                  "autoUpgradeMinorVersion": true,
+                  "settings": "aaaaaaaaaaaaaaaaaa",
+                  "protectedSettings": "aaaaaaaaaaaaaaaa",
+                  "protectedSettingsFromKeyVault": {
+                    "sourceVault": {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    },
+                    "secretUrl": "aaa"
+                  },
+                  "forceUpdateTag": "aaaaaaaaaaaaaaaaaa",
+                  "provisioningState": "Succeeded",
+                  "rolesAppliedTo": [
+                    "aaaaaaaaaaaaaaaaaaaaa"
+                  ]
+                }
+              }
+            ]
+          },
+          "provisioningState": "Succeeded",
+          "uniqueId": "aaaaaaaaaaaaaaaa"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "135941069",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

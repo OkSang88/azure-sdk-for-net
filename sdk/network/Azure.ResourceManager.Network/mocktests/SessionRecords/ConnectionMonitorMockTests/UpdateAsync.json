@@ -1,0 +1,152 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1?api-version=2021-02-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "2",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "7b9a76b9236ecb0a462078a101be24e2",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {},
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1817",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:28:52 GMT",
+        "ETag": "W/\u0022719-a6/CS2mRSiZNblRQqOlST2jRPYg\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "name": "cm1",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1",
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "type": "/Microsoft.Network/networkWatchers",
+        "location": "aaaaaaaaaaaaaaa",
+        "tags": {
+          "key4446": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "source": {
+            "resourceId": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "port": 9417
+          },
+          "destination": {
+            "resourceId": "aaa",
+            "address": "aaaaaaaaaaaaaaa",
+            "port": 62166
+          },
+          "autoStart": true,
+          "monitoringIntervalInSeconds": 1103,
+          "endpoints": [
+            {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "type": "AzureVM",
+              "resourceId": "aaaaaaaaaaaaaaaaa",
+              "address": "aaaaaaaaaaaaaaa",
+              "filter": {
+                "type": "Include",
+                "items": [
+                  {
+                    "type": "AgentAddress",
+                    "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ]
+              },
+              "scope": {
+                "include": [
+                  {
+                    "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ],
+                "exclude": [
+                  {
+                    "address": "aa"
+                  }
+                ]
+              },
+              "coverageLevel": "Default"
+            }
+          ],
+          "testConfigurations": [
+            {
+              "name": "aaaaaaaaaaaa",
+              "testFrequencySec": 3,
+              "protocol": "Tcp",
+              "preferredIPVersion": "IPv4",
+              "httpConfiguration": {
+                "port": 49964,
+                "method": "Get",
+                "path": "aaaaaaaa",
+                "requestHeaders": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                    "value": "aaaaaaaaaaaaa"
+                  }
+                ],
+                "validStatusCodeRanges": [
+                  "aaaaa"
+                ],
+                "preferHTTPS": true
+              },
+              "tcpConfiguration": {
+                "port": 2412,
+                "disableTraceRoute": true,
+                "destinationPortBehavior": "None"
+              },
+              "icmpConfiguration": {
+                "disableTraceRoute": true
+              },
+              "successThreshold": {
+                "checksFailedPercent": 13,
+                "roundTripTimeMs": 16
+              }
+            }
+          ],
+          "testGroups": [
+            {
+              "name": "a",
+              "disable": true,
+              "testConfigurations": [
+                "aaaaaaaaaaaaa"
+              ],
+              "sources": [
+                "aaaa"
+              ],
+              "destinations": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "type": "Workspace",
+              "workspaceSettings": {
+                "workspaceResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          ],
+          "notes": "aa",
+          "provisioningState": "Succeeded",
+          "startTime": "2022-01-19T07:28:52.161Z",
+          "monitoringStatus": "aaaaaaaaaaaaaaaaa",
+          "connectionMonitorType": "MultiEndpoint"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "740498019",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

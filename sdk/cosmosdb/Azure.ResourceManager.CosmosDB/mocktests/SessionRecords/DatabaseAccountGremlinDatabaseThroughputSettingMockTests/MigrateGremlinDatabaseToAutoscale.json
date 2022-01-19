@@ -1,0 +1,63 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/throughputSettings/default/migrateToAutoscale?api-version=2021-06-15",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "fbb32170934fb30556b8812372782395",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "605",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:49 GMT",
+        "ETag": "W/\u002225d-zXCgu4D\u002BOczy5vBRJSoI1icQmLE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+        "name": "migrateToAutoscale",
+        "type": "/Microsoft.DocumentDB/databaseAccounts",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key9283": "aaaaaaaaaa"
+        },
+        "properties": {
+          "resource": {
+            "throughput": 10,
+            "autoscaleSettings": {
+              "maxThroughput": 6,
+              "autoUpgradePolicy": {
+                "throughputPolicy": {
+                  "isEnabled": true,
+                  "incrementPercent": 12
+                }
+              },
+              "targetMaxThroughput": 22
+            },
+            "minimumThroughput": "aaaaaaaaaaaaaaaa",
+            "offerReplacePending": "a",
+            "_rid": "aaaaaaaaaaaaaaaaaaaaaaaa",
+            "_ts": 23,
+            "_etag": "aaaaaaaaaaaaaaa"
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1205098561",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

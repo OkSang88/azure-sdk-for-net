@@ -1,0 +1,91 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores?api-version=2020-06-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.AppConfiguration/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "b9534a50fdf8145bd4fdeeabfb74af81",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1485",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:00 GMT",
+        "ETag": "W/\u00225cd-pheBbY2GelOsK12y2IX/ZZrTxwY\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/mockName",
+            "name": "mockName",
+            "type": "Microsoft.Resources/mockResource",
+            "location": "aaaaaaaaaaaaaaaa",
+            "tags": {
+              "key3312": "aaaaa"
+            },
+            "identity": {
+              "type": "None",
+              "userAssignedIdentities": {
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key5334": {
+                  "principalId": "00000000-0000-0000-0000-000000000000",
+                  "clientId": "00000000-0000-0000-0000-000000000000"
+                }
+              },
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "tenantId": "00000000-0000-0000-0000-000000000000"
+            },
+            "properties": {
+              "provisioningState": "Succeeded",
+              "creationDate": "2022-01-19T07:23:00.806Z",
+              "endpoint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "encryption": {
+                "keyVaultProperties": {
+                  "keyIdentifier": "aaaaaaaaaaaaaaaaaaaaa",
+                  "identityClientId": "aaaaaaaa"
+                }
+              },
+              "privateEndpointConnections": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "name": "mockName",
+                  "type": "Microsoft.Resources/mockResource",
+                  "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateEndpoint": {
+                      "id": "aaaaaaaaaaaaaaa"
+                    },
+                    "privateLinkServiceConnectionState": {
+                      "status": "Pending",
+                      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "actionsRequired": "None"
+                    }
+                  }
+                }
+              ],
+              "publicNetworkAccess": "Enabled"
+            },
+            "sku": {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1857761847",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions?api-version=2021-07-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "9b9efdcb2302393e66c3bac3f27a5e66",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1283",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:22 GMT",
+        "ETag": "W/\u0022503-xvEgQzrdg0T0AZwDds4cI753u48\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Compute/galleries",
+            "location": "aaaaaaaaaaaaaaaaaa",
+            "tags": {
+              "key595": "aaaaaaaa"
+            },
+            "properties": {
+              "publishingProfile": {
+                "targetRegions": [
+                  {
+                    "name": "aaaaaaaaaa",
+                    "regionalReplicaCount": 23,
+                    "storageAccountType": "Standard_LRS",
+                    "encryption": {
+                      "osDiskImage": {
+                        "diskEncryptionSetId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      },
+                      "dataDiskImages": [
+                        {
+                          "diskEncryptionSetId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                          "lun": 7
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "replicaCount": 27,
+                "excludeFromLatest": true,
+                "publishedDate": "2022-01-19T07:24:22.523Z",
+                "endOfLifeDate": "2022-01-19T07:24:22.523Z",
+                "storageAccountType": "Standard_LRS",
+                "replicationMode": "Full"
+              },
+              "provisioningState": "Succeeded",
+              "storageProfile": {
+                "source": {
+                  "id": "a",
+                  "uri": "aaaaaaaaaaaaa"
+                },
+                "osDiskImage": {
+                  "sizeInGB": 24,
+                  "hostCaching": "None",
+                  "source": {
+                    "id": "aaaaaaaa",
+                    "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                },
+                "dataDiskImages": [
+                  {
+                    "sizeInGB": 15,
+                    "hostCaching": "None",
+                    "source": {
+                      "id": "aaaaaaaaaaaaaaa",
+                      "uri": "aaa"
+                    },
+                    "lun": 19
+                  }
+                ]
+              },
+              "replicationStatus": {
+                "aggregatedState": "Unknown",
+                "summary": [
+                  {
+                    "region": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "state": "Unknown",
+                    "details": "aaaa",
+                    "progress": 11
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2105478939",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

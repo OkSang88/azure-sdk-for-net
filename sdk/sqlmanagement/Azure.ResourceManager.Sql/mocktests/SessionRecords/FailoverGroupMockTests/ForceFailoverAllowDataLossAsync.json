@@ -1,0 +1,64 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server/failoverGroups/failover-group-test-3/forceFailoverAllowDataLoss?api-version=2020-11-01-preview",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "8d07022ec5d5219053a5dc5983997e91",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "646",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:02 GMT",
+        "ETag": "W/\u0022286-v3uOnak29b\u002Bw\u002BkGR\u002BeTDC0iAE1o\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+        "name": "forceFailoverAllowDataLoss",
+        "type": "/Microsoft.Sql/servers",
+        "location": "aaaaaaaaaa",
+        "tags": {
+          "key2786": "aaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "readWriteEndpoint": {
+            "failoverPolicy": "Manual",
+            "failoverWithDataLossGracePeriodMinutes": 9
+          },
+          "readOnlyEndpoint": {
+            "failoverPolicy": "Disabled"
+          },
+          "replicationRole": "Primary",
+          "replicationState": "aaaaaaaaaaaaaaaaaaaa",
+          "partnerServers": [
+            {
+              "id": "aaaaaaaaaaaaaaaaaa",
+              "location": "aaaaaaaaaaaaa",
+              "replicationRole": "Primary"
+            }
+          ],
+          "databases": [
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1817733524",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

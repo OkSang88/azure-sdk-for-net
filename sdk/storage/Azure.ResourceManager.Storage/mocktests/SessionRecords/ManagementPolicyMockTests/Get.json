@@ -1,0 +1,107 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/managementPolicies/default?api-version=2021-04-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "df9645b2fb1443e2281c685ded7e9204",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1305",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:39 GMT",
+        "ETag": "W/\u0022519-UnTYuXZ125IRqpZp1gNjyEGc0NA\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/managementPolicies/default",
+        "name": "default",
+        "type": "/Microsoft.Storage/storageAccounts",
+        "properties": {
+          "lastModifiedTime": "2022-01-19T07:31:39.793Z",
+          "policy": {
+            "rules": [
+              {
+                "enabled": true,
+                "name": "aaaaaaa",
+                "type": "Lifecycle",
+                "definition": {
+                  "actions": {
+                    "baseBlob": {
+                      "tierToCool": {
+                        "daysAfterModificationGreaterThan": 0,
+                        "daysAfterLastAccessTimeGreaterThan": 0
+                      },
+                      "tierToArchive": {
+                        "daysAfterModificationGreaterThan": 0,
+                        "daysAfterLastAccessTimeGreaterThan": 0
+                      },
+                      "delete": {
+                        "daysAfterModificationGreaterThan": 0,
+                        "daysAfterLastAccessTimeGreaterThan": 0
+                      },
+                      "enableAutoTierToHotFromCool": true
+                    },
+                    "snapshot": {
+                      "tierToCool": {
+                        "daysAfterCreationGreaterThan": 0
+                      },
+                      "tierToArchive": {
+                        "daysAfterCreationGreaterThan": 0
+                      },
+                      "delete": {
+                        "daysAfterCreationGreaterThan": 0
+                      }
+                    },
+                    "version": {
+                      "tierToCool": {
+                        "daysAfterCreationGreaterThan": 0
+                      },
+                      "tierToArchive": {
+                        "daysAfterCreationGreaterThan": 0
+                      },
+                      "delete": {
+                        "daysAfterCreationGreaterThan": 0
+                      }
+                    }
+                  },
+                  "filters": {
+                    "prefixMatch": [
+                      "aaaaaaaaaaaaaaa"
+                    ],
+                    "blobTypes": [
+                      "aaaaaaaaaaaaaaaaa"
+                    ],
+                    "blobIndexMatch": [
+                      {
+                        "name": "aaaaaaaaaaaa",
+                        "op": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1704920861",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

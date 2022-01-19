@@ -1,0 +1,388 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVirtualMachineScaleSet?api-version=2021-07-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "107e6bd14bd4d2ff6016f6b057e63b40",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "8065",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:26 GMT",
+        "ETag": "W/\u00221f81-NZowr0wkC9ppBhW5D1lOj0O3WOQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVirtualMachineScaleSet",
+        "name": "myVirtualMachineScaleSet",
+        "type": "/Microsoft.Compute/virtualMachineScaleSets",
+        "location": "aaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key4130": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "sku": {
+          "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "tier": "aaaaaaaaaa",
+          "capacity": 24
+        },
+        "plan": {
+          "name": "aaaaaaaaaaaaaaaaa",
+          "publisher": "aa",
+          "product": "a",
+          "promotionCode": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "upgradePolicy": {
+            "mode": "Automatic",
+            "rollingUpgradePolicy": {
+              "maxBatchInstancePercent": 81,
+              "maxUnhealthyInstancePercent": 80,
+              "maxUnhealthyUpgradedInstancePercent": 75,
+              "pauseTimeBetweenBatches": "aaaaaaaaaaaa",
+              "enableCrossZoneUpgrade": true,
+              "prioritizeUnhealthyInstances": true
+            },
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade": true,
+              "disableAutomaticRollback": true
+            }
+          },
+          "automaticRepairsPolicy": {
+            "enabled": true,
+            "gracePeriod": "aaaaaaaaaaaaaaaaa"
+          },
+          "virtualMachineProfile": {
+            "osProfile": {
+              "computerNamePrefix": "aaaaaaaaaaa",
+              "adminUsername": "aaaaaaaaaaaaaaaaa",
+              "adminPassword": "aaaaaa",
+              "customData": "aaaaaaaaaaaaaaaaa",
+              "windowsConfiguration": {
+                "provisionVMAgent": true,
+                "enableAutomaticUpdates": true,
+                "timeZone": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "additionalUnattendContent": [
+                  {
+                    "passName": "OobeSystem",
+                    "componentName": "Microsoft-Windows-Shell-Setup",
+                    "settingName": "AutoLogon",
+                    "content": "aaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ],
+                "patchSettings": {
+                  "patchMode": "Manual",
+                  "enableHotpatching": true,
+                  "assessmentMode": "ImageDefault"
+                },
+                "winRM": {
+                  "listeners": [
+                    {
+                      "protocol": "Http",
+                      "certificateUrl": "aaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                  ]
+                }
+              },
+              "linuxConfiguration": {
+                "disablePasswordAuthentication": true,
+                "ssh": {
+                  "publicKeys": [
+                    {
+                      "path": "aaaa",
+                      "keyData": "aaa"
+                    }
+                  ]
+                },
+                "provisionVMAgent": true,
+                "patchSettings": {
+                  "patchMode": "ImageDefault",
+                  "assessmentMode": "ImageDefault"
+                }
+              },
+              "secrets": [
+                {
+                  "sourceVault": {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  },
+                  "vaultCertificates": [
+                    {
+                      "certificateUrl": "aaaaaaaaa",
+                      "certificateStore": "aaaaaaaaaa"
+                    }
+                  ]
+                }
+              ]
+            },
+            "storageProfile": {
+              "imageReference": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                "publisher": "aaaaaaaaaaaaa",
+                "offer": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "sku": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "version": "aa",
+                "exactVersion": "aaaaaaaaaaaaaaaaaaaa",
+                "sharedGalleryImageId": "aaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "osDisk": {
+                "name": "aaaaaaaaaaaaaaaa",
+                "caching": "None",
+                "writeAcceleratorEnabled": true,
+                "createOption": "FromImage",
+                "diffDiskSettings": {
+                  "option": "Local",
+                  "placement": "CacheDisk"
+                },
+                "diskSizeGB": 26,
+                "osType": "Windows",
+                "image": {
+                  "uri": "aaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "vhdContainers": [
+                  "aaaaa"
+                ],
+                "managedDisk": {
+                  "storageAccountType": "Standard_LRS",
+                  "diskEncryptionSet": {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                }
+              },
+              "dataDisks": [
+                {
+                  "name": "aaaaaaaaaaaaaaa",
+                  "lun": 30,
+                  "caching": "None",
+                  "writeAcceleratorEnabled": true,
+                  "createOption": "FromImage",
+                  "diskSizeGB": 16,
+                  "managedDisk": {
+                    "storageAccountType": "Standard_LRS",
+                    "diskEncryptionSet": {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    }
+                  },
+                  "diskIOPSReadWrite": 17,
+                  "diskMBpsReadWrite": 13
+                }
+              ]
+            },
+            "networkProfile": {
+              "healthProbe": {
+                "id": "aaaaaaaaaaaaaaaaaaa"
+              },
+              "networkInterfaceConfigurations": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "name": "mockName",
+                  "properties": {
+                    "primary": true,
+                    "enableAcceleratedNetworking": true,
+                    "enableFpga": true,
+                    "networkSecurityGroup": {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    },
+                    "dnsSettings": {
+                      "dnsServers": [
+                        "a"
+                      ]
+                    },
+                    "ipConfigurations": [
+                      {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                        "name": "mockName",
+                        "properties": {
+                          "subnet": {
+                            "id": "aaaaaaaaaaaaa"
+                          },
+                          "primary": true,
+                          "publicIPAddressConfiguration": {
+                            "name": "aaaaaaaaaaaaa",
+                            "properties": {
+                              "idleTimeoutInMinutes": 6,
+                              "dnsSettings": {
+                                "domainNameLabel": "aaaaaaaaa"
+                              },
+                              "ipTags": [
+                                {
+                                  "ipTagType": "a",
+                                  "tag": "aaa"
+                                }
+                              ],
+                              "publicIPPrefix": {
+                                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                              },
+                              "publicIPAddressVersion": "IPv4",
+                              "deleteOption": "Delete"
+                            },
+                            "sku": {
+                              "name": "Basic",
+                              "tier": "Regional"
+                            }
+                          },
+                          "privateIPAddressVersion": "IPv4",
+                          "applicationGatewayBackendAddressPools": [
+                            {
+                              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                            }
+                          ],
+                          "applicationSecurityGroups": [
+                            {
+                              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                            }
+                          ],
+                          "loadBalancerBackendAddressPools": [
+                            {
+                              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                            }
+                          ],
+                          "loadBalancerInboundNatPools": [
+                            {
+                              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "enableIPForwarding": true,
+                    "deleteOption": "Delete"
+                  }
+                }
+              ],
+              "networkApiVersion": "2020-11-01"
+            },
+            "securityProfile": {
+              "uefiSettings": {
+                "secureBootEnabled": true,
+                "vTpmEnabled": true
+              },
+              "encryptionAtHost": true,
+              "securityType": "TrustedLaunch"
+            },
+            "diagnosticsProfile": {
+              "bootDiagnostics": {
+                "enabled": true,
+                "storageUri": "aaaaaaaaaa"
+              }
+            },
+            "extensionProfile": {
+              "extensions": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "name": "mockName",
+                  "type": "Microsoft.Resources/mockResource",
+                  "properties": {
+                    "forceUpdateTag": "aaaaaaaaaaaaaaaaaaa",
+                    "publisher": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "type": "aaaaaaaaaaaaa",
+                    "typeHandlerVersion": "aaaaaaaaaaaaa",
+                    "autoUpgradeMinorVersion": true,
+                    "enableAutomaticUpgrade": true,
+                    "settings": {},
+                    "protectedSettings": {},
+                    "provisioningState": "Succeeded",
+                    "provisionAfterExtensions": [
+                      "aaaaaaaa"
+                    ],
+                    "suppressFailures": true
+                  }
+                }
+              ],
+              "extensionsTimeBudget": "aaaaaaaaaaaaaaaaaaaaa"
+            },
+            "licenseType": "aaaaaaaaaaa",
+            "priority": "Regular",
+            "evictionPolicy": "Deallocate",
+            "billingProfile": {
+              "maxPrice": 5
+            },
+            "scheduledEventsProfile": {
+              "terminateNotificationProfile": {
+                "notBeforeTimeout": "aaaaaaaaaaaa",
+                "enable": true
+              }
+            },
+            "userData": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "capacityReservation": {
+              "capacityReservationGroup": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              }
+            },
+            "applicationProfile": {
+              "galleryApplications": [
+                {
+                  "tags": "a",
+                  "order": 5,
+                  "packageReferenceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "configurationReference": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              ]
+            }
+          },
+          "provisioningState": "Succeeded",
+          "overprovision": true,
+          "doNotRunExtensionsOnOverprovisionedVMs": true,
+          "uniqueId": "aaaaaaaaaaaaa",
+          "singlePlacementGroup": true,
+          "zoneBalance": true,
+          "platformFaultDomainCount": 17,
+          "proximityPlacementGroup": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "hostGroup": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "additionalCapabilities": {
+            "ultraSSDEnabled": true,
+            "hibernationEnabled": true
+          },
+          "scaleInPolicy": {
+            "rules": [
+              "Default"
+            ],
+            "forceDeletion": true
+          },
+          "orchestrationMode": "Uniform",
+          "spotRestorePolicy": {
+            "enabled": true,
+            "restoreTimeout": "aaaaaaaaaaaaaa"
+          }
+        },
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "SystemAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key7666": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "zones": [
+          "aaaaaaaaaaaaa"
+        ],
+        "extendedLocation": {
+          "name": "aa",
+          "type": "EdgeZone"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "290833767",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

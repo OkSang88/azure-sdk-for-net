@@ -1,0 +1,97 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9290/providers/Microsoft.Storage/storageAccounts/sto1590/blobServices/default/containers?api-version=2021-04-01\u0026$include=deleted",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "7bccbe00b4a7b91777fbf10129ad0d80",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1460",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:38 GMT",
+        "ETag": "W/\u00225b4-l4I9RhILhZLQztgDNYJHY0SkDew\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9290/providers/Microsoft.Storage/storageAccounts/sto1590/blobServices/default/containers/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Storage/storageAccounts",
+            "etag": "aaaaaaaaaaaaaaaaaaaaaa",
+            "properties": {
+              "version": "aaaaaaaaaaa",
+              "deleted": true,
+              "deletedTime": "2022-01-19T07:31:38.437Z",
+              "remainingRetentionDays": 18,
+              "defaultEncryptionScope": "aaaaaaaaaaaaaaaaaaa",
+              "denyEncryptionScopeOverride": true,
+              "publicAccess": "Container",
+              "lastModifiedTime": "2022-01-19T07:31:38.437Z",
+              "leaseStatus": "Locked",
+              "leaseState": "Available",
+              "leaseDuration": "Infinite",
+              "metadata": {
+                "key1108": "aaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "immutabilityPolicy": {
+                "properties": {
+                  "immutabilityPeriodSinceCreationInDays": 1,
+                  "state": "Locked",
+                  "allowProtectedAppendWrites": true
+                },
+                "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "updateHistory": [
+                  {
+                    "update": "put",
+                    "immutabilityPeriodSinceCreationInDays": 30,
+                    "timestamp": "2022-01-19T07:31:38.437Z",
+                    "objectIdentifier": "aaaaaaaaaaaaaaaaaa",
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "upn": "aa"
+                  }
+                ]
+              },
+              "legalHold": {
+                "hasLegalHold": true,
+                "tags": [
+                  {
+                    "tag": "aaa",
+                    "timestamp": "2022-01-19T07:31:38.437Z",
+                    "objectIdentifier": "aaaaaaaaaaaaaaaaaaa",
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                    "upn": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                ]
+              },
+              "hasLegalHold": true,
+              "hasImmutabilityPolicy": true,
+              "immutableStorageWithVersioning": {
+                "enabled": true,
+                "timeStamp": "2022-01-19T07:31:38.437Z",
+                "migrationState": "InProgress"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2100569055",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

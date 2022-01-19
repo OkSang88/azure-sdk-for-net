@@ -1,0 +1,208 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName?api-version=2021-07-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "c6fc4edbf613dd2ba243305895304728",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "3837",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:23 GMT",
+        "ETag": "W/\u0022efd-0PwS3bH308OyPVILNjfLnDnraG4\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName",
+        "name": "rpcName",
+        "type": "/Microsoft.Compute/restorePointCollections",
+        "location": "aaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key802": "aaaaaaaa"
+        },
+        "properties": {
+          "source": {
+            "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "id": "aaaaaaaa"
+          },
+          "provisioningState": "Succeeded",
+          "restorePointCollectionId": "aaaaaaaaaaaaaaaa",
+          "restorePoints": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "mockName",
+              "type": "Microsoft.Resources/mockResource",
+              "properties": {
+                "excludeDisks": [
+                  {
+                    "id": "aaaaaa"
+                  }
+                ],
+                "sourceMetadata": {
+                  "hardwareProfile": {
+                    "vmSize": "Basic_A0",
+                    "vmSizeProperties": {
+                      "vCPUsAvailable": 27,
+                      "vCPUsPerCore": 26
+                    }
+                  },
+                  "storageProfile": {
+                    "osDisk": {
+                      "osType": "Windows",
+                      "encryptionSettings": {
+                        "diskEncryptionKey": {
+                          "secretUrl": "aa",
+                          "sourceVault": {
+                            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                          }
+                        },
+                        "keyEncryptionKey": {
+                          "keyUrl": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                          "sourceVault": {
+                            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                          }
+                        },
+                        "enabled": true
+                      },
+                      "name": "aaaaaaaaaaaaaaaaaaaa",
+                      "caching": "None",
+                      "diskSizeGB": 6,
+                      "managedDisk": {
+                        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                        "storageAccountType": "Standard_LRS",
+                        "diskEncryptionSet": {
+                          "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                        }
+                      },
+                      "diskRestorePoint": {
+                        "id": "aaaaaaaaaaaaaaaaaa"
+                      }
+                    },
+                    "dataDisks": [
+                      {
+                        "lun": 18,
+                        "name": "aaaaaaaaaaaaa",
+                        "caching": "None",
+                        "diskSizeGB": 2,
+                        "managedDisk": {
+                          "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                          "storageAccountType": "Standard_LRS",
+                          "diskEncryptionSet": {
+                            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                          }
+                        },
+                        "diskRestorePoint": {
+                          "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                        }
+                      }
+                    ]
+                  },
+                  "osProfile": {
+                    "computerName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "adminUsername": "aaaaaaaaaaaaaaaa",
+                    "adminPassword": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "customData": "aaaaaaaaa",
+                    "windowsConfiguration": {
+                      "provisionVMAgent": true,
+                      "enableAutomaticUpdates": true,
+                      "timeZone": "aaaaaaa",
+                      "additionalUnattendContent": [
+                        {
+                          "passName": "OobeSystem",
+                          "componentName": "Microsoft-Windows-Shell-Setup",
+                          "settingName": "AutoLogon",
+                          "content": "a"
+                        }
+                      ],
+                      "patchSettings": {
+                        "patchMode": "Manual",
+                        "enableHotpatching": true,
+                        "assessmentMode": "ImageDefault"
+                      },
+                      "winRM": {
+                        "listeners": [
+                          {
+                            "protocol": "Http",
+                            "certificateUrl": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                          }
+                        ]
+                      }
+                    },
+                    "linuxConfiguration": {
+                      "disablePasswordAuthentication": true,
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "path": "aa",
+                            "keyData": "aaaaaa"
+                          }
+                        ]
+                      },
+                      "provisionVMAgent": true,
+                      "patchSettings": {
+                        "patchMode": "ImageDefault",
+                        "assessmentMode": "ImageDefault"
+                      }
+                    },
+                    "secrets": [
+                      {
+                        "sourceVault": {
+                          "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                        },
+                        "vaultCertificates": [
+                          {
+                            "certificateUrl": "aaaa",
+                            "certificateStore": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                          }
+                        ]
+                      }
+                    ],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                  },
+                  "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                      "enabled": true,
+                      "storageUri": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                  },
+                  "licenseType": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "vmId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "securityProfile": {
+                    "uefiSettings": {
+                      "secureBootEnabled": true,
+                      "vTpmEnabled": true
+                    },
+                    "encryptionAtHost": true,
+                    "securityType": "TrustedLaunch"
+                  },
+                  "location": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "provisioningState": "Succeeded",
+                "consistencyMode": "CrashConsistent",
+                "timeCreated": "2022-01-19T07:24:23.552Z"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1866671836",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

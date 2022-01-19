@@ -1,0 +1,146 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies?api-version=2020-09-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "bbe3097daf1bd0692c0d8962253aaf54",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1757",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:24 GMT",
+        "ETag": "W/\u00226dd-D5C10ytGsbioxJjzWHxrW3MpHUY\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/mockName",
+            "name": "mockName",
+            "type": "Microsoft.Resources/mockResource",
+            "systemData": {
+              "createdBy": "aaaaaaaaa",
+              "createdByType": "user",
+              "createdAt": "2022-01-19T07:23:24.829Z",
+              "lastModifiedBy": "aaa",
+              "lastModifiedByType": "user",
+              "lastModifiedAt": "2022-01-19T07:23:24.829Z"
+            },
+            "location": "aaaaaaaaaaaaa",
+            "tags": {
+              "key5410": "aaaaaaaaaaaaaaaaaaaaa"
+            },
+            "properties": {
+              "policySettings": {
+                "enabledState": "Disabled",
+                "mode": "Prevention",
+                "defaultRedirectUrl": "aaaaaaaaaa",
+                "defaultCustomBlockResponseStatusCode": 20,
+                "defaultCustomBlockResponseBody": "\u002Bu/\u002B\u002Bs/y2/\u002B67\u002B=="
+              },
+              "rateLimitRules": {
+                "rules": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaa",
+                    "enabledState": "Disabled",
+                    "priority": 27,
+                    "matchConditions": [
+                      {
+                        "matchVariable": "RemoteAddr",
+                        "selector": "aaaaa",
+                        "operator": "Any",
+                        "negateCondition": true,
+                        "matchValue": [
+                          "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                        ],
+                        "transforms": [
+                          "Lowercase"
+                        ]
+                      }
+                    ],
+                    "action": "Allow",
+                    "rateLimitThreshold": 0,
+                    "rateLimitDurationInMinutes": 52
+                  }
+                ]
+              },
+              "customRules": {
+                "rules": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "enabledState": "Disabled",
+                    "priority": 392,
+                    "matchConditions": [
+                      {
+                        "matchVariable": "RemoteAddr",
+                        "selector": "aaaaaaaaaaaaaaaaaaaaaaa",
+                        "operator": "Any",
+                        "negateCondition": true,
+                        "matchValue": [
+                          "aaaaaaaaaaaaaaaaaaaaa"
+                        ],
+                        "transforms": [
+                          "Lowercase"
+                        ]
+                      }
+                    ],
+                    "action": "Allow"
+                  }
+                ]
+              },
+              "managedRules": {
+                "managedRuleSets": [
+                  {
+                    "ruleSetType": "aaaaaaaaaaaaaa",
+                    "ruleSetVersion": "aaaaaaaaaaaaaaaaaaa",
+                    "anomalyScore": 6,
+                    "ruleGroupOverrides": [
+                      {
+                        "ruleGroupName": "aaaaaaaaaa",
+                        "rules": [
+                          {
+                            "ruleId": "aaaa",
+                            "enabledState": "Disabled",
+                            "action": "Allow"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "endpointLinks": [
+                {
+                  "id": "aaa"
+                }
+              ],
+              "provisioningState": "Succeeded",
+              "resourceState": "Creating"
+            },
+            "etag": "aaaaaaaaaaaaa",
+            "sku": {
+              "name": "Standard_Verizon"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "26986416",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

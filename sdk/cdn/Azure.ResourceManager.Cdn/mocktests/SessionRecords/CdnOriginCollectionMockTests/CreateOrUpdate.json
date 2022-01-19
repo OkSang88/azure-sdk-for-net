@@ -1,0 +1,78 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net?api-version=2020-09-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "399",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "da6c4658fb6198d9559b13fa0635f5d0",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "hostName": "www.someDomain.net",
+          "httpPort": 80,
+          "httpsPort": 443,
+          "originHostHeader": "www.someDomain.net",
+          "priority": 1,
+          "weight": 50,
+          "enabled": true,
+          "privateLinkResourceId": "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+          "privateLinkLocation": "eastus",
+          "privateLinkApprovalMessage": "Please approve the connection request for this Private Link"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "896",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:24 GMT",
+        "ETag": "W/\u0022380-MGDQIF9wIpo3wfLAuiIq6hmh4\u002Bo\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net",
+        "name": "www-someDomain-net",
+        "type": "/Microsoft.Cdn/profiles",
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaa",
+          "createdByType": "user",
+          "createdAt": "2022-01-19T07:23:24.493Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "user",
+          "lastModifiedAt": "2022-01-19T07:23:24.493Z"
+        },
+        "properties": {
+          "hostName": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "httpPort": 15919,
+          "httpsPort": 45626,
+          "originHostHeader": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "priority": 3,
+          "weight": 214,
+          "enabled": true,
+          "privateLinkAlias": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "privateLinkResourceId": "aaaaaaaaaaaaaa",
+          "privateLinkLocation": "aaaaaaaaaaaaaaaaa",
+          "privateLinkApprovalMessage": "aaaaaaaaaaaaaaaaaaaa",
+          "resourceState": "Creating",
+          "provisioningState": "Succeeded",
+          "privateEndpointStatus": "Pending"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "759992748",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

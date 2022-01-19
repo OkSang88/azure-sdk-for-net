@@ -1,0 +1,84 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules?api-version=2020-09-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "2cbb602c0bceb2536af58f17637b9267",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1045",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:23 GMT",
+        "ETag": "W/\u0022415-mYJu8FoHlSlRyL8jYQdB54fqfQU\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Cdn/profiles",
+            "systemData": {
+              "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdByType": "user",
+              "createdAt": "2022-01-19T07:23:23.603Z",
+              "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "lastModifiedByType": "user",
+              "lastModifiedAt": "2022-01-19T07:23:23.603Z"
+            },
+            "properties": {
+              "order": 20,
+              "conditions": [
+                {
+                  "name": "RemoteAddress",
+                  "parameters": {
+                    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+                    "operator": "Any",
+                    "negateCondition": true,
+                    "matchValues": [
+                      "aaaaaaaa"
+                    ],
+                    "transforms": [
+                      "Lowercase"
+                    ]
+                  }
+                }
+              ],
+              "actions": [
+                {
+                  "name": "CacheExpiration",
+                  "parameters": {
+                    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+                    "cacheBehavior": "BypassCache",
+                    "cacheType": "All",
+                    "cacheDuration": "aaaaaaaaaaaaaaaaaaaaa"
+                  }
+                }
+              ],
+              "matchProcessingBehavior": "Continue",
+              "provisioningState": "Succeeded",
+              "deploymentStatus": "NotStarted"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "553242016",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

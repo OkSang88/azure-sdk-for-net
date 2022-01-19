@@ -1,0 +1,96 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/myDiskEncryptionSet?api-version=2021-08-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "310",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "2c738469d164d0b00d8f4f292ccd0800",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "encryptionType": "EncryptionAtRestWithCustomerKey",
+          "activeKey": {
+            "sourceVault": {
+              "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault"
+            },
+            "keyUrl": "https://myvmvault.vault-int.azure-int.net/keys/keyName/keyVersion"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1099",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:21 GMT",
+        "ETag": "W/\u002244b-s3TPzataD3KtxSlUbD20WMBjSl4\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/myDiskEncryptionSet",
+        "name": "myDiskEncryptionSet",
+        "type": "/Microsoft.Compute/diskEncryptionSets",
+        "location": "aaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key2912": "aaaa"
+        },
+        "identity": {
+          "type": "SystemAssigned",
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000"
+        },
+        "properties": {
+          "encryptionType": "EncryptionAtRestWithCustomerKey",
+          "activeKey": {
+            "sourceVault": {
+              "id": "aaaaaaaaaaaaaa"
+            },
+            "keyUrl": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "previousKeys": [
+            {
+              "sourceVault": {
+                "id": "aaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "keyUrl": "aaaaaa"
+            }
+          ],
+          "provisioningState": "Succeeded",
+          "rotationToLatestKeyVersionEnabled": true,
+          "lastKeyRotationTimestamp": "2022-01-19T07:24:21.557Z",
+          "autoKeyRotationError": {
+            "details": [
+              {
+                "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "target": "aaaaaa",
+                "message": "aaaaaaaaaaaaaaa"
+              }
+            ],
+            "innererror": {
+              "exceptiontype": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "errordetail": "aaa"
+            },
+            "code": "aaaaaaaaaaaaaa",
+            "target": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "message": "aaaaaaaaaaaaaaaa"
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1925130005",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

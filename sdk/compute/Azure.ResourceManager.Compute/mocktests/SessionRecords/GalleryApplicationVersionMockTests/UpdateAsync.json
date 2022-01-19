@@ -1,0 +1,110 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName/versions/1.0.0?api-version=2021-07-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "395",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "cc3652065ff796fd6b21d5208637372d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "publishingProfile": {
+            "source": {
+              "mediaLink": "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}"
+            },
+            "manageActions": {
+              "install": "powershell -command \u0022Expand-Archive -Path package.zip -DestinationPath C:\\package\u0022",
+              "remove": "del C:\\package "
+            },
+            "replicaCount": 1,
+            "endOfLifeDate": "2019-07-01T07:00:00.0000000Z",
+            "storageAccountType": "Standard_LRS"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1174",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:22 GMT",
+        "ETag": "W/\u0022496-CiLCStGx4b6AEDyR0O0HK785eOY\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName/versions/1.0.0",
+        "name": "1.0.0",
+        "type": "/Microsoft.Compute/galleries",
+        "location": "aaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key1420": "aaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "publishingProfile": {
+            "targetRegions": [
+              {
+                "name": "aaaaa",
+                "regionalReplicaCount": 2,
+                "storageAccountType": "Standard_LRS",
+                "encryption": {
+                  "osDiskImage": {
+                    "diskEncryptionSetId": "aaaaaaaaaaaaa"
+                  },
+                  "dataDiskImages": [
+                    {
+                      "diskEncryptionSetId": "aaaaaaaaaaaaaaa",
+                      "lun": 17
+                    }
+                  ]
+                }
+              }
+            ],
+            "replicaCount": 7,
+            "excludeFromLatest": true,
+            "publishedDate": "2022-01-19T07:24:22.131Z",
+            "endOfLifeDate": "2022-01-19T07:24:22.131Z",
+            "storageAccountType": "Standard_LRS",
+            "replicationMode": "Full",
+            "source": {
+              "mediaLink": "aaaaaaaaaaaaaa",
+              "defaultConfigurationLink": "aaaaaa"
+            },
+            "manageActions": {
+              "install": "aaaaaaaaaa",
+              "remove": "aaaaaaaaa",
+              "update": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "enableHealthCheck": true
+          },
+          "provisioningState": "Succeeded",
+          "replicationStatus": {
+            "aggregatedState": "Unknown",
+            "summary": [
+              {
+                "region": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "state": "Unknown",
+                "details": "aaaaaaaa",
+                "progress": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "810489232",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

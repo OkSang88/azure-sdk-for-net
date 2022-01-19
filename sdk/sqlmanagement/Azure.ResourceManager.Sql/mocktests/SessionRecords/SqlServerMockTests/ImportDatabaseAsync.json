@@ -1,0 +1,71 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/import?api-version=2021-02-01-preview",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "679",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "6b78a782111479dcca7a7177ccd7c19c",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "databaseName": "testdb",
+        "storageKeyType": "StorageAccessKey",
+        "storageKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx==",
+        "storageUri": "https://test.blob.core.windows.net/test.bacpac",
+        "administratorLogin": "login",
+        "administratorLoginPassword": "password",
+        "authenticationType": "Sql",
+        "networkIsolation": {
+          "storageAccountResourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Storage/storageAccounts/test-privatelink",
+          "sqlServerResourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "688",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:14 GMT",
+        "ETag": "W/\u00222b0-zYTOdxH\u002BE2Cr96S965AO6Eg3ZLg\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+        "name": "import",
+        "type": "/Microsoft.Sql/servers",
+        "properties": {
+          "requestId": "00000000-0000-0000-0000-000000000000",
+          "requestType": "aaaaaaaa",
+          "queuedTime": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedTime": "aaaaaaaaaaaaa",
+          "blobUri": "aaaaaaaaaa",
+          "serverName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "databaseName": "aaaaaaa",
+          "status": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "errorMessage": "aaaaaaaaaaaaaaaa",
+          "privateEndpointConnections": [
+            {
+              "privateLinkServiceId": "aaaaaaaaaaaaaaaaaaa",
+              "privateEndpointConnectionName": "aaaaaaaaaaaaaaaa",
+              "status": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "708067178",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

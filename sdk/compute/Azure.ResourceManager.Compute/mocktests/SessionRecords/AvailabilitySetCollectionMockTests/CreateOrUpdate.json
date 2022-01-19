@@ -1,0 +1,78 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/myAvailabilitySet?api-version=2021-07-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "106",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "a311d3569a645884549afebf622c5c24",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {},
+        "location": "westus",
+        "properties": {
+          "platformUpdateDomainCount": 20,
+          "platformFaultDomainCount": 2
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "875",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:18 GMT",
+        "ETag": "W/\u002236b-G1NINlKcunFycOlW2XLc/7iyLoc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/myAvailabilitySet",
+        "name": "myAvailabilitySet",
+        "type": "/Microsoft.Compute/availabilitySets",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key2492": "aaaaaaa"
+        },
+        "properties": {
+          "platformUpdateDomainCount": 9,
+          "platformFaultDomainCount": 8,
+          "virtualMachines": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "proximityPlacementGroup": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "statuses": [
+            {
+              "code": "aaaaaaaaaaaa",
+              "level": "Info",
+              "displayStatus": "aaaaaaaaaaaa",
+              "message": "aaa",
+              "time": "2022-01-19T07:24:18.766Z"
+            }
+          ]
+        },
+        "sku": {
+          "name": "aa",
+          "tier": "aaaaaaaaaaaaaaaaa",
+          "capacity": 4
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2103075782",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

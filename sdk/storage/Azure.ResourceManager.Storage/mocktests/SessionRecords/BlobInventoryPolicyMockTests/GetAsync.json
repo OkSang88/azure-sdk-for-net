@@ -1,0 +1,79 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default?api-version=2021-04-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "5142ce5c237d0315ba2fe1cc37a9f653",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "874",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:39 GMT",
+        "ETag": "W/\u002236a-8rsr46Q64LmdE/9l6\u002B5DOQaVuV0\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default",
+        "name": "default",
+        "type": "/Microsoft.Storage/storageAccounts",
+        "properties": {
+          "lastModifiedTime": "2022-01-19T07:31:39.140Z",
+          "policy": {
+            "enabled": true,
+            "type": "Inventory",
+            "rules": [
+              {
+                "enabled": true,
+                "name": "aaaaaaaaa",
+                "destination": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "definition": {
+                  "filters": {
+                    "prefixMatch": [
+                      "aaaaaaaaaaaa"
+                    ],
+                    "blobTypes": [
+                      "aaa"
+                    ],
+                    "includeBlobVersions": true,
+                    "includeSnapshots": true
+                  },
+                  "format": "Csv",
+                  "schedule": "Daily",
+                  "objectType": "Blob",
+                  "schemaFields": [
+                    "aaaaaaaaaaaaaaaaaaaa"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-19T07:31:39.140Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-19T07:31:39.140Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1323118307",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

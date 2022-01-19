@@ -1,0 +1,98 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso?api-version=2020-06-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "93",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.AppConfiguration/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "1a92e96da04df08bd85a18fc6caa46c0",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sku": {
+          "name": "Standard"
+        },
+        "tags": {
+          "myTag": "myTagValue"
+        },
+        "location": "westus",
+        "properties": {}
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1452",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:00 GMT",
+        "ETag": "W/\u00225ac-39RiFUMXBq\u002BkCTI1IiyWh544AvU\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso",
+        "name": "contoso",
+        "type": "/Microsoft.AppConfiguration/configurationStores",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key8533": "aaaaaaaaaaaaaaa"
+        },
+        "identity": {
+          "type": "None",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key7796": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          },
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000"
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "creationDate": "2022-01-19T07:23:00.661Z",
+          "endpoint": "aaaaaaaaa",
+          "encryption": {
+            "keyVaultProperties": {
+              "keyIdentifier": "aaaaaaaaaaaaaaaaaaaaa",
+              "identityClientId": "aaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "privateEndpointConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "mockName",
+              "type": "Microsoft.Resources/mockResource",
+              "properties": {
+                "provisioningState": "Succeeded",
+                "privateEndpoint": {
+                  "id": "a"
+                },
+                "privateLinkServiceConnectionState": {
+                  "status": "Pending",
+                  "description": "aaaaaaaa",
+                  "actionsRequired": "None"
+                }
+              }
+            }
+          ],
+          "publicNetworkAccess": "Enabled"
+        },
+        "sku": {
+          "name": "aaaaaaaaaaaaaaaaa"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2056566645",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

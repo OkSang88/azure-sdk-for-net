@@ -1,0 +1,139 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default?api-version=2021-04-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "765",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "3b66066155ce380612fe6f3166e58259",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "policy": {
+            "enabled": true,
+            "type": "Inventory",
+            "rules": [
+              {
+                "enabled": true,
+                "name": "inventoryPolicyRule1",
+                "destination": "container1",
+                "definition": {
+                  "filters": {
+                    "includeBlobVersions": true,
+                    "includeSnapshots": true
+                  },
+                  "format": "Csv",
+                  "schedule": "Daily",
+                  "objectType": "Blob",
+                  "schemaFields": [
+                    "Name",
+                    "Creation-Time",
+                    "Last-Modified",
+                    "Content-Length",
+                    "Content-MD5",
+                    "BlobType",
+                    "AccessTier",
+                    "AccessTierChangeTime",
+                    "Snapshot",
+                    "VersionId",
+                    "IsCurrentVersion",
+                    "Metadata"
+                  ]
+                }
+              },
+              {
+                "enabled": true,
+                "name": "inventoryPolicyRule2",
+                "destination": "container2",
+                "definition": {
+                  "format": "Parquet",
+                  "schedule": "Weekly",
+                  "objectType": "Container",
+                  "schemaFields": [
+                    "Name",
+                    "Last-Modified",
+                    "Metadata",
+                    "LeaseStatus",
+                    "LeaseState",
+                    "LeaseDuration",
+                    "PublicAccess",
+                    "HasImmutabilityPolicy",
+                    "HasLegalHold"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "876",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:39 GMT",
+        "ETag": "W/\u002236c-w5RWKBUHH3fet6UvcezpLRclyaU\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default",
+        "name": "default",
+        "type": "/Microsoft.Storage/storageAccounts",
+        "properties": {
+          "lastModifiedTime": "2022-01-19T07:31:39.082Z",
+          "policy": {
+            "enabled": true,
+            "type": "Inventory",
+            "rules": [
+              {
+                "enabled": true,
+                "name": "aaaaaaaaaaaaaa",
+                "destination": "aaaaaaaaaaaaaaaaaaaaaa",
+                "definition": {
+                  "filters": {
+                    "prefixMatch": [
+                      "aaaaaaaaaaaaaaa"
+                    ],
+                    "blobTypes": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "includeBlobVersions": true,
+                    "includeSnapshots": true
+                  },
+                  "format": "Csv",
+                  "schedule": "Daily",
+                  "objectType": "Blob",
+                  "schemaFields": [
+                    "aaaaaaaaaaaaaaaaaaaaa"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-19T07:31:39.082Z",
+          "lastModifiedBy": "aaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-19T07:31:39.082Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "103003679",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5357/eventhubs/sdk-EventHub-6547?api-version=2021-11-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "587",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.EventHubs/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "f377c215d64ebf77a1dfe79e2dbdbf2b",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "messageRetentionInDays": 4,
+          "partitionCount": 4,
+          "status": "Active",
+          "captureDescription": {
+            "enabled": true,
+            "encoding": "Avro",
+            "intervalInSeconds": 120,
+            "sizeLimitInBytes": 10485763,
+            "destination": {
+              "name": "EventHubArchive.AzureBlockBlob",
+              "properties": {
+                "storageAccountResourceId": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+                "blobContainer": "container",
+                "archiveNameFormat": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}"
+              }
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1175",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:25:36 GMT",
+        "ETag": "W/\u0022497-Fdv4NQHl01V6az8XFM8QEtS\u002BjIQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5357/eventhubs/sdk-EventHub-6547",
+        "name": "sdk-EventHub-6547",
+        "type": "/Microsoft.EventHub/namespaces",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaa",
+        "properties": {
+          "partitionIds": [
+            "aaaaa"
+          ],
+          "createdAt": "2022-01-19T07:25:36.200Z",
+          "updatedAt": "2022-01-19T07:25:36.200Z",
+          "messageRetentionInDays": 7,
+          "partitionCount": 30,
+          "status": "Active",
+          "captureDescription": {
+            "enabled": true,
+            "encoding": "Avro",
+            "intervalInSeconds": 12,
+            "sizeLimitInBytes": 1,
+            "destination": {
+              "name": "aaaaaaaaaaaaaaaaaaaa",
+              "properties": {
+                "storageAccountResourceId": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "blobContainer": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "archiveNameFormat": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "dataLakeSubscriptionId": "00000000-0000-0000-0000-000000000000",
+                "dataLakeAccountName": "aaa",
+                "dataLakeFolderPath": "aaaaaa"
+              }
+            },
+            "skipEmptyArchives": true
+          }
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-19T07:25:36.200Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-19T07:25:36.200Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "923379447",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

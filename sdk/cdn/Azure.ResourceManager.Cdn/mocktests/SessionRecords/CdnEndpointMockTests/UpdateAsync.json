@@ -1,0 +1,182 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1?api-version=2020-09-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "17",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "979f1e0582d4d33938061ef5083d892c",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {}
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "3022",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:24 GMT",
+        "ETag": "W/\u0022bce-iaiD0rcdwPVv0h/CBvTdXOjkiRY\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1",
+        "name": "endpoint1",
+        "type": "/Microsoft.Cdn/profiles",
+        "systemData": {
+          "createdBy": "aaaaaaa",
+          "createdByType": "user",
+          "createdAt": "2022-01-19T07:23:24.469Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "user",
+          "lastModifiedAt": "2022-01-19T07:23:24.469Z"
+        },
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key3711": "aaaaaaaaaaaaa"
+        },
+        "properties": {
+          "originPath": "aaaaaaaaaaaaaaaa",
+          "contentTypesToCompress": [
+            "aaaaaaaaaaaaa"
+          ],
+          "originHostHeader": "aaaaaaaaaaaaaaaaaaaaaaa",
+          "isCompressionEnabled": true,
+          "isHttpAllowed": true,
+          "isHttpsAllowed": true,
+          "queryStringCachingBehavior": "IgnoreQueryString",
+          "optimizationType": "GeneralWebDelivery",
+          "probePath": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "geoFilters": [
+            {
+              "relativePath": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "Block",
+              "countryCodes": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ]
+            }
+          ],
+          "defaultOriginGroup": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "urlSigningKeys": [
+            {
+              "keyId": "aaaaaaaaaaaaaa",
+              "keySourceParameters": {
+                "@odata.type": "#Microsoft.Azure.Cdn.Models.KeyVaultSigningKeyParameters",
+                "subscriptionId": "aaaa",
+                "resourceGroupName": "aaaaaaaaaaaaaaaaaa",
+                "vaultName": "aaaaaaaa",
+                "secretName": "aaaaaa",
+                "secretVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          ],
+          "deliveryPolicy": {
+            "description": "aaaaaaaaaaaaaaaaaa",
+            "rules": [
+              {
+                "name": "aaaaaaaaaaaaaaa",
+                "order": 13,
+                "conditions": [
+                  {
+                    "name": "RemoteAddress",
+                    "parameters": {
+                      "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+                      "operator": "Any",
+                      "negateCondition": true,
+                      "matchValues": [
+                        "aaaaaa"
+                      ],
+                      "transforms": [
+                        "Lowercase"
+                      ]
+                    }
+                  }
+                ],
+                "actions": [
+                  {
+                    "name": "CacheExpiration",
+                    "parameters": {
+                      "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+                      "cacheBehavior": "BypassCache",
+                      "cacheType": "All",
+                      "cacheDuration": "aaaaaaaaaaaaaaaaaaaaa"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "webApplicationFirewallPolicyLink": {
+            "id": "aaaaa"
+          },
+          "hostName": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "origins": [
+            {
+              "name": "mockName",
+              "properties": {
+                "hostName": "aaaaaaaaaaaaaaaaaaaaaa",
+                "httpPort": 14235,
+                "httpsPort": 44701,
+                "originHostHeader": "aaaaaaaaaaaa",
+                "priority": 3,
+                "weight": 51,
+                "enabled": true,
+                "privateLinkAlias": "aaaaaaaaaaa",
+                "privateLinkResourceId": "aa",
+                "privateLinkLocation": "aaaaaaaaaaaaaaaaaa",
+                "privateLinkApprovalMessage": "aaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          ],
+          "originGroups": [
+            {
+              "name": "mockName",
+              "properties": {
+                "healthProbeSettings": {
+                  "probePath": "aaaaaaaaa",
+                  "probeRequestType": "NotSet",
+                  "probeProtocol": "NotSet",
+                  "probeIntervalInSeconds": 247
+                },
+                "origins": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                  }
+                ],
+                "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 24,
+                "responseBasedOriginErrorDetectionSettings": {
+                  "responseBasedDetectedErrorTypes": "None",
+                  "responseBasedFailoverThresholdPercentage": 21,
+                  "httpErrorRanges": [
+                    {
+                      "begin": 529,
+                      "end": 406
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "resourceState": "Creating",
+          "provisioningState": "Succeeded"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "340836711",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

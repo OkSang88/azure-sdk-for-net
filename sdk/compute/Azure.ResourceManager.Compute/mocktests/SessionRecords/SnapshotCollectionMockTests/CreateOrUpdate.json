@@ -1,0 +1,135 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1?api-version=2021-08-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "314",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "55a4031896f70e29241225894cd7e309",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {},
+        "location": "westus",
+        "properties": {
+          "creationData": {
+            "createOption": "Import",
+            "storageAccountId": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            "sourceUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1900",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:23 GMT",
+        "ETag": "W/\u002276c-pm1REw7bWlp0mM5bmWGnpCbg4yQ\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+        "name": "mySnapshot1",
+        "type": "/Microsoft.Compute/snapshots",
+        "location": "aaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key1600": "aaaaaa"
+        },
+        "managedBy": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "sku": {
+          "name": "Standard_LRS",
+          "tier": "aaaaaaaaaa"
+        },
+        "extendedLocation": {
+          "name": "aaaaaaaaaaaaaaaa",
+          "type": "EdgeZone"
+        },
+        "properties": {
+          "timeCreated": "2022-01-19T07:24:23.853Z",
+          "osType": "Windows",
+          "hyperVGeneration": "V1",
+          "purchasePlan": {
+            "name": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "publisher": "aaaaaaaaaaaaaa",
+            "product": "aaaaaaaaaaa",
+            "promotionCode": "aaaaaaaaaaaaaaaaaaaa"
+          },
+          "supportedCapabilities": {
+            "acceleratedNetwork": true
+          },
+          "creationData": {
+            "createOption": "Empty",
+            "storageAccountId": "aaaaa",
+            "imageReference": {
+              "id": "aaaaaaaaaaaaaaaaaa",
+              "lun": 17
+            },
+            "galleryImageReference": {
+              "id": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "lun": 23
+            },
+            "sourceUri": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "sourceResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+            "sourceUniqueId": "aaaaaaaa",
+            "uploadSizeBytes": 26,
+            "logicalSectorSize": 6,
+            "securityDataUri": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "diskSizeGB": 6,
+          "diskSizeBytes": 12,
+          "diskState": "Unattached",
+          "uniqueId": "aaaaaaaaaaa",
+          "encryptionSettingsCollection": {
+            "enabled": true,
+            "encryptionSettings": [
+              {
+                "diskEncryptionKey": {
+                  "sourceVault": {
+                    "id": "aaaaaaaaaaaa"
+                  },
+                  "secretUrl": "aaaaa"
+                },
+                "keyEncryptionKey": {
+                  "sourceVault": {
+                    "id": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  "keyUrl": "aaaaaaaaaaaaaaaaaaaaa"
+                }
+              }
+            ],
+            "encryptionSettingsVersion": "aaaaaaaaaaaaaaaa"
+          },
+          "provisioningState": "Succeeded",
+          "incremental": true,
+          "encryption": {
+            "diskEncryptionSetId": "aaaa",
+            "type": "EncryptionAtRestWithPlatformKey"
+          },
+          "networkAccessPolicy": "AllowAll",
+          "diskAccessId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "securityProfile": {
+            "securityType": "TrustedLaunch",
+            "secureVMDiskEncryptionSetId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "supportsHibernation": true,
+          "publicNetworkAccess": "Enabled",
+          "completionPercent": 28
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "632543455",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

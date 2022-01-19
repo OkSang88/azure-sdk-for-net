@@ -1,0 +1,124 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0?api-version=2021-07-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "265",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "22cc0f8a52ced24e8c30372c1a97377d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {},
+        "location": "westus",
+        "properties": {
+          "publishingProfile": {},
+          "storageProfile": {
+            "osDiskImage": {
+              "hostCaching": "ReadOnly",
+              "source": {
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{osSnapshotName}"
+              }
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1267",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:22 GMT",
+        "ETag": "W/\u00224f3-cZ9B\u002Bje6TMXuK9VYiXbYyQdbF48\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0",
+        "name": "1.0.0",
+        "type": "/Microsoft.Compute/galleries",
+        "location": "aa",
+        "tags": {
+          "key3595": "aaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "publishingProfile": {
+            "targetRegions": [
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "regionalReplicaCount": 23,
+                "storageAccountType": "Standard_LRS",
+                "encryption": {
+                  "osDiskImage": {
+                    "diskEncryptionSetId": "aaaaaaaaaaaaaaaaaaa"
+                  },
+                  "dataDiskImages": [
+                    {
+                      "diskEncryptionSetId": "aaaaaaaa",
+                      "lun": 19
+                    }
+                  ]
+                }
+              }
+            ],
+            "replicaCount": 14,
+            "excludeFromLatest": true,
+            "publishedDate": "2022-01-19T07:24:22.393Z",
+            "endOfLifeDate": "2022-01-19T07:24:22.393Z",
+            "storageAccountType": "Standard_LRS",
+            "replicationMode": "Full"
+          },
+          "provisioningState": "Succeeded",
+          "storageProfile": {
+            "source": {
+              "id": "aaaaaa",
+              "uri": "aaa"
+            },
+            "osDiskImage": {
+              "sizeInGB": 29,
+              "hostCaching": "None",
+              "source": {
+                "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "uri": "aaaaaaaaaaaaaaaaaa"
+              }
+            },
+            "dataDiskImages": [
+              {
+                "sizeInGB": 30,
+                "hostCaching": "None",
+                "source": {
+                  "id": "aaaaaa",
+                  "uri": "aaaaaaaaaaaaaa"
+                },
+                "lun": 24
+              }
+            ]
+          },
+          "replicationStatus": {
+            "aggregatedState": "Unknown",
+            "summary": [
+              {
+                "region": "aaaaaaaaaaaaaaaa",
+                "state": "Unknown",
+                "details": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "progress": 16
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "264754654",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

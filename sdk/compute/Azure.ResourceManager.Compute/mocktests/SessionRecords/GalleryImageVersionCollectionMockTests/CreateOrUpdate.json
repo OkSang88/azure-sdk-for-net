@@ -1,0 +1,121 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0?api-version=2021-07-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "222",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "77ae503cbb092d3e8593bdf6c950376d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {},
+        "location": "westus",
+        "properties": {
+          "publishingProfile": {},
+          "storageProfile": {
+            "source": {
+              "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}"
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1281",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:22 GMT",
+        "ETag": "W/\u0022501-BgNElystkSxHGarkH813KtEYBUE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/images/myGalleryImageName/versions/1.0.0",
+        "name": "1.0.0",
+        "type": "/Microsoft.Compute/galleries",
+        "location": "aaaaaaaaaaaaaaaa",
+        "tags": {
+          "key1902": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "publishingProfile": {
+            "targetRegions": [
+              {
+                "name": "aa",
+                "regionalReplicaCount": 7,
+                "storageAccountType": "Standard_LRS",
+                "encryption": {
+                  "osDiskImage": {
+                    "diskEncryptionSetId": "aaaaaa"
+                  },
+                  "dataDiskImages": [
+                    {
+                      "diskEncryptionSetId": "aaaaaaaaaaaaaaaaaaaaaa",
+                      "lun": 2
+                    }
+                  ]
+                }
+              }
+            ],
+            "replicaCount": 18,
+            "excludeFromLatest": true,
+            "publishedDate": "2022-01-19T07:24:22.345Z",
+            "endOfLifeDate": "2022-01-19T07:24:22.345Z",
+            "storageAccountType": "Standard_LRS",
+            "replicationMode": "Full"
+          },
+          "provisioningState": "Succeeded",
+          "storageProfile": {
+            "source": {
+              "id": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "osDiskImage": {
+              "sizeInGB": 13,
+              "hostCaching": "None",
+              "source": {
+                "id": "aaaaaaaaaaa",
+                "uri": "aaaaaaa"
+              }
+            },
+            "dataDiskImages": [
+              {
+                "sizeInGB": 4,
+                "hostCaching": "None",
+                "source": {
+                  "id": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                  "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "lun": 3
+              }
+            ]
+          },
+          "replicationStatus": {
+            "aggregatedState": "Unknown",
+            "summary": [
+              {
+                "region": "aaaaa",
+                "state": "Unknown",
+                "details": "aaaaaaaaaaaa",
+                "progress": 2
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "803398299",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220113.1",
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "1b23b77776016fb266066697b0f74fdb",
@@ -17,20 +17,20 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "4696",
+        "Content-Length": "4582",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Thu, 13 Jan 2022 08:43:47 GMT",
-        "ETag": "W/\u00221258-pUDF45o61GHaHDKTyw5I3LsnRWA\u0022",
+        "Date": "Wed, 19 Jan 2022 07:29:34 GMT",
+        "ETag": "W/\u002211e6-LIG2k5HuyIc2t2gpRwpEHNAz05M\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
         "name": "reset",
-        "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "type": "/Microsoft.Network/vpnGateways",
         "location": "aaaaaaaaaaaaaaaaaa",
         "tags": {
-          "key3553": "aaa"
+          "key4578": "aaaaa"
         },
         "properties": {
           "virtualHub": {
@@ -43,20 +43,20 @@
                 "remoteVpnSite": {
                   "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                 },
-                "routingWeight": 7,
-                "dpdTimeoutSeconds": 2,
+                "routingWeight": 5,
+                "dpdTimeoutSeconds": 4,
                 "connectionStatus": "Unknown",
                 "vpnConnectionProtocolType": "IKEv2",
-                "ingressBytesTransferred": 27,
-                "egressBytesTransferred": 9,
-                "connectionBandwidth": 6,
-                "sharedKey": "aaa",
+                "ingressBytesTransferred": 22,
+                "egressBytesTransferred": 28,
+                "connectionBandwidth": 3,
+                "sharedKey": "aaaaaaaa",
                 "enableBgp": true,
                 "usePolicyBasedTrafficSelectors": true,
                 "ipsecPolicies": [
                   {
-                    "saLifeTimeSeconds": 22,
-                    "saDataSizeKilobytes": 9,
+                    "saLifeTimeSeconds": 4,
+                    "saDataSizeKilobytes": 20,
                     "ipsecEncryption": "None",
                     "ipsecIntegrity": "MD5",
                     "ikeEncryption": "DES",
@@ -68,10 +68,10 @@
                 "trafficSelectorPolicies": [
                   {
                     "localAddressRanges": [
-                      "aaaaaa"
+                      "aaaaaaaaaaa"
                     ],
                     "remoteAddressRanges": [
-                      "aaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaaaaa"
                     ]
                   }
                 ],
@@ -86,20 +86,20 @@
                       "vpnSiteLink": {
                         "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                       },
-                      "routingWeight": 19,
+                      "routingWeight": 24,
                       "vpnLinkConnectionMode": "Default",
                       "connectionStatus": "Unknown",
                       "vpnConnectionProtocolType": "IKEv2",
-                      "ingressBytesTransferred": 23,
-                      "egressBytesTransferred": 16,
-                      "connectionBandwidth": 6,
-                      "sharedKey": "aaaaa",
+                      "ingressBytesTransferred": 20,
+                      "egressBytesTransferred": 7,
+                      "connectionBandwidth": 21,
+                      "sharedKey": "aaaaaaaaaaaaaaaaaaaaaaaaa",
                       "enableBgp": true,
                       "usePolicyBasedTrafficSelectors": true,
                       "ipsecPolicies": [
                         {
-                          "saLifeTimeSeconds": 21,
-                          "saDataSizeKilobytes": 13,
+                          "saLifeTimeSeconds": 24,
+                          "saDataSizeKilobytes": 23,
                           "ipsecEncryption": "None",
                           "ipsecIntegrity": "MD5",
                           "ikeEncryption": "DES",
@@ -122,9 +122,9 @@
                         }
                       ]
                     },
-                    "name": "reset",
-                    "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "type": "aaa"
+                    "name": "mockName",
+                    "etag": "aaaaaaaaaaaaa",
+                    "type": "Microsoft.Resources/mockResource"
                   }
                 ],
                 "routingConfiguration": {
@@ -133,7 +133,7 @@
                   },
                   "propagatedRouteTables": {
                     "labels": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaaaaaa"
                     ],
                     "ids": [
                       {
@@ -144,46 +144,46 @@
                   "vnetRoutes": {
                     "staticRoutes": [
                       {
-                        "name": "reset",
+                        "name": "aaaaaaaaaaaaaaaaaaaaaaa",
                         "addressPrefixes": [
-                          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                          "aaaaaaaaaaaaaaaaaaa"
                         ],
-                        "nextHopIpAddress": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                        "nextHopIpAddress": "aaaaaaaaaaaaaaaaaaaaa"
                       }
                     ]
                   }
                 }
               },
-              "name": "reset",
-              "etag": "aaaaaaaaaaaaaaa"
+              "name": "mockName",
+              "etag": "aaaaaaaaaaaaaaaaaaaaa"
             }
           ],
           "bgpSettings": {
-            "asn": 1811876724,
-            "bgpPeeringAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "peerWeight": 27,
+            "asn": 1526725768,
+            "bgpPeeringAddress": "aaaa",
+            "peerWeight": 7,
             "bgpPeeringAddresses": [
               {
-                "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaaa",
+                "ipconfigurationId": "aaaaaaaa",
                 "defaultBgpIpAddresses": [
-                  "aaaaaaaa"
+                  "aaaaaaaaaaaaaaaaaaaaa"
                 ],
                 "customBgpIpAddresses": [
-                  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  "aaaaaaaaaaa"
                 ],
                 "tunnelIpAddresses": [
-                  "aaaaaaaaaaaaaa"
+                  "aaaaaaaaa"
                 ]
               }
             ]
           },
           "provisioningState": "Succeeded",
-          "vpnGatewayScaleUnit": 3,
+          "vpnGatewayScaleUnit": 6,
           "ipConfigurations": [
             {
-              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-              "publicIpAddress": "aaaaaaaaaaaaaaaaaaaaaaa",
-              "privateIpAddress": "aaaaaaaaaaaaaaaaaaaaaaaa"
+              "id": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "publicIpAddress": "aaaaaaaaaaaa",
+              "privateIpAddress": "aaaaaaaa"
             }
           ],
           "isRoutingPreferenceInternet": true,
@@ -196,15 +196,15 @@
                 "mode": "EgressSnat",
                 "internalMappings": [
                   {
-                    "addressSpace": "aaaaaaaaaaaaaaaaaa"
+                    "addressSpace": "aaaaaaaaaaaaaaa"
                   }
                 ],
                 "externalMappings": [
                   {
-                    "addressSpace": "aaaaaaaaaaaaaaaaaaaaa"
+                    "addressSpace": "aaaaaaaaaaa"
                   }
                 ],
-                "ipConfigurationId": "aaaaaaaaaaaaa",
+                "ipConfigurationId": "aaa",
                 "egressVpnSiteLinkConnections": [
                   {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
@@ -216,13 +216,13 @@
                   }
                 ]
               },
-              "name": "reset",
-              "etag": "aaaaaaaaaaaaaaaaa",
-              "type": "aaaaaaaaaaaaaaa"
+              "name": "mockName",
+              "etag": "aaaaaaaaaaaaaaaaaaaa",
+              "type": "Microsoft.Resources/mockResource"
             }
           ]
         },
-        "etag": "aaaaaaaaaaaaaaaaaa"
+        "etag": "aaaaaaaaaaaaaaaaa"
       }
     }
   ],

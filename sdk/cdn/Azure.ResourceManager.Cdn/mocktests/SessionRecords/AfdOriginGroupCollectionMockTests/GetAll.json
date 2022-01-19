@@ -1,0 +1,78 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups?api-version=2020-09-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "c1290ea816fe893bf5dd2e2a0641a05a",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1032",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:23 GMT",
+        "ETag": "W/\u0022408-d2dqbr12IuxR3ELLAFA1epYgOgg\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Cdn/profiles",
+            "systemData": {
+              "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdByType": "user",
+              "createdAt": "2022-01-19T07:23:23.222Z",
+              "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "lastModifiedByType": "user",
+              "lastModifiedAt": "2022-01-19T07:23:23.222Z"
+            },
+            "properties": {
+              "loadBalancingSettings": {
+                "sampleSize": 17,
+                "successfulSamplesRequired": 1,
+                "additionalLatencyInMilliseconds": 25
+              },
+              "healthProbeSettings": {
+                "probePath": "aaaaaaaa",
+                "probeRequestType": "NotSet",
+                "probeProtocol": "NotSet",
+                "probeIntervalInSeconds": 70
+              },
+              "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 29,
+              "responseBasedAfdOriginErrorDetectionSettings": {
+                "responseBasedDetectedErrorTypes": "None",
+                "responseBasedFailoverThresholdPercentage": 3,
+                "httpErrorRanges": [
+                  {
+                    "begin": 530,
+                    "end": 964
+                  }
+                ]
+              },
+              "sessionAffinityState": "Enabled",
+              "provisioningState": "Succeeded",
+              "deploymentStatus": "NotStarted"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1118287459",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

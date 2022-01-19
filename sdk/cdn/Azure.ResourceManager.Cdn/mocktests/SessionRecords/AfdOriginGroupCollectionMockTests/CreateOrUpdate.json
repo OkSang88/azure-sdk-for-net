@@ -1,0 +1,91 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/origingroup1?api-version=2020-09-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "310",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "7a032f5bcfa7529e5b1e0fd28c9451c9",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "loadBalancingSettings": {
+            "sampleSize": 3,
+            "successfulSamplesRequired": 3,
+            "additionalLatencyInMilliseconds": 1000
+          },
+          "healthProbeSettings": {
+            "probePath": "/path2",
+            "probeRequestType": "NotSet",
+            "probeProtocol": "NotSet",
+            "probeIntervalInSeconds": 10
+          },
+          "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 5
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "996",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:23 GMT",
+        "ETag": "W/\u00223e4-G9\u002BC6wOOtKPkU817iQ1L40BTlt8\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/origingroup1",
+        "name": "origingroup1",
+        "type": "/Microsoft.Cdn/profiles",
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "user",
+          "createdAt": "2022-01-19T07:23:23.190Z",
+          "lastModifiedBy": "aaa",
+          "lastModifiedByType": "user",
+          "lastModifiedAt": "2022-01-19T07:23:23.190Z"
+        },
+        "properties": {
+          "loadBalancingSettings": {
+            "sampleSize": 15,
+            "successfulSamplesRequired": 22,
+            "additionalLatencyInMilliseconds": 23
+          },
+          "healthProbeSettings": {
+            "probePath": "a",
+            "probeRequestType": "NotSet",
+            "probeProtocol": "NotSet",
+            "probeIntervalInSeconds": 33
+          },
+          "trafficRestorationTimeToHealedOrNewEndpointsInMinutes": 28,
+          "responseBasedAfdOriginErrorDetectionSettings": {
+            "responseBasedDetectedErrorTypes": "None",
+            "responseBasedFailoverThresholdPercentage": 98,
+            "httpErrorRanges": [
+              {
+                "begin": 143,
+                "end": 439
+              }
+            ]
+          },
+          "sessionAffinityState": "Enabled",
+          "provisioningState": "Succeeded",
+          "deploymentStatus": "NotStarted"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1724715250",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation?api-version=2021-07-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "110",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "442edfdcee440f02c601f257ae698b81",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sku": {
+          "name": "Standard_DS1_v2",
+          "capacity": 4
+        },
+        "tags": {
+          "department": "HR"
+        },
+        "location": "westus",
+        "properties": {}
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1137",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:18 GMT",
+        "ETag": "W/\u0022471-aaCgUHH4XaMBGhbOJvRsLVa/tto\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation",
+        "name": "myCapacityReservation",
+        "type": "/Microsoft.Compute/capacityReservationGroups",
+        "location": "aaaaaaaaa",
+        "tags": {
+          "key2064": "aaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "reservationId": "aaaaaaaa",
+          "virtualMachinesAssociated": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "provisioningTime": "2022-01-19T07:24:18.874Z",
+          "provisioningState": "Succeeded",
+          "instanceView": {
+            "utilizationInfo": {
+              "virtualMachinesAllocated": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ]
+            },
+            "statuses": [
+              {
+                "code": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "level": "Info",
+                "displayStatus": "aaaaaaaaaaaaaaaaaaaaa",
+                "message": "aaaaaaaaaaaaaaaaaa",
+                "time": "2022-01-19T07:24:18.874Z"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "name": "aaaaaaaaaaaaaaaaaaaaaa",
+          "tier": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "capacity": 12
+        },
+        "zones": [
+          "aaaaaaaaaaaaaaaaa"
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1519987721",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

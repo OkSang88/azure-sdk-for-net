@@ -1,0 +1,62 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/objectReplicationPolicies?api-version=2021-04-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "ce752d530a65ae934b51d79741bcffb8",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "605",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:39 GMT",
+        "ETag": "W/\u002225d-L/nc5E6Jkasgqjg9MqkSYPcDrWc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/objectReplicationPolicies/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Storage/storageAccounts",
+            "properties": {
+              "policyId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "enabledTime": "2022-01-19T07:31:39.880Z",
+              "sourceAccount": "aaaaaaaaa",
+              "destinationAccount": "a",
+              "rules": [
+                {
+                  "ruleId": "aaaaaaaaaaaaaaaaaa",
+                  "sourceContainer": "aaaaaaaaaaa",
+                  "destinationContainer": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "filters": {
+                    "prefixMatch": [
+                      "aaaaaaaaaaaaaaaa"
+                    ],
+                    "minCreationTime": "aaaaaaaaaaaaaaa"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1585433253",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

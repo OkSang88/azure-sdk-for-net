@@ -1,0 +1,67 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/import?api-version=2021-02-01-preview",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "318",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "8e021629b1c095ab97cd00a3fa2ee864",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "databaseName": "testdb",
+        "storageKeyType": "StorageAccessKey",
+        "storageKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx==",
+        "storageUri": "https://test.blob.core.windows.net/test.bacpac",
+        "administratorLogin": "login",
+        "administratorLoginPassword": "password",
+        "authenticationType": "Sql"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "664",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:14 GMT",
+        "ETag": "W/\u0022298-nlFPeyWCdtoMgN\u002BjrM5qWvnrpxc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+        "name": "import",
+        "type": "/Microsoft.Sql/servers",
+        "properties": {
+          "requestId": "00000000-0000-0000-0000-000000000000",
+          "requestType": "aaaa",
+          "queuedTime": "aaaaaaaaaaaa",
+          "lastModifiedTime": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "blobUri": "aaaaaaaaa",
+          "serverName": "aaa",
+          "databaseName": "aaaaaaaa",
+          "status": "aaaaaaaaaaaaaaaaaaa",
+          "errorMessage": "aaaaaaaaaaaaaaaaaaaa",
+          "privateEndpointConnections": [
+            {
+              "privateLinkServiceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privateEndpointConnectionName": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "status": "aaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1478595106",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

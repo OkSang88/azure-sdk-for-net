@@ -1,0 +1,150 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1?api-version=2021-02-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "1449dfbf0636eb9b5c22f470bb709176",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1782",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:28:52 GMT",
+        "ETag": "W/\u00226f6-L\u002BDzifvw6fmNybc2VP6gn8/N4Co\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "name": "cm1",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1",
+        "etag": "aaaaaaaaaaaaaaaaaa",
+        "type": "/Microsoft.Network/networkWatchers",
+        "location": "a",
+        "tags": {
+          "key5054": "aaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "source": {
+            "resourceId": "aaaaaaaaaa",
+            "port": 13426
+          },
+          "destination": {
+            "resourceId": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+            "address": "aaaaaaaaaa",
+            "port": 17473
+          },
+          "autoStart": true,
+          "monitoringIntervalInSeconds": 348,
+          "endpoints": [
+            {
+              "name": "aaaaaaaaaaaaa",
+              "type": "AzureVM",
+              "resourceId": "aa",
+              "address": "aaaaaaaaaaaaaaaaaaaa",
+              "filter": {
+                "type": "Include",
+                "items": [
+                  {
+                    "type": "AgentAddress",
+                    "address": "aaaaaaa"
+                  }
+                ]
+              },
+              "scope": {
+                "include": [
+                  {
+                    "address": "aaaaaaaaaaaaaaaa"
+                  }
+                ],
+                "exclude": [
+                  {
+                    "address": "aaaaaaaaaaaaaaaaaa"
+                  }
+                ]
+              },
+              "coverageLevel": "Default"
+            }
+          ],
+          "testConfigurations": [
+            {
+              "name": "aa",
+              "testFrequencySec": 10,
+              "protocol": "Tcp",
+              "preferredIPVersion": "IPv4",
+              "httpConfiguration": {
+                "port": 19767,
+                "method": "Get",
+                "path": "aaaaaaaaaaaa",
+                "requestHeaders": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+                    "value": "aaaaaaaaaaaaaaaaaaaa"
+                  }
+                ],
+                "validStatusCodeRanges": [
+                  "aaaaa"
+                ],
+                "preferHTTPS": true
+              },
+              "tcpConfiguration": {
+                "port": 47699,
+                "disableTraceRoute": true,
+                "destinationPortBehavior": "None"
+              },
+              "icmpConfiguration": {
+                "disableTraceRoute": true
+              },
+              "successThreshold": {
+                "checksFailedPercent": 18,
+                "roundTripTimeMs": 4
+              }
+            }
+          ],
+          "testGroups": [
+            {
+              "name": "aaaaaaaa",
+              "disable": true,
+              "testConfigurations": [
+                "aaaaaaaaaaaaaaaaaaaaaa"
+              ],
+              "sources": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ],
+              "destinations": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "type": "Workspace",
+              "workspaceSettings": {
+                "workspaceResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          ],
+          "notes": "aaaaaa",
+          "provisioningState": "Succeeded",
+          "startTime": "2022-01-19T07:28:52.132Z",
+          "monitoringStatus": "aaaaaa",
+          "connectionMonitorType": "MultiEndpoint"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1698297701",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

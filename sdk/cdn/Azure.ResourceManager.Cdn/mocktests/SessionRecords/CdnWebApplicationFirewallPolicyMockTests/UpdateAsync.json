@@ -1,0 +1,144 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/MicrosoftCdnWafPolicy?api-version=2020-09-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "2",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "6607c9cb44df7679329e03976881af64",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {},
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1812",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:24 GMT",
+        "ETag": "W/\u0022714-NORKo5\u002BUkwSbL7h2xP9r4iyUq7Y\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/MicrosoftCdnWafPolicy",
+        "name": "MicrosoftCdnWafPolicy",
+        "type": "/Microsoft.Cdn/CdnWebApplicationFirewallPolicies",
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "user",
+          "createdAt": "2022-01-19T07:23:24.900Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "user",
+          "lastModifiedAt": "2022-01-19T07:23:24.900Z"
+        },
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key31": "aaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "policySettings": {
+            "enabledState": "Disabled",
+            "mode": "Prevention",
+            "defaultRedirectUrl": "aaaaaaaaaaaaaaaaaaaaaa",
+            "defaultCustomBlockResponseStatusCode": 5,
+            "defaultCustomBlockResponseBody": "oGe\u002Bc47F\u002B143/t4f"
+          },
+          "rateLimitRules": {
+            "rules": [
+              {
+                "name": "aaaaaaaaaaaaaaaa",
+                "enabledState": "Disabled",
+                "priority": 589,
+                "matchConditions": [
+                  {
+                    "matchVariable": "RemoteAddr",
+                    "selector": "aaaaaaaaaaaaaaaaaaaaaa",
+                    "operator": "Any",
+                    "negateCondition": true,
+                    "matchValue": [
+                      "aaa"
+                    ],
+                    "transforms": [
+                      "Lowercase"
+                    ]
+                  }
+                ],
+                "action": "Allow",
+                "rateLimitThreshold": 0,
+                "rateLimitDurationInMinutes": 9
+              }
+            ]
+          },
+          "customRules": {
+            "rules": [
+              {
+                "name": "aaaaaaaaaaaaaaaaaaa",
+                "enabledState": "Disabled",
+                "priority": 374,
+                "matchConditions": [
+                  {
+                    "matchVariable": "RemoteAddr",
+                    "selector": "a",
+                    "operator": "Any",
+                    "negateCondition": true,
+                    "matchValue": [
+                      "aaaaaaaaaaaaaaa"
+                    ],
+                    "transforms": [
+                      "Lowercase"
+                    ]
+                  }
+                ],
+                "action": "Allow"
+              }
+            ]
+          },
+          "managedRules": {
+            "managedRuleSets": [
+              {
+                "ruleSetType": "aa",
+                "ruleSetVersion": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "anomalyScore": 14,
+                "ruleGroupOverrides": [
+                  {
+                    "ruleGroupName": "aaaa",
+                    "rules": [
+                      {
+                        "ruleId": "aa",
+                        "enabledState": "Disabled",
+                        "action": "Allow"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "endpointLinks": [
+            {
+              "id": "aaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "provisioningState": "Succeeded",
+          "resourceState": "Creating"
+        },
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaa",
+        "sku": {
+          "name": "Standard_Verizon"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1635826418",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

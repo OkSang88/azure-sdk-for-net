@@ -1,0 +1,83 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations?api-version=2021-07-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "65659888c425b9d4163d5830770ad05d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1075",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:18 GMT",
+        "ETag": "W/\u0022433-g34zg8x/ICtpJ4pTydWFF6ZrBr8\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/mockName",
+            "name": "mockName",
+            "type": "/Microsoft.Compute/capacityReservationGroups",
+            "location": "aaaaaaaaa",
+            "tags": {
+              "key5689": "aaa"
+            },
+            "properties": {
+              "reservationId": "aaaaaaaaaaaaaaaaa",
+              "virtualMachinesAssociated": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                }
+              ],
+              "provisioningTime": "2022-01-19T07:24:18.892Z",
+              "provisioningState": "Succeeded",
+              "instanceView": {
+                "utilizationInfo": {
+                  "virtualMachinesAllocated": [
+                    {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    }
+                  ]
+                },
+                "statuses": [
+                  {
+                    "code": "aaaaaaaaaaaaaaaaaa",
+                    "level": "Info",
+                    "displayStatus": "aaaaaaaaaaaaaaaa",
+                    "message": "aaaaaaaaa",
+                    "time": "2022-01-19T07:24:18.892Z"
+                  }
+                ]
+              }
+            },
+            "sku": {
+              "name": "aaaaaaaaa",
+              "tier": "aaaaaaaaaaaaaaaaaaaaa",
+              "capacity": 16
+            },
+            "zones": [
+              "aaaaaaaaaaaa"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1168615830",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

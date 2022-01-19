@@ -1,0 +1,235 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1?api-version=2021-06-15",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "785",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "8440ea288de5be13f93927dffc4ade99",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "kind": "GlobalDocumentDB",
+        "tags": {},
+        "location": "westus",
+        "properties": {
+          "consistencyPolicy": {
+            "defaultConsistencyLevel": "BoundedStaleness",
+            "maxStalenessPrefix": 200,
+            "maxIntervalInSeconds": 10
+          },
+          "locations": [
+            {
+              "locationName": "southcentralus",
+              "failoverPriority": 0,
+              "isZoneRedundant": false
+            }
+          ],
+          "databaseAccountOfferType": "Standard",
+          "keyVaultKeyUri": "https://myKeyVault.vault.azure.net",
+          "enableFreeTier": false,
+          "apiProperties": {
+            "serverVersion": "3.2"
+          },
+          "enableAnalyticalStorage": true,
+          "createMode": "Restore",
+          "backupPolicy": {
+            "type": "Continuous"
+          },
+          "restoreParameters": {
+            "restoreMode": "PointInTime",
+            "restoreSource": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+            "restoreTimestampInUtc": "2021-03-11T22:05:09.0000000Z"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "3653",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:24:49 GMT",
+        "ETag": "W/\u0022e45-r3nXrb3c5pAuzfiyqck7u\u002B9cML0\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1",
+        "name": "ddb1",
+        "type": "/Microsoft.DocumentDB/databaseAccounts",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key3099": "aaaaaaaaaaaaaa"
+        },
+        "kind": "GlobalDocumentDB",
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "SystemAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key647": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "documentEndpoint": "aaaaa",
+          "databaseAccountOfferType": "Standard",
+          "ipRules": [
+            {
+              "ipAddressOrRange": "a"
+            }
+          ],
+          "isVirtualNetworkFilterEnabled": true,
+          "enableAutomaticFailover": true,
+          "consistencyPolicy": {
+            "defaultConsistencyLevel": "Eventual",
+            "maxStalenessPrefix": 1037325912,
+            "maxIntervalInSeconds": 51840
+          },
+          "capabilities": [
+            {
+              "name": "aaaaaaaaaaaa"
+            }
+          ],
+          "writeLocations": [
+            {
+              "id": "aaaaaaaaaa",
+              "locationName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "documentEndpoint": "aaaaaaaaaaaaaaaaaaaa",
+              "provisioningState": "Succeeded",
+              "failoverPriority": 0,
+              "isZoneRedundant": true
+            }
+          ],
+          "readLocations": [
+            {
+              "id": "aaaaaaaaaaaaa",
+              "locationName": "aaaaaa",
+              "documentEndpoint": "aaaaaaaaaaaaaaaaaa",
+              "provisioningState": "Succeeded",
+              "failoverPriority": 0,
+              "isZoneRedundant": true
+            }
+          ],
+          "locations": [
+            {
+              "id": "aaaaaaaaaaaaaaaaaaaa",
+              "locationName": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "documentEndpoint": "aaaaaaaaaaaaaaaaaaaa",
+              "provisioningState": "Succeeded",
+              "failoverPriority": 0,
+              "isZoneRedundant": true
+            }
+          ],
+          "failoverPolicies": [
+            {
+              "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "locationName": "aaaaaaa",
+              "failoverPriority": 0
+            }
+          ],
+          "virtualNetworkRules": [
+            {
+              "id": "aaaa",
+              "ignoreMissingVNetServiceEndpoint": true
+            }
+          ],
+          "privateEndpointConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "mockName",
+              "type": "Microsoft.Resources/mockResource",
+              "properties": {
+                "privateEndpoint": {
+                  "id": "aaaaaaaaaaaaa"
+                },
+                "privateLinkServiceConnectionState": {
+                  "status": "aaaaaa",
+                  "description": "aa",
+                  "actionsRequired": "aaaaaaaa"
+                },
+                "groupId": "aaaaaaaaaaaaaaaa",
+                "provisioningState": "Succeeded"
+              }
+            }
+          ],
+          "enableMultipleWriteLocations": true,
+          "enableCassandraConnector": true,
+          "connectorOffer": "Small",
+          "disableKeyBasedMetadataWriteAccess": true,
+          "keyVaultKeyUri": "a",
+          "defaultIdentity": "aaaa",
+          "publicNetworkAccess": "Enabled",
+          "enableFreeTier": true,
+          "apiProperties": {
+            "serverVersion": "3.2"
+          },
+          "enableAnalyticalStorage": true,
+          "analyticalStorageConfiguration": {
+            "schemaType": "WellDefined"
+          },
+          "instanceId": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "createMode": "Default",
+          "restoreParameters": {
+            "restoreMode": "PointInTime",
+            "restoreSource": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "restoreTimestampInUtc": "2022-01-19T07:24:49.362Z",
+            "databasesToRestore": [
+              {
+                "databaseName": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "collectionNames": [
+                  "aaaaaaaaa"
+                ]
+              }
+            ]
+          },
+          "backupPolicy": {
+            "type": "BackupPolicy",
+            "migrationState": {
+              "status": "Invalid",
+              "targetType": "Periodic",
+              "startTime": "2022-01-19T07:24:49.362Z"
+            }
+          },
+          "cors": [
+            {
+              "allowedOrigins": "aaa",
+              "allowedMethods": "aaaaaaaaaaaaaaaaaaaaa",
+              "allowedHeaders": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "exposedHeaders": "aaaaaaaaaaaaaaaaaa",
+              "maxAgeInSeconds": 881765919
+            }
+          ],
+          "networkAclBypass": "None",
+          "networkAclBypassResourceIds": [
+            "aaaaa"
+          ],
+          "disableLocalAuth": true
+        },
+        "systemData": {
+          "createdBy": "aaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-19T07:24:49.362Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-19T07:24:49.362Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "486274095",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

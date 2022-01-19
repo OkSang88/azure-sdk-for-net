@@ -1,0 +1,287 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445?api-version=2021-04-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "539",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Storage/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "e604e931692cdbd08477e026740955cd",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "identity": {
+          "type": "UserAssigned"
+        },
+        "kind": "Storage",
+        "properties": {
+          "encryption": {
+            "services": {
+              "blob": {
+                "enabled": true,
+                "keyType": "Account"
+              },
+              "file": {
+                "enabled": true,
+                "keyType": "Account"
+              }
+            },
+            "keySource": "Microsoft.Keyvault",
+            "keyvaultproperties": {
+              "keyname": "wrappingKey",
+              "keyversion": "",
+              "keyvaulturi": "https://myvault8569.vault.azure.net"
+            },
+            "identity": {
+              "userAssignedIdentity": "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}"
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "4850",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:31:40 GMT",
+        "ETag": "W/\u002212f2-mCQaqwmoTRkWA9EXWKlO9ArsjN0\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445",
+        "name": "sto4445",
+        "type": "/Microsoft.Storage/storageAccounts",
+        "tags": {
+          "key2583": "aaaaaaaaaaaaaaaaaaaa"
+        },
+        "location": "aaaaaaaaaaaaaaaaaaa",
+        "sku": {
+          "name": "Standard_LRS",
+          "tier": "Standard"
+        },
+        "kind": "Storage",
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "None",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key3126": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "extendedLocation": {
+          "name": "a",
+          "type": "EdgeZone"
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "primaryEndpoints": {
+            "blob": "a",
+            "queue": "aaaaaa",
+            "table": "aaaaaaaaaaaaaaaa",
+            "file": "aaaaaaaaaaaaaa",
+            "web": "aaaaa",
+            "dfs": "aaaaaaaaaaaaaaaaaaaaaa",
+            "microsoftEndpoints": {
+              "blob": "aaaaaaaaaaaa",
+              "queue": "aaaaaaaaaaaaaaaaa",
+              "table": "aaaaaaaaaaaaaa",
+              "file": "aa",
+              "web": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "dfs": "aaaaaaa"
+            },
+            "internetEndpoints": {
+              "blob": "aaaaaaaaaaaa",
+              "file": "aaaaaaaaaaaaaaaaa",
+              "web": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "dfs": "aaaaaa"
+            }
+          },
+          "primaryLocation": "aaaaaaaaaaa",
+          "statusOfPrimary": "available",
+          "lastGeoFailoverTime": "2022-01-19T07:31:40.739Z",
+          "secondaryLocation": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "statusOfSecondary": "available",
+          "creationTime": "2022-01-19T07:31:40.739Z",
+          "customDomain": {
+            "name": "aaaaaaaaaaa",
+            "useSubDomainName": true
+          },
+          "sasPolicy": {
+            "sasExpirationPeriod": "aaaaaaa",
+            "expirationAction": "Log"
+          },
+          "keyPolicy": {
+            "keyExpirationPeriodInDays": 3
+          },
+          "keyCreationTime": {
+            "key1": "2022-01-19T07:31:40.740Z",
+            "key2": "2022-01-19T07:31:40.740Z"
+          },
+          "secondaryEndpoints": {
+            "blob": "aaaaaaaaaaaaaaaaaaaa",
+            "queue": "aaaaaaaaaaaaa",
+            "table": "aaaaaaaa",
+            "file": "aaaaaaaaaaaaaaaaaaaaaa",
+            "web": "aaaaaaaaaaaaaaaaaaaaa",
+            "dfs": "aaaaaaaaaaa",
+            "microsoftEndpoints": {
+              "blob": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "queue": "aaaaaaaaaa",
+              "table": "aaaaaaaaaaaaaa",
+              "file": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "web": "aaaaaaaaaaaa",
+              "dfs": "aaaaaaaaaa"
+            },
+            "internetEndpoints": {
+              "blob": "aaaaaaaaaaaaaaaaaa",
+              "file": "aaaaaaaaaaaaaaaaa",
+              "web": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "dfs": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "encryption": {
+            "services": {
+              "blob": {
+                "enabled": true,
+                "lastEnabledTime": "2022-01-19T07:31:40.740Z",
+                "keyType": "Service"
+              },
+              "file": {
+                "enabled": true,
+                "lastEnabledTime": "2022-01-19T07:31:40.740Z",
+                "keyType": "Service"
+              },
+              "table": {
+                "enabled": true,
+                "lastEnabledTime": "2022-01-19T07:31:40.740Z",
+                "keyType": "Service"
+              },
+              "queue": {
+                "enabled": true,
+                "lastEnabledTime": "2022-01-19T07:31:40.740Z",
+                "keyType": "Service"
+              }
+            },
+            "keySource": "Microsoft.Storage",
+            "requireInfrastructureEncryption": true,
+            "keyvaultproperties": {
+              "keyname": "aaaaaaaaa",
+              "keyversion": "aaaaaaaaaaaa",
+              "keyvaulturi": "aaaaaaaaaaaaaaa",
+              "currentVersionedKeyIdentifier": "aaaaaaaaaa",
+              "lastKeyRotationTimestamp": "2022-01-19T07:31:40.740Z"
+            },
+            "identity": {
+              "userAssignedIdentity": "aaaaaaaa"
+            }
+          },
+          "accessTier": "Hot",
+          "azureFilesIdentityBasedAuthentication": {
+            "directoryServiceOptions": "None",
+            "activeDirectoryProperties": {
+              "domainName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "netBiosDomainName": "aaaaaaaaaaaa",
+              "forestName": "aaaaaaaaaaaaaa",
+              "domainGuid": "aa",
+              "domainSid": "aaaaaaaa",
+              "azureStorageSid": "aaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "defaultSharePermission": "None"
+          },
+          "supportsHttpsTrafficOnly": true,
+          "networkAcls": {
+            "bypass": "None",
+            "resourceAccessRules": [
+              {
+                "tenantId": "00000000-0000-0000-0000-000000000000",
+                "resourceId": "aaaaaaaaaaa"
+              }
+            ],
+            "virtualNetworkRules": [
+              {
+                "id": "aaaaaaaaa",
+                "action": "Allow",
+                "state": "Provisioning"
+              }
+            ],
+            "ipRules": [
+              {
+                "value": "aaaaaaaaaaaaaa",
+                "action": "Allow"
+              }
+            ],
+            "defaultAction": "Allow"
+          },
+          "isHnsEnabled": true,
+          "geoReplicationStats": {
+            "status": "Live",
+            "lastSyncTime": "2022-01-19T07:31:40.740Z",
+            "canFailover": true
+          },
+          "failoverInProgress": true,
+          "largeFileSharesState": "Disabled",
+          "privateEndpointConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "mockName",
+              "type": "Microsoft.Resources/mockResource",
+              "properties": {
+                "privateEndpoint": {
+                  "id": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "privateLinkServiceConnectionState": {
+                  "status": "Pending",
+                  "description": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "actionRequired": "aaaaa"
+                },
+                "provisioningState": "Succeeded"
+              }
+            }
+          ],
+          "routingPreference": {
+            "routingChoice": "MicrosoftRouting",
+            "publishMicrosoftEndpoints": true,
+            "publishInternetEndpoints": true
+          },
+          "blobRestoreStatus": {
+            "status": "InProgress",
+            "failureReason": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "restoreId": "aaaaaaaaaaaa",
+            "parameters": {
+              "timeToRestore": "2022-01-19T07:31:40.740Z",
+              "blobRanges": [
+                {
+                  "startRange": "aaaaaaaaaaaaaaaaaaaaaaa",
+                  "endRange": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              ]
+            }
+          },
+          "allowBlobPublicAccess": true,
+          "minimumTlsVersion": "TLS1_0",
+          "allowSharedKeyAccess": true,
+          "isNfsV3Enabled": true,
+          "allowCrossTenantReplication": true
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "164033118",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

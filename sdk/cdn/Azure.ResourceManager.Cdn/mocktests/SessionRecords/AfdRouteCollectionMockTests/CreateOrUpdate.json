@@ -1,0 +1,97 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1?api-version=2020-09-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "465",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Cdn/1.0.0-alpha.20220119.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "9eeddcea39a05e9d3c5a0d9fc3be78c2",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "originGroup": {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1"
+          },
+          "compressionSettings": {
+            "contentTypesToCompress": [
+              "text/html",
+              "application/octet-stream"
+            ],
+            "isCompressionEnabled": "true"
+          },
+          "queryStringCachingBehavior": "IgnoreQueryString",
+          "forwardingProtocol": "MatchRequest",
+          "linkToDefaultDomain": "Enabled",
+          "httpsRedirect": "Enabled",
+          "enabledState": "Enabled"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1255",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 19 Jan 2022 07:23:23 GMT",
+        "ETag": "W/\u00224e7-Fp6/cMEcm8JRDSLmO6B8bhdi\u002BkE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1",
+        "name": "route1",
+        "type": "/Microsoft.Cdn/profiles",
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaa",
+          "createdByType": "user",
+          "createdAt": "2022-01-19T07:23:23.426Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "user",
+          "lastModifiedAt": "2022-01-19T07:23:23.426Z"
+        },
+        "properties": {
+          "customDomains": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "originGroup": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+          },
+          "originPath": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "ruleSets": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+            }
+          ],
+          "supportedProtocols": [
+            "Http"
+          ],
+          "patternsToMatch": [
+            "aaaaaaaaaaaaaa"
+          ],
+          "compressionSettings": {},
+          "queryStringCachingBehavior": "IgnoreQueryString",
+          "forwardingProtocol": "HttpOnly",
+          "linkToDefaultDomain": "Enabled",
+          "httpsRedirect": "Enabled",
+          "enabledState": "Enabled",
+          "provisioningState": "Succeeded",
+          "deploymentStatus": "NotStarted"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "879312243",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

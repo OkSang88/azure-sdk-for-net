@@ -11,11 +11,11 @@ using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
 using Azure.Core.TestFramework;
+using Azure.ResourceManager.Insights;
+using Azure.ResourceManager.Insights.Models;
 using Azure.ResourceManager.TestFramework;
-using Insights;
-using Insights.Models;
 
-namespace Insights.Tests.Mock
+namespace Azure.ResourceManager.Insights.Tests.Mock
 {
     /// <summary> Test for AlertRuleResource. </summary>
     public partial class AlertRuleResourceCollectionMockTests : MockTestBase

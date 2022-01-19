@@ -7,9 +7,9 @@
 
 using System.Collections.Generic;
 
-namespace Insights.Tests
+namespace Azure.ResourceManager.Insights.Tests
 {
-    /// <summary> Test Extension for Insights. </summary>
+    /// <summary> Test Extension for Azure.ResourceManager.Insights. </summary>
     public static partial class TestHelper
     {
         public static IDictionary<string, string> ReplaceWith(this IDictionary<string, string> dest, IDictionary<string, string> src)

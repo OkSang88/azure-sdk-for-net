@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
 
-namespace Insights.Tests.Mock
+namespace Azure.ResourceManager.Insights.Tests.Mock
 {
     /// <summary> Test for DiagnosticSettingsResource. </summary>
     public partial class DiagnosticSettingsResourceCollectionMockTests : MockTestBase

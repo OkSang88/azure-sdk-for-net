@@ -11,10 +11,10 @@ using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
 using Azure.Core.TestFramework;
+using Azure.ResourceManager.Insights;
 using Azure.ResourceManager.TestFramework;
-using Insights;
 
-namespace Insights.Tests.Mock
+namespace Azure.ResourceManager.Insights.Tests.Mock
 {
     /// <summary> Test for ActionGroupResource. </summary>
     public partial class ActionGroupResourceCollectionMockTests : MockTestBase

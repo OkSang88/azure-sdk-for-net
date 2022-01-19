@@ -229,7 +229,7 @@ function  MockTestInit {
 
 # prerequisites: 
 #   1.change [eng\CodeGeneration.targets] _AutoRestCSharpVersion property to $AutorestVersion
-#   2.run 'dotnet new -l' make sure [azmocktests]&[azmgmt] has been exist
+#   2.run 'dotnet new -l' make sure [azmocktests]&[azmgmt] already exist and they are latest
 $SpecsRepoPath = "D:\repo\azure-rest-api-specs"
 $commitId = "322d0edbc46e10b04a56f3279cecaa8fe4d3b69b"
 $AutorestVersion = "D:\repo\Changlong\autorest.csharp\artifacts\bin\AutoRest.CSharp\Debug\netcoreapp3.1"

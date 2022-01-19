@@ -41,7 +41,7 @@ namespace Insights.Tests.Mock
             var diagnosticSettingsResourceId = Insights.DiagnosticSettingsResource.CreateResourceIdentifier("subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6", "mysetting");
             var diagnosticSettingsResource = GetArmClient().GetDiagnosticSettingsResource(diagnosticSettingsResourceId);
 
-            await diagnosticSettingsResource.DeleteAsync();
+            await diagnosticSettingsResource.DeleteAsync(true);
         }
     }
 }

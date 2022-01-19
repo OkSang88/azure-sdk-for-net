@@ -54,18 +54,24 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             KeyVault.ManagedHsmData parameters = new KeyVault.ManagedHsmData(location: AzureLocation.WestUS)
             {
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["Dept"] = "hsm", ["Environment"] = "dogfood", ["Slice"] = "A", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["Dept"] = "hsm",
+                ["Environment"] = "dogfood",
+                ["Slice"] = "A",
+            });
+
             await managedHsm.UpdateAsync(true, parameters);
         }
 
         [RecordedTest]
-        public async Task GetMHSMPrivateLinkResourcesByMhsmResource()
+        public async Task GetMhsmPrivateLinkResource()
         {
             // Example: KeyVaultListPrivateLinkResources
             var managedHsmId = KeyVault.ManagedHsm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "sample-group", "sample-mhsm");
             var managedHsm = GetArmClient().GetManagedHsm(managedHsmId);
 
-            await foreach (var _ in managedHsm.GetMHSMPrivateLinkResourcesByMhsmResourceAsync())
+            await foreach (var _ in managedHsm.GetMhsmPrivateLinkResourceAsync())
             {
             }
         }

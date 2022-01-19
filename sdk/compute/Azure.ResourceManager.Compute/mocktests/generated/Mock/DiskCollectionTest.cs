@@ -28,6 +28,29 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate()
         {
+            // Example: Create a confidential VM supported disk encrypted with customer managed key
+            string diskName = "myDisk";
+            Compute.DiskData disk = new Compute.DiskData(location: "West US")
+            {
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
+                CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("FromImage"))
+                {
+                    ImageReference = new Compute.Models.ImageDiskReference(id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0"),
+                },
+                SecurityProfile = new Compute.Models.DiskSecurityProfile()
+                {
+                    SecurityType = new Compute.Models.DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithCustomerKey"),
+                    SecureVMDiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}",
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDisks();
+            await collection.CreateOrUpdateAsync(true, diskName, disk);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate2()
+        {
             // Example: Create a managed disk and associate with disk access resource.
             string diskName = "myDisk";
             Compute.DiskData disk = new Compute.DiskData(location: "West US")
@@ -43,7 +66,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate2()
+        public async Task CreateOrUpdate3()
         {
             // Example: Create a managed disk and associate with disk encryption set.
             string diskName = "myDisk";
@@ -62,7 +85,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate3()
+        public async Task CreateOrUpdate4()
         {
             // Example: Create a managed disk by copying a snapshot.
             string diskName = "myDisk";
@@ -79,7 +102,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate4()
+        public async Task CreateOrUpdate5()
         {
             // Example: Create a managed disk by importing an unmanaged blob from a different subscription.
             string diskName = "myDisk";
@@ -97,7 +120,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate5()
+        public async Task CreateOrUpdate6()
         {
             // Example: Create a managed disk by importing an unmanaged blob from the same subscription.
             string diskName = "myDisk";
@@ -114,13 +137,59 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate6()
+        public async Task CreateOrUpdate7()
+        {
+            // Example: Create a managed disk from ImportSecure create option
+            string diskName = "myDisk";
+            Compute.DiskData disk = new Compute.DiskData(location: "West US")
+            {
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
+                CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("ImportSecure"))
+                {
+                    StorageAccountId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                    SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    SecurityDataUri = "https://mystorageaccount.blob.core.windows.net/osimages/vmgs.vhd",
+                },
+                SecurityProfile = new Compute.Models.DiskSecurityProfile()
+                {
+                    SecurityType = new Compute.Models.DiskSecurityTypes("ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey"),
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDisks();
+            await collection.CreateOrUpdateAsync(true, diskName, disk);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate8()
+        {
+            // Example: Create a managed disk from UploadPreparedSecure create option
+            string diskName = "myDisk";
+            Compute.DiskData disk = new Compute.DiskData(location: "West US")
+            {
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
+                CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("UploadPreparedSecure"))
+                {
+                    UploadSizeBytes = 10737418752,
+                },
+                SecurityProfile = new Compute.Models.DiskSecurityProfile()
+                {
+                    SecurityType = new Compute.Models.DiskSecurityTypes("TrustedLaunch"),
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDisks();
+            await collection.CreateOrUpdateAsync(true, diskName, disk);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate9()
         {
             // Example: Create a managed disk from a platform image.
             string diskName = "myDisk";
             Compute.DiskData disk = new Compute.DiskData(location: "West US")
             {
-                OsType = Compute.Models.OperatingSystemTypes.Windows,
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
                 CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("FromImage"))
                 {
                     ImageReference = new Compute.Models.ImageDiskReference(id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0"),
@@ -132,7 +201,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate7()
+        public async Task CreateOrUpdate10()
         {
             // Example: Create a managed disk from an existing managed disk in the same or different subscription.
             string diskName = "myDisk2";
@@ -149,13 +218,13 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate8()
+        public async Task CreateOrUpdate11()
         {
             // Example: Create a managed disk with security profile
             string diskName = "myDisk";
             Compute.DiskData disk = new Compute.DiskData(location: "North Central US")
             {
-                OsType = Compute.Models.OperatingSystemTypes.Windows,
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
                 CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("FromImage"))
                 {
                     ImageReference = new Compute.Models.ImageDiskReference(id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}"),
@@ -171,7 +240,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate9()
+        public async Task CreateOrUpdate12()
         {
             // Example: Create a managed disk with ssd zrs account type.
             string diskName = "myDisk";
@@ -190,7 +259,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate10()
+        public async Task CreateOrUpdate13()
         {
             // Example: Create a managed upload disk.
             string diskName = "myDisk";
@@ -207,7 +276,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate11()
+        public async Task CreateOrUpdate14()
         {
             // Example: Create an empty managed disk in extended location.
             string diskName = "myDisk";
@@ -227,7 +296,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate12()
+        public async Task CreateOrUpdate15()
         {
             // Example: Create an empty managed disk.
             string diskName = "myDisk";
@@ -242,7 +311,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate13()
+        public async Task CreateOrUpdate16()
         {
             // Example: Create an ultra managed disk with logicalSectorSize 512E
             string diskName = "myDisk";

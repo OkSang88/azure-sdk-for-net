@@ -37,16 +37,6 @@ namespace Azure.ResourceManager.Network.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task Delete()
-        {
-            // Example: Delete NetworkVirtualAppliance
-            var networkVirtualApplianceId = Network.NetworkVirtualAppliance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "nva");
-            var networkVirtualAppliance = GetArmClient().GetNetworkVirtualAppliance(networkVirtualApplianceId);
-
-            await networkVirtualAppliance.DeleteAsync(true);
-        }
-
-        [RecordedTest]
         public async Task Update()
         {
             // Example: Update NetworkVirtualAppliance

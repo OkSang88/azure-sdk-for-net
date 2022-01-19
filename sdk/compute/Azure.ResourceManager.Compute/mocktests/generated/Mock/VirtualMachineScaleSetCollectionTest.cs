@@ -29,6 +29,67 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate()
         {
+            // Example: Create a VMSS with an extension that has suppressFailures enabled
+            string vmScaleSetName = "{vmss-name}";
+            Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
+            {
+                Sku = new Compute.Models.Sku()
+                {
+                    Name = "Standard_D1_v2",
+                    Tier = "Standard",
+                    Capacity = 3,
+                },
+                UpgradePolicy = new Compute.Models.UpgradePolicy()
+                {
+                    Mode = Compute.Models.UpgradeMode.Manual,
+                },
+                VirtualMachineProfile = new Compute.Models.VirtualMachineScaleSetVMProfile()
+                {
+                    OsProfile = new Compute.Models.VirtualMachineScaleSetOSProfile()
+                    {
+                        ComputerNamePrefix = "{vmss-name}",
+                        AdminUsername = "{your-username}",
+                        AdminPassword = "{your-password}",
+                    },
+                    StorageProfile = new Compute.Models.VirtualMachineScaleSetStorageProfile()
+                    {
+                        ImageReference = new Compute.Models.ImageReference()
+                        {
+                            Publisher = "MicrosoftWindowsServer",
+                            Offer = "WindowsServer",
+                            Sku = "2016-Datacenter",
+                            Version = "latest",
+                        },
+                        OsDisk = new Compute.Models.VirtualMachineScaleSetOSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                        {
+                            Caching = Compute.Models.CachingTypes.ReadWrite,
+                            ManagedDisk = new Compute.Models.VirtualMachineScaleSetManagedDiskParameters()
+                            {
+                                StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                            },
+                        },
+                    },
+                    NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                    DiagnosticsProfile = new Compute.Models.DiagnosticsProfile()
+                    {
+                        BootDiagnostics = new Compute.Models.BootDiagnostics()
+                        {
+                            Enabled = true,
+                            StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+                        },
+                    },
+                    ExtensionProfile = new Compute.Models.VirtualMachineScaleSetExtensionProfile(),
+                },
+                Overprovision = true,
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate2()
+        {
             // Example: Create a custom-image scale set from an unmanaged generalized os image.
             string vmScaleSetName = "{vmss-name}";
             Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
@@ -73,7 +134,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate2()
+        public async Task CreateOrUpdate3()
         {
             // Example: Create a platform-image scale set with unmanaged os disks.
             string vmScaleSetName = "{vmss-name}";
@@ -122,7 +183,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate3()
+        public async Task CreateOrUpdate4()
         {
             // Example: Create a scale set from a custom image.
             string vmScaleSetName = "{vmss-name}";
@@ -171,7 +232,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate4()
+        public async Task CreateOrUpdate5()
         {
             // Example: Create a scale set from a generalized shared image.
             string vmScaleSetName = "{vmss-name}";
@@ -220,7 +281,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate5()
+        public async Task CreateOrUpdate6()
         {
             // Example: Create a scale set from a specialized shared image.
             string vmScaleSetName = "{vmss-name}";
@@ -263,7 +324,60 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate6()
+        public async Task CreateOrUpdate7()
+        {
+            // Example: Create a scale set with Application Profile
+            string vmScaleSetName = "{vmss-name}";
+            Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
+            {
+                Sku = new Compute.Models.Sku()
+                {
+                    Name = "Standard_D1_v2",
+                    Tier = "Standard",
+                    Capacity = 3,
+                },
+                UpgradePolicy = new Compute.Models.UpgradePolicy()
+                {
+                    Mode = Compute.Models.UpgradeMode.Manual,
+                },
+                VirtualMachineProfile = new Compute.Models.VirtualMachineScaleSetVMProfile()
+                {
+                    OsProfile = new Compute.Models.VirtualMachineScaleSetOSProfile()
+                    {
+                        ComputerNamePrefix = "{vmss-name}",
+                        AdminUsername = "{your-username}",
+                        AdminPassword = "{your-password}",
+                    },
+                    StorageProfile = new Compute.Models.VirtualMachineScaleSetStorageProfile()
+                    {
+                        ImageReference = new Compute.Models.ImageReference()
+                        {
+                            Publisher = "MicrosoftWindowsServer",
+                            Offer = "WindowsServer",
+                            Sku = "2016-Datacenter",
+                            Version = "latest",
+                        },
+                        OsDisk = new Compute.Models.VirtualMachineScaleSetOSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                        {
+                            Caching = Compute.Models.CachingTypes.ReadWrite,
+                            ManagedDisk = new Compute.Models.VirtualMachineScaleSetManagedDiskParameters()
+                            {
+                                StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                            },
+                        },
+                    },
+                    NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                    ApplicationProfile = new Compute.Models.ApplicationProfile(),
+                },
+                Overprovision = true,
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate8()
         {
             // Example: Create a scale set with DiskEncryptionSet resource in os disk and data disk.
             string vmScaleSetName = "{vmss-name}";
@@ -316,7 +430,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate7()
+        public async Task CreateOrUpdate9()
         {
             // Example: Create a scale set with Fpga Network Interfaces.
             string vmScaleSetName = "{vmss-name}";
@@ -365,7 +479,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate8()
+        public async Task CreateOrUpdate10()
         {
             // Example: Create a scale set with Host Encryption using encryptionAtHost property.
             string vmScaleSetName = "{vmss-name}";
@@ -427,7 +541,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate9()
+        public async Task CreateOrUpdate11()
         {
             // Example: Create a scale set with Uefi Settings of secureBoot and vTPM.
             string vmScaleSetName = "{vmss-name}";
@@ -488,7 +602,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate10()
+        public async Task CreateOrUpdate12()
         {
             // Example: Create a scale set with a marketplace image plan.
             string vmScaleSetName = "{vmss-name}";
@@ -546,7 +660,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate11()
+        public async Task CreateOrUpdate13()
         {
             // Example: Create a scale set with an azure application gateway.
             string vmScaleSetName = "{vmss-name}";
@@ -598,7 +712,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate12()
+        public async Task CreateOrUpdate14()
         {
             // Example: Create a scale set with an azure load balancer.
             string vmScaleSetName = "{vmss-name}";
@@ -650,7 +764,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate13()
+        public async Task CreateOrUpdate15()
         {
             // Example: Create a scale set with automatic repairs enabled
             string vmScaleSetName = "{vmss-name}";
@@ -707,7 +821,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate14()
+        public async Task CreateOrUpdate16()
         {
             // Example: Create a scale set with boot diagnostics.
             string vmScaleSetName = "{vmss-name}";
@@ -767,7 +881,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate15()
+        public async Task CreateOrUpdate17()
         {
             // Example: Create a scale set with empty data disks on each vm.
             string vmScaleSetName = "{vmss-name}";
@@ -820,7 +934,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate16()
+        public async Task CreateOrUpdate18()
         {
             // Example: Create a scale set with ephemeral os disks using placement property.
             string vmScaleSetName = "{vmss-name}";
@@ -883,7 +997,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate17()
+        public async Task CreateOrUpdate19()
         {
             // Example: Create a scale set with ephemeral os disks.
             string vmScaleSetName = "{vmss-name}";
@@ -945,7 +1059,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate18()
+        public async Task CreateOrUpdate20()
         {
             // Example: Create a scale set with extension time budget.
             string vmScaleSetName = "{vmss-name}";
@@ -1009,7 +1123,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate19()
+        public async Task CreateOrUpdate21()
         {
             // Example: Create a scale set with managed boot diagnostics.
             string vmScaleSetName = "{vmss-name}";
@@ -1068,7 +1182,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate20()
+        public async Task CreateOrUpdate22()
         {
             // Example: Create a scale set with password authentication.
             string vmScaleSetName = "{vmss-name}";
@@ -1120,7 +1234,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate21()
+        public async Task CreateOrUpdate23()
         {
             // Example: Create a scale set with premium storage.
             string vmScaleSetName = "{vmss-name}";
@@ -1172,7 +1286,126 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate22()
+        public async Task CreateOrUpdate24()
+        {
+            // Example: Create a scale set with scaleInPolicy.
+            string vmScaleSetName = "{vmss-name}";
+            Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
+            {
+                Sku = new Compute.Models.Sku()
+                {
+                    Name = "Standard_D1_v2",
+                    Tier = "Standard",
+                    Capacity = 3,
+                },
+                UpgradePolicy = new Compute.Models.UpgradePolicy()
+                {
+                    Mode = Compute.Models.UpgradeMode.Manual,
+                },
+                VirtualMachineProfile = new Compute.Models.VirtualMachineScaleSetVMProfile()
+                {
+                    OsProfile = new Compute.Models.VirtualMachineScaleSetOSProfile()
+                    {
+                        ComputerNamePrefix = "{vmss-name}",
+                        AdminUsername = "{your-username}",
+                        AdminPassword = "{your-password}",
+                    },
+                    StorageProfile = new Compute.Models.VirtualMachineScaleSetStorageProfile()
+                    {
+                        ImageReference = new Compute.Models.ImageReference()
+                        {
+                            Publisher = "MicrosoftWindowsServer",
+                            Offer = "WindowsServer",
+                            Sku = "2016-Datacenter",
+                            Version = "latest",
+                        },
+                        OsDisk = new Compute.Models.VirtualMachineScaleSetOSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                        {
+                            Caching = Compute.Models.CachingTypes.ReadWrite,
+                            ManagedDisk = new Compute.Models.VirtualMachineScaleSetManagedDiskParameters()
+                            {
+                                StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                            },
+                        },
+                    },
+                    NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                },
+                Overprovision = true,
+                ScaleInPolicy = new Compute.Models.ScaleInPolicy()
+                {
+                    ForceDeletion = true,
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate25()
+        {
+            // Example: Create a scale set with spot restore policy
+            string vmScaleSetName = "{vmss-name}";
+            Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
+            {
+                Sku = new Compute.Models.Sku()
+                {
+                    Name = "Standard_A8m_v2",
+                    Tier = "Standard",
+                    Capacity = 2,
+                },
+                UpgradePolicy = new Compute.Models.UpgradePolicy()
+                {
+                    Mode = Compute.Models.UpgradeMode.Manual,
+                },
+                VirtualMachineProfile = new Compute.Models.VirtualMachineScaleSetVMProfile()
+                {
+                    OsProfile = new Compute.Models.VirtualMachineScaleSetOSProfile()
+                    {
+                        ComputerNamePrefix = "{vmss-name}",
+                        AdminUsername = "{your-username}",
+                        AdminPassword = "{your-password}",
+                    },
+                    StorageProfile = new Compute.Models.VirtualMachineScaleSetStorageProfile()
+                    {
+                        ImageReference = new Compute.Models.ImageReference()
+                        {
+                            Publisher = "MicrosoftWindowsServer",
+                            Offer = "WindowsServer",
+                            Sku = "2016-Datacenter",
+                            Version = "latest",
+                        },
+                        OsDisk = new Compute.Models.VirtualMachineScaleSetOSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                        {
+                            Caching = Compute.Models.CachingTypes.ReadWrite,
+                            ManagedDisk = new Compute.Models.VirtualMachineScaleSetManagedDiskParameters()
+                            {
+                                StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                            },
+                        },
+                    },
+                    NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                    Priority = new Compute.Models.VirtualMachinePriorityTypes("Spot"),
+                    EvictionPolicy = new Compute.Models.VirtualMachineEvictionPolicyTypes("Deallocate"),
+                    BillingProfile = new Compute.Models.BillingProfile()
+                    {
+                        MaxPrice = -1,
+                    },
+                },
+                Overprovision = true,
+                SpotRestorePolicy = new Compute.Models.SpotRestorePolicy()
+                {
+                    Enabled = true,
+                    RestoreTimeout = "PT1H",
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate26()
         {
             // Example: Create a scale set with ssh authentication.
             string vmScaleSetName = "{vmss-name}";
@@ -1228,7 +1461,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate23()
+        public async Task CreateOrUpdate27()
         {
             // Example: Create a scale set with terminate scheduled events enabled.
             string vmScaleSetName = "{vmss-name}";
@@ -1288,7 +1521,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate24()
+        public async Task CreateOrUpdate28()
         {
             // Example: Create a scale set with userData.
             string vmScaleSetName = "{vmss-name}";
@@ -1341,7 +1574,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate25()
+        public async Task CreateOrUpdate29()
         {
             // Example: Create a scale set with virtual machines in different zones.
             string vmScaleSetName = "{vmss-name}";
@@ -1385,6 +1618,65 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                         },
                     },
                     NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                },
+                Overprovision = true,
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachineScaleSets();
+            await collection.CreateOrUpdateAsync(true, vmScaleSetName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate30()
+        {
+            // Example: Create or update a scale set with capacity reservation.
+            string vmScaleSetName = "{vmss-name}";
+            Compute.VirtualMachineScaleSetData parameters = new Compute.VirtualMachineScaleSetData(location: "westus")
+            {
+                Sku = new Compute.Models.Sku()
+                {
+                    Name = "Standard_DS1_v2",
+                    Tier = "Standard",
+                    Capacity = 3,
+                },
+                UpgradePolicy = new Compute.Models.UpgradePolicy()
+                {
+                    Mode = Compute.Models.UpgradeMode.Manual,
+                },
+                VirtualMachineProfile = new Compute.Models.VirtualMachineScaleSetVMProfile()
+                {
+                    OsProfile = new Compute.Models.VirtualMachineScaleSetOSProfile()
+                    {
+                        ComputerNamePrefix = "{vmss-name}",
+                        AdminUsername = "{your-username}",
+                        AdminPassword = "{your-password}",
+                    },
+                    StorageProfile = new Compute.Models.VirtualMachineScaleSetStorageProfile()
+                    {
+                        ImageReference = new Compute.Models.ImageReference()
+                        {
+                            Publisher = "MicrosoftWindowsServer",
+                            Offer = "WindowsServer",
+                            Sku = "2016-Datacenter",
+                            Version = "latest",
+                        },
+                        OsDisk = new Compute.Models.VirtualMachineScaleSetOSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                        {
+                            Caching = Compute.Models.CachingTypes.ReadWrite,
+                            ManagedDisk = new Compute.Models.VirtualMachineScaleSetManagedDiskParameters()
+                            {
+                                StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                            },
+                        },
+                    },
+                    NetworkProfile = new Compute.Models.VirtualMachineScaleSetNetworkProfile(),
+                    CapacityReservation = new Compute.Models.CapacityReservationProfile()
+                    {
+                        CapacityReservationGroup = new WritableSubResource()
+                        {
+                            Id = new ResourceIdentifier($"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/{{crgName}}"),
+                        },
+                    },
                 },
                 Overprovision = true,
             };

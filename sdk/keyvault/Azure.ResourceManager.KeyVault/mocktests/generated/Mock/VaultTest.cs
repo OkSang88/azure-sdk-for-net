@@ -60,6 +60,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
                     EnabledForDeployment = true,
                     EnabledForDiskEncryption = true,
                     EnabledForTemplateDeployment = true,
+                    PublicNetworkAccess = "Enabled",
                 },
             };
 
@@ -75,7 +76,7 @@ namespace Azure.ResourceManager.KeyVault.Tests.Mock
             KeyVault.Models.AccessPolicyUpdateKind operationKind = KeyVault.Models.AccessPolicyUpdateKind.Add;
             KeyVault.Models.VaultAccessPolicyParameters parameters = new KeyVault.Models.VaultAccessPolicyParameters(properties: new KeyVault.Models.VaultAccessPolicyProperties(accessPolicies: new List<KeyVault.Models.AccessPolicyEntry>()
 {
-new KeyVault.Models.AccessPolicyEntry(tenantId: Guid.Parse("00000000-0000-0000-0000-000000000000"),objectId: "00000000-0000-0000-0000-000000000000",permissions: new KeyVault.Models.Permissions()),}));
+new KeyVault.Models.AccessPolicyEntry(tenantId: Guid.Parse("00000000-0000-0000-0000-000000000000"),objectId: "00000000-0000-0000-0000-000000000000",permissions: new KeyVault.Models.AccessPermissions()),}));
 
             await vault.UpdateAccessPolicyAsync(operationKind, parameters);
         }

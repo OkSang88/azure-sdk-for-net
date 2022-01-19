@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
 using Insights;
+using Insights.Models;
 
 namespace Insights.Tests.Mock
 {
@@ -41,7 +42,7 @@ namespace Insights.Tests.Mock
             var activityLogAlertResourceId = Insights.ActivityLogAlertResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Default-ActivityLogAlerts", "SampleActivityLogAlert");
             var activityLogAlertResource = GetArmClient().GetActivityLogAlertResource(activityLogAlertResourceId);
 
-            await activityLogAlertResource.DeleteAsync();
+            await activityLogAlertResource.DeleteAsync(true);
         }
 
         [RecordedTest]

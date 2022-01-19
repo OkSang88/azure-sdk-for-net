@@ -42,7 +42,7 @@ namespace Insights.Tests.Mock
             var logProfileResourceId = Insights.LogProfileResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Rac46PostSwapRG");
             var logProfileResource = GetArmClient().GetLogProfileResource(logProfileResourceId);
 
-            await logProfileResource.DeleteAsync();
+            await logProfileResource.DeleteAsync(true);
         }
 
         [RecordedTest]

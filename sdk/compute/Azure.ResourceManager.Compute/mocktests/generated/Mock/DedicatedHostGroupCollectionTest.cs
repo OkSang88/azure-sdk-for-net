@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -35,7 +36,11 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 PlatformFaultDomainCount = 3,
                 SupportAutomaticPlacement = true,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["department"] = "finance", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["department"] = "finance",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDedicatedHostGroups();
             await collection.CreateOrUpdateAsync(true, hostGroupName, parameters);
         }

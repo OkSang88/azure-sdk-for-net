@@ -40,9 +40,12 @@ namespace Insights.Tests.Mock
                 StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
                 ServiceBusRuleId = "",
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetSubscription(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000")).GetLogProfileResources();
-            await collection.CreateOrUpdateAsync(logProfileName, parameters);
+            await collection.CreateOrUpdateAsync(true, logProfileName, parameters);
         }
 
         [RecordedTest]

@@ -54,7 +54,12 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
             EventHubs.EventHubClusterData parameters = new EventHubs.EventHubClusterData(location: "South Central US")
             {
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["tag3"] = "value3", ["tag4"] = "value4", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["tag3"] = "value3",
+                ["tag4"] = "value4",
+            });
+
             await eventHubCluster.UpdateAsync(true, parameters);
         }
 

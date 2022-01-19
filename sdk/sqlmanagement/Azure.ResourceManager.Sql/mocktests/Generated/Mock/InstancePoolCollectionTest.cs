@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -41,7 +42,11 @@ namespace Azure.ResourceManager.Sql.Tests.Mock
                 VCores = 8,
                 LicenseType = new Sql.Models.InstancePoolLicenseType("LicenseIncluded"),
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["a"] = "b", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["a"] = "b",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1")).GetInstancePools();
             await collection.CreateOrUpdateAsync(true, instancePoolName, parameters);
         }

@@ -15,10 +15,10 @@ using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Compute.Tests.Mock
 {
-    /// <summary> Test for VirtualMachineScaleSetVMExtension. </summary>
-    public partial class VirtualMachineScaleSetVMExtensionCollectionMockTests : MockTestBase
+    /// <summary> Test for VirtualMachineScaleSetVmExtension. </summary>
+    public partial class VirtualMachineScaleSetVmExtensionCollectionMockTests : MockTestBase
     {
-        public VirtualMachineScaleSetVMExtensionCollectionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+        public VirtualMachineScaleSetVmExtensionCollectionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
@@ -29,7 +29,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         {
             // Example: Create VirtualMachineScaleSet VM extension.
             string vmExtensionName = "myVMExtension";
-            Compute.VirtualMachineScaleSetVMExtensionData extensionParameters = new Compute.VirtualMachineScaleSetVMExtensionData()
+            Compute.VirtualMachineScaleSetVmExtensionData extensionParameters = new Compute.VirtualMachineScaleSetVmExtensionData()
             {
                 Publisher = "extPublisher",
                 TypePropertiesType = "extType",
@@ -42,8 +42,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             ,
             };
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVMExtensions();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVmExtensions();
             await collection.CreateOrUpdateAsync(true, vmExtensionName, extensionParameters);
         }
 
@@ -54,8 +54,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             string vmExtensionName = "myVMExtension";
             string expand = null;
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVMExtensions();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVmExtensions();
             await collection.GetAsync(vmExtensionName, expand);
         }
 
@@ -65,8 +65,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             // Example: List extensions in Vmss instance.
             string expand = null;
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVMExtensions();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVmExtensions();
             await foreach (var _ in collection.GetAllAsync(expand))
             {
             }

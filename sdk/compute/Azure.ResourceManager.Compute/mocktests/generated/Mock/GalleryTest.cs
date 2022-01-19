@@ -72,25 +72,25 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task UpdateGallerySharingProfile()
+        public async Task UpdateSharingProfile()
         {
             // Example: Add sharing id to the sharing profile of a gallery.
             var galleryId = Compute.Gallery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName");
             var gallery = GetArmClient().GetGallery(galleryId);
             Compute.Models.SharingUpdate sharingUpdate = new Compute.Models.SharingUpdate(operationType: new Compute.Models.SharingUpdateOperationTypes("Add"));
 
-            await gallery.UpdateGallerySharingProfileAsync(true, sharingUpdate);
+            await gallery.UpdateSharingProfileAsync(true, sharingUpdate);
         }
 
         [RecordedTest]
-        public async Task UpdateGallerySharingProfile2()
+        public async Task UpdateSharingProfile2()
         {
             // Example: reset sharing profile of a gallery.
             var galleryId = Compute.Gallery.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName");
             var gallery = GetArmClient().GetGallery(galleryId);
             Compute.Models.SharingUpdate sharingUpdate = new Compute.Models.SharingUpdate(operationType: new Compute.Models.SharingUpdateOperationTypes("Reset"));
 
-            await gallery.UpdateGallerySharingProfileAsync(true, sharingUpdate);
+            await gallery.UpdateSharingProfileAsync(true, sharingUpdate);
         }
     }
 }

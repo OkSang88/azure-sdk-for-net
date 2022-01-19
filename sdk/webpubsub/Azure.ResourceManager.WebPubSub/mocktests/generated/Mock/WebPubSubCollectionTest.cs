@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -58,7 +59,11 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
                 DisableLocalAuth = false,
                 DisableAadAuth = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["key1"] = "value1", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["key1"] = "value1",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetWebPubSubs();
             await collection.CreateOrUpdateAsync(true, resourceName, parameters);
         }

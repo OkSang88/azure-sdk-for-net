@@ -97,6 +97,31 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate4()
         {
+            // Example: Create or update a simple Gallery Image Version using shallow replication mode.
+            string galleryImageVersionName = "1.0.0";
+            Compute.GalleryImageVersionData galleryImageVersion = new Compute.GalleryImageVersionData(location: "West US")
+            {
+                PublishingProfile = new Compute.Models.GalleryImageVersionPublishingProfile()
+                {
+                    ReplicationMode = new Compute.Models.ReplicationMode("Shallow"),
+                },
+                StorageProfile = new Compute.Models.GalleryImageVersionStorageProfile()
+                {
+                    Source = new Compute.Models.GalleryArtifactVersionSource()
+                    {
+                        Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                    },
+                },
+            };
+
+            var galleryImageId = Compute.GalleryImage.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myGalleryName", "myGalleryImageName");
+            var collection = GetArmClient().GetGalleryImage(galleryImageId).GetGalleryImageVersions();
+            await collection.CreateOrUpdateAsync(true, galleryImageVersionName, galleryImageVersion);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate5()
+        {
             // Example: Create or update a simple Gallery Image Version using shared image as source.
             string galleryImageVersionName = "1.0.0";
             Compute.GalleryImageVersionData galleryImageVersion = new Compute.GalleryImageVersionData(location: "West US")
@@ -117,7 +142,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate5()
+        public async Task CreateOrUpdate6()
         {
             // Example: Create or update a simple Gallery Image Version using snapshots as a source.
             string galleryImageVersionName = "1.0.0";
@@ -143,7 +168,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate6()
+        public async Task CreateOrUpdate7()
         {
             // Example: Create or update a simple Gallery Image Version using vhd as a source.
             string galleryImageVersionName = "1.0.0";

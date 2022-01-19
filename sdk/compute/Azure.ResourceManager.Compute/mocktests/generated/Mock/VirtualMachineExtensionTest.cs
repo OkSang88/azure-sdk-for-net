@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
+using Azure.ResourceManager.Compute;
+using Azure.ResourceManager.Compute.Models;
 using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Compute.Tests.Mock
@@ -21,6 +23,29 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
+        }
+
+        [RecordedTest]
+        public async Task Update()
+        {
+            // Example: Update VM extension.
+            var virtualMachineExtensionId = Compute.VirtualMachineExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVM", "myVMExtension");
+            var virtualMachineExtension = GetArmClient().GetVirtualMachineExtension(virtualMachineExtensionId);
+            Compute.Models.VirtualMachineExtensionUpdate extensionParameters = new Compute.Models.VirtualMachineExtensionUpdate()
+            {
+                Publisher = "extPublisher",
+                Type = "extType",
+                TypeHandlerVersion = "1.2",
+                AutoUpgradeMinorVersion = true,
+                Settings = new Dictionary<string, object>()
+                {
+                    ["UserName"] = "xyz@microsoft.com",
+                }
+            ,
+                SuppressFailures = true,
+            };
+
+            await virtualMachineExtension.UpdateAsync(true, extensionParameters);
         }
     }
 }

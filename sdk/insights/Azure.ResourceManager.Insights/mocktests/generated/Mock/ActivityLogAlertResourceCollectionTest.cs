@@ -40,9 +40,12 @@ new Insights.Models.ActivityLogAlertLeafCondition(field: "Category",equalsValue:
                 Actions = new Insights.Models.ActivityLogAlertActionList(),
                 Description = "Sample activity log alert description",
             };
-            activityLogAlert.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            activityLogAlert.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-ActivityLogAlerts")).GetActivityLogAlertResources();
-            await collection.CreateOrUpdateAsync(activityLogAlertName, activityLogAlert);
+            await collection.CreateOrUpdateAsync(true, activityLogAlertName, activityLogAlert);
         }
 
         [RecordedTest]

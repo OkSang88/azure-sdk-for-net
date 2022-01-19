@@ -247,8 +247,9 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             // Example: Install patch state of a virtual machine.
             var virtualMachineId = Compute.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroupName", "myVMName");
             var virtualMachine = GetArmClient().GetVirtualMachine(virtualMachineId);
-            Compute.Models.VirtualMachineInstallPatchesParameters installPatchesInput = new Compute.Models.VirtualMachineInstallPatchesParameters(maximumDuration: "PT4H", rebootSetting: new Compute.Models.VMGuestPatchRebootSetting("IfRequired"))
+            Compute.Models.VirtualMachineInstallPatchesParameters installPatchesInput = new Compute.Models.VirtualMachineInstallPatchesParameters(rebootSetting: new Compute.Models.VMGuestPatchRebootSetting("IfRequired"))
             {
+                MaximumDuration = "PT4H",
                 WindowsParameters = new Compute.Models.WindowsParameters()
                 {
                     MaxPatchPublishDate = DateTimeOffset.Parse("2020-11-19T02:36:43.0539904+00:00"),

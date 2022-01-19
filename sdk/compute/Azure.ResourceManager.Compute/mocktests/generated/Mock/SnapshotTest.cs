@@ -48,6 +48,24 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task Update()
         {
+            // Example: Update a snapshot with accelerated networking.
+            var snapshotId = Compute.Snapshot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "mySnapshot");
+            var snapshot = GetArmClient().GetSnapshot(snapshotId);
+            Compute.Models.SnapshotUpdate snapshot2 = new Compute.Models.SnapshotUpdate()
+            {
+                DiskSizeGB = 20,
+                SupportedCapabilities = new Compute.Models.SupportedCapabilities()
+                {
+                    AcceleratedNetwork = false,
+                },
+            };
+
+            await snapshot.UpdateAsync(true, snapshot2);
+        }
+
+        [RecordedTest]
+        public async Task Update2()
+        {
             // Example: Update a snapshot.
             var snapshotId = Compute.Snapshot.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "mySnapshot");
             var snapshot = GetArmClient().GetSnapshot(snapshotId);

@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -60,7 +61,11 @@ namespace Azure.ResourceManager.Sql.Tests.Mock
                     AzureADOnlyAuthentication = true,
                 },
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["tagKey1"] = "TagValue1", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["tagKey1"] = "TagValue1",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg")).GetManagedInstances();
             await collection.CreateOrUpdateAsync(true, managedInstanceName, parameters);
         }

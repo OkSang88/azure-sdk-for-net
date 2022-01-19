@@ -60,7 +60,12 @@ namespace Azure.ResourceManager.EdgeOrder.Tests.Mock
             }), orderId: "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/TestRG/providers/Microsoft.EdgeOrder/locations/westus/orders/TestOrderItemName01")
             {
             };
-            orderItemResource.Tags.ReplaceWith(new Dictionary<string, string>() { ["carrot"] = "vegetable", ["mango"] = "fruit", });
+            orderItemResource.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["carrot"] = "vegetable",
+                ["mango"] = "fruit",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestRG")).GetOrderItemResources();
             await collection.CreateOrUpdateAsync(true, orderItemName, orderItemResource);
         }

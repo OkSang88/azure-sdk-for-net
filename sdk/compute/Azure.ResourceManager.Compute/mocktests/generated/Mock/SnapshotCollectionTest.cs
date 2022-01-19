@@ -63,6 +63,23 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate3()
         {
+            // Example: Create a snapshot from an existing snapshot in the same or a different subscription in a different region.
+            string snapshotName = "mySnapshot2";
+            Compute.SnapshotData snapshot = new Compute.SnapshotData(location: "West US")
+            {
+                CreationData = new Compute.Models.CreationData(createOption: new Compute.Models.DiskCreateOption("CopyStart"))
+                {
+                    SourceResourceId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetSnapshots();
+            await collection.CreateOrUpdateAsync(true, snapshotName, snapshot);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate4()
+        {
             // Example: Create a snapshot from an existing snapshot in the same or a different subscription.
             string snapshotName = "mySnapshot2";
             Compute.SnapshotData snapshot = new Compute.SnapshotData(location: "West US")

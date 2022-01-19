@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
@@ -33,7 +34,10 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             {
                 Options = new CosmosDB.Models.CreateUpdateOptions(),
             };
-            createUpdateMongoDBCollectionParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            createUpdateMongoDBCollectionParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var mongoDBDatabaseId = CosmosDB.MongoDBDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var collection = GetArmClient().GetMongoDBDatabase(mongoDBDatabaseId).GetMongoDBCollections();
             await collection.CreateOrUpdateAsync(true, collectionName, createUpdateMongoDBCollectionParameters);

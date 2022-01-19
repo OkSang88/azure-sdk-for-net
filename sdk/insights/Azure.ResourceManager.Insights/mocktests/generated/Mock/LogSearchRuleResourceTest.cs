@@ -42,7 +42,7 @@ namespace Insights.Tests.Mock
             var logSearchRuleResourceId = Insights.LogSearchRuleResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Rac46PostSwapRG", "logalertfoo");
             var logSearchRuleResource = GetArmClient().GetLogSearchRuleResource(logSearchRuleResourceId);
 
-            await logSearchRuleResource.DeleteAsync();
+            await logSearchRuleResource.DeleteAsync(true);
         }
 
         [RecordedTest]

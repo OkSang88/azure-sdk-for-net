@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Azure.Core.TestFramework;
 using Azure.ResourceManager.TestFramework;
 using Insights;
+using Insights.Models;
 
 namespace Insights.Tests.Mock
 {
@@ -41,7 +42,7 @@ namespace Insights.Tests.Mock
             var autoscaleSettingResourceId = Insights.AutoscaleSettingResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "TestingMetricsScaleSet", "MySetting");
             var autoscaleSettingResource = GetArmClient().GetAutoscaleSettingResource(autoscaleSettingResourceId);
 
-            await autoscaleSettingResource.DeleteAsync();
+            await autoscaleSettingResource.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -58,9 +58,12 @@ namespace Insights.Tests.Mock
                 Enabled = new Insights.Models.Enabled("true"),
                 Schedule = new Insights.Models.Schedule(frequencyInMinutes: 15, timeWindowInMinutes: 15),
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetLogSearchRuleResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -85,9 +88,12 @@ namespace Insights.Tests.Mock
                 Enabled = new Insights.Models.Enabled("true"),
                 Schedule = new Insights.Models.Schedule(frequencyInMinutes: 60, timeWindowInMinutes: 60),
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Rac46PostSwapRG")).GetLogSearchRuleResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -105,9 +111,12 @@ new Insights.Models.Criteria(metricName: "Average_% Idle Time"),})
                 Description = "log to metric description",
                 Enabled = new Insights.Models.Enabled("true"),
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/alertsweu")).GetLogSearchRuleResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]

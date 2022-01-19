@@ -73,6 +73,16 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task Get()
         {
+            // Example: Get information about a disk encryption set when auto-key rotation failed.
+            string diskEncryptionSetName = "myDiskEncryptionSet";
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetDiskEncryptionSets();
+            await collection.GetAsync(diskEncryptionSetName);
+        }
+
+        [RecordedTest]
+        public async Task Get2()
+        {
             // Example: Get information about a disk encryption set.
             string diskEncryptionSetName = "myDiskEncryptionSet";
 

@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -39,9 +40,12 @@ namespace Insights.Tests.Mock
                 TargetResourceRegion = "southcentralus",
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -58,9 +62,12 @@ namespace Insights.Tests.Mock
                 TargetResourceRegion = "southcentralus",
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -74,9 +81,14 @@ namespace Insights.Tests.Mock
             })
             {
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example"] = "Resource", ["hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example"] = "Resource", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example"] = "Resource",
+                ["hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example"] = "Resource",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-example")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -93,9 +105,12 @@ namespace Insights.Tests.Mock
                 TargetResourceRegion = "southcentralus",
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -110,9 +125,12 @@ namespace Insights.Tests.Mock
             {
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -129,9 +147,12 @@ namespace Insights.Tests.Mock
                 TargetResourceRegion = "southcentralus",
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest1")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]
@@ -148,9 +169,12 @@ namespace Insights.Tests.Mock
                 TargetResourceRegion = "southcentralus",
                 AutoMitigate = false,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest")).GetMetricAlertResources();
-            await collection.CreateOrUpdateAsync(ruleName, parameters);
+            await collection.CreateOrUpdateAsync(true, ruleName, parameters);
         }
 
         [RecordedTest]

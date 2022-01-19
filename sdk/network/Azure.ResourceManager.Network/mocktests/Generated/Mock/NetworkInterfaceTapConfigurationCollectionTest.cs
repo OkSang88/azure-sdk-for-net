@@ -24,24 +24,6 @@ namespace Azure.ResourceManager.Network.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate()
-        {
-            // Example: Create Network Interface Tap Configurations
-            string tapConfigurationName = "tapconfiguration1";
-            Network.NetworkInterfaceTapConfigurationData tapConfigurationParameters = new Network.NetworkInterfaceTapConfigurationData()
-            {
-                VirtualNetworkTap = new Network.VirtualNetworkTapData()
-                {
-                    Id = "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
-                },
-            };
-
-            var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "mynic");
-            var collection = GetArmClient().GetNetworkInterface(networkInterfaceId).GetNetworkInterfaceTapConfigurations();
-            await collection.CreateOrUpdateAsync(true, tapConfigurationName, tapConfigurationParameters);
-        }
-
-        [RecordedTest]
         public async Task Get()
         {
             // Example: Get Network Interface Tap Configurations

@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
@@ -103,7 +104,11 @@ namespace Azure.ResourceManager.Sql.Tests.Mock
             Sql.ManagedDatabaseData parameters = new Sql.ManagedDatabaseData(location: "southeastasia")
             {
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["tagKey1"] = "TagValue1", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["tagKey1"] = "TagValue1",
+            });
+
             var managedInstanceId = Sql.ManagedInstance.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Default-SQL-SouthEastAsia", "managedInstance");
             var collection = GetArmClient().GetManagedInstance(managedInstanceId).GetManagedDatabases();
             await collection.CreateOrUpdateAsync(true, databaseName, parameters);

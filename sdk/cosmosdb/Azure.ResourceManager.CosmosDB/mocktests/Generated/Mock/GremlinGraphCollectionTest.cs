@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
@@ -51,7 +52,10 @@ namespace Azure.ResourceManager.CosmosDB.Tests.Mock
             {
                 Options = new CosmosDB.Models.CreateUpdateOptions(),
             };
-            createUpdateGremlinGraphParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            createUpdateGremlinGraphParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var gremlinDatabaseId = CosmosDB.GremlinDatabase.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "rg1", "ddb1", "databaseName");
             var collection = GetArmClient().GetGremlinDatabase(gremlinDatabaseId).GetGremlinGraphs();
             await collection.CreateOrUpdateAsync(true, graphName, createUpdateGremlinGraphParameters);

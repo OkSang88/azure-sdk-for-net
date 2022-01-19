@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
                 HardwareProfile = new ConnectedVMwarevSphere.Models.HardwareProfile()
                 {
                     MemorySizeMB = 4196,
-                    NumCPUs = 4,
+                    NumCpus = 4,
                 },
             };
 

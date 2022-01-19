@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
-using Azure.ResourceManager.Network;
 using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Network.Tests.Mock
@@ -22,16 +21,6 @@ namespace Azure.ResourceManager.Network.Tests.Mock
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
-        }
-
-        [RecordedTest]
-        public async Task Get()
-        {
-            // Example: NetworkInterfaceIPConfigurationGet
-            var networkInterfaceIPConfigurationId = Network.NetworkInterfaceIPConfiguration.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "mynic", "ipconfig1");
-            var networkInterfaceIPConfiguration = GetArmClient().GetNetworkInterfaceIPConfiguration(networkInterfaceIPConfigurationId);
-
-            await networkInterfaceIPConfiguration.GetAsync();
         }
     }
 }

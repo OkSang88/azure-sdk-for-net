@@ -15,10 +15,10 @@ using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Compute.Tests.Mock
 {
-    /// <summary> Test for VirtualMachineScaleSetVM. </summary>
-    public partial class VirtualMachineScaleSetVMCollectionMockTests : MockTestBase
+    /// <summary> Test for VirtualMachineScaleSetVm. </summary>
+    public partial class VirtualMachineScaleSetVmCollectionMockTests : MockTestBase
     {
-        public VirtualMachineScaleSetVMCollectionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+        public VirtualMachineScaleSetVmCollectionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             Compute.Models.InstanceViewTypes? expand = null;
 
             var virtualMachineScaleSetId = Compute.VirtualMachineScaleSet.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "{vmss-name}");
-            var collection = GetArmClient().GetVirtualMachineScaleSet(virtualMachineScaleSetId).GetVirtualMachineScaleSetVMs();
+            var collection = GetArmClient().GetVirtualMachineScaleSet(virtualMachineScaleSetId).GetVirtualMachineScaleSetVms();
             await collection.GetAsync(instanceId, expand);
         }
     }

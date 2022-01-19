@@ -31,8 +31,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             string galleryImageName = "myGalleryImageName";
             Compute.GalleryImageData galleryImage = new Compute.GalleryImageData(location: "West US")
             {
-                OsType = Compute.Models.OperatingSystemTypes.Windows,
-                OsState = Compute.Models.OperatingSystemStateTypes.Generalized,
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
+                OSState = Compute.Models.OperatingSystemStateTypes.Generalized,
                 HyperVGeneration = new Compute.Models.HyperVGeneration("V1"),
                 Identifier = new Compute.Models.GalleryImageIdentifier(publisher: "myPublisherName", offer: "myOfferName", sku: "mySkuName"),
             };

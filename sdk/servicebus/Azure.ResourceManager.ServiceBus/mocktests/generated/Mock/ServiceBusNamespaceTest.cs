@@ -54,7 +54,12 @@ namespace Azure.ResourceManager.ServiceBus.Tests.Mock
             ServiceBus.Models.ServiceBusNamespaceUpdateOptions parameters = new ServiceBus.Models.ServiceBusNamespaceUpdateOptions(location: "South Central US")
             {
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["tag3"] = "value3", ["tag4"] = "value4", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["tag3"] = "value3",
+                ["tag4"] = "value4",
+            });
+
             await serviceBusNamespace.UpdateAsync(parameters);
         }
 

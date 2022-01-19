@@ -73,7 +73,10 @@ LocationName = "eastus", FailoverPriority = 1, IsZoneRedundant = false, },})
                 },
                 NetworkAclBypass = CosmosDB.Models.NetworkAclBypass.AzureServices,
             };
-            createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDatabaseAccounts();
             await collection.CreateOrUpdateAsync(true, accountName, createUpdateParameters);
         }
@@ -134,7 +137,10 @@ LocationName = "southcentralus", FailoverPriority = 0, IsZoneRedundant = false, 
                     RestoreTimestampInUtc = DateTimeOffset.Parse("2021-03-11T22:05:09Z"),
                 },
             };
-            createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>() { });
+            createUpdateParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1")).GetDatabaseAccounts();
             await collection.CreateOrUpdateAsync(true, accountName, createUpdateParameters);
         }

@@ -56,7 +56,6 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     $count = $path.IndexOf("ResourceManager.")
     $RPName = $path.Substring($count, $path.Length - $count).Replace("ResourceManager.", "")
     $srcFolder = $path + "/src"
-    $srcMd = $srcFolder+"/autorest.md" 
     $mocktestsFolder = $path + "/mocktests"
     $mockMd = $mocktestsFolder + "/autorest.tests.md"
     $csproj = ($mocktestsFolder + "/Azure.ResourceManager.Template.Tests.csproj").Replace("Template", $RPName)
@@ -72,7 +71,8 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
 
     # Generate src code
-    & autorest --use=$autorestVersion $srcMd
+    & cd $srcFolder
+    & dotnet build /t:GenerateCode
     if ($?) {
         $Script:srcGenerateSuccessedRps += $RPName
     }
@@ -82,7 +82,6 @@ function Update-AllGeneratedCode([string]$path, [string]$autorestVersion) {
     }
     
     # Build src code
-    & cd $srcFolder
     & dotnet build
     if ($?) {
         $Script:srcBuildSuccessedRps += $RPName
@@ -148,7 +147,6 @@ function  MockTestInit {
         $Script:testGenerateErrorRps = @()
         $Script:testBuildErrorRps = @()
         $Script:RPMapping = [ordered]@{ }
-
     }
     process {
         # Generate Track2 SDK Template

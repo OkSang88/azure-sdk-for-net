@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -37,7 +38,12 @@ namespace Azure.ResourceManager.EventHubs.Tests.Mock
                     Capacity = 1,
                 },
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["tag1"] = "value1", ["tag2"] = "value2", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["tag1"] = "value1",
+                ["tag2"] = "value2",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetEventHubClusters();
             await collection.CreateOrUpdateAsync(true, clusterName, parameters);
         }

@@ -16,10 +16,10 @@ using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Compute.Tests.Mock
 {
-    /// <summary> Test for VirtualMachineScaleSetVMExtension. </summary>
-    public partial class VirtualMachineScaleSetVMExtensionMockTests : MockTestBase
+    /// <summary> Test for VirtualMachineScaleSetVmExtension. </summary>
+    public partial class VirtualMachineScaleSetVmExtensionMockTests : MockTestBase
     {
-        public VirtualMachineScaleSetVMExtensionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+        public VirtualMachineScaleSetVmExtensionMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
@@ -29,29 +29,29 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         public async Task Get()
         {
             // Example: Get VirtualMachineScaleSet VM extension.
-            var virtualMachineScaleSetVMExtensionId = Compute.VirtualMachineScaleSetVMExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
-            var virtualMachineScaleSetVMExtension = GetArmClient().GetVirtualMachineScaleSetVMExtension(virtualMachineScaleSetVMExtensionId);
+            var virtualMachineScaleSetVmExtensionId = Compute.VirtualMachineScaleSetVmExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
+            var virtualMachineScaleSetVmExtension = GetArmClient().GetVirtualMachineScaleSetVmExtension(virtualMachineScaleSetVmExtensionId);
             string expand = null;
 
-            await virtualMachineScaleSetVMExtension.GetAsync(expand);
+            await virtualMachineScaleSetVmExtension.GetAsync(expand);
         }
 
         [RecordedTest]
         public async Task Delete()
         {
             // Example: Delete VirtualMachineScaleSet VM extension.
-            var virtualMachineScaleSetVMExtensionId = Compute.VirtualMachineScaleSetVMExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
-            var virtualMachineScaleSetVMExtension = GetArmClient().GetVirtualMachineScaleSetVMExtension(virtualMachineScaleSetVMExtensionId);
+            var virtualMachineScaleSetVmExtensionId = Compute.VirtualMachineScaleSetVmExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
+            var virtualMachineScaleSetVmExtension = GetArmClient().GetVirtualMachineScaleSetVmExtension(virtualMachineScaleSetVmExtensionId);
 
-            await virtualMachineScaleSetVMExtension.DeleteAsync(true);
+            await virtualMachineScaleSetVmExtension.DeleteAsync(true);
         }
 
         [RecordedTest]
         public async Task Update()
         {
             // Example: Update VirtualMachineScaleSet VM extension.
-            var virtualMachineScaleSetVMExtensionId = Compute.VirtualMachineScaleSetVMExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
-            var virtualMachineScaleSetVMExtension = GetArmClient().GetVirtualMachineScaleSetVMExtension(virtualMachineScaleSetVMExtensionId);
+            var virtualMachineScaleSetVmExtensionId = Compute.VirtualMachineScaleSetVmExtension.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0", "myVMExtension");
+            var virtualMachineScaleSetVmExtension = GetArmClient().GetVirtualMachineScaleSetVmExtension(virtualMachineScaleSetVmExtensionId);
             Compute.Models.VirtualMachineScaleSetVMExtensionUpdate extensionParameters = new Compute.Models.VirtualMachineScaleSetVMExtensionUpdate()
             {
                 Publisher = "extPublisher",
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             ,
             };
 
-            await virtualMachineScaleSetVMExtension.UpdateAsync(true, extensionParameters);
+            await virtualMachineScaleSetVmExtension.UpdateAsync(true, extensionParameters);
         }
     }
 }

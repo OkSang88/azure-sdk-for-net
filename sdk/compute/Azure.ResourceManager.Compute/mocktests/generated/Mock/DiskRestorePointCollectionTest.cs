@@ -35,6 +35,17 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
+        public async Task Get2()
+        {
+            // Example: Get an incremental disk restorePoint when source resource is from a different region
+            string diskRestorePointName = "TestDisk45ceb03433006d1baee0_b70cd924-3362-4a80-93c2-9415eaa12745";
+
+            var restorePointId = Compute.RestorePoint.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "rpc", "default");
+            var collection = GetArmClient().GetRestorePoint(restorePointId).GetDiskRestorePoints();
+            await collection.GetAsync(diskRestorePointName);
+        }
+
+        [RecordedTest]
         public async Task GetAll()
         {
             // Example: Get an incremental disk restorePoint resource.

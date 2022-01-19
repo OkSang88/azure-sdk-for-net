@@ -41,8 +41,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                 TimeoutInSeconds = 3600,
             };
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
             await collection.CreateOrUpdateAsync(true, runCommandName, runCommand);
         }
 
@@ -53,8 +53,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             string runCommandName = "myRunCommand";
             string expand = null;
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
             await collection.GetAsync(runCommandName, expand);
         }
 
@@ -64,8 +64,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             // Example: List run commands in Vmss instance.
             string expand = null;
 
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var collection = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var collection = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId).GetVirtualMachineScaleSetVirtualMachineRunCommands();
             await foreach (var _ in collection.GetAllAsync(expand))
             {
             }

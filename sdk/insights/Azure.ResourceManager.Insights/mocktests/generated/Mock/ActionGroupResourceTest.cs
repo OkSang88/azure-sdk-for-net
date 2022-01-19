@@ -42,7 +42,7 @@ namespace Insights.Tests.Mock
             var actionGroupResourceId = Insights.ActionGroupResource.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "Default-NotificationRules", "SampleActionGroup");
             var actionGroupResource = GetArmClient().GetActionGroupResource(actionGroupResourceId);
 
-            await actionGroupResource.DeleteAsync();
+            await actionGroupResource.DeleteAsync(true);
         }
 
         [RecordedTest]

@@ -24,16 +24,6 @@ namespace Azure.ResourceManager.Network.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task Get()
-        {
-            // Example: NetworkVirtualApplianceSkuGet
-            string skuName = "ciscoSdwan";
-
-            var collection = GetArmClient().GetSubscription(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000")).GetNetworkVirtualApplianceSkus();
-            await collection.GetAsync(skuName);
-        }
-
-        [RecordedTest]
         public async Task GetAll()
         {
             // Example: NetworkVirtualApplianceSkuListResult

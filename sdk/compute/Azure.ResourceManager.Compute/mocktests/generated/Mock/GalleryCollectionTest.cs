@@ -46,6 +46,24 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate2()
         {
+            // Example: Create or update a simple gallery with soft deletion enabled.
+            string galleryName = "myGalleryName";
+            Compute.GalleryData gallery = new Compute.GalleryData(location: "West US")
+            {
+                Description = "This is the gallery description.",
+                SoftDeletePolicy = new Compute.Models.SoftDeletePolicy()
+                {
+                    IsSoftDeleteEnabled = true,
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetGalleries();
+            await collection.CreateOrUpdateAsync(true, galleryName, gallery);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate3()
+        {
             // Example: Create or update a simple gallery.
             string galleryName = "myGalleryName";
             Compute.GalleryData gallery = new Compute.GalleryData(location: "West US")

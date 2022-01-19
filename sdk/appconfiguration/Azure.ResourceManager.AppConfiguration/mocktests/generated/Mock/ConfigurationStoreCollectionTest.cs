@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -34,7 +35,11 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             AppConfiguration.ConfigurationStoreData configStoreCreationParameters = new AppConfiguration.ConfigurationStoreData(location: "westus", sku: new AppConfiguration.Models.Sku(name: "Standard"))
             {
             };
-            configStoreCreationParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["myTag"] = "myTagValue", });
+            configStoreCreationParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["myTag"] = "myTagValue",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetConfigurationStores();
             await collection.CreateOrUpdateAsync(true, configStoreName, configStoreCreationParameters);
         }
@@ -48,7 +53,11 @@ namespace Azure.ResourceManager.AppConfiguration.Tests.Mock
             {
                 Identity = new ResourceIdentity(),
             };
-            configStoreCreationParameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["myTag"] = "myTagValue", });
+            configStoreCreationParameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["myTag"] = "myTagValue",
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetConfigurationStores();
             await collection.CreateOrUpdateAsync(true, configStoreName, configStoreCreationParameters);
         }

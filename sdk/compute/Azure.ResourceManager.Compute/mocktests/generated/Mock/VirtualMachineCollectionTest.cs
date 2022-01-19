@@ -183,6 +183,101 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         [RecordedTest]
         public async Task CreateOrUpdate4()
         {
+            // Example: Create a VM from a shared gallery image
+            string vmName = "myVM";
+            Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "westus")
+            {
+                HardwareProfile = new Compute.Models.HardwareProfile()
+                {
+                    VmSize = new Compute.Models.VirtualMachineSizeTypes("Standard_D1_v2"),
+                },
+                StorageProfile = new Compute.Models.StorageProfile()
+                {
+                    ImageReference = new Compute.Models.ImageReference()
+                    {
+                        SharedGalleryImageId = "/SharedGalleries/sharedGalleryName/Images/sharedGalleryImageName/Versions/sharedGalleryImageVersionName",
+                    },
+                    OsDisk = new Compute.Models.OSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                    {
+                        Name = "myVMosdisk",
+                        Caching = Compute.Models.CachingTypes.ReadWrite,
+                        ManagedDisk = new Compute.Models.ManagedDiskParameters()
+                        {
+                            StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                        },
+                    },
+                },
+                OsProfile = new Compute.Models.OSProfile()
+                {
+                    ComputerName = "myVM",
+                    AdminUsername = "{your-username}",
+                    AdminPassword = "{your-password}",
+                },
+                NetworkProfile = new Compute.Models.NetworkProfile(),
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();
+            await collection.CreateOrUpdateAsync(true, vmName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate5()
+        {
+            // Example: Create a VM with HibernationEnabled
+            string vmName = "{vm-name}";
+            Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "eastus2euap")
+            {
+                HardwareProfile = new Compute.Models.HardwareProfile()
+                {
+                    VmSize = new Compute.Models.VirtualMachineSizeTypes("Standard_D2s_v3"),
+                },
+                StorageProfile = new Compute.Models.StorageProfile()
+                {
+                    ImageReference = new Compute.Models.ImageReference()
+                    {
+                        Publisher = "MicrosoftWindowsServer",
+                        Offer = "WindowsServer",
+                        Sku = "2019-Datacenter",
+                        Version = "latest",
+                    },
+                    OsDisk = new Compute.Models.OSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                    {
+                        Name = "vmOSdisk",
+                        Caching = Compute.Models.CachingTypes.ReadWrite,
+                        ManagedDisk = new Compute.Models.ManagedDiskParameters()
+                        {
+                            StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                        },
+                    },
+                },
+                AdditionalCapabilities = new Compute.Models.AdditionalCapabilities()
+                {
+                    HibernationEnabled = true,
+                },
+                OsProfile = new Compute.Models.OSProfile()
+                {
+                    ComputerName = "{vm-name}",
+                    AdminUsername = "{your-username}",
+                    AdminPassword = "{your-password}",
+                },
+                NetworkProfile = new Compute.Models.NetworkProfile(),
+                DiagnosticsProfile = new Compute.Models.DiagnosticsProfile()
+                {
+                    BootDiagnostics = new Compute.Models.BootDiagnostics()
+                    {
+                        Enabled = true,
+                        StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+                    },
+                },
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();
+            await collection.CreateOrUpdateAsync(true, vmName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate6()
+        {
             // Example: Create a VM with Uefi Settings of secureBoot and vTPM.
             string vmName = "myVM";
             Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "westus")
@@ -233,7 +328,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate5()
+        public async Task CreateOrUpdate7()
         {
             // Example: Create a VM with UserData
             string vmName = "{vm-name}";
@@ -285,7 +380,64 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate6()
+        public async Task CreateOrUpdate8()
+        {
+            // Example: Create a VM with VM Size Properties
+            string vmName = "myVM";
+            Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "westus")
+            {
+                HardwareProfile = new Compute.Models.HardwareProfile()
+                {
+                    VmSize = new Compute.Models.VirtualMachineSizeTypes("Standard_D4_v3"),
+                    VmSizeProperties = new Compute.Models.VMSizeProperties()
+                    {
+                        VCPUsAvailable = 1,
+                        VCPUsPerCore = 1,
+                    },
+                },
+                StorageProfile = new Compute.Models.StorageProfile()
+                {
+                    ImageReference = new Compute.Models.ImageReference()
+                    {
+                        Publisher = "MicrosoftWindowsServer",
+                        Offer = "WindowsServer",
+                        Sku = "2016-Datacenter",
+                        Version = "latest",
+                    },
+                    OsDisk = new Compute.Models.OSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                    {
+                        Name = "myVMosdisk",
+                        Caching = Compute.Models.CachingTypes.ReadWrite,
+                        ManagedDisk = new Compute.Models.ManagedDiskParameters()
+                        {
+                            StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                        },
+                    },
+                },
+                OsProfile = new Compute.Models.OSProfile()
+                {
+                    ComputerName = "myVM",
+                    AdminUsername = "{your-username}",
+                    AdminPassword = "{your-password}",
+                },
+                NetworkProfile = new Compute.Models.NetworkProfile(),
+                DiagnosticsProfile = new Compute.Models.DiagnosticsProfile()
+                {
+                    BootDiagnostics = new Compute.Models.BootDiagnostics()
+                    {
+                        Enabled = true,
+                        StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+                    },
+                },
+                UserData = "U29tZSBDdXN0b20gRGF0YQ==",
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();
+            await collection.CreateOrUpdateAsync(true, vmName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate9()
         {
             // Example: Create a VM with network interface configuration
             string vmName = "myVM";
@@ -331,7 +483,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate7()
+        public async Task CreateOrUpdate10()
         {
             // Example: Create a Windows vm with a patch setting assessmentMode of ImageDefault.
             string vmName = "myVM";
@@ -383,7 +535,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate8()
+        public async Task CreateOrUpdate11()
         {
             // Example: Create a Windows vm with a patch setting patchMode of AutomaticByOS.
             string vmName = "myVM";
@@ -435,7 +587,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate9()
+        public async Task CreateOrUpdate12()
         {
             // Example: Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and enableHotpatching set to true.
             string vmName = "myVM";
@@ -488,7 +640,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate10()
+        public async Task CreateOrUpdate13()
         {
             // Example: Create a Windows vm with a patch setting patchMode of Manual.
             string vmName = "myVM";
@@ -540,7 +692,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate11()
+        public async Task CreateOrUpdate14()
         {
             // Example: Create a Windows vm with patch settings patchMode and assessmentMode set to AutomaticByPlatform.
             string vmName = "myVM";
@@ -593,7 +745,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate12()
+        public async Task CreateOrUpdate15()
         {
             // Example: Create a custom-image vm from an unmanaged generalized os image.
             string vmName = "{vm-name}";
@@ -634,7 +786,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate13()
+        public async Task CreateOrUpdate16()
         {
             // Example: Create a platform-image vm with unmanaged os and data disks.
             string vmName = "{vm-name}";
@@ -677,7 +829,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate14()
+        public async Task CreateOrUpdate17()
         {
             // Example: Create a vm from a custom image.
             string vmName = "myVM";
@@ -717,7 +869,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate15()
+        public async Task CreateOrUpdate18()
         {
             // Example: Create a vm from a generalized shared image.
             string vmName = "myVM";
@@ -757,7 +909,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate16()
+        public async Task CreateOrUpdate19()
         {
             // Example: Create a vm from a specialized shared image.
             string vmName = "myVM";
@@ -791,7 +943,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate17()
+        public async Task CreateOrUpdate20()
         {
             // Example: Create a vm in a Virtual Machine Scale Set with customer assigned platformFaultDomain.
             string vmName = "myVM";
@@ -839,7 +991,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate18()
+        public async Task CreateOrUpdate21()
         {
             // Example: Create a vm in an availability set.
             string vmName = "myVM";
@@ -886,7 +1038,51 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate19()
+        public async Task CreateOrUpdate22()
+        {
+            // Example: Create a vm with Application Profile.
+            string vmName = "myVM";
+            Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "westus")
+            {
+                HardwareProfile = new Compute.Models.HardwareProfile()
+                {
+                    VmSize = new Compute.Models.VirtualMachineSizeTypes("Standard_D1_v2"),
+                },
+                StorageProfile = new Compute.Models.StorageProfile()
+                {
+                    ImageReference = new Compute.Models.ImageReference()
+                    {
+                        Publisher = "{image_publisher}",
+                        Offer = "{image_offer}",
+                        Sku = "{image_sku}",
+                        Version = "latest",
+                    },
+                    OsDisk = new Compute.Models.OSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                    {
+                        Name = "myVMosdisk",
+                        Caching = Compute.Models.CachingTypes.ReadWrite,
+                        ManagedDisk = new Compute.Models.ManagedDiskParameters()
+                        {
+                            StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                        },
+                    },
+                },
+                OsProfile = new Compute.Models.OSProfile()
+                {
+                    ComputerName = "myVM",
+                    AdminUsername = "{your-username}",
+                    AdminPassword = "{your-password}",
+                },
+                NetworkProfile = new Compute.Models.NetworkProfile(),
+                ApplicationProfile = new Compute.Models.ApplicationProfile(),
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();
+            await collection.CreateOrUpdateAsync(true, vmName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate23()
         {
             // Example: Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
             string vmName = "myVM";
@@ -930,7 +1126,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate20()
+        public async Task CreateOrUpdate24()
         {
             // Example: Create a vm with Host Encryption using encryptionAtHost property.
             string vmName = "myVM";
@@ -983,7 +1179,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate21()
+        public async Task CreateOrUpdate25()
         {
             // Example: Create a vm with Scheduled Events Profile
             string vmName = "myVM";
@@ -1042,7 +1238,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate22()
+        public async Task CreateOrUpdate26()
         {
             // Example: Create a vm with a marketplace image plan.
             string vmName = "myVM";
@@ -1091,7 +1287,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate23()
+        public async Task CreateOrUpdate27()
         {
             // Example: Create a vm with an extensions time budget.
             string vmName = "myVM";
@@ -1143,7 +1339,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate24()
+        public async Task CreateOrUpdate28()
         {
             // Example: Create a vm with boot diagnostics.
             string vmName = "myVM";
@@ -1194,7 +1390,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate25()
+        public async Task CreateOrUpdate29()
         {
             // Example: Create a vm with empty data disks.
             string vmName = "myVM";
@@ -1237,7 +1433,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate26()
+        public async Task CreateOrUpdate30()
         {
             // Example: Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
             string vmName = "myVM";
@@ -1291,7 +1487,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate27()
+        public async Task CreateOrUpdate31()
         {
             // Example: Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
             string vmName = "myVM";
@@ -1345,7 +1541,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate28()
+        public async Task CreateOrUpdate32()
         {
             // Example: Create a vm with ephemeral os disk.
             string vmName = "myVM";
@@ -1398,7 +1594,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate29()
+        public async Task CreateOrUpdate33()
         {
             // Example: Create a vm with managed boot diagnostics.
             string vmName = "myVM";
@@ -1448,7 +1644,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate30()
+        public async Task CreateOrUpdate34()
         {
             // Example: Create a vm with password authentication.
             string vmName = "myVM";
@@ -1491,7 +1687,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate31()
+        public async Task CreateOrUpdate35()
         {
             // Example: Create a vm with premium storage.
             string vmName = "myVM";
@@ -1534,7 +1730,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task CreateOrUpdate32()
+        public async Task CreateOrUpdate36()
         {
             // Example: Create a vm with ssh authentication.
             string vmName = "myVM";
@@ -1574,6 +1770,62 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
                     },
                 },
                 NetworkProfile = new Compute.Models.NetworkProfile(),
+            };
+
+            var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();
+            await collection.CreateOrUpdateAsync(true, vmName, parameters);
+        }
+
+        [RecordedTest]
+        public async Task CreateOrUpdate37()
+        {
+            // Example: Create or update a VM with capacity reservation
+            string vmName = "myVM";
+            Compute.VirtualMachineData parameters = new Compute.VirtualMachineData(location: "westus")
+            {
+                Plan = new Compute.Models.Plan()
+                {
+                    Name = "windows2016",
+                    Publisher = "microsoft-ads",
+                    Product = "windows-data-science-vm",
+                },
+                HardwareProfile = new Compute.Models.HardwareProfile()
+                {
+                    VmSize = new Compute.Models.VirtualMachineSizeTypes("Standard_DS1_v2"),
+                },
+                StorageProfile = new Compute.Models.StorageProfile()
+                {
+                    ImageReference = new Compute.Models.ImageReference()
+                    {
+                        Publisher = "microsoft-ads",
+                        Offer = "windows-data-science-vm",
+                        Sku = "windows2016",
+                        Version = "latest",
+                    },
+                    OsDisk = new Compute.Models.OSDisk(createOption: new Compute.Models.DiskCreateOptionTypes("FromImage"))
+                    {
+                        Name = "myVMosdisk",
+                        Caching = Compute.Models.CachingTypes.ReadOnly,
+                        ManagedDisk = new Compute.Models.ManagedDiskParameters()
+                        {
+                            StorageAccountType = new Compute.Models.StorageAccountTypes("Standard_LRS"),
+                        },
+                    },
+                },
+                OsProfile = new Compute.Models.OSProfile()
+                {
+                    ComputerName = "myVM",
+                    AdminUsername = "{your-username}",
+                    AdminPassword = "{your-password}",
+                },
+                NetworkProfile = new Compute.Models.NetworkProfile(),
+                CapacityReservation = new Compute.Models.CapacityReservationProfile()
+                {
+                    CapacityReservationGroup = new WritableSubResource()
+                    {
+                        Id = new ResourceIdentifier($"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/{{crgName}}"),
+                    },
+                },
             };
 
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup")).GetVirtualMachines();

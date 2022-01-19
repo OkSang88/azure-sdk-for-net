@@ -24,17 +24,6 @@ namespace Azure.ResourceManager.Network.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task Get()
-        {
-            // Example: NetworkInterfaceIPConfigurationGet
-            string ipConfigurationName = "ipconfig1";
-
-            var networkInterfaceId = Network.NetworkInterface.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "mynic");
-            var collection = GetArmClient().GetNetworkInterface(networkInterfaceId).GetNetworkInterfaceIPConfigurations();
-            await collection.GetAsync(ipConfigurationName);
-        }
-
-        [RecordedTest]
         public async Task GetAll()
         {
             // Example: NetworkInterfaceIPConfigurationList

@@ -16,10 +16,10 @@ using Azure.ResourceManager.TestFramework;
 
 namespace Azure.ResourceManager.Compute.Tests.Mock
 {
-    /// <summary> Test for VirtualMachineScaleSetVM. </summary>
-    public partial class VirtualMachineScaleSetVMMockTests : MockTestBase
+    /// <summary> Test for VirtualMachineScaleSetVm. </summary>
+    public partial class VirtualMachineScaleSetVmMockTests : MockTestBase
     {
-        public VirtualMachineScaleSetVMMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+        public VirtualMachineScaleSetVmMockTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
@@ -29,64 +29,64 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         public async Task Get()
         {
             // Example: Get VM scale set VM with UserData
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "{vmss-name}", "0");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "{vmss-name}", "0");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
             Compute.Models.InstanceViewTypes? expand = null;
 
-            await virtualMachineScaleSetVM.GetAsync(expand);
+            await virtualMachineScaleSetVm.GetAsync(expand);
         }
 
         [RecordedTest]
         public async Task Delete()
         {
             // Example: Force Delete a virtual machine from a VM scale set.
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myvmScaleSet", "0");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
             bool? forceDeletion = true;
 
-            await virtualMachineScaleSetVM.DeleteAsync(true, forceDeletion);
+            await virtualMachineScaleSetVm.DeleteAsync(true, forceDeletion);
         }
 
         [RecordedTest]
         public async Task GetInstanceView()
         {
             // Example: Get instance view of a virtual machine from a VM scale set placed on a dedicated host group through automatic placement.
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVirtualMachineScaleSet", "0");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVirtualMachineScaleSet", "0");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
 
-            await virtualMachineScaleSetVM.GetInstanceViewAsync();
+            await virtualMachineScaleSetVm.GetInstanceViewAsync();
         }
 
         [RecordedTest]
         public async Task RetrieveBootDiagnosticsData()
         {
             // Example: RetrieveBootDiagnosticsData of a virtual machine.
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "myvmScaleSet", "0");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "myvmScaleSet", "0");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
             int? sasUriExpirationTimeInMinutes = 60;
 
-            await virtualMachineScaleSetVM.RetrieveBootDiagnosticsDataAsync(sasUriExpirationTimeInMinutes);
+            await virtualMachineScaleSetVm.RetrieveBootDiagnosticsDataAsync(sasUriExpirationTimeInMinutes);
         }
 
         [RecordedTest]
         public async Task SimulateEviction()
         {
             // Example: Simulate Eviction a virtual machine.
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "VmScaleSetName", "InstanceId");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ResourceGroup", "VmScaleSetName", "InstanceId");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
 
-            await virtualMachineScaleSetVM.SimulateEvictionAsync();
+            await virtualMachineScaleSetVm.SimulateEvictionAsync();
         }
 
         [RecordedTest]
         public async Task RunCommand()
         {
             // Example: VirtualMachineScaleSetVMs_RunCommand
-            var virtualMachineScaleSetVMId = Compute.VirtualMachineScaleSetVM.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVirtualMachineScaleSet", "0");
-            var virtualMachineScaleSetVM = GetArmClient().GetVirtualMachineScaleSetVM(virtualMachineScaleSetVMId);
+            var virtualMachineScaleSetVmId = Compute.VirtualMachineScaleSetVm.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myVirtualMachineScaleSet", "0");
+            var virtualMachineScaleSetVm = GetArmClient().GetVirtualMachineScaleSetVm(virtualMachineScaleSetVmId);
             Compute.Models.RunCommandInput parameters = new Compute.Models.RunCommandInput(commandId: "RunPowerShellScript");
 
-            await virtualMachineScaleSetVM.RunCommandAsync(true, parameters);
+            await virtualMachineScaleSetVm.RunCommandAsync(true, parameters);
         }
     }
 }

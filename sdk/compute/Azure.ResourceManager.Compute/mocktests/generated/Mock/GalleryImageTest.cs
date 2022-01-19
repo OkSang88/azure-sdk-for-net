@@ -53,8 +53,8 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             var galleryImage = GetArmClient().GetGalleryImage(galleryImageId);
             Compute.Models.GalleryImageUpdate galleryImage2 = new Compute.Models.GalleryImageUpdate()
             {
-                OsType = Compute.Models.OperatingSystemTypes.Windows,
-                OsState = Compute.Models.OperatingSystemStateTypes.Generalized,
+                OSType = Compute.Models.OperatingSystemTypes.Windows,
+                OSState = Compute.Models.OperatingSystemStateTypes.Generalized,
                 HyperVGeneration = new Compute.Models.HyperVGeneration("V1"),
                 Identifier = new Compute.Models.GalleryImageIdentifier(publisher: "myPublisherName", offer: "myOfferName", sku: "mySkuName"),
             };

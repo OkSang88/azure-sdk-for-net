@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core;
@@ -34,9 +35,12 @@ namespace Insights.Tests.Mock
                 GroupShortName = "sample",
                 Enabled = true,
             };
-            actionGroup.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { });
+            actionGroup.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+            });
+
             var collection = GetArmClient().GetResourceGroup(new ResourceIdentifier("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-NotificationRules")).GetActionGroupResources();
-            await collection.CreateOrUpdateAsync(actionGroupName, actionGroup);
+            await collection.CreateOrUpdateAsync(true, actionGroupName, actionGroup);
         }
 
         [RecordedTest]

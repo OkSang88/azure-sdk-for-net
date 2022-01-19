@@ -79,7 +79,11 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
                 DisableLocalAuth = false,
                 DisableAadAuth = false,
             };
-            parameters.Tags.ReplaceWith(new Dictionary<string, string>() { ["key1"] = "value1", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["key1"] = "value1",
+            });
+
             await webPubSub.UpdateAsync(true, parameters);
         }
 

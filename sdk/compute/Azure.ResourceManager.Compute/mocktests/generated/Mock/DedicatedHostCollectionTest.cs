@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
@@ -36,7 +37,11 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             {
                 PlatformFaultDomain = 1,
             };
-            parameters.Tags.ReplaceWith(new System.Collections.Generic.Dictionary<string, string>() { ["department"] = "HR", });
+            parameters.Tags.ReplaceWith(new Dictionary<string, string>()
+            {
+                ["department"] = "HR",
+            });
+
             var dedicatedHostGroupId = Compute.DedicatedHostGroup.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myDedicatedHostGroup");
             var collection = GetArmClient().GetDedicatedHostGroup(dedicatedHostGroupId).GetDedicatedHosts();
             await collection.CreateOrUpdateAsync(true, hostName, parameters);

@@ -139,7 +139,7 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
         }
 
         [RecordedTest]
-        public async Task WalkUpdateDomainCloudServicesUpdateDomain()
+        public async Task WalkUpdateDomain()
         {
             // Example: Update Cloud Service to specified Domain
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
@@ -147,28 +147,28 @@ namespace Azure.ResourceManager.Compute.Tests.Mock
             int updateDomain = 1;
             Compute.Models.UpdateDomain parameters = null;
 
-            await cloudService.WalkUpdateDomainCloudServicesUpdateDomainAsync(true, updateDomain, parameters);
+            await cloudService.WalkUpdateDomainAsync(true, updateDomain, parameters);
         }
 
         [RecordedTest]
-        public async Task GetUpdateDomainCloudServicesUpdateDomain()
+        public async Task GetUpdateDomain()
         {
             // Example: Get Cloud Service Update Domain
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
             int updateDomain = 1;
 
-            await cloudService.GetUpdateDomainCloudServicesUpdateDomainAsync(updateDomain);
+            await cloudService.GetUpdateDomainAsync(updateDomain);
         }
 
         [RecordedTest]
-        public async Task GetUpdateDomainsCloudServicesUpdateDomains()
+        public async Task GetUpdateDomains()
         {
             // Example: List Update Domains in Cloud Service
             var cloudServiceId = Compute.CloudService.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "ConstosoRG", "{cs-name}");
             var cloudService = GetArmClient().GetCloudService(cloudServiceId);
 
-            await foreach (var _ in cloudService.GetUpdateDomainsCloudServicesUpdateDomainsAsync())
+            await foreach (var _ in cloudService.GetUpdateDomainsAsync())
             {
             }
         }

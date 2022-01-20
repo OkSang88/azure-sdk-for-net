@@ -7,5 +7,5 @@ require:
   - ../src/autorest.md
 clear-output-folder: true
 skip-csproj: true
-namespace: Azure.ResourceManager.Template.Tests.Mock
+namespace: Azure.ResourceManager.Template
 ```

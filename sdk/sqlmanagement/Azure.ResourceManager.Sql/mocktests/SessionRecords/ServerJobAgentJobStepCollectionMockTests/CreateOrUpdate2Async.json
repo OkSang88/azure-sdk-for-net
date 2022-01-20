@@ -9,8 +9,8 @@
         "Content-Length": "383",
         "Content-Type": "application/json",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
-          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220120.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "7f740d129cdc5600f3fa7db2f0eb6301",
         "x-ms-return-client-request-id": "true"
@@ -27,42 +27,42 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "794",
+        "Content-Length": "839",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:31:12 GMT",
-        "ETag": "W/\u002231a-S6X9V2l1kcTZRlDehPb3MWMo7mE\u0022",
+        "Date": "Thu, 20 Jan 2022 07:43:31 GMT",
+        "ETag": "W/\u0022347-SkXKTpQuve9aEIVBGmuPBtbwkcg\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1/steps/step1",
         "name": "step1",
-        "type": "/Microsoft.Sql/servers",
+        "type": "Microsoft.Sql/servers/jobAgents/jobs/steps",
         "properties": {
-          "stepId": 28,
-          "targetGroup": "aaaaaaaaaaaaaaaaaaaaaa",
-          "credential": "aaaaaaaaaaaaaaaaaaaaaa",
+          "stepId": 2,
+          "targetGroup": "aaaaaaaaaaaaaaa",
+          "credential": "aaaaaaaaaaaaaaaaaaaaaaaaa",
           "action": {
             "type": "TSql",
             "source": "Inline",
-            "value": "aaaaaaaaaaaaaaaaaaaaaaaa"
+            "value": "aaaaaaaaaaaaaaa"
           },
           "output": {
             "type": "SqlDatabase",
             "subscriptionId": "00000000-0000-0000-0000-000000000000",
-            "resourceGroupName": "aaaaaaaaaaaaaaaaaaaaaaa",
-            "serverName": "aaaa",
-            "databaseName": "aaaaaaaaa",
-            "schemaName": "aaaaaa",
-            "tableName": "aa",
-            "credential": "aaaaaaa"
+            "resourceGroupName": "aaaaaaaaaaa",
+            "serverName": "aaaaaaa",
+            "databaseName": "aaaaaaaaaaaaaaa",
+            "schemaName": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "tableName": "aaaaa",
+            "credential": "aaaaaaaaaaaaaaaaaaaaaaaaa"
           },
           "executionOptions": {
-            "timeoutSeconds": 6,
-            "retryAttempts": 18,
-            "initialRetryIntervalSeconds": 11,
-            "maximumRetryIntervalSeconds": 27,
-            "retryIntervalBackoffMultiplier": 24
+            "timeoutSeconds": 5,
+            "retryAttempts": 15,
+            "initialRetryIntervalSeconds": 13,
+            "maximumRetryIntervalSeconds": 29,
+            "retryIntervalBackoffMultiplier": 26
           }
         }
       }

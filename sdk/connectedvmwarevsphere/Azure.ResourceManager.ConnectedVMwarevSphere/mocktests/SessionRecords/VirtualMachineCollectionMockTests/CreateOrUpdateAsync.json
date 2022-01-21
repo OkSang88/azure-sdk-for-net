@@ -1,0 +1,207 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/DemoVM?api-version=2020-10-01-preview",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "775",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ConnectedVMwarevSphere/1.0.0-alpha.20220121.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "d625ccd9b33a05e11c2882bb437f0fde",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "extendedLocation": {
+          "type": "customLocation",
+          "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso"
+        },
+        "tags": {},
+        "location": "eastus",
+        "properties": {
+          "resourcePoolId": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+          "templateId": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate",
+          "vCenterId": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+          "hardwareProfile": {
+            "memorySizeMB": 4196,
+            "numCPUs": 4
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "3328",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Fri, 21 Jan 2022 05:34:27 GMT",
+        "ETag": "W/\u0022d00-RtMuNt52xHKUxj6/rgsH1AGyOl4\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "properties": {
+          "resourcePoolId": "aaaaaaaaaaaaaaaaaaaaaaa",
+          "templateId": "aaa",
+          "vCenterId": "aaaaaaa",
+          "placementProfile": {
+            "resourcePoolId": "aaaaaaaaaaaaa",
+            "clusterId": "aaaaaaaaa",
+            "hostId": "aaaaaaaaaaaaaaaaaaaaaa",
+            "datastoreId": "aaaaaaa"
+          },
+          "osProfile": {
+            "computerName": "a",
+            "adminUsername": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+            "adminPassword": "aaaaaaaaaaaaaaaaaa",
+            "osType": "Windows",
+            "osName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "toolsRunningStatus": "aaaaaaaaaaaaaaaaaaaaaa",
+            "toolsVersionStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "toolsVersion": "aaaaaaaaaaaaaa"
+          },
+          "hardwareProfile": {
+            "memorySizeMB": 23,
+            "numCPUs": 30,
+            "numCoresPerSocket": 22,
+            "cpuHotAddEnabled": true,
+            "cpuHotRemoveEnabled": true,
+            "memoryHotAddEnabled": true
+          },
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "name": "aaaaaaaa",
+                "label": "a",
+                "ipAddresses": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "macAddress": "aaaaaaaa",
+                "networkId": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "nicType": "vmxnet3",
+                "powerOnBoot": "enabled",
+                "networkMoRefId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "networkMoName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "deviceKey": 13,
+                "ipSettings": {
+                  "allocationMethod": "unset",
+                  "dnsServers": [
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  ],
+                  "gateway": [
+                    "aaaaaaaaaaaa"
+                  ],
+                  "ipAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "subnetMask": "aaaaaaaaaaaaaaaa",
+                  "primaryWinsServer": "a",
+                  "secondaryWinsServer": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "ipAddressInfo": [
+                    {
+                      "allocationMethod": "aaaaaaaaaaaaaaaaaaaaa",
+                      "ipAddress": "aaaaaaaaaaaaaaaaaa",
+                      "subnetMask": "aa"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "storageProfile": {
+            "disks": [
+              {
+                "name": "aaaaaaaaaaaaaaaaaaa",
+                "label": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "diskObjectId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "diskSizeGB": 8,
+                "deviceKey": 15,
+                "diskMode": "persistent",
+                "controllerKey": 18,
+                "unitNumber": 5,
+                "deviceName": "aaa",
+                "diskType": "flat"
+              }
+            ],
+            "scsiControllers": [
+              {
+                "type": "lsilogic",
+                "controllerKey": 16,
+                "busNumber": 10,
+                "scsiCtlrUnitNumber": 20,
+                "sharing": "noSharing"
+              }
+            ]
+          },
+          "guestAgentProfile": {
+            "vmUuid": "aaaaaaaaaa",
+            "status": "Connected",
+            "lastStatusChange": "2022-01-21T05:34:27.829Z",
+            "agentVersion": "aaaa",
+            "errorDetails": [
+              {
+                "code": "aaaa",
+                "message": "aaaaaaaaaaaaaaaaaaa",
+                "target": "aaaaaaaaaaaaaaa",
+                "details": []
+              }
+            ]
+          },
+          "moRefId": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "inventoryItemId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "moName": "aaa",
+          "folderPath": "aaaaaaaaaaaaaaaa",
+          "instanceUuid": "aaaaaaaaa",
+          "smbiosUuid": "aaaaaaaaaaa",
+          "firmwareType": "bios",
+          "powerState": "aaaaaaaaaaaaaa",
+          "customResourceName": "aaaaaaaa",
+          "uuid": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "statuses": [
+            {
+              "type": "aaaaaaaaaaaaaaaaaaaa",
+              "status": "aaaaaaaaa",
+              "reason": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "message": "aaa",
+              "severity": "aaaa",
+              "lastUpdatedAt": "2022-01-21T05:34:27.830Z"
+            }
+          ],
+          "provisioningState": "Succeeded",
+          "vmId": "aaaaaaaaaaaaaaaaaa"
+        },
+        "location": "aaaaa",
+        "extendedLocation": {
+          "type": "aaaaaaaaaaaaaaaa",
+          "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-21T05:34:27.830Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-21T05:34:27.830Z"
+        },
+        "tags": {
+          "key4712": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "name": "DemoVM",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/DemoVM",
+        "type": "Microsoft.ConnectedVMwarevSphere/virtualMachines",
+        "kind": "aaaaaaaaaaaaaaa",
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "None"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1881712586",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

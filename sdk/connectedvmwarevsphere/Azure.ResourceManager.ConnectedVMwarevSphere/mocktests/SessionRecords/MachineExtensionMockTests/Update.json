@@ -1,0 +1,84 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/myMachine/extensions/CustomScriptExtension?api-version=2020-10-01-preview",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "217",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ConnectedVMwarevSphere/1.0.0-alpha.20220121.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "15c256d52a63c1727c4a26153bd0da09",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.10",
+          "settings": {
+            "commandToExecute": "powershell.exe -c \u0022Get-Process | Where-Object { $_.CPU -lt 100 }\u0022"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1046",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Fri, 21 Jan 2022 05:34:27 GMT",
+        "ETag": "W/\u0022416-JBZ3BWKgD1KcCZJhxiSZdaSVChs\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "properties": {
+          "forceUpdateTag": "a",
+          "publisher": "aaaaaaaaaaaaaaaaaaa",
+          "type": "aaaaaaaaaaaaaaaaaaa",
+          "typeHandlerVersion": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "autoUpgradeMinorVersion": true,
+          "settings": {},
+          "protectedSettings": {},
+          "provisioningState": "Succeeded",
+          "instanceView": {
+            "name": "aaaaaaaaa",
+            "type": "aaaaaaaaaa",
+            "typeHandlerVersion": "aaaaaaaa",
+            "status": {
+              "code": "aa",
+              "level": "Info",
+              "displayStatus": "aaaaaaaaaaaaaaaaaaaaa",
+              "message": "a",
+              "time": "2022-01-21T05:34:27.246Z"
+            }
+          }
+        },
+        "location": "aaaaaaaaaa",
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-21T05:34:27.247Z",
+          "lastModifiedBy": "aaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-21T05:34:27.247Z"
+        },
+        "tags": {
+          "key320": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "name": "CustomScriptExtension",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/myMachine/extensions/CustomScriptExtension",
+        "type": "Microsoft.ConnectedVMwarevSphere/virtualMachines/extensions"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "820821908",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

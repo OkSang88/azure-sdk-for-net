@@ -28,14 +28,14 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubSharedPrivateLinkResources_CreateOrUpdate
             string sharedPrivateLinkName = null; /* Can't find this parameter in example, please provide value here!*/
-            WebPubSub.SharedPrivateLinkData parameters = new WebPubSub.SharedPrivateLinkData()
+            SharedPrivateLinkData parameters = new SharedPrivateLinkData()
             {
                 GroupId = "sites",
                 PrivateLinkResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
                 RequestMessage = "Please approve",
             };
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetSharedPrivateLinks();
             await collection.CreateOrUpdateAsync(true, sharedPrivateLinkName, parameters);
         }
@@ -46,7 +46,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
             // Example: WebPubSubSharedPrivateLinkResources_Get
             string sharedPrivateLinkName = null; /* Can't find this parameter in example, please provide value here!*/
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetSharedPrivateLinks();
             await collection.GetAsync(sharedPrivateLinkName);
         }
@@ -56,7 +56,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         {
             // Example: WebPubSubSharedPrivateLinkResources_List
 
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var collection = GetArmClient().GetWebPubSub(webPubSubId).GetSharedPrivateLinks();
             await foreach (var _ in collection.GetAllAsync())
             {

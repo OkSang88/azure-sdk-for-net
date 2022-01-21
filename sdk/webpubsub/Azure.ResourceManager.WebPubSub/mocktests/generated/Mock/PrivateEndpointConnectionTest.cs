@@ -28,7 +28,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Get()
         {
             // Example: WebPubSubPrivateEndpointConnections_Get
-            var privateEndpointConnectionId = WebPubSub.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e");
+            var privateEndpointConnectionId = PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
             await privateEndpointConnection.GetAsync();
@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Delete()
         {
             // Example: WebPubSubPrivateEndpointConnections_Delete
-            var privateEndpointConnectionId = WebPubSub.PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e");
+            var privateEndpointConnectionId = PrivateEndpointConnection.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e");
             var privateEndpointConnection = GetArmClient().GetPrivateEndpointConnection(privateEndpointConnectionId);
 
             await privateEndpointConnection.DeleteAsync(true);

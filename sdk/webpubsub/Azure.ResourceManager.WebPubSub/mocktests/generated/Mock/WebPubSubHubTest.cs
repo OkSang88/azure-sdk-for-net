@@ -28,7 +28,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Get()
         {
             // Example: WebPubSubHubs_Get
-            var webPubSubHubId = WebPubSub.WebPubSubHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "exampleHub");
+            var webPubSubHubId = WebPubSubHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "exampleHub");
             var webPubSubHub = GetArmClient().GetWebPubSubHub(webPubSubHubId);
 
             await webPubSubHub.GetAsync();
@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Delete()
         {
             // Example: WebPubSubHubs_Delete
-            var webPubSubHubId = WebPubSub.WebPubSubHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "exampleHub");
+            var webPubSubHubId = WebPubSubHub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "exampleHub");
             var webPubSubHub = GetArmClient().GetWebPubSubHub(webPubSubHubId);
 
             await webPubSubHub.DeleteAsync(true);

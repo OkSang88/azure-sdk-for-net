@@ -23,43 +23,43 @@ namespace Azure.ResourceManager.ConnectedVMwarevSphere.Tests.Mock
             Environment.SetEnvironmentVariable("RESOURCE_MANAGER_URL", $"https://localhost:8443");
         }
 
-        [RecordedTest]
-        public async Task CreateOrUpdate()
-        {
-            // Example: CreateHybridIdentityMetadata
-            string metadataName = "default";
-            ConnectedVMwarevSphere.HybridIdentityMetadataData body = new ConnectedVMwarevSphere.HybridIdentityMetadataData()
-            {
-                VmId = "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
-                PublicKey = "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
-            };
+        //[RecordedTest]
+        //public async Task CreateOrUpdate()
+        //{
+        //    // Example: CreateHybridIdentityMetadata
+        //    string metadataName = "default";
+        //    ConnectedVMwarevSphere.HybridIdentityMetadataData body = new ConnectedVMwarevSphere.HybridIdentityMetadataData()
+        //    {
+        //        VmId = "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+        //        PublicKey = "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+        //    };
 
-            var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
-            var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
-            await collection.CreateOrUpdateAsync(true, metadataName, body);
-        }
+        //    var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
+        //    var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
+        //    await collection.CreateOrUpdateAsync(true, metadataName, body);
+        //}
 
-        [RecordedTest]
-        public async Task Get()
-        {
-            // Example: GetHybridIdentityMetadata
-            string metadataName = "default";
+        //[RecordedTest]
+        //public async Task Get()
+        //{
+        //    // Example: GetHybridIdentityMetadata
+        //    string metadataName = "default";
 
-            var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
-            var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
-            await collection.GetAsync(metadataName);
-        }
+        //    var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
+        //    var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
+        //    await collection.GetAsync(metadataName);
+        //}
 
-        [RecordedTest]
-        public async Task GetAll()
-        {
-            // Example: HybridIdentityMetadataListByVm
+        //[RecordedTest]
+        //public async Task GetAll()
+        //{
+        //    // Example: HybridIdentityMetadataListByVm
 
-            var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
-            var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
-            await foreach (var _ in collection.GetAllAsync())
-            {
-            }
-        }
+        //    var virtualMachineId = ConnectedVMwarevSphere.VirtualMachine.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "testrg", "ContosoVm");
+        //    var collection = GetArmClient().GetVirtualMachine(virtualMachineId).GetHybridIdentityMetadatas();
+        //    await foreach (var _ in collection.GetAllAsync())
+        //    {
+        //    }
+        //}
     }
 }

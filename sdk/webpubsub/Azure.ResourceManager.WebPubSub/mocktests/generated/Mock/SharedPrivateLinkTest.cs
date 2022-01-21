@@ -28,7 +28,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Get()
         {
             // Example: WebPubSubSharedPrivateLinkResources_Get
-            var sharedPrivateLinkId = WebPubSub.SharedPrivateLink.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "default");
+            var sharedPrivateLinkId =SharedPrivateLink.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "default");
             var sharedPrivateLink = GetArmClient().GetSharedPrivateLink(sharedPrivateLinkId);
 
             await sharedPrivateLink.GetAsync();
@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Delete()
         {
             // Example: WebPubSubSharedPrivateLinkResources_Delete
-            var sharedPrivateLinkId = WebPubSub.SharedPrivateLink.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "default");
+            var sharedPrivateLinkId = SharedPrivateLink.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService", "default");
             var sharedPrivateLink = GetArmClient().GetSharedPrivateLink(sharedPrivateLinkId);
 
             await sharedPrivateLink.DeleteAsync(true);

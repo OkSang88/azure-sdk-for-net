@@ -29,7 +29,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Get()
         {
             // Example: WebPubSub_Get
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await webPubSub.GetAsync();
@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Delete()
         {
             // Example: WebPubSub_Delete
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await webPubSub.DeleteAsync(true);
@@ -49,31 +49,31 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Update()
         {
             // Example: WebPubSub_Update
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
-            WebPubSub.WebPubSubData parameters = new WebPubSub.WebPubSubData(location: "eastus")
+            WebPubSubData parameters = new WebPubSubData(location: "eastus")
             {
-                Sku = new WebPubSub.Models.WebPubSubSku(name: "Standard_S1")
+                Sku = new WebPubSubSku(name: "Standard_S1")
                 {
-                    Tier = new WebPubSub.Models.WebPubSubSkuTier("Standard"),
+                    Tier = new WebPubSubSkuTier("Standard"),
                     Capacity = 1,
                 },
-                Identity = new WebPubSub.Models.ManagedIdentity()
+                Identity = new ManagedIdentity()
                 {
-                    Type = new WebPubSub.Models.ManagedIdentityType("SystemAssigned"),
+                    Type = new ManagedIdentityType("SystemAssigned"),
                 },
-                Tls = new WebPubSub.Models.WebPubSubTlsSettings()
+                Tls = new WebPubSubTlsSettings()
                 {
                     ClientCertEnabled = false,
                 },
-                LiveTraceConfiguration = new WebPubSub.Models.LiveTraceConfiguration()
+                LiveTraceConfiguration = new LiveTraceConfiguration()
                 {
                     Enabled = "false",
                 },
-                NetworkAcls = new WebPubSub.Models.WebPubSubNetworkAcls()
+                NetworkAcls = new WebPubSubNetworkAcls()
                 {
-                    DefaultAction = new WebPubSub.Models.AclAction("Deny"),
-                    PublicNetwork = new WebPubSub.Models.NetworkAcl(),
+                    DefaultAction = new AclAction("Deny"),
+                    PublicNetwork = new NetworkAcl(),
                 },
                 PublicNetworkAccess = "Enabled",
                 DisableLocalAuth = false,
@@ -91,7 +91,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task GetKeys()
         {
             // Example: WebPubSub_ListKeys
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await webPubSub.GetKeysAsync();
@@ -101,11 +101,11 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task RegenerateKey()
         {
             // Example: WebPubSub_RegenerateKey
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
-            WebPubSub.Models.RegenerateKeyParameters parameters = new WebPubSub.Models.RegenerateKeyParameters()
+            RegenerateKeyParameters parameters = new RegenerateKeyParameters()
             {
-                KeyType = new WebPubSub.Models.KeyType("Primary"),
+                KeyType = new KeyType("Primary"),
             };
 
             await webPubSub.RegenerateKeyAsync(true, parameters);
@@ -115,7 +115,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task Restart()
         {
             // Example: WebPubSub_Restart
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await webPubSub.RestartAsync(true);
@@ -125,7 +125,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task GetSkus()
         {
             // Example: WebPubSub_ListSkus
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await foreach (var _ in webPubSub.GetSkusAsync())
@@ -137,7 +137,7 @@ namespace Azure.ResourceManager.WebPubSub.Tests.Mock
         public async Task GetWebPubSubPrivateLinkResources()
         {
             // Example: WebPubSubPrivateLinkResources_List
-            var webPubSubId = WebPubSub.WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
+            var webPubSubId = WebPubSub.CreateResourceIdentifier("00000000-0000-0000-0000-000000000000", "myResourceGroup", "myWebPubSubService");
             var webPubSub = GetArmClient().GetWebPubSub(webPubSubId);
 
             await foreach (var _ in webPubSub.GetWebPubSubPrivateLinkResourcesAsync())

@@ -1,0 +1,181 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE?api-version=2021-11-01-preview",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "326",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ServiceFabricManagedClusters/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "40120a7091ed647bc75861cc9f38124d",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "isPrimary": false,
+          "vmInstanceCount": 10,
+          "vmSize": "Standard_DS3",
+          "vmImagePublisher": "MicrosoftWindowsServer",
+          "vmImageOffer": "WindowsServer",
+          "vmImageSku": "2016-Datacenter-Server-Core",
+          "vmImageVersion": "latest",
+          "isStateless": true,
+          "multiplePlacementGroups": true,
+          "enableEncryptionAtHost": true,
+          "useTempDataDisk": true
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2742",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:38:26 GMT",
+        "ETag": "W/\u0022ab6-rAaQevBm/5MjfVkOfC9H01axPLc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE",
+        "name": "BE",
+        "type": "Microsoft.ServiceFabric/managedClusters/nodeTypes",
+        "tags": {
+          "key9961": "a"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "aaaaaaaaaaaaaaaaaaaa",
+          "createdAt": "2022-01-20T09:38:26.117Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedAt": "2022-01-20T09:38:26.117Z"
+        },
+        "properties": {
+          "isPrimary": true,
+          "vmInstanceCount": 711929936,
+          "dataDiskSizeGB": 24,
+          "dataDiskType": "Standard_LRS",
+          "dataDiskLetter": "G",
+          "placementProperties": {
+            "key4810": "aaaaaaaa"
+          },
+          "capacities": {
+            "key7429": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "applicationPorts": {
+            "startPort": 17,
+            "endPort": 30
+          },
+          "ephemeralPorts": {
+            "startPort": 29,
+            "endPort": 19
+          },
+          "vmSize": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "vmImagePublisher": "aaaaaaaaaaaaaaaaaaaa",
+          "vmImageOffer": "aaaaaaaaaaaaaaaaaaaaaaa",
+          "vmImageSku": "aaaaaaaaaaaaaaaaa",
+          "vmImageVersion": "aaaaaaaaaaaaaaaaaaaaa",
+          "vmSecrets": [
+            {
+              "sourceVault": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateUrl": "aaaaaaaaaa",
+                  "certificateStore": "aaaaaaaaaaaaaa"
+                }
+              ]
+            }
+          ],
+          "vmExtensions": [
+            {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "properties": {
+                "publisher": "aaaaaaaaaaaaaaaaaaaaaa",
+                "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "typeHandlerVersion": "aaaaaaaaaaaaaaaaaaa",
+                "autoUpgradeMinorVersion": true,
+                "settings": {},
+                "protectedSettings": {},
+                "forceUpdateTag": "aaaaaaaaa",
+                "provisionAfterExtensions": [
+                  "aaaaaaaaaaaaaaaaaaaaaaaa"
+                ],
+                "provisioningState": "Succeeded"
+              }
+            }
+          ],
+          "vmManagedIdentity": {
+            "userAssignedIdentities": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            ]
+          },
+          "isStateless": true,
+          "multiplePlacementGroups": true,
+          "frontendConfigurations": [
+            {
+              "ipAddressType": "IPv4",
+              "loadBalancerBackendAddressPoolId": "aaaa",
+              "loadBalancerInboundNatPoolId": "aa"
+            }
+          ],
+          "networkSecurityRules": [
+            {
+              "name": "aaaaaaaaaaaaaaaaa",
+              "description": "a",
+              "protocol": "http",
+              "sourceAddressPrefixes": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ],
+              "destinationAddressPrefixes": [
+                "aaaaaaaaa"
+              ],
+              "sourcePortRanges": [
+                "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+              ],
+              "destinationPortRanges": [
+                "aaaaaaaaaaaa"
+              ],
+              "sourceAddressPrefix": "aaaaaaaaaaaaaaaaa",
+              "destinationAddressPrefix": "aaaaaaaaaaaaaaaaaaaa",
+              "sourcePortRange": "aaaaaa",
+              "destinationPortRange": "aaaaaaaaaaaa",
+              "access": "allow",
+              "priority": 2680,
+              "direction": "inbound"
+            }
+          ],
+          "additionalDataDisks": [
+            {
+              "lun": 10,
+              "diskSizeGB": 3,
+              "diskType": "Standard_LRS",
+              "diskLetter": "v"
+            }
+          ],
+          "enableEncryptionAtHost": true,
+          "provisioningState": "Succeeded",
+          "enableAcceleratedNetworking": true,
+          "useDefaultPublicLoadBalancer": true,
+          "useTempDataDisk": true
+        },
+        "sku": {
+          "name": "aaaaaaa",
+          "tier": "aaaaaaaaaaaaaaaaaaa",
+          "capacity": 144959166
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "64742841",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "822f26877c87188a85a53b538b38db84",
@@ -17,28 +17,28 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "3705",
+        "Content-Length": "3798",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:24:23 GMT",
-        "ETag": "W/\u0022e79-fm8DdrKwfjWuOvgFkVyloP6AC4U\u0022",
+        "Date": "Thu, 20 Jan 2022 09:24:48 GMT",
+        "ETag": "W/\u0022ed6-sekvYbFpoc2lwzMmswNuNT95TGQ\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName",
         "name": "rpcName",
-        "type": "/Microsoft.Compute/restorePointCollections",
-        "location": "aaaaaaaaaaaaaaaa",
+        "type": "Microsoft.Compute/restorePointCollections",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaa",
         "tags": {
-          "key7586": "aaaaaaaaaaaa"
+          "key805": "a"
         },
         "properties": {
           "source": {
-            "location": "aaaa",
-            "id": "aa"
+            "location": "aaaaaa",
+            "id": "aaaaaaaaaaaaaaaaaaaaaa"
           },
           "provisioningState": "Succeeded",
-          "restorePointCollectionId": "aaaaaaaaa",
+          "restorePointCollectionId": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
           "restorePoints": [
             {
               "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
@@ -47,14 +47,14 @@
               "properties": {
                 "excludeDisks": [
                   {
-                    "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    "id": "aaaaaaaaaaaaaaaaaaaaaaaa"
                   }
                 ],
                 "sourceMetadata": {
                   "hardwareProfile": {
                     "vmSize": "Basic_A0",
                     "vmSizeProperties": {
-                      "vCPUsAvailable": 11,
+                      "vCPUsAvailable": 25,
                       "vCPUsPerCore": 28
                     }
                   },
@@ -63,22 +63,22 @@
                       "osType": "Windows",
                       "encryptionSettings": {
                         "diskEncryptionKey": {
-                          "secretUrl": "aaaaaaaaaaaaaaaaaaa",
+                          "secretUrl": "aaaaaaaaaaaaaaaaaaaaa",
                           "sourceVault": {
                             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                           }
                         },
                         "keyEncryptionKey": {
-                          "keyUrl": "aaaaaaaaaaaaaaaaaa",
+                          "keyUrl": "aaaaaaaaaaaaaaaaaaaaaaa",
                           "sourceVault": {
                             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                           }
                         },
                         "enabled": true
                       },
-                      "name": "aaaaaaaaaaaaaaaa",
+                      "name": "aaaaaaaaaa",
                       "caching": "None",
-                      "diskSizeGB": 22,
+                      "diskSizeGB": 5,
                       "managedDisk": {
                         "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                         "storageAccountType": "Standard_LRS",
@@ -87,15 +87,15 @@
                         }
                       },
                       "diskRestorePoint": {
-                        "id": "aaaaaaaaa"
+                        "id": "aaaaaa"
                       }
                     },
                     "dataDisks": [
                       {
-                        "lun": 9,
-                        "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+                        "lun": 21,
+                        "name": "aaaaaaaaaaa",
                         "caching": "None",
-                        "diskSizeGB": 9,
+                        "diskSizeGB": 10,
                         "managedDisk": {
                           "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                           "storageAccountType": "Standard_LRS",
@@ -104,26 +104,26 @@
                           }
                         },
                         "diskRestorePoint": {
-                          "id": "aaaaaaa"
+                          "id": "aaaaaaaaaaaa"
                         }
                       }
                     ]
                   },
                   "osProfile": {
-                    "computerName": "aa",
-                    "adminUsername": "a",
-                    "adminPassword": "aaaa",
-                    "customData": "aaaaa",
+                    "computerName": "aaaaaaaaaaaaaaaaa",
+                    "adminUsername": "aaaaaaaaaaaaaaaaaaa",
+                    "adminPassword": "aaaaaaa",
+                    "customData": "aaaaaaaaaaaa",
                     "windowsConfiguration": {
                       "provisionVMAgent": true,
                       "enableAutomaticUpdates": true,
-                      "timeZone": "aaaaaaaa",
+                      "timeZone": "aaaaaaaaaa",
                       "additionalUnattendContent": [
                         {
                           "passName": "OobeSystem",
                           "componentName": "Microsoft-Windows-Shell-Setup",
                           "settingName": "AutoLogon",
-                          "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                          "content": "aaaaaaaaaaaaaaaaa"
                         }
                       ],
                       "patchSettings": {
@@ -135,7 +135,7 @@
                         "listeners": [
                           {
                             "protocol": "Http",
-                            "certificateUrl": "aaaaaaa"
+                            "certificateUrl": "aaaaaaaaaaaaaaaaaaa"
                           }
                         ]
                       }
@@ -145,8 +145,8 @@
                       "ssh": {
                         "publicKeys": [
                           {
-                            "path": "aa",
-                            "keyData": "aa"
+                            "path": "aaaaaaaaaaaaaaaaaaaaaa",
+                            "keyData": "aaaaaaaaaaaaa"
                           }
                         ]
                       },
@@ -163,8 +163,8 @@
                         },
                         "vaultCertificates": [
                           {
-                            "certificateUrl": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                            "certificateStore": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                            "certificateUrl": "aaaaaaaaaa",
+                            "certificateStore": "aaaaaaaaaaaaaaaaaaaa"
                           }
                         ]
                       }
@@ -175,11 +175,11 @@
                   "diagnosticsProfile": {
                     "bootDiagnostics": {
                       "enabled": true,
-                      "storageUri": "aaaaaaaaaaaaaaa"
+                      "storageUri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
                   },
-                  "licenseType": "aaaaaaaaa",
-                  "vmId": "aaaaa",
+                  "licenseType": "aaaaaaaaaaaaaaa",
+                  "vmId": "aaaaaaaaa",
                   "securityProfile": {
                     "uefiSettings": {
                       "secureBootEnabled": true,
@@ -188,11 +188,11 @@
                     "encryptionAtHost": true,
                     "securityType": "TrustedLaunch"
                   },
-                  "location": "aaaa"
+                  "location": "aaaaa"
                 },
                 "provisioningState": "Succeeded",
                 "consistencyMode": "CrashConsistent",
-                "timeCreated": "2022-01-19T07:24:23.531Z"
+                "timeCreated": "2022-01-20T09:24:48.684Z"
               }
             }
           ]

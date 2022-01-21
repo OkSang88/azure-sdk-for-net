@@ -1,0 +1,136 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations?api-version=2022-01-01-preview",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.KubernetesConfiguration/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "fad7cdc0e65084092e180dad73e8e60c",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2205",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:29:31 GMT",
+        "ETag": "W/\u002289d-7bb0yj/rFlXKBHsdZXEA3wHLXDs\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/mockName",
+            "name": "mockName",
+            "type": "Microsoft.KubernetesConfiguration/fluxConfigurations",
+            "properties": {
+              "scope": "cluster",
+              "namespace": "aa",
+              "sourceKind": "GitRepository",
+              "suspend": true,
+              "gitRepository": {
+                "url": "aaa",
+                "timeoutInSeconds": 2,
+                "syncIntervalInSeconds": 21,
+                "repositoryRef": {
+                  "branch": "aaaaaaaaaaaaaaaaaaaa",
+                  "tag": "aaaaaaaa",
+                  "semver": "aaaaaaa",
+                  "commit": "aaaaaaaa"
+                },
+                "sshKnownHosts": "aaaaaaaaaaaaaaaaaaa",
+                "httpsUser": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "httpsCACert": "aaaaaaaaaaaaaaaaaaaaa",
+                "localAuthRef": "aaaaaaaaaaaaaaaaaaaa"
+              },
+              "bucket": {
+                "url": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "bucketName": "aaa",
+                "insecure": true,
+                "timeoutInSeconds": 14,
+                "syncIntervalInSeconds": 10,
+                "accessKey": "a",
+                "localAuthRef": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "kustomizations": {
+                "key4555": {
+                  "path": "aaaaaaaaaaaaaaaa",
+                  "dependsOn": [
+                    {
+                      "kustomizationName": "aa"
+                    }
+                  ],
+                  "timeoutInSeconds": 12,
+                  "syncIntervalInSeconds": 14,
+                  "retryIntervalInSeconds": 30,
+                  "prune": true,
+                  "force": true
+                }
+              },
+              "configurationProtectedSettings": {
+                "key8689": "aaaa"
+              },
+              "statuses": [
+                {
+                  "name": "aaaaaaaaaaaaaaaaaaaaaa",
+                  "namespace": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "kind": "aaaa",
+                  "complianceState": "Compliant",
+                  "appliedBy": {
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "namespace": "aaaaaaaaaaaaaaaaa"
+                  },
+                  "statusConditions": [
+                    {
+                      "lastTransitionTime": "2022-01-20T09:29:31.341Z",
+                      "message": "aaaaaaa",
+                      "reason": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "status": "aaa",
+                      "type": "aaaaa"
+                    }
+                  ],
+                  "helmReleaseProperties": {
+                    "lastRevisionApplied": 24,
+                    "helmChartRef": {
+                      "name": "aaaaaaaaaaaaaaaaa",
+                      "namespace": "aaaaaaaaaaaaa"
+                    },
+                    "failureCount": 25,
+                    "installFailureCount": 3,
+                    "upgradeFailureCount": 22
+                  }
+                }
+              ],
+              "repositoryPublicKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "lastSourceUpdatedCommitId": "aaaaaaaaaaaaaaaaa",
+              "lastSourceUpdatedAt": "2022-01-20T09:29:31.341Z",
+              "complianceState": "Compliant",
+              "provisioningState": "Succeeded",
+              "errorMessage": "aaaaa"
+            },
+            "systemData": {
+              "createdBy": "aaaaaaaaaaa",
+              "createdByType": "User",
+              "createdAt": "2022-01-20T09:29:31.341Z",
+              "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaa",
+              "lastModifiedByType": "User",
+              "lastModifiedAt": "2022-01-20T09:29:31.341Z"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "762527415",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

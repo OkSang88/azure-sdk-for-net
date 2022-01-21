@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "e9c4eeab5aec2a3fd1ef7a7c8bc1637d",
@@ -17,34 +17,34 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "1164",
+        "Content-Length": "1200",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:24:51 GMT",
-        "ETag": "W/\u002248c-ay3XjZIW3Y3G8GCQQtjjpHlkSQs\u0022",
+        "Date": "Thu, 20 Jan 2022 09:25:49 GMT",
+        "ETag": "W/\u00224b0-cvnN6KFvZVypGiTfxqgz8rAr4oE\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgName/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName",
         "name": "containerName",
-        "type": "/Microsoft.DocumentDB/databaseAccounts",
-        "location": "aaaaaaaaaaaaaaaaaaaaaaa",
+        "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+        "location": "aaaaaaaaa",
         "tags": {
-          "key5211": "aaaaaaaaaaaaa"
+          "key3075": "a"
         },
         "properties": {
           "resource": {
-            "id": "aaaaaaaaaaaaaaaa",
+            "id": "aaaaaaaaaaaaaaaaaaaaaaa",
             "indexingPolicy": {
               "automatic": true,
               "indexingMode": "consistent",
               "includedPaths": [
                 {
-                  "path": "aaaaaaaaaaaaaaaaaaaa",
+                  "path": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                   "indexes": [
                     {
                       "dataType": "String",
-                      "precision": 2,
+                      "precision": 15,
                       "kind": "Hash"
                     }
                   ]
@@ -52,20 +52,20 @@
               ],
               "excludedPaths": [
                 {
-                  "path": "aaaaaa"
+                  "path": "aaa"
                 }
               ],
               "compositeIndexes": [
                 [
                   {
-                    "path": "aaa",
+                    "path": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     "order": "ascending"
                   }
                 ]
               ],
               "spatialIndexes": [
                 {
-                  "path": "aaaaaaaaaaaaaaaaaa",
+                  "path": "aaaaaaaaaaaaaa",
                   "types": [
                     "Point"
                   ]
@@ -74,36 +74,36 @@
             },
             "partitionKey": {
               "paths": [
-                "aaaaaaaaaaaaaaaa"
+                "aaaaaaaa"
               ],
               "kind": "Hash",
-              "version": 2,
+              "version": 1,
               "systemKey": true
             },
-            "defaultTtl": 17,
+            "defaultTtl": 11,
             "uniqueKeyPolicy": {
               "uniqueKeys": [
                 {
                   "paths": [
-                    "aaaaaaaaaaaaaaaaaaaaaaaa"
+                    "aaaaaaaaaaaaa"
                   ]
                 }
               ]
             },
             "conflictResolutionPolicy": {
               "mode": "LastWriterWins",
-              "conflictResolutionPath": "aaaaaa",
-              "conflictResolutionProcedure": "aaaaaaaaaaa"
+              "conflictResolutionPath": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "conflictResolutionProcedure": "a"
             },
-            "analyticalStorageTtl": 2,
-            "_rid": "aaaaaaaaaaaa",
-            "_ts": 2,
-            "_etag": "a"
+            "analyticalStorageTtl": 15,
+            "_rid": "aaaaaaaaaa",
+            "_ts": 6,
+            "_etag": "aaaaaaaaaaaaaaaaa"
           },
           "options": {
-            "throughput": 14,
+            "throughput": 16,
             "autoscaleSettings": {
-              "maxThroughput": 27
+              "maxThroughput": 18
             }
           }
         }

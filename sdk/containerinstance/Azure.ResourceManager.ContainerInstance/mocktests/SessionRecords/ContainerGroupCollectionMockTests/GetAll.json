@@ -1,0 +1,324 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups?api-version=2021-09-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ContainerInstance/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "b5e1db00a698b06b6d3561f6d92248bf",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "4811",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:25:10 GMT",
+        "ETag": "W/\u002212cb-p9NkfsYImocOkbwliUVvI\u002BOZ\u002BmE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/mockName",
+            "name": "mockName",
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "tags": {
+              "key4100": "aaaaaa"
+            },
+            "zones": [
+              "aaaaaaaaaaaaaaaaaaaaaaa"
+            ],
+            "identity": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "tenantId": "00000000-0000-0000-0000-000000000000",
+              "type": "SystemAssigned",
+              "userAssignedIdentities": {
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key556": {
+                  "principalId": "00000000-0000-0000-0000-000000000000",
+                  "clientId": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            },
+            "properties": {
+              "provisioningState": "Succeeded",
+              "containers": [
+                {
+                  "name": "aaaaaaaaaaaaaaaaaaaaa",
+                  "properties": {
+                    "image": "aaaaaaaaaaaaaa",
+                    "command": [
+                      "aaaaaa"
+                    ],
+                    "ports": [
+                      {
+                        "protocol": "TCP",
+                        "port": 21
+                      }
+                    ],
+                    "environmentVariables": [
+                      {
+                        "name": "a",
+                        "value": "aaa",
+                        "secureValue": "aaaaaaaaaaaaa"
+                      }
+                    ],
+                    "instanceView": {
+                      "restartCount": 14,
+                      "currentState": {
+                        "state": "aaaaaaa",
+                        "startTime": "2022-01-20T09:25:10.477Z",
+                        "exitCode": 19,
+                        "finishTime": "2022-01-20T09:25:10.477Z",
+                        "detailStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      },
+                      "previousState": {
+                        "state": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "startTime": "2022-01-20T09:25:10.477Z",
+                        "exitCode": 27,
+                        "finishTime": "2022-01-20T09:25:10.477Z",
+                        "detailStatus": "aaaaaaaaaaaaaaaaa"
+                      },
+                      "events": [
+                        {
+                          "count": 30,
+                          "firstTimestamp": "2022-01-20T09:25:10.477Z",
+                          "lastTimestamp": "2022-01-20T09:25:10.477Z",
+                          "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                          "message": "aaa",
+                          "type": "a"
+                        }
+                      ]
+                    },
+                    "resources": {
+                      "requests": {
+                        "memoryInGB": 21,
+                        "cpu": 14,
+                        "gpu": {
+                          "count": 26,
+                          "sku": "K80"
+                        }
+                      },
+                      "limits": {
+                        "memoryInGB": 16,
+                        "cpu": 28,
+                        "gpu": {
+                          "count": 14,
+                          "sku": "K80"
+                        }
+                      }
+                    },
+                    "volumeMounts": [
+                      {
+                        "name": "aaaaaaaaaaaaaaaaaaaaa",
+                        "mountPath": "aaaaaaaaaaaaaa",
+                        "readOnly": true
+                      }
+                    ],
+                    "livenessProbe": {
+                      "exec": {
+                        "command": [
+                          "aaaaaaaaaaaaaaaaaaa"
+                        ]
+                      },
+                      "httpGet": {
+                        "path": "aaaaaa",
+                        "port": 12,
+                        "scheme": "http",
+                        "httpHeaders": [
+                          {
+                            "name": "aaaaaaaaaaaaaaaaaaa",
+                            "value": "aaaaaaaaaaaaa"
+                          }
+                        ]
+                      },
+                      "initialDelaySeconds": 2,
+                      "periodSeconds": 30,
+                      "failureThreshold": 18,
+                      "successThreshold": 18,
+                      "timeoutSeconds": 18
+                    },
+                    "readinessProbe": {
+                      "exec": {
+                        "command": [
+                          "aaaaaaaaaaaaaaaaaa"
+                        ]
+                      },
+                      "httpGet": {
+                        "path": "aa",
+                        "port": 3,
+                        "scheme": "http",
+                        "httpHeaders": [
+                          {
+                            "name": "aaaaaaaaaaaa",
+                            "value": "aaaaaaaaaaaaaa"
+                          }
+                        ]
+                      },
+                      "initialDelaySeconds": 14,
+                      "periodSeconds": 24,
+                      "failureThreshold": 7,
+                      "successThreshold": 11,
+                      "timeoutSeconds": 15
+                    }
+                  }
+                }
+              ],
+              "imageRegistryCredentials": [
+                {
+                  "server": "aaaaa",
+                  "username": "a",
+                  "password": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "identity": "aaaaaaaaaaaaaaaaaaaa",
+                  "identityUrl": "aaaaaaaaaaaaaaaaaa"
+                }
+              ],
+              "restartPolicy": "Always",
+              "ipAddress": {
+                "ports": [
+                  {
+                    "protocol": "TCP",
+                    "port": 15
+                  }
+                ],
+                "type": "Public",
+                "ip": "aaaaaaaaaaaaaaaaaaa",
+                "dnsNameLabel": "aaaaaaaaa",
+                "fqdn": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "osType": "Windows",
+              "volumes": [
+                {
+                  "name": "aaaaaaaaaaaa",
+                  "azureFile": {
+                    "shareName": "aaaaaaaa",
+                    "readOnly": true,
+                    "storageAccountName": "aaaaa",
+                    "storageAccountKey": "aaaaa"
+                  },
+                  "emptyDir": {},
+                  "secret": {
+                    "key3653": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  "gitRepo": {
+                    "directory": "aaaaaaaaaaaaaaaaaaa",
+                    "repository": "aaaaaaaaaaaaaaaaaaaaaa",
+                    "revision": "aaaaa"
+                  }
+                }
+              ],
+              "instanceView": {
+                "events": [
+                  {
+                    "count": 2,
+                    "firstTimestamp": "2022-01-20T09:25:10.477Z",
+                    "lastTimestamp": "2022-01-20T09:25:10.477Z",
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "message": "aaaaaaaaa",
+                    "type": "aaaaaa"
+                  }
+                ],
+                "state": "aaaaaaaaaaaaaaa"
+              },
+              "diagnostics": {
+                "logAnalytics": {
+                  "workspaceId": "aaa",
+                  "workspaceKey": "aaaaaaaaaaaaaaaaaaaa",
+                  "logType": "ContainerInsights",
+                  "metadata": {
+                    "key6290": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  "workspaceResourceId": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              },
+              "subnetIds": [
+                {
+                  "id": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                  "name": "a"
+                }
+              ],
+              "dnsConfig": {
+                "nameServers": [
+                  "aaaaaaaaaaaaaaaaaaa"
+                ],
+                "searchDomains": "aaaaaaaaaaa",
+                "options": "aaaaa"
+              },
+              "sku": "Standard",
+              "encryptionProperties": {
+                "vaultBaseUrl": "aaaaaaaaaa",
+                "keyName": "aaa",
+                "keyVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "initContainers": [
+                {
+                  "name": "aaaaaaaaaaaaaaaaa",
+                  "properties": {
+                    "image": "aaaaaaaaaaaaaaaaa",
+                    "command": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "environmentVariables": [
+                      {
+                        "name": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                        "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+                        "secureValue": "aaaaaaaaa"
+                      }
+                    ],
+                    "instanceView": {
+                      "restartCount": 19,
+                      "currentState": {
+                        "state": "aaaaaaaaaaaaaaaaaaaaaaa",
+                        "startTime": "2022-01-20T09:25:10.477Z",
+                        "exitCode": 2,
+                        "finishTime": "2022-01-20T09:25:10.477Z",
+                        "detailStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      },
+                      "previousState": {
+                        "state": "aaaaaaaaaaaaaa",
+                        "startTime": "2022-01-20T09:25:10.477Z",
+                        "exitCode": 22,
+                        "finishTime": "2022-01-20T09:25:10.477Z",
+                        "detailStatus": "aaaaaa"
+                      },
+                      "events": [
+                        {
+                          "count": 28,
+                          "firstTimestamp": "2022-01-20T09:25:10.477Z",
+                          "lastTimestamp": "2022-01-20T09:25:10.477Z",
+                          "name": "aaaaaaaaaaaaaaaaaaaaaa",
+                          "message": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                          "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                        }
+                      ]
+                    },
+                    "volumeMounts": [
+                      {
+                        "name": "aaaaaaaa",
+                        "mountPath": "aaaaa",
+                        "readOnly": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "471159107",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

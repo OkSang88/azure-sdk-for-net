@@ -1,0 +1,106 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp?api-version=2021-11-01-preview",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ServiceFabricManagedClusters/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "b16a5532f309337d45946c9af490766b",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2036",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:38:25 GMT",
+        "ETag": "W/\u00227f4-qESfFJCmKmgBVJR9B7JGgXJXwNM\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp",
+        "name": "myApp",
+        "type": "Microsoft.ServiceFabric/managedclusters/applications",
+        "location": "aaaa",
+        "tags": {
+          "key3250": "aaaaaaaaaaa"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaa",
+          "createdByType": "aaaaaaaaaaaaaaa",
+          "createdAt": "2022-01-20T09:38:25.298Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "aaaaaaaaa",
+          "lastModifiedAt": "2022-01-20T09:38:25.298Z"
+        },
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "None",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key3638": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "version": "aaaaaaaaaaaaaaaaaaaa",
+          "parameters": {
+            "key2834": "aaaaaaaaaaaaaaaaaaa"
+          },
+          "upgradePolicy": {
+            "applicationHealthPolicy": {
+              "considerWarningAsError": true,
+              "maxPercentUnhealthyDeployedApplications": 8,
+              "defaultServiceTypeHealthPolicy": {
+                "maxPercentUnhealthyServices": 5,
+                "maxPercentUnhealthyPartitionsPerService": 43,
+                "maxPercentUnhealthyReplicasPerPartition": 83
+              },
+              "serviceTypeHealthPolicyMap": {
+                "key7997": {
+                  "maxPercentUnhealthyServices": 96,
+                  "maxPercentUnhealthyPartitionsPerService": 83,
+                  "maxPercentUnhealthyReplicasPerPartition": 10
+                }
+              }
+            },
+            "forceRestart": true,
+            "rollingUpgradeMonitoringPolicy": {
+              "failureAction": "Rollback",
+              "healthCheckWaitDuration": "aaaaaaaaaaa",
+              "healthCheckStableDuration": "aaaaaaaaa",
+              "healthCheckRetryTimeout": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "upgradeTimeout": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "upgradeDomainTimeout": "aaaaaaaaaaaaaaaaa"
+            },
+            "instanceCloseDelayDuration": 20,
+            "upgradeMode": "Monitored",
+            "upgradeReplicaSetCheckTimeout": 1,
+            "recreateApplication": true
+          },
+          "managedIdentities": [
+            {
+              "name": "aaa",
+              "principalId": "00000000-0000-0000-0000-000000000000"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1298871222",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

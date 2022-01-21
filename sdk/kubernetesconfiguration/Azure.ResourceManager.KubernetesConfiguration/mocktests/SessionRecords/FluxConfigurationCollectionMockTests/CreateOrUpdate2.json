@@ -1,0 +1,168 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig?api-version=2022-01-01-preview",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "584",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.KubernetesConfiguration/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "2c239fcbaee0c32a5b2c044bf84abf34",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "scope": "cluster",
+          "namespace": "srs-namespace",
+          "sourceKind": "Bucket",
+          "suspend": false,
+          "bucket": {
+            "url": "https://fluxminiotest.az.minio.io",
+            "bucketName": "flux",
+            "timeoutInSeconds": 1000,
+            "syncIntervalInSeconds": 1000,
+            "accessKey": "fluxminiotest"
+          },
+          "kustomizations": {
+            "srs-kustomization1": {
+              "path": "./test/path",
+              "dependsOn": [],
+              "timeoutInSeconds": 600,
+              "syncIntervalInSeconds": 600
+            },
+            "srs-kustomization2": {
+              "path": "./other/test/path",
+              "dependsOn": [
+                {
+                  "kustomizationName": "srs-kustomization1"
+                }
+              ],
+              "timeoutInSeconds": 600,
+              "syncIntervalInSeconds": 600,
+              "retryIntervalInSeconds": 600,
+              "prune": false
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2222",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:29:31 GMT",
+        "ETag": "W/\u00228ae-cutEM/tbKuwCRZh9LneffLZWLGU\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig",
+        "name": "srs-fluxconfig",
+        "type": "Microsoft.KubernetesConfiguration/fluxConfigurations",
+        "properties": {
+          "scope": "cluster",
+          "namespace": "aaaaaaaaaaaaaaaaaa",
+          "sourceKind": "GitRepository",
+          "suspend": true,
+          "gitRepository": {
+            "url": "aaa",
+            "timeoutInSeconds": 26,
+            "syncIntervalInSeconds": 21,
+            "repositoryRef": {
+              "branch": "aaaaaaaaaaaa",
+              "tag": "aaaa",
+              "semver": "aa",
+              "commit": "aaaaaaaaaaaaaa"
+            },
+            "sshKnownHosts": "aaaaaaaaa",
+            "httpsUser": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "httpsCACert": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "localAuthRef": "a"
+          },
+          "bucket": {
+            "url": "aaaaaaaaaaaaaaaa",
+            "bucketName": "aaaaaaaaaaaaaaa",
+            "insecure": true,
+            "timeoutInSeconds": 28,
+            "syncIntervalInSeconds": 8,
+            "accessKey": "aaaaaaaaaaaaaaaaa",
+            "localAuthRef": "aaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "kustomizations": {
+            "key1796": {
+              "path": "aaaaaaaaaaa",
+              "dependsOn": [
+                {
+                  "kustomizationName": "aaaaa"
+                }
+              ],
+              "timeoutInSeconds": 4,
+              "syncIntervalInSeconds": 16,
+              "retryIntervalInSeconds": 6,
+              "prune": true,
+              "force": true
+            }
+          },
+          "configurationProtectedSettings": {
+            "key3870": "aaaaaaaaaaaaaaaaaaa"
+          },
+          "statuses": [
+            {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "namespace": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "kind": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "complianceState": "Compliant",
+              "appliedBy": {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "namespace": "aaaaaaaaaaaaaa"
+              },
+              "statusConditions": [
+                {
+                  "lastTransitionTime": "2022-01-20T09:29:31.254Z",
+                  "message": "aaaaaaaaa",
+                  "reason": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "status": "aaaaaaaaaaaaaaaaaa",
+                  "type": "aaaaa"
+                }
+              ],
+              "helmReleaseProperties": {
+                "lastRevisionApplied": 7,
+                "helmChartRef": {
+                  "name": "aaaaaaaaaaaaaaaaaa",
+                  "namespace": "aaaaaaaaaaaaaaaaaaa"
+                },
+                "failureCount": 25,
+                "installFailureCount": 18,
+                "upgradeFailureCount": 27
+              }
+            }
+          ],
+          "repositoryPublicKey": "aaaaaaaaaaaaaaaaa",
+          "lastSourceUpdatedCommitId": "aaaaaaaaaaaa",
+          "lastSourceUpdatedAt": "2022-01-20T09:29:31.254Z",
+          "complianceState": "Compliant",
+          "provisioningState": "Succeeded",
+          "errorMessage": "aaaaaa"
+        },
+        "systemData": {
+          "createdBy": "a",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:29:31.254Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:29:31.254Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "530643132",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

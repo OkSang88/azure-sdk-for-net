@@ -1,0 +1,140 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp?api-version=2021-11-01-preview",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "901",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ServiceFabricManagedClusters/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "9ff5feeb3f0dadfd55fb6d345ffbe3ef",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {
+          "a": "b"
+        },
+        "location": "eastus",
+        "properties": {
+          "version": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0",
+          "upgradePolicy": {
+            "applicationHealthPolicy": {
+              "considerWarningAsError": true,
+              "maxPercentUnhealthyDeployedApplications": 0,
+              "defaultServiceTypeHealthPolicy": {
+                "maxPercentUnhealthyServices": 0,
+                "maxPercentUnhealthyPartitionsPerService": 0,
+                "maxPercentUnhealthyReplicasPerPartition": 0
+              }
+            },
+            "forceRestart": false,
+            "rollingUpgradeMonitoringPolicy": {
+              "failureAction": "Rollback",
+              "healthCheckWaitDuration": "00:02:00",
+              "healthCheckStableDuration": "00:05:00",
+              "healthCheckRetryTimeout": "00:10:00",
+              "upgradeTimeout": "01:00:00",
+              "upgradeDomainTimeout": "00:15:00"
+            },
+            "instanceCloseDelayDuration": 600,
+            "upgradeMode": "UnmonitoredAuto",
+            "upgradeReplicaSetCheckTimeout": 3600,
+            "recreateApplication": false
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2042",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:38:25 GMT",
+        "ETag": "W/\u00227fa-5KdMKlGEHy0GACrv337L5DABzNs\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp",
+        "name": "myApp",
+        "type": "Microsoft.ServiceFabric/managedclusters/applications",
+        "location": "aaaaa",
+        "tags": {
+          "key8850": "aaaaaaaaa"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "aaaaa",
+          "createdAt": "2022-01-20T09:38:25.193Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "aaaaaaaaaaaaaa",
+          "lastModifiedAt": "2022-01-20T09:38:25.193Z"
+        },
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "None",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key6460": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "version": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "parameters": {
+            "key695": "aaaa"
+          },
+          "upgradePolicy": {
+            "applicationHealthPolicy": {
+              "considerWarningAsError": true,
+              "maxPercentUnhealthyDeployedApplications": 10,
+              "defaultServiceTypeHealthPolicy": {
+                "maxPercentUnhealthyServices": 25,
+                "maxPercentUnhealthyPartitionsPerService": 27,
+                "maxPercentUnhealthyReplicasPerPartition": 92
+              },
+              "serviceTypeHealthPolicyMap": {
+                "key1706": {
+                  "maxPercentUnhealthyServices": 20,
+                  "maxPercentUnhealthyPartitionsPerService": 26,
+                  "maxPercentUnhealthyReplicasPerPartition": 64
+                }
+              }
+            },
+            "forceRestart": true,
+            "rollingUpgradeMonitoringPolicy": {
+              "failureAction": "Rollback",
+              "healthCheckWaitDuration": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "healthCheckStableDuration": "aaaaaaaaa",
+              "healthCheckRetryTimeout": "aaaaaaaaaaaaaaa",
+              "upgradeTimeout": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "upgradeDomainTimeout": "aaaaaaaaa"
+            },
+            "instanceCloseDelayDuration": 15,
+            "upgradeMode": "Monitored",
+            "upgradeReplicaSetCheckTimeout": 18,
+            "recreateApplication": true
+          },
+          "managedIdentities": [
+            {
+              "name": "aaa",
+              "principalId": "00000000-0000-0000-0000-000000000000"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "647830902",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

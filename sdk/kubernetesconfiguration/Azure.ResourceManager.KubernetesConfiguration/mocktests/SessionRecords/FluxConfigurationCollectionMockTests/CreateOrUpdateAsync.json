@@ -1,0 +1,170 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig?api-version=2022-01-01-preview",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "629",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.KubernetesConfiguration/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "b60aa56c6dc3bf68118317a875f07a68",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "scope": "cluster",
+          "namespace": "srs-namespace",
+          "sourceKind": "GitRepository",
+          "suspend": false,
+          "gitRepository": {
+            "url": "https://github.com/Azure/arc-k8s-demo",
+            "timeoutInSeconds": 600,
+            "syncIntervalInSeconds": 600,
+            "repositoryRef": {
+              "branch": "master"
+            },
+            "httpsCACert": "ZXhhbXBsZWNlcnRpZmljYXRl"
+          },
+          "kustomizations": {
+            "srs-kustomization1": {
+              "path": "./test/path",
+              "dependsOn": [],
+              "timeoutInSeconds": 600,
+              "syncIntervalInSeconds": 600
+            },
+            "srs-kustomization2": {
+              "path": "./other/test/path",
+              "dependsOn": [
+                {
+                  "kustomizationName": "srs-kustomization1"
+                }
+              ],
+              "timeoutInSeconds": 600,
+              "syncIntervalInSeconds": 600,
+              "retryIntervalInSeconds": 600,
+              "prune": false
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2352",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:29:31 GMT",
+        "ETag": "W/\u0022930-Q6Bj6G48ZEb1XND\u002BBGHF5U/TiM4\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig",
+        "name": "srs-fluxconfig",
+        "type": "Microsoft.KubernetesConfiguration/fluxConfigurations",
+        "properties": {
+          "scope": "cluster",
+          "namespace": "aaaaaaaaaaaaaaaaaaaaaa",
+          "sourceKind": "GitRepository",
+          "suspend": true,
+          "gitRepository": {
+            "url": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "timeoutInSeconds": 6,
+            "syncIntervalInSeconds": 16,
+            "repositoryRef": {
+              "branch": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "tag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "semver": "aaaaaaaaaaa",
+              "commit": "aaaaaaa"
+            },
+            "sshKnownHosts": "aaaaaaaaaaaa",
+            "httpsUser": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+            "httpsCACert": "aaaaaaaaaaaaaaaaaaa",
+            "localAuthRef": "aaa"
+          },
+          "bucket": {
+            "url": "aaaaaaaaa",
+            "bucketName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "insecure": true,
+            "timeoutInSeconds": 5,
+            "syncIntervalInSeconds": 10,
+            "accessKey": "aaaaaaaaaaaaaaaaaaaa",
+            "localAuthRef": "aaaaaaaaaaaaaaa"
+          },
+          "kustomizations": {
+            "key9911": {
+              "path": "aaaaaaaaaaaaaaaaaa",
+              "dependsOn": [
+                {
+                  "kustomizationName": "aaaaaaaaaaaaaaaaaaaaa"
+                }
+              ],
+              "timeoutInSeconds": 26,
+              "syncIntervalInSeconds": 11,
+              "retryIntervalInSeconds": 17,
+              "prune": true,
+              "force": true
+            }
+          },
+          "configurationProtectedSettings": {
+            "key6599": "aaaaaaaaaaaaaaaaaa"
+          },
+          "statuses": [
+            {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "namespace": "aaaaaaaaaaaaaaaaaaaaaa",
+              "kind": "aaaaaaaaaaaaaaa",
+              "complianceState": "Compliant",
+              "appliedBy": {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "namespace": "aaaaaaaaaaaaaaaaa"
+              },
+              "statusConditions": [
+                {
+                  "lastTransitionTime": "2022-01-20T09:29:31.306Z",
+                  "message": "aa",
+                  "reason": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "status": "aaaaaaaaa",
+                  "type": "aaaaaaaaaaaaaaaaa"
+                }
+              ],
+              "helmReleaseProperties": {
+                "lastRevisionApplied": 15,
+                "helmChartRef": {
+                  "name": "aaaaaaaaaaaaa",
+                  "namespace": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                },
+                "failureCount": 3,
+                "installFailureCount": 18,
+                "upgradeFailureCount": 8
+              }
+            }
+          ],
+          "repositoryPublicKey": "aaaaaaaaaaaaa",
+          "lastSourceUpdatedCommitId": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastSourceUpdatedAt": "2022-01-20T09:29:31.306Z",
+          "complianceState": "Compliant",
+          "provisioningState": "Succeeded",
+          "errorMessage": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:29:31.306Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:29:31.306Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "343371378",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

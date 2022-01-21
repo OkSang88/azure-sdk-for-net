@@ -1,0 +1,209 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/scgroup/providers/Microsoft.StorageCache/caches/sc1?api-version=2021-09-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "1131",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.StorageCache/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "003413afac3adecb766caa12bfabfa6c",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "identity": {
+          "type": "UserAssigned"
+        },
+        "sku": {
+          "name": "Standard_2G"
+        },
+        "tags": {
+          "Dept": "Contoso"
+        },
+        "location": "westus",
+        "properties": {
+          "cacheSizeGB": 3072,
+          "subnet": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+          "encryptionSettings": {
+            "keyEncryptionKey": {
+              "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2047/test",
+              "sourceVault": {
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk"
+              }
+            }
+          },
+          "securitySettings": {},
+          "directoryServicesSettings": {
+            "activeDirectory": {
+              "primaryDnsIpAddress": "192.0.2.10",
+              "secondaryDnsIpAddress": "192.0.2.11",
+              "domainName": "contosoAd.contoso.local",
+              "domainNetBiosName": "contosoAd",
+              "cacheNetBiosName": "contosoSmb",
+              "credentials": {
+                "username": "consotoAdmin",
+                "password": "\u003Cpassword\u003E"
+              }
+            },
+            "usernameDownload": {
+              "extendedGroups": true,
+              "usernameSource": "LDAP",
+              "ldapServer": "192.0.2.12",
+              "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
+              "credentials": {
+                "bindDn": "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                "bindPassword": "\u003CbindPassword\u003E"
+              }
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2795",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:40:40 GMT",
+        "ETag": "W/\u0022aeb-gbK4BtIRSWvU7rYFmTZ6SAxfoqc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "tags": {
+          "key9381": "aaaaaaaaaaaa"
+        },
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/scgroup/providers/Microsoft.StorageCache/caches/sc1",
+        "location": "aaaaaaaaaaaaaa",
+        "name": "sc1",
+        "type": "Microsoft.StorageCache/caches",
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "SystemAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key5150": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "systemData": {
+          "createdBy": "aaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:40:40.219Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:40:40.219Z"
+        },
+        "properties": {
+          "cacheSizeGB": 16,
+          "health": {
+            "state": "Unknown",
+            "statusDescription": "aaaaaaaaaaaaa",
+            "conditions": [
+              {
+                "timestamp": "2022-01-20T09:40:40.219Z",
+                "message": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            ]
+          },
+          "mountAddresses": [
+            "aaaaaaaaaaaaaaaaa"
+          ],
+          "provisioningState": "Succeeded",
+          "subnet": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "upgradeStatus": {
+            "currentFirmwareVersion": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+            "firmwareUpdateStatus": "available",
+            "firmwareUpdateDeadline": "2022-01-20T09:40:40.219Z",
+            "lastFirmwareUpdate": "2022-01-20T09:40:40.219Z",
+            "pendingFirmwareVersion": "aaaaaaaa"
+          },
+          "networkSettings": {
+            "mtu": 697,
+            "utilityAddresses": [
+              "aaa"
+            ],
+            "dnsServers": [
+              "aaaaaaaaaaaaaaaa"
+            ],
+            "dnsSearchDomain": "aaaaaaaaaaaaaaaaaaaa",
+            "ntpServer": "a"
+          },
+          "encryptionSettings": {
+            "keyEncryptionKey": {
+              "keyUrl": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "sourceVault": {
+                "id": "aa"
+              }
+            },
+            "rotationToLatestKeyVersionEnabled": true
+          },
+          "securitySettings": {
+            "accessPolicies": [
+              {
+                "name": "aaaaaaaaaaaaaaa",
+                "accessRules": [
+                  {
+                    "scope": "default",
+                    "filter": "aaaaaaaaaa",
+                    "access": "no",
+                    "suid": true,
+                    "submountAccess": true,
+                    "rootSquash": true,
+                    "anonymousUID": "aaaaaaaaaaaaaaaaa",
+                    "anonymousGID": "aaaaaaaaaaaaaaaaaaa"
+                  }
+                ]
+              }
+            ]
+          },
+          "directoryServicesSettings": {
+            "activeDirectory": {
+              "primaryDnsIpAddress": "aaaaaaa",
+              "secondaryDnsIpAddress": "aaaaaaaaaaaaaaaaaaa",
+              "domainName": "aaaaaaaaaaaaa",
+              "domainNetBiosName": "aaaaaaaaaaa",
+              "cacheNetBiosName": "37G5yf",
+              "domainJoined": "Yes",
+              "credentials": {
+                "username": "aaaaaaaaa",
+                "password": "aaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            },
+            "usernameDownload": {
+              "extendedGroups": true,
+              "usernameSource": "AD",
+              "groupFileURI": "aaaaaaaaaaaaaaaaaaaa",
+              "userFileURI": "aaaaaaaaaaaaaaaaaaaaaa",
+              "ldapServer": "aaaaaaaaaaaaaaaaaaaaa",
+              "ldapBaseDN": "aaaaaaaaaaaaaaa",
+              "encryptLdapConnection": true,
+              "requireValidCertificate": true,
+              "autoDownloadCertificate": true,
+              "caCertificateURI": "aaaaaaaaaaaaaaaaaaa",
+              "usernameDownloaded": "Yes",
+              "credentials": {
+                "bindDn": "aaaaaa",
+                "bindPassword": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          }
+        },
+        "sku": {
+          "name": "aaaaaaaaaaaaaa"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1799447946",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

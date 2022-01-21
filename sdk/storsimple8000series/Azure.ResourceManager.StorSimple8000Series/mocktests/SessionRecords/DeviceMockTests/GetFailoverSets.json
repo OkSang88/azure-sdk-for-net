@@ -1,0 +1,60 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/listFailoverSets?api-version=2017-06-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.StorSimple8000Series/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "fd0405305efe52dab3a3bd0a2ddd4870",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "394",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:41:23 GMT",
+        "ETag": "W/\u002218a-XJ86lsBVI1zZuEaRQmN6jbp5k\u002Bg\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "volumeContainers": [
+              {
+                "volumeContainerId": "aaaaaaaaaaaaaaaaa",
+                "volumes": [
+                  {
+                    "volumeId": "aaa",
+                    "volumeType": "Tiered",
+                    "sizeInBytes": 25,
+                    "backupCreatedDate": "2022-01-20T09:41:23.817Z",
+                    "backupElementId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "backupId": "aaaaaaaaaaaaaaaaa",
+                    "backupPolicyId": "aaaaaaaaaaaaaaaa"
+                  }
+                ]
+              }
+            ],
+            "eligibilityResult": {
+              "isEligibleForFailover": true,
+              "errorMessage": "aaaaaaaaaaaaaaaaa"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1285389785",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

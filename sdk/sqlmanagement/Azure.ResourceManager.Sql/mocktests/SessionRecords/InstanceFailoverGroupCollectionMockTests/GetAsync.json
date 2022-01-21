@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "7f99deb1663fef6f07d0e2863860cc62",
@@ -17,37 +17,37 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "669",
+        "Content-Length": "653",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:31:02 GMT",
-        "ETag": "W/\u002229d-6uwSJd8c7FRe/b7qcNY5LtkjoLs\u0022",
+        "Date": "Thu, 20 Jan 2022 09:39:47 GMT",
+        "ETag": "W/\u002228d-O6vbMCcevusswdYlbqdcPVKmbMU\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan%20East/instanceFailoverGroups/failover-group-test",
         "name": "failover-group-test",
-        "type": "/Microsoft.Sql/locations",
+        "type": "Microsoft.Sql/locations/instanceFailoverGroups",
         "properties": {
           "readWriteEndpoint": {
             "failoverPolicy": "Manual",
-            "failoverWithDataLossGracePeriodMinutes": 3
+            "failoverWithDataLossGracePeriodMinutes": 12
           },
           "readOnlyEndpoint": {
             "failoverPolicy": "Disabled"
           },
           "replicationRole": "Primary",
-          "replicationState": "aaaaaaaaaaaaaa",
+          "replicationState": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "partnerRegions": [
             {
-              "location": "aaaaaaaaaaaaaaaaaaa",
+              "location": "a",
               "replicationRole": "Primary"
             }
           ],
           "managedInstancePairs": [
             {
-              "primaryManagedInstanceId": "aaaaaaaaaaaaaaaaaa",
-              "partnerManagedInstanceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              "primaryManagedInstanceId": "aa",
+              "partnerManagedInstanceId": "aaaaaaaaa"
             }
           ]
         }

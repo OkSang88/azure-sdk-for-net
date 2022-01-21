@@ -1,0 +1,116 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways?api-version=2018-09-01-preview",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.ServiceFabricMesh/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "a0f31cfb5c6cc13ba453141ed58db410",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1204",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:38:08 GMT",
+        "ETag": "W/\u00224b4-zAAxOI0ucJ6SNQl7uT9k/VDRt4A\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways/mockName",
+            "name": "mockName",
+            "type": "Microsoft.ServiceFabricMesh/gateways",
+            "tags": {
+              "key3304": "aaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "location": "aaaaaaaaaaaaaaaa",
+            "properties": {
+              "provisioningState": "Succeeded",
+              "description": "aaaaaaaaaaaaaaaaaaaa",
+              "sourceNetwork": {
+                "name": "a",
+                "endpointRefs": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaa"
+                  }
+                ]
+              },
+              "destinationNetwork": {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "endpointRefs": [
+                  {
+                    "name": "aaaaaaaaaaa"
+                  }
+                ]
+              },
+              "tcp": [
+                {
+                  "name": "aaa",
+                  "port": 2,
+                  "destination": {
+                    "applicationName": "aaaaaaaaaaaaaa",
+                    "serviceName": "aaaaaaaaaaaaaaaaaa",
+                    "endpointName": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  }
+                }
+              ],
+              "http": [
+                {
+                  "name": "aaaaaaaaaaaaaaaaaaaaaa",
+                  "port": 15,
+                  "hosts": [
+                    {
+                      "name": "aaaaaa",
+                      "routes": [
+                        {
+                          "name": "a",
+                          "match": {
+                            "path": {
+                              "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                              "rewrite": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                              "type": "prefix"
+                            },
+                            "headers": [
+                              {
+                                "name": "aaaaaaaaaaaaaaaa",
+                                "value": "aaaa",
+                                "type": "exact"
+                              }
+                            ]
+                          },
+                          "destination": {
+                            "applicationName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                            "serviceName": "aaaaaaaaaaaa",
+                            "endpointName": "aaaaaaaaaa"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "status": "Unknown",
+              "statusDetails": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "ipAddress": "aaaaaaa"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "377970259",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

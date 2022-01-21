@@ -1,0 +1,125 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct?api-version=2021-06-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "415",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Batch/1.0.0-alpha.20220121.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "ec1baefd335dd3511e9573d107319c34",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "location": "japaneast",
+        "properties": {
+          "autoStorage": {
+            "storageAccountId": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage"
+          },
+          "poolAllocationMode": "UserSubscription",
+          "keyVaultReference": {
+            "id": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+            "url": "http://sample.vault.azure.net/"
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "2013",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Fri, 21 Jan 2022 01:59:33 GMT",
+        "ETag": "W/\u00227dd-YTCNItPwfNQMprxmtH5coqZuq68\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct",
+        "name": "sampleacct",
+        "type": "Microsoft.Batch/batchAccounts",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "tags": {
+          "key5028": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "properties": {
+          "accountEndpoint": "aaaa",
+          "provisioningState": "Succeeded",
+          "poolAllocationMode": "BatchService",
+          "keyVaultReference": {
+            "id": "aaa",
+            "url": "aaaaaa"
+          },
+          "publicNetworkAccess": "Enabled",
+          "privateEndpointConnections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "name": "mockName",
+              "type": "Microsoft.Resources/mockResource",
+              "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "properties": {
+                "provisioningState": "Succeeded",
+                "privateEndpoint": {
+                  "id": "aaaaaaaaaaaaaaaaaaaaa"
+                },
+                "privateLinkServiceConnectionState": {
+                  "status": "Approved",
+                  "description": "aaaaaaaaa",
+                  "actionRequired": "aaaaaaaaaaaaaaa"
+                }
+              }
+            }
+          ],
+          "autoStorage": {
+            "storageAccountId": "aaaaaaaaaaaaaaaaaaaaa",
+            "authenticationMode": "StorageKeys",
+            "nodeIdentityReference": {
+              "resourceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "lastKeySync": "2022-01-21T01:59:33.635Z"
+          },
+          "encryption": {
+            "keySource": "Microsoft.Batch",
+            "keyVaultProperties": {
+              "keyIdentifier": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "dedicatedCoreQuota": 21,
+          "lowPriorityCoreQuota": 10,
+          "dedicatedCoreQuotaPerVMFamily": [
+            {
+              "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "coreQuota": 27
+            }
+          ],
+          "dedicatedCoreQuotaPerVMFamilyEnforced": true,
+          "poolQuota": 27,
+          "activeJobAndJobScheduleQuota": 15,
+          "allowedAuthenticationModes": [
+            "SharedKey"
+          ]
+        },
+        "identity": {
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "type": "SystemAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key2259": {
+              "principalId": "00000000-0000-0000-0000-000000000000",
+              "clientId": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "492186241",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

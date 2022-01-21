@@ -9,7 +9,7 @@
         "Content-Length": "312",
         "Content-Type": "application/json",
         "User-Agent": [
-          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.CosmosDB/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "c62e7e04ba410e7004a0eb50616a3bb4",
@@ -41,34 +41,34 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "1175",
+        "Content-Length": "1206",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:24:51 GMT",
-        "ETag": "W/\u0022497-ZiLqwwnO2ldsHKIdKiSlJuP6Dkg\u0022",
+        "Date": "Thu, 20 Jan 2022 09:25:49 GMT",
+        "ETag": "W/\u00224b6-B6gAut/SCRmYTW2xs9KSQZQTlAY\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName",
         "name": "containerName",
-        "type": "/Microsoft.DocumentDB/databaseAccounts",
-        "location": "aaaaaaaaaaaaaaaa",
+        "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+        "location": "aaaaaaaaaaaaaaaaaaaaaa",
         "tags": {
-          "key6880": "aaaaaaaaaaaaaaaaaaaaa"
+          "key1920": "aaaaaaaaaaaaaaaaaaaaaaaa"
         },
         "properties": {
           "resource": {
-            "id": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "id": "aaaaaaaaaaaaaaaa",
             "indexingPolicy": {
               "automatic": true,
               "indexingMode": "consistent",
               "includedPaths": [
                 {
-                  "path": "aaaa",
+                  "path": "aaaaaaaaaaaaa",
                   "indexes": [
                     {
                       "dataType": "String",
-                      "precision": 4,
+                      "precision": 30,
                       "kind": "Hash"
                     }
                   ]
@@ -76,20 +76,20 @@
               ],
               "excludedPaths": [
                 {
-                  "path": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  "path": "a"
                 }
               ],
               "compositeIndexes": [
                 [
                   {
-                    "path": "aaaaaaaaaaa",
+                    "path": "aaaaaa",
                     "order": "ascending"
                   }
                 ]
               ],
               "spatialIndexes": [
                 {
-                  "path": "a",
+                  "path": "aaaaaaaaaaaaaaaaaaaaaa",
                   "types": [
                     "Point"
                   ]
@@ -98,36 +98,36 @@
             },
             "partitionKey": {
               "paths": [
-                "aaaa"
+                "aaaaaaaaaaa"
               ],
               "kind": "Hash",
-              "version": 1,
+              "version": 2,
               "systemKey": true
             },
-            "defaultTtl": 11,
+            "defaultTtl": 21,
             "uniqueKeyPolicy": {
               "uniqueKeys": [
                 {
                   "paths": [
-                    "aaaaaaaaaaaaaaaaaaaaaa"
+                    "aaaaaaaaaaaaaa"
                   ]
                 }
               ]
             },
             "conflictResolutionPolicy": {
               "mode": "LastWriterWins",
-              "conflictResolutionPath": "aaaaaaaaaa",
+              "conflictResolutionPath": "aaaaaaaaaaaaaaaaaaaa",
               "conflictResolutionProcedure": "aaaaaaaaaaaaa"
             },
-            "analyticalStorageTtl": 5,
-            "_rid": "aaaaaaaaaaaaaa",
-            "_ts": 26,
-            "_etag": "aaaaaaaaaaaaaa"
+            "analyticalStorageTtl": 2,
+            "_rid": "aaaaaaaaaaa",
+            "_ts": 19,
+            "_etag": "aaaaaaaaaaaaaaaaa"
           },
           "options": {
-            "throughput": 27,
+            "throughput": 25,
             "autoscaleSettings": {
-              "maxThroughput": 5
+              "maxThroughput": 4
             }
           }
         }

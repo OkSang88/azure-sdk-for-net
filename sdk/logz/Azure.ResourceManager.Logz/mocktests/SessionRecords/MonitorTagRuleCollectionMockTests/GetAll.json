@@ -1,0 +1,74 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/tagRules?api-version=2020-10-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.Logz/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "6c667bb715e30aa9a22c9ea87ea17aac",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "872",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:30:08 GMT",
+        "ETag": "W/\u0022368-V1mORQPC4d5mTCMJ1HXgrM/Ng7Q\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "name": "mockName",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/tagRules/mockName",
+            "type": "Microsoft.Logz/monitors/tagRules",
+            "systemData": {
+              "createdBy": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "createdByType": "User",
+              "createdAt": "2022-01-20T09:30:08.783Z",
+              "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "lastModifiedByType": "User",
+              "lastModifiedAt": "2022-01-20T09:30:08.783Z"
+            },
+            "properties": {
+              "provisioningState": "Succeeded",
+              "logRules": {
+                "sendAadLogs": true,
+                "sendSubscriptionLogs": true,
+                "sendActivityLogs": true,
+                "filteringTags": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaaaa",
+                    "value": "aaaaaaaaa",
+                    "action": "Include"
+                  }
+                ]
+              },
+              "systemData": {
+                "createdBy": "aaaaa",
+                "createdByType": "User",
+                "createdAt": "2022-01-20T09:30:08.783Z",
+                "lastModifiedBy": "aaaaa",
+                "lastModifiedByType": "User",
+                "lastModifiedAt": "2022-01-20T09:30:08.783Z"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2051671943",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

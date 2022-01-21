@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "99ac006e44be676b94c347fc4e0bca81",
@@ -17,10 +17,10 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "1553",
+        "Content-Length": "1603",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:29:31 GMT",
-        "ETag": "W/\u0022611-5vgRwVhB/AH3HqEeR1clNF5oV2Y\u0022",
+        "Date": "Thu, 20 Jan 2022 09:34:41 GMT",
+        "ETag": "W/\u0022643-sdA4h89IpL\u002BRQTt0kINUL2mBSrw\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
@@ -29,39 +29,39 @@
           {
             "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkGateways/test-vpn-gateway-1/connections/mockName",
             "name": "mockName",
-            "type": "/Microsoft.Network/virtualNetworkGateways",
-            "location": "aaaaaaaaaaaaaa",
+            "type": "Microsoft.Network/virtualNetworkGateways/connections",
+            "location": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
             "tags": {
-              "key3361": "aa"
+              "key5863": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             },
             "properties": {
-              "authorizationKey": "aaaaaaaaa",
+              "authorizationKey": "aaaaaaaaaaaaaaaaaaaaaaa",
               "virtualNetworkGateway1": {
-                "id": "aaaaaaa"
-              },
-              "virtualNetworkGateway2": {
                 "id": "aaaaaaaaaaaaaaaaaaaaaa"
               },
+              "virtualNetworkGateway2": {
+                "id": "aaaaaaaaa"
+              },
               "localNetworkGateway2": {
-                "id": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "id": "aa"
               },
               "connectionType": "IPsec",
               "connectionProtocol": "IKEv2",
-              "routingWeight": 2,
+              "routingWeight": 8,
               "connectionMode": "Default",
-              "sharedKey": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "sharedKey": "aaaaaaaaaa",
               "connectionStatus": "Unknown",
               "tunnelConnectionStatus": [
                 {
-                  "tunnel": "aaaaaaaaaaaaaaaaa",
+                  "tunnel": "aaaaaaaaaaaaa",
                   "connectionStatus": "Unknown",
-                  "ingressBytesTransferred": 20,
-                  "egressBytesTransferred": 20,
-                  "lastConnectionEstablishedUtcTime": "aaaaaaaaaaaa"
+                  "ingressBytesTransferred": 4,
+                  "egressBytesTransferred": 14,
+                  "lastConnectionEstablishedUtcTime": "aaaaaaaaaaaaaaaaa"
                 }
               ],
-              "egressBytesTransferred": 4,
-              "ingressBytesTransferred": 25,
+              "egressBytesTransferred": 6,
+              "ingressBytesTransferred": 16,
               "peer": {
                 "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
               },
@@ -69,8 +69,8 @@
               "usePolicyBasedTrafficSelectors": true,
               "ipsecPolicies": [
                 {
-                  "saLifeTimeSeconds": 6,
-                  "saDataSizeKilobytes": 13,
+                  "saLifeTimeSeconds": 30,
+                  "saDataSizeKilobytes": 23,
                   "ipsecEncryption": "None",
                   "ipsecIntegrity": "MD5",
                   "ikeEncryption": "DES",
@@ -82,18 +82,18 @@
               "trafficSelectorPolicies": [
                 {
                   "localAddressRanges": [
-                    "aaaaaaaaaaaaaaaaaaaa"
+                    "aaaaaaaaaaaaaaaaaaaaaaaa"
                   ],
                   "remoteAddressRanges": [
-                    "aaaaaaaaaaaaaaaa"
+                    "aaaaaaaaaaaaaaaaaaaaaaaaa"
                   ]
                 }
               ],
-              "resourceGuid": "aaaaaaaaaa",
+              "resourceGuid": "aaaaaaaa",
               "provisioningState": "Succeeded",
               "expressRouteGatewayBypass": true
             },
-            "etag": "aaaaaaaaaaaaa"
+            "etag": "aaaaaaaaaaaaaaaaaaaaaaaa"
           }
         ]
       }

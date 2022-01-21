@@ -1,0 +1,86 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/securitySettings/default/syncRemoteManagementCertificate?api-version=2017-06-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.StorSimple8000Series/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "fd644318254b420ac7812baa2ab048a0",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 202,
+      "ResponseHeaders": {
+        "Azure-AsyncOperation": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/securitySettings/default?api-version=2017-06-01\u0026lro-callback=true",
+        "Connection": "keep-alive",
+        "Content-Length": "0",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:41:23 GMT",
+        "Keep-Alive": "timeout=5",
+        "Retry-After": "1",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": []
+    },
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/securitySettings/default?api-version=2017-06-01\u0026lro-callback=true",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "f3292c3787164985733394225cb7fe22",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "771",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:41:24 GMT",
+        "ETag": "W/\u0022303-dAbBdoOR//17tsN0tvghZQLbRNo\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/securitySettings/default",
+        "name": "default",
+        "type": "Microsoft.StorSimple/managers/devices/securitySettings",
+        "kind": "Series8000",
+        "properties": {
+          "remoteManagementSettings": {
+            "remoteManagementMode": "Unknown",
+            "remoteManagementCertificate": "aaaa"
+          },
+          "chapSettings": {
+            "initiatorUser": "aaaaaaaa",
+            "initiatorSecret": {
+              "value": "aaaaaaaaaaaaaaa",
+              "encryptionCertThumbprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "encryptionAlgorithm": "None"
+            },
+            "targetUser": "aaaaaaaaaaaaaaaa",
+            "targetSecret": {
+              "value": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "encryptionCertThumbprint": "aaaaa",
+              "encryptionAlgorithm": "None"
+            }
+          }
+        },
+        "status": "Succeeded"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1816942497",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

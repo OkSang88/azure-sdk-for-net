@@ -9,7 +9,7 @@
         "Content-Length": "2",
         "Content-Type": "application/json",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "20df1a0812899a0b07f0108249b3c395",
@@ -19,30 +19,30 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "10013",
+        "Content-Length": "9793",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:29:31 GMT",
-        "ETag": "W/\u0022271d-RVR4Fg53th/tORwNPRW\u002BSuyp5rU\u0022",
+        "Date": "Thu, 20 Jan 2022 09:34:41 GMT",
+        "ETag": "W/\u00222641-z3KZmAFirny1ruarNbZtLNYgIXI\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/connections/test",
         "name": "test",
-        "type": "/Microsoft.Network/connections",
-        "location": "aaa",
+        "type": "Microsoft.Network/connections",
+        "location": "aaaaa",
         "tags": {
-          "key4225": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "key9986": "aaaaaaaaaaaaaa"
         },
         "properties": {
-          "authorizationKey": "aaaaaa",
+          "authorizationKey": "aaaaaaaaaaaaaaaa",
           "virtualNetworkGateway1": {
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
             "name": "mockName",
             "type": "Microsoft.Resources/mockResource",
-            "location": "aaaaaa",
+            "location": "aaaaaaaaaaaa",
             "tags": {
-              "key5828": "aaaaaaaaaaaaaaaaa"
+              "key9389": "aaaaaaaaaaaaaaaaaaaaa"
             },
             "properties": {
               "ipConfigurations": [
@@ -56,168 +56,7 @@
                     "publicIPAddress": {
                       "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                     },
-                    "privateIPAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "provisioningState": "Succeeded"
-                  },
-                  "name": "mockName",
-                  "etag": "aaaaaaaaaaaaaaaaaaaaa"
-                }
-              ],
-              "gatewayType": "Vpn",
-              "vpnType": "PolicyBased",
-              "vpnGatewayGeneration": "None",
-              "enableBgp": true,
-              "enablePrivateIpAddress": true,
-              "activeActive": true,
-              "gatewayDefaultSite": {
-                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
-              },
-              "sku": {
-                "name": "Basic",
-                "tier": "Basic",
-                "capacity": 16
-              },
-              "vpnClientConfiguration": {
-                "vpnClientAddressPool": {
-                  "addressPrefixes": [
-                    "aaaaaaaaaaaaaaaaaaaaaaa"
-                  ]
-                },
-                "vpnClientRootCertificates": [
-                  {
-                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-                    "properties": {
-                      "publicCertData": "aaaaaaaaaaaaaaaaaaaaa",
-                      "provisioningState": "Succeeded"
-                    },
-                    "name": "mockName",
-                    "etag": "aaaaaaaaa"
-                  }
-                ],
-                "vpnClientRevokedCertificates": [
-                  {
-                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-                    "properties": {
-                      "thumbprint": "aaaaaa",
-                      "provisioningState": "Succeeded"
-                    },
-                    "name": "mockName",
-                    "etag": "aaaaaaaaaaaaaaaaa"
-                  }
-                ],
-                "vpnClientProtocols": [
-                  "IkeV2"
-                ],
-                "vpnAuthenticationTypes": [
-                  "Certificate"
-                ],
-                "vpnClientIpsecPolicies": [
-                  {
-                    "saLifeTimeSeconds": 20,
-                    "saDataSizeKilobytes": 15,
-                    "ipsecEncryption": "None",
-                    "ipsecIntegrity": "MD5",
-                    "ikeEncryption": "DES",
-                    "ikeIntegrity": "MD5",
-                    "dhGroup": "None",
-                    "pfsGroup": "None"
-                  }
-                ],
-                "radiusServerAddress": "aaaaaaaaaaaaaaaaaaaa",
-                "radiusServerSecret": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "radiusServers": [
-                  {
-                    "radiusServerAddress": "aaaaaaaaaa",
-                    "radiusServerScore": 12,
-                    "radiusServerSecret": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                  }
-                ],
-                "aadTenant": "aaaaaaaaa",
-                "aadAudience": "aaaaaaaaaaaaaaaaaaaaaa",
-                "aadIssuer": "aaaaaaaaa"
-              },
-              "bgpSettings": {
-                "asn": 1091239266,
-                "bgpPeeringAddress": "aaaaa",
-                "peerWeight": 26,
-                "bgpPeeringAddresses": [
-                  {
-                    "ipconfigurationId": "aaaaaaaaaaaaaa",
-                    "defaultBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaaa"
-                    ],
-                    "customBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                    ],
-                    "tunnelIpAddresses": [
-                      "aaaaaaaaaaa"
-                    ]
-                  }
-                ]
-              },
-              "customRoutes": {
-                "addressPrefixes": [
-                  "aaaaaaaaaaaaaaaaaaaaaaaa"
-                ]
-              },
-              "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-              "provisioningState": "Succeeded",
-              "enableDnsForwarding": true,
-              "inboundDnsForwardingEndpoint": "aaaaaaaaaaaaaaaaaaaaaa",
-              "vNetExtendedLocationResourceId": "aaaaaaaaaaa",
-              "natRules": [
-                {
-                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "type": "Static",
-                    "mode": "EgressSnat",
-                    "internalMappings": [
-                      {
-                        "addressSpace": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                      }
-                    ],
-                    "externalMappings": [
-                      {
-                        "addressSpace": "aaaaaa"
-                      }
-                    ],
-                    "ipConfigurationId": "aaaaaaaaaaaaaa"
-                  },
-                  "name": "mockName",
-                  "etag": "aaa",
-                  "type": "Microsoft.Resources/mockResource"
-                }
-              ],
-              "enableBgpRouteTranslationForNat": true
-            },
-            "extendedLocation": {
-              "name": "a",
-              "type": "EdgeZone"
-            },
-            "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
-          },
-          "virtualNetworkGateway2": {
-            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-            "name": "mockName",
-            "type": "Microsoft.Resources/mockResource",
-            "location": "aa",
-            "tags": {
-              "key3339": "aaaaaaaaaaaaaa"
-            },
-            "properties": {
-              "ipConfigurations": [
-                {
-                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-                  "properties": {
-                    "privateIPAllocationMethod": "Static",
-                    "subnet": {
-                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
-                    },
-                    "publicIPAddress": {
-                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
-                    },
-                    "privateIPAddress": "aaaaaaaaaaaaaaaaaaa",
+                    "privateIPAddress": "aaa",
                     "provisioningState": "Succeeded"
                   },
                   "name": "mockName",
@@ -236,34 +75,34 @@
               "sku": {
                 "name": "Basic",
                 "tier": "Basic",
-                "capacity": 29
+                "capacity": 9
               },
               "vpnClientConfiguration": {
                 "vpnClientAddressPool": {
                   "addressPrefixes": [
-                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    "aaaaaaaa"
                   ]
                 },
                 "vpnClientRootCertificates": [
                   {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                     "properties": {
-                      "publicCertData": "aaaaaaaaaaaaaaaaaaaaaaa",
+                      "publicCertData": "aaaaaaaaaaaaaaaaaaa",
                       "provisioningState": "Succeeded"
                     },
                     "name": "mockName",
-                    "etag": "aaaaaaaaaaaaaaaaaaa"
+                    "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                   }
                 ],
                 "vpnClientRevokedCertificates": [
                   {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                     "properties": {
-                      "thumbprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "thumbprint": "aaaaaaaaaa",
                       "provisioningState": "Succeeded"
                     },
                     "name": "mockName",
-                    "etag": "aaaaaa"
+                    "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                   }
                 ],
                 "vpnClientProtocols": [
@@ -274,8 +113,8 @@
                 ],
                 "vpnClientIpsecPolicies": [
                   {
-                    "saLifeTimeSeconds": 7,
-                    "saDataSizeKilobytes": 8,
+                    "saLifeTimeSeconds": 16,
+                    "saDataSizeKilobytes": 28,
                     "ipsecEncryption": "None",
                     "ipsecIntegrity": "MD5",
                     "ikeEncryption": "DES",
@@ -284,48 +123,48 @@
                     "pfsGroup": "None"
                   }
                 ],
-                "radiusServerAddress": "aaaaaaaaaaaaaaaaaaaaaaa",
-                "radiusServerSecret": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "radiusServerAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "radiusServerSecret": "aaaaaaaaaaaaaaaa",
                 "radiusServers": [
                   {
-                    "radiusServerAddress": "aaaaaaaaaa",
-                    "radiusServerScore": 29,
-                    "radiusServerSecret": "aaaaaaaaaaaaaaaaa"
+                    "radiusServerAddress": "aaaaaaaaaaa",
+                    "radiusServerScore": 14,
+                    "radiusServerSecret": "aaaaaaaaaaaaaaaa"
                   }
                 ],
-                "aadTenant": "aaaaaaaaaaaaaaaaaaaaa",
-                "aadAudience": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "aadIssuer": "aaaaaaaaaaaaaaaa"
+                "aadTenant": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "aadAudience": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "aadIssuer": "aa"
               },
               "bgpSettings": {
-                "asn": 655589516,
-                "bgpPeeringAddress": "aaaaaaaaaaa",
-                "peerWeight": 13,
+                "asn": 729062196,
+                "bgpPeeringAddress": "aa",
+                "peerWeight": 8,
                 "bgpPeeringAddresses": [
                   {
-                    "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaaaaaa",
                     "defaultBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaa"
                     ],
                     "customBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaaaaa"
                     ],
                     "tunnelIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaa"
                     ]
                   }
                 ]
               },
               "customRoutes": {
                 "addressPrefixes": [
-                  "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                  "aaaaaaaa"
                 ]
               },
-              "resourceGuid": "aaaaaaaa",
+              "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
               "provisioningState": "Succeeded",
               "enableDnsForwarding": true,
               "inboundDnsForwardingEndpoint": "aaaaaaaaaaaaa",
-              "vNetExtendedLocationResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "vNetExtendedLocationResourceId": "aaaaaaaaaaaaaaa",
               "natRules": [
                 {
                   "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
@@ -335,68 +174,229 @@
                     "mode": "EgressSnat",
                     "internalMappings": [
                       {
-                        "addressSpace": "aaaaaaaaaaaaaaa"
+                        "addressSpace": "aaaaaaaaaaaaaaaaaaaaaaaaa"
                       }
                     ],
                     "externalMappings": [
                       {
-                        "addressSpace": "aaaaaaaaaaaaaaaaaaaa"
+                        "addressSpace": "aaaaaaaaaaaa"
                       }
                     ],
-                    "ipConfigurationId": "aaaaaaaaaaa"
+                    "ipConfigurationId": "aaaaaaaa"
                   },
                   "name": "mockName",
-                  "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "etag": "aaaaaa",
                   "type": "Microsoft.Resources/mockResource"
                 }
               ],
               "enableBgpRouteTranslationForNat": true
             },
             "extendedLocation": {
-              "name": "aaaaaaaaa",
+              "name": "aaaaaaaaaaa",
               "type": "EdgeZone"
             },
-            "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            "etag": "aaaaaaaa"
+          },
+          "virtualNetworkGateway2": {
+            "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+            "name": "mockName",
+            "type": "Microsoft.Resources/mockResource",
+            "location": "aaaaaa",
+            "tags": {
+              "key424": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "properties": {
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "properties": {
+                    "privateIPAllocationMethod": "Static",
+                    "subnet": {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    },
+                    "publicIPAddress": {
+                      "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+                    },
+                    "privateIPAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "provisioningState": "Succeeded"
+                  },
+                  "name": "mockName",
+                  "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              ],
+              "gatewayType": "Vpn",
+              "vpnType": "PolicyBased",
+              "vpnGatewayGeneration": "None",
+              "enableBgp": true,
+              "enablePrivateIpAddress": true,
+              "activeActive": true,
+              "gatewayDefaultSite": {
+                "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
+              },
+              "sku": {
+                "name": "Basic",
+                "tier": "Basic",
+                "capacity": 15
+              },
+              "vpnClientConfiguration": {
+                "vpnClientAddressPool": {
+                  "addressPrefixes": [
+                    "aaaaaaaaaaaaaaaaaaaaaa"
+                  ]
+                },
+                "vpnClientRootCertificates": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                    "properties": {
+                      "publicCertData": "aaaaaaaaaaa",
+                      "provisioningState": "Succeeded"
+                    },
+                    "name": "mockName",
+                    "etag": "aaaaaaa"
+                  }
+                ],
+                "vpnClientRevokedCertificates": [
+                  {
+                    "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                    "properties": {
+                      "thumbprint": "aaaaaaaaaaaaaaaaaaa",
+                      "provisioningState": "Succeeded"
+                    },
+                    "name": "mockName",
+                    "etag": "aa"
+                  }
+                ],
+                "vpnClientProtocols": [
+                  "IkeV2"
+                ],
+                "vpnAuthenticationTypes": [
+                  "Certificate"
+                ],
+                "vpnClientIpsecPolicies": [
+                  {
+                    "saLifeTimeSeconds": 10,
+                    "saDataSizeKilobytes": 21,
+                    "ipsecEncryption": "None",
+                    "ipsecIntegrity": "MD5",
+                    "ikeEncryption": "DES",
+                    "ikeIntegrity": "MD5",
+                    "dhGroup": "None",
+                    "pfsGroup": "None"
+                  }
+                ],
+                "radiusServerAddress": "aaaaaaaaaaaaaaaaaa",
+                "radiusServerSecret": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "radiusServers": [
+                  {
+                    "radiusServerAddress": "aaaaaaaaaaaaaaaaaa",
+                    "radiusServerScore": 7,
+                    "radiusServerSecret": "aaaaaa"
+                  }
+                ],
+                "aadTenant": "aaaaaaaaaaaa",
+                "aadAudience": "aaaaaaaaaaaaaaa",
+                "aadIssuer": "aaaaaaaaaaaaaaaaaaaa"
+              },
+              "bgpSettings": {
+                "asn": 390698395,
+                "bgpPeeringAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "peerWeight": 6,
+                "bgpPeeringAddresses": [
+                  {
+                    "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "defaultBgpIpAddresses": [
+                      "aa"
+                    ],
+                    "customBgpIpAddresses": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "tunnelIpAddresses": [
+                      "aa"
+                    ]
+                  }
+                ]
+              },
+              "customRoutes": {
+                "addressPrefixes": [
+                  "aaaaaaa"
+                ]
+              },
+              "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "provisioningState": "Succeeded",
+              "enableDnsForwarding": true,
+              "inboundDnsForwardingEndpoint": "aaaaaaaaaaaaaaaaa",
+              "vNetExtendedLocationResourceId": "aaaaaaaaaa",
+              "natRules": [
+                {
+                  "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+                  "properties": {
+                    "provisioningState": "Succeeded",
+                    "type": "Static",
+                    "mode": "EgressSnat",
+                    "internalMappings": [
+                      {
+                        "addressSpace": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                      }
+                    ],
+                    "externalMappings": [
+                      {
+                        "addressSpace": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      }
+                    ],
+                    "ipConfigurationId": "aaaaaaaaaaaaaa"
+                  },
+                  "name": "mockName",
+                  "etag": "aaaaaaaaaaaaaaaaa",
+                  "type": "Microsoft.Resources/mockResource"
+                }
+              ],
+              "enableBgpRouteTranslationForNat": true
+            },
+            "extendedLocation": {
+              "name": "a",
+              "type": "EdgeZone"
+            },
+            "etag": "aaaaaaaaaaaa"
           },
           "localNetworkGateway2": {
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
             "name": "mockName",
             "type": "Microsoft.Resources/mockResource",
-            "location": "aaaaaaaaaaaaaaaaaaaa",
+            "location": "aaaaaaaaaaaa",
             "tags": {
-              "key5076": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+              "key6564": "aaaaaaaaaaaaaaaaaaaaa"
             },
             "properties": {
               "localNetworkAddressSpace": {
                 "addressPrefixes": [
-                  "aaaaaaaaaaaaaaaaaaaaaaa"
+                  "aaaaaaaaaaaa"
                 ]
               },
-              "gatewayIpAddress": "aaaaaaaaaaaa",
-              "fqdn": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "gatewayIpAddress": "aaaaaaaaaaa",
+              "fqdn": "aaaaaaaaaaaaaaaaaaaaaaaa",
               "bgpSettings": {
-                "asn": 3479375540,
-                "bgpPeeringAddress": "aaaaaaaaaaaaaaaaaaa",
-                "peerWeight": 13,
+                "asn": 1417817989,
+                "bgpPeeringAddress": "aaaaaaaa",
+                "peerWeight": 25,
                 "bgpPeeringAddresses": [
                   {
-                    "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaa",
+                    "ipconfigurationId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     "defaultBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaa"
                     ],
                     "customBgpIpAddresses": [
-                      "aaaaaaaaaaaaaaaa"
+                      "aaaaaa"
                     ],
                     "tunnelIpAddresses": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaa"
                     ]
                   }
                 ]
               },
-              "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaa",
+              "resourceGuid": "aaaaaaaa",
               "provisioningState": "Succeeded"
             },
-            "etag": "aaaaaaaaaaaa"
+            "etag": "aaaaaaaaaaaaaaaaaaaaaa"
           },
           "ingressNatRules": [
             {
@@ -410,22 +410,22 @@
           ],
           "connectionType": "IPsec",
           "connectionProtocol": "IKEv2",
-          "routingWeight": 20,
-          "dpdTimeoutSeconds": 7,
+          "routingWeight": 19,
+          "dpdTimeoutSeconds": 27,
           "connectionMode": "Default",
-          "sharedKey": "aaaaaaaaaaa",
+          "sharedKey": "aaaaaaaaaaaaaaa",
           "connectionStatus": "Unknown",
           "tunnelConnectionStatus": [
             {
-              "tunnel": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "tunnel": "aaaaaaaaaaaaaaaaaa",
               "connectionStatus": "Unknown",
-              "ingressBytesTransferred": 14,
-              "egressBytesTransferred": 2,
-              "lastConnectionEstablishedUtcTime": "aaaaaaaaaaa"
+              "ingressBytesTransferred": 28,
+              "egressBytesTransferred": 16,
+              "lastConnectionEstablishedUtcTime": "aaaaaaaaaaaaaaaaaaaaaa"
             }
           ],
-          "egressBytesTransferred": 9,
-          "ingressBytesTransferred": 16,
+          "egressBytesTransferred": 1,
+          "ingressBytesTransferred": 19,
           "peer": {
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
           },
@@ -434,8 +434,8 @@
           "usePolicyBasedTrafficSelectors": true,
           "ipsecPolicies": [
             {
-              "saLifeTimeSeconds": 15,
-              "saDataSizeKilobytes": 9,
+              "saLifeTimeSeconds": 10,
+              "saDataSizeKilobytes": 27,
               "ipsecEncryption": "None",
               "ipsecIntegrity": "MD5",
               "ikeEncryption": "DES",
@@ -447,18 +447,18 @@
           "trafficSelectorPolicies": [
             {
               "localAddressRanges": [
-                "aaaa"
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               ],
               "remoteAddressRanges": [
-                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "aaa"
               ]
             }
           ],
-          "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaaa",
+          "resourceGuid": "aaaaaaaaaaaaaaaaaaaaaa",
           "provisioningState": "Succeeded",
           "expressRouteGatewayBypass": true
         },
-        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaa"
       }
     }
   ],

@@ -1,0 +1,77 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/autoScaleVCores/testvcore?api-version=2021-01-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "203",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.PowerBIDedicated/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "bc6561b978eb5171f8807d3738a4a3b7",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sku": {
+          "name": "AutoScale",
+          "tier": "AutoScale",
+          "capacity": 0
+        },
+        "tags": {
+          "testKey": "testValue"
+        },
+        "location": "westus",
+        "properties": {
+          "capacityLimit": 10,
+          "capacityObjectId": "a28f00bd-5330-4572-88f1-fa883e074785"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "662",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:35:34 GMT",
+        "ETag": "W/\u0022296-4Oth00O/BI0c0GF\u002Bc\u002Bl7MDZzSFI\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/autoScaleVCores/testvcore",
+        "name": "testvcore",
+        "type": "Microsoft.PowerBIDedicated/autoScaleVCores",
+        "location": "aaaaaaa",
+        "tags": {
+          "key9169": "aaaaa"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:35:34.340Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:35:34.340Z"
+        },
+        "sku": {
+          "name": "aaaaaaaaaaaaaa",
+          "tier": "AutoScale",
+          "capacity": 28
+        },
+        "properties": {
+          "capacityLimit": 3,
+          "capacityObjectId": "aaaaaaaaaaaaaaaaa",
+          "provisioningState": "Succeeded"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "766618081",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

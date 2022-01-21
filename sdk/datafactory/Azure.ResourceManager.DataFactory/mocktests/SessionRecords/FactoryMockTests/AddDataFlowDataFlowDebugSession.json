@@ -1,0 +1,60 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/addDataFlowToDebugSession?api-version=2018-06-01",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "360",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.DataFactory/1.0.0-alpha.20220121.1",
+          "(.NET Core 3.1.22; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "018b4e2d0acb69f7817e353353d7050e",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "sessionId": "f06ed247-9d07-49b2-b05e-2cb4a2fc871e",
+        "dataFlow": {
+          "properties": {
+            "type": "MappingDataFlow",
+            "typeProperties": {
+              "script": "\n\nsource(output(\n\t\tColumn_1 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~\u003E source1"
+            }
+          },
+          "name": "dataflow1"
+        },
+        "debugSettings": {
+          "datasetParameters": {
+            "Movies": {
+              "path": "abc"
+            },
+            "Output": {
+              "time": "def"
+            }
+          }
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "40",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Fri, 21 Jan 2022 01:55:27 GMT",
+        "ETag": "W/\u002228-UNMNEBKz3/JfoqUgI9ETrL\u002BMjyE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "jobVersion": "aaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1876803985",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

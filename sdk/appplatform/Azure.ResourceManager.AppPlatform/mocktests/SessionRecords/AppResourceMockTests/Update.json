@@ -1,0 +1,116 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp?api-version=2022-01-01-preview",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "285",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.AppPlatform/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "f3fbed7f466fe9ed0ee645a0c3abd18f",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "properties": {
+          "public": true,
+          "fqdn": "myapp.mydomain.com",
+          "httpsOnly": false,
+          "temporaryDisk": {
+            "sizeInGB": 2,
+            "mountPath": "/mytemporarydisk"
+          },
+          "persistentDisk": {
+            "sizeInGB": 2,
+            "mountPath": "/mypersistentdisk"
+          },
+          "enableEndToEndTLS": false
+        },
+        "identity": {
+          "type": "SystemAssigned"
+        },
+        "location": "eastus"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1211",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:21:34 GMT",
+        "ETag": "W/\u00224bb-YpQ51LaNw5JhetmKQHADvLWkeeE\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp",
+        "name": "myapp",
+        "type": "Microsoft.AppPlatform/Spring/apps",
+        "systemData": {
+          "createdBy": "a",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:21:34.417Z",
+          "lastModifiedBy": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:21:34.417Z"
+        },
+        "properties": {
+          "public": true,
+          "url": "aaaaaaaaaaaaaaaaaa",
+          "addonConfigs": {
+            "key4633": {
+              "key9349": {}
+            }
+          },
+          "provisioningState": "Succeeded",
+          "fqdn": "aaaaaa",
+          "httpsOnly": true,
+          "temporaryDisk": {
+            "sizeInGB": 5,
+            "mountPath": "aaaaa"
+          },
+          "persistentDisk": {
+            "sizeInGB": 4,
+            "usedInGB": 5,
+            "mountPath": "aaaaaaaaa"
+          },
+          "customPersistentDisks": [
+            {
+              "customPersistentDiskProperties": {
+                "type": "AzureFileVolume",
+                "mountPath": "aaaaaaaaaaaa",
+                "readOnly": true,
+                "mountOptions": [
+                  "aaaaaaaaaaaaaaaa"
+                ],
+                "shareName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "storageId": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "enableEndToEndTLS": true,
+          "loadedCertificates": [
+            {
+              "resourceId": "aa",
+              "loadTrustStore": true
+            }
+          ]
+        },
+        "identity": {
+          "type": "None",
+          "principalId": "00000000-0000-0000-0000-000000000000",
+          "tenantId": "00000000-0000-0000-0000-000000000000"
+        },
+        "location": "aaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "2119975647",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

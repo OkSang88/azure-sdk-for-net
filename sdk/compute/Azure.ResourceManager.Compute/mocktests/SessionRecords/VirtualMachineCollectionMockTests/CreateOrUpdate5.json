@@ -9,7 +9,7 @@
         "Content-Length": "686",
         "Content-Type": "application/json",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Compute/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "5c18a7980210a6167f629e52c563a5d3",
@@ -58,68 +58,68 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "13036",
+        "Content-Length": "13023",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:24:24 GMT",
-        "ETag": "W/\u002232ec-fezxAtAUiyaOWxN\u002BZjOrrXP9734\u0022",
+        "Date": "Thu, 20 Jan 2022 09:24:50 GMT",
+        "ETag": "W/\u002232df-2LYyfljlerTQk7AtCBjTAGt9kgs\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/%7Bvm-name%7D",
         "name": "%7Bvm-name%7D",
-        "type": "/Microsoft.Compute/virtualMachines",
-        "location": "aa",
+        "type": "Microsoft.Compute/virtualMachines",
+        "location": "aaaaaaaaaaaaaa",
         "tags": {
-          "key3824": "aaaaaaaaaaaaaaaaaaaaaaa"
+          "key145": "aaaaaaaaaaa"
         },
         "plan": {
-          "name": "aaa",
-          "publisher": "aaaaaaaaaaaaaaaaaaaaaaaaa",
-          "product": "aaaaaaaaa",
-          "promotionCode": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "name": "aaaaaaaaa",
+          "publisher": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "product": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "promotionCode": "aaaaaaaaaaaaaaaaaaa"
         },
         "properties": {
           "hardwareProfile": {
             "vmSize": "Basic_A0",
             "vmSizeProperties": {
-              "vCPUsAvailable": 17,
-              "vCPUsPerCore": 1
+              "vCPUsAvailable": 29,
+              "vCPUsPerCore": 2
             }
           },
           "storageProfile": {
             "imageReference": {
               "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-              "publisher": "aaa",
-              "offer": "aa",
-              "sku": "aaaaaaaaaaaaaaaaaaa",
-              "version": "aaaaaaaaaaaaaaaaaaaa",
-              "exactVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-              "sharedGalleryImageId": "aaaaaaaaaaaaaaaaaa"
+              "publisher": "aaaaa",
+              "offer": "aaaaaa",
+              "sku": "aaaaaa",
+              "version": "aaaaaaaaaaaaaaaaaaaaaaaa",
+              "exactVersion": "aaaaaaaaaaaaaaaa",
+              "sharedGalleryImageId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             },
             "osDisk": {
               "osType": "Windows",
               "encryptionSettings": {
                 "diskEncryptionKey": {
-                  "secretUrl": "aa",
+                  "secretUrl": "aaaaaaaaaaaaaaaaaaaaaa",
                   "sourceVault": {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                   }
                 },
                 "keyEncryptionKey": {
-                  "keyUrl": "aaaaaaaaaaaa",
+                  "keyUrl": "aaaaaaaaaaaaaaaaaaaaaa",
                   "sourceVault": {
                     "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                   }
                 },
                 "enabled": true
               },
-              "name": "aa",
+              "name": "a",
               "vhd": {
-                "uri": "aaaaaa"
+                "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               },
               "image": {
-                "uri": "aaaaaaaaaa"
+                "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               },
               "caching": "None",
               "writeAcceleratorEnabled": true,
@@ -128,7 +128,7 @@
                 "placement": "CacheDisk"
               },
               "createOption": "FromImage",
-              "diskSizeGB": 10,
+              "diskSizeGB": 6,
               "managedDisk": {
                 "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                 "storageAccountType": "Standard_LRS",
@@ -140,18 +140,18 @@
             },
             "dataDisks": [
               {
-                "lun": 20,
-                "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "lun": 21,
+                "name": "aaaaaaa",
                 "vhd": {
-                  "uri": "aaaaaaaaaaaaaaaaaaaaaaaa"
+                  "uri": "aaaaaaaaaaaaaaaa"
                 },
                 "image": {
-                  "uri": "aaaaaaaaaa"
+                  "uri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
                 "caching": "None",
                 "writeAcceleratorEnabled": true,
                 "createOption": "FromImage",
-                "diskSizeGB": 6,
+                "diskSizeGB": 23,
                 "managedDisk": {
                   "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
                   "storageAccountType": "Standard_LRS",
@@ -160,8 +160,8 @@
                   }
                 },
                 "toBeDetached": true,
-                "diskIOPSReadWrite": 13,
-                "diskMBpsReadWrite": 15,
+                "diskIOPSReadWrite": 26,
+                "diskMBpsReadWrite": 10,
                 "detachOption": "ForceDetach",
                 "deleteOption": "Delete"
               }
@@ -172,20 +172,20 @@
             "hibernationEnabled": true
           },
           "osProfile": {
-            "computerName": "aaaaaa",
-            "adminUsername": "aaaaa",
-            "adminPassword": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "customData": "aaa",
+            "computerName": "aa",
+            "adminUsername": "aaaaaaaaaaaaaaaaaaaaaa",
+            "adminPassword": "aaaaaaaaaaaaa",
+            "customData": "aaaaaaaaaa",
             "windowsConfiguration": {
               "provisionVMAgent": true,
               "enableAutomaticUpdates": true,
-              "timeZone": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "timeZone": "aaaaaaaaaaaaaaaaaaaaaaa",
               "additionalUnattendContent": [
                 {
                   "passName": "OobeSystem",
                   "componentName": "Microsoft-Windows-Shell-Setup",
                   "settingName": "AutoLogon",
-                  "content": "aaaaaaaaaaaaaaaaa"
+                  "content": "aaa"
                 }
               ],
               "patchSettings": {
@@ -197,7 +197,7 @@
                 "listeners": [
                   {
                     "protocol": "Http",
-                    "certificateUrl": "aaaaaaaaaaaaaaaa"
+                    "certificateUrl": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
                   }
                 ]
               }
@@ -207,8 +207,8 @@
               "ssh": {
                 "publicKeys": [
                   {
-                    "path": "aaaaaaaaaaaaaaa",
-                    "keyData": "aaaaa"
+                    "path": "aaaaaa",
+                    "keyData": "aaaaaaaaa"
                   }
                 ]
               },
@@ -225,8 +225,8 @@
                 },
                 "vaultCertificates": [
                   {
-                    "certificateUrl": "aaaa",
-                    "certificateStore": "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    "certificateUrl": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                    "certificateStore": "aaaaa"
                   }
                 ]
               }
@@ -247,7 +247,7 @@
             "networkApiVersion": "2020-11-01",
             "networkInterfaceConfigurations": [
               {
-                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "name": "aaaaaaaaaaaaaaaaaaaaa",
                 "properties": {
                   "primary": true,
                   "deleteOption": "Delete",
@@ -259,29 +259,29 @@
                   },
                   "dnsSettings": {
                     "dnsServers": [
-                      "a"
+                      "aaaaa"
                     ]
                   },
                   "ipConfigurations": [
                     {
-                      "name": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "name": "aaaaaaaaaaa",
                       "properties": {
                         "subnet": {
                           "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                         },
                         "primary": true,
                         "publicIPAddressConfiguration": {
-                          "name": "aaaaaaaa",
+                          "name": "aaaa",
                           "properties": {
-                            "idleTimeoutInMinutes": 17,
+                            "idleTimeoutInMinutes": 29,
                             "deleteOption": "Delete",
                             "dnsSettings": {
-                              "domainNameLabel": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                              "domainNameLabel": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
                             },
                             "ipTags": [
                               {
-                                "ipTagType": "aaaa",
-                                "tag": "aaaaaaaaaaaaaa"
+                                "ipTagType": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                                "tag": "aaaa"
                               }
                             ],
                             "publicIPPrefix": {
@@ -332,7 +332,7 @@
           "diagnosticsProfile": {
             "bootDiagnostics": {
               "enabled": true,
-              "storageUri": "aaaaaaaaaaaaaaaaaaa"
+              "storageUri": "aaaaaaaaaaaaaaaaaaaaaaa"
             }
           },
           "availabilitySet": {
@@ -357,60 +357,60 @@
           },
           "provisioningState": "Succeeded",
           "instanceView": {
-            "platformUpdateDomain": 11,
-            "platformFaultDomain": 7,
-            "computerName": "aaaaaaaaaaaaaaaaaaaaaaaaa",
-            "osName": "aaaaaaaaaaaaa",
-            "osVersion": "aaaaaaaaaaaaaaaaaaaaaaaa",
+            "platformUpdateDomain": 24,
+            "platformFaultDomain": 28,
+            "computerName": "aaaaaaaaaaaaaaaa",
+            "osName": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "osVersion": "aaaaaaaaaa",
             "hyperVGeneration": "V1",
-            "rdpThumbPrint": "aaaaaaaaaaa",
+            "rdpThumbPrint": "aaaaaaaaaaaaaaaaaaa",
             "vmAgent": {
-              "vmAgentVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "vmAgentVersion": "aa",
               "extensionHandlers": [
                 {
-                  "type": "aaaaaaaaa",
-                  "typeHandlerVersion": "aaaaaa",
+                  "type": "aaaaaaaaaaaaaaaaaaa",
+                  "typeHandlerVersion": "aaaaaaaaaaaaa",
                   "status": {
-                    "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "code": "a",
                     "level": "Info",
-                    "displayStatus": "aaaaaaa",
-                    "message": "aaaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "aaaaaaaaaaaaaa",
+                    "message": "aaaaaaaaaaaaaaaaa",
+                    "time": "2022-01-20T09:24:50.494Z"
                   }
                 }
               ],
               "statuses": [
                 {
-                  "code": "a",
+                  "code": "aaaaa",
                   "level": "Info",
-                  "displayStatus": "aaaaa",
-                  "message": "aa",
-                  "time": "2022-01-19T07:24:24.692Z"
+                  "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                  "message": "aaa",
+                  "time": "2022-01-20T09:24:50.494Z"
                 }
               ]
             },
             "maintenanceRedeployStatus": {
               "isCustomerInitiatedMaintenanceAllowed": true,
-              "preMaintenanceWindowStartTime": "2022-01-19T07:24:24.692Z",
-              "preMaintenanceWindowEndTime": "2022-01-19T07:24:24.692Z",
-              "maintenanceWindowStartTime": "2022-01-19T07:24:24.692Z",
-              "maintenanceWindowEndTime": "2022-01-19T07:24:24.692Z",
+              "preMaintenanceWindowStartTime": "2022-01-20T09:24:50.494Z",
+              "preMaintenanceWindowEndTime": "2022-01-20T09:24:50.494Z",
+              "maintenanceWindowStartTime": "2022-01-20T09:24:50.494Z",
+              "maintenanceWindowEndTime": "2022-01-20T09:24:50.494Z",
               "lastOperationResultCode": "None",
-              "lastOperationMessage": "aaaaaaaaaaaaaaaa"
+              "lastOperationMessage": "aaaaaaaaaaaaaaaaaaa"
             },
             "disks": [
               {
-                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaa",
                 "encryptionSettings": [
                   {
                     "diskEncryptionKey": {
-                      "secretUrl": "a",
+                      "secretUrl": "aaaaaaaaaaaaaaa",
                       "sourceVault": {
                         "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                       }
                     },
                     "keyEncryptionKey": {
-                      "keyUrl": "aaaaaaaaaa",
+                      "keyUrl": "aa",
                       "sourceVault": {
                         "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
                       }
@@ -420,146 +420,146 @@
                 ],
                 "statuses": [
                   {
-                    "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "code": "aaaaaaaaaaa",
                     "level": "Info",
-                    "displayStatus": "aaaaaa",
-                    "message": "aaaaaaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "aaaaaaaaaaaaaaaaaaa",
+                    "message": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "time": "2022-01-20T09:24:50.494Z"
                   }
                 ]
               }
             ],
             "extensions": [
               {
-                "name": "aaaa",
-                "type": "aa",
-                "typeHandlerVersion": "aa",
+                "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "type": "aaaaaaaaaaaaaaaaaaaa",
+                "typeHandlerVersion": "aaaaaa",
                 "substatuses": [
                   {
-                    "code": "aaaaaaaaaaaaaaa",
+                    "code": "aaaaaaaaaaaaaaaaaaaaaaa",
                     "level": "Info",
-                    "displayStatus": "aaaaaaaaaaaaaaa",
-                    "message": "aaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "message": "aa",
+                    "time": "2022-01-20T09:24:50.494Z"
                   }
                 ],
                 "statuses": [
                   {
-                    "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "code": "aaaaaaaaaaaaaaaaaaa",
                     "level": "Info",
-                    "displayStatus": "a",
-                    "message": "aaaaaaaaaaaaaaaaaaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "aaaaaaa",
+                    "message": "aaaaaaaaaaaaaaaaaaaa",
+                    "time": "2022-01-20T09:24:50.494Z"
                   }
                 ]
               }
             ],
             "vmHealth": {
               "status": {
-                "code": "aaaaaaaaaa",
+                "code": "aaa",
                 "level": "Info",
-                "displayStatus": "aaaaaaaaaaaaaaaaaaa",
-                "message": "aaaaaaaaaa",
-                "time": "2022-01-19T07:24:24.692Z"
+                "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "message": "aaaaaaa",
+                "time": "2022-01-20T09:24:50.494Z"
               }
             },
             "bootDiagnostics": {
-              "consoleScreenshotBlobUri": "aaaaaa",
-              "serialConsoleLogBlobUri": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "consoleScreenshotBlobUri": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+              "serialConsoleLogBlobUri": "aaaaaaaa",
               "status": {
-                "code": "aaaaaaaaaaaaaaaa",
+                "code": "aaaaaaaaaaaaaaaaaaaaaaaaa",
                 "level": "Info",
-                "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaa",
-                "message": "aaaaaaaaaaaaaaaaaa",
-                "time": "2022-01-19T07:24:24.692Z"
+                "displayStatus": "aaaaaaaaaaaaaaaaaaaaaa",
+                "message": "aaaaa",
+                "time": "2022-01-20T09:24:50.494Z"
               }
             },
-            "assignedHost": "aaaaaaaaaaa",
+            "assignedHost": "aaaaaa",
             "statuses": [
               {
-                "code": "aaaaaaa",
+                "code": "aaaaaaaaaaaaaaaaaa",
                 "level": "Info",
-                "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaa",
-                "message": "aaaaaaaaaaaaaaaaaaaaa",
-                "time": "2022-01-19T07:24:24.692Z"
+                "displayStatus": "aa",
+                "message": "aaaaaaaaaaaaaaaa",
+                "time": "2022-01-20T09:24:50.494Z"
               }
             ],
             "patchStatus": {
               "availablePatchSummary": {
                 "status": "Unknown",
-                "assessmentActivityId": "aaaaa",
+                "assessmentActivityId": "aaaaaaaaaaaaaaaaaaaa",
                 "rebootPending": true,
                 "criticalAndSecurityPatchCount": 11,
-                "otherPatchCount": 27,
-                "startTime": "2022-01-19T07:24:24.692Z",
-                "lastModifiedTime": "2022-01-19T07:24:24.692Z",
+                "otherPatchCount": 11,
+                "startTime": "2022-01-20T09:24:50.494Z",
+                "lastModifiedTime": "2022-01-20T09:24:50.494Z",
                 "error": {
                   "details": [
                     {
-                      "code": "aaaaaaaaaaaaaaaaaaa",
-                      "target": "aaaaaaaaaaaaaaaaaaaaaaa",
-                      "message": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                      "code": "a",
+                      "target": "aaaaaaaaaaaaaaaa",
+                      "message": "aaaaaaaaaaaaaaaaaaa"
                     }
                   ],
                   "innererror": {
-                    "exceptiontype": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "errordetail": "aaaaaaaaaaa"
+                    "exceptiontype": "aaaaaaaaa",
+                    "errordetail": "aaaaaaaaaaaaaaaaaaaaaaa"
                   },
-                  "code": "aaaaaaaaaaaaaaaaa",
-                  "target": "aaaaaaaa",
-                  "message": "aaaaaaaaaaaaaaaaaaaa"
+                  "code": "aaaaaaaaaaaaaaaaaaaaaa",
+                  "target": "aaaaaaaaaaaaaa",
+                  "message": "aaaaaaaaaaaaaaaaa"
                 }
               },
               "lastPatchInstallationSummary": {
                 "status": "Unknown",
-                "installationActivityId": "aaaaa",
+                "installationActivityId": "aaaaaaaaaaa",
                 "maintenanceWindowExceeded": true,
-                "notSelectedPatchCount": 21,
-                "excludedPatchCount": 14,
-                "pendingPatchCount": 19,
-                "installedPatchCount": 30,
-                "failedPatchCount": 27,
-                "startTime": "2022-01-19T07:24:24.692Z",
-                "lastModifiedTime": "2022-01-19T07:24:24.692Z",
+                "notSelectedPatchCount": 24,
+                "excludedPatchCount": 3,
+                "pendingPatchCount": 8,
+                "installedPatchCount": 14,
+                "failedPatchCount": 24,
+                "startTime": "2022-01-20T09:24:50.494Z",
+                "lastModifiedTime": "2022-01-20T09:24:50.494Z",
                 "error": {
                   "details": [
                     {
                       "code": "aaaaa",
-                      "target": "aaaaaaaaaaaaaaaaaaaaaa",
-                      "message": "a"
+                      "target": "a",
+                      "message": "aaaaaaaaaaaaa"
                     }
                   ],
                   "innererror": {
-                    "exceptiontype": "aa",
-                    "errordetail": "aaaaaaaaaaaaaaa"
+                    "exceptiontype": "aaaa",
+                    "errordetail": "aaaaaa"
                   },
-                  "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                  "target": "aaaaaaaa",
-                  "message": "aaaaaaaaa"
+                  "code": "aaaaa",
+                  "target": "aaaaaaaaaaaaaa",
+                  "message": "aaaaaaaaaaa"
                 }
               },
               "configurationStatuses": [
                 {
-                  "code": "aa",
+                  "code": "aaaaaaaaaaaaaaaaaaaaa",
                   "level": "Info",
-                  "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-                  "message": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                  "time": "2022-01-19T07:24:24.692Z"
+                  "displayStatus": "aaaaaaaaaaaaaaaa",
+                  "message": "aaa",
+                  "time": "2022-01-20T09:24:50.494Z"
                 }
               ]
             }
           },
-          "licenseType": "aaaaaa",
-          "vmId": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-          "extensionsTimeBudget": "aaaaaa",
-          "platformFaultDomain": 27,
+          "licenseType": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "vmId": "aaaaaaaaaaaaaaaaa",
+          "extensionsTimeBudget": "aaaaaaaaaaaaaaaaaaaaaaa",
+          "platformFaultDomain": 20,
           "scheduledEventsProfile": {
             "terminateNotificationProfile": {
-              "notBeforeTimeout": "aaaaaaaaaaaaaa",
+              "notBeforeTimeout": "aaaa",
               "enable": true
             }
           },
-          "userData": "aaaaaaaaaaaaaaaaaaaaa",
+          "userData": "aaaaaaaaaaaaaaaaaaaaaaa",
           "capacityReservation": {
             "capacityReservationGroup": {
               "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
@@ -568,10 +568,10 @@
           "applicationProfile": {
             "galleryApplications": [
               {
-                "tags": "aaaaaaaaaaaaaaaaaaaaaaaaa",
-                "order": 12,
-                "packageReferenceId": "aaaaaaaaa",
-                "configurationReference": "aaaaaaaaaa"
+                "tags": "aaaaaaaaaa",
+                "order": 30,
+                "packageReferenceId": "aa",
+                "configurationReference": "aaaaaaaaa"
               }
             ]
           }
@@ -581,40 +581,40 @@
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
             "name": "mockName",
             "type": "Microsoft.Resources/mockResource",
-            "location": "aaaaaaaaaaaaaaaaaaaaaaa",
+            "location": "aaaaaaaaaaaaaaaaaaaaa",
             "tags": {
-              "key2950": "aa"
+              "key5617": "aaaaaaaaaaaaaaaaaaa"
             },
             "properties": {
-              "forceUpdateTag": "aaaaaaaaaaaaaaaaaaaaaa",
-              "publisher": "aaaaaaa",
-              "type": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-              "typeHandlerVersion": "aaaa",
+              "forceUpdateTag": "aaaa",
+              "publisher": "aaaaaaaaaaaaa",
+              "type": "aaaaaaaaaaa",
+              "typeHandlerVersion": "aaaaaaaaaaaaaa",
               "autoUpgradeMinorVersion": true,
               "enableAutomaticUpgrade": true,
               "settings": {},
               "protectedSettings": {},
               "provisioningState": "Succeeded",
               "instanceView": {
-                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "type": "aaaaaa",
-                "typeHandlerVersion": "aaaaaaaaaaaaaaaaaaaa",
+                "name": "aaaaaa",
+                "type": "aaaaaaaa",
+                "typeHandlerVersion": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
                 "substatuses": [
                   {
-                    "code": "aaaaaaaaaaaaaaaaaaaa",
+                    "code": "aa",
                     "level": "Info",
-                    "displayStatus": "aaaaaaaaaaaaaaaaaa",
-                    "message": "aaaaaaaaaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "message": "aaaaaaaaaaaaaaaa",
+                    "time": "2022-01-20T09:24:50.495Z"
                   }
                 ],
                 "statuses": [
                   {
-                    "code": "aaaaaaaaaaa",
+                    "code": "aaaaaa",
                     "level": "Info",
-                    "displayStatus": "aaaaaaaaaaaa",
-                    "message": "aaaaaaaaaaaaaaaaaaaaaaa",
-                    "time": "2022-01-19T07:24:24.692Z"
+                    "displayStatus": "a",
+                    "message": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "time": "2022-01-20T09:24:50.495Z"
                   }
                 ]
               },
@@ -627,17 +627,17 @@
           "tenantId": "00000000-0000-0000-0000-000000000000",
           "type": "SystemAssigned",
           "userAssignedIdentities": {
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key438": {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedIdentity/userAssignedIdentities/key6972": {
               "principalId": "00000000-0000-0000-0000-000000000000",
               "clientId": "00000000-0000-0000-0000-000000000000"
             }
           }
         },
         "zones": [
-          "aaaaaaaaaaaaaaaaaaaaa"
+          "aaa"
         ],
         "extendedLocation": {
-          "name": "aaaaaaaaaaaaaa",
+          "name": "aaaaaaaaa",
           "type": "EdgeZone"
         }
       }

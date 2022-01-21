@@ -1,0 +1,85 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/jobs?api-version=2017-06-01\u0026$filter=jobType%20eq%20%27ManualBackup%27",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.StorSimple8000Series/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "25b5615ca4f793995f409cac84095015",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1068",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:41:24 GMT",
+        "ETag": "W/\u002242c-p2q0PcNc3F6JS3PPebzp9aCYYNc\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "value": [
+          {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/jobs/mockName",
+            "name": "mockName",
+            "type": "Microsoft.StorSimple/managers/devices/jobs",
+            "kind": "Series8000",
+            "status": "Running",
+            "startTime": "2022-01-20T09:41:24.506Z",
+            "endTime": "2022-01-20T09:41:24.506Z",
+            "percentComplete": 4,
+            "error": {
+              "errorDetails": [
+                {
+                  "recommendations": [
+                    "aaaa"
+                  ],
+                  "code": "aaaaaaaaaaaaaaa",
+                  "message": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                }
+              ],
+              "code": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "message": "aaaaaaaaaaaa"
+            },
+            "properties": {
+              "jobType": "ScheduledBackup",
+              "dataStats": {
+                "totalData": 22,
+                "processedData": 16,
+                "cloudData": 20,
+                "throughput": 15
+              },
+              "entityLabel": "aaaaaaaaaaa",
+              "entityType": "aaaaaaaaaaaaaa",
+              "jobStages": [
+                {
+                  "message": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "stageStatus": "Running",
+                  "detail": "aaaa",
+                  "errorCode": "aaaaaaaaaaaa"
+                }
+              ],
+              "deviceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "isCancellable": true,
+              "backupType": "LocalSnapshot",
+              "sourceDeviceId": "aaaa",
+              "backupPointInTime": "2022-01-20T09:41:24.506Z"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1540613798",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

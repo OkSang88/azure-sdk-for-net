@@ -7,7 +7,7 @@
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Sql/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "434c5ade59cbc1bc4687654aaff32287",
@@ -17,30 +17,30 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "520",
+        "Content-Length": "573",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:31:03 GMT",
-        "ETag": "W/\u0022208-Zp5bU/hcNaCtwlVQfTMwEPxG89I\u0022",
+        "Date": "Thu, 20 Jan 2022 09:39:50 GMT",
+        "ETag": "W/\u002223d-ZOqcche5nmOj8UAXxxoliIfeNrw\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/maintenanceWindowOptions/current",
         "name": "current",
-        "type": "/Microsoft.Sql/servers",
+        "type": "Microsoft.Sql/servers/databases/maintenanceWindowOptions",
         "properties": {
           "isEnabled": true,
           "maintenanceWindowCycles": [
             {
               "dayOfWeek": "Sunday",
-              "startTime": "a",
-              "duration": "aaaaaaaaaaaaaaaaaaaaa"
+              "startTime": "aaaaaaaaaaaaaaaaaa",
+              "duration": "aaaaaaaaaaaaaaaaaaaaaaa"
             }
           ],
-          "minDurationInMinutes": 15,
-          "defaultDurationInMinutes": 10,
-          "minCycles": 9,
-          "timeGranularityInMinutes": 9,
+          "minDurationInMinutes": 26,
+          "defaultDurationInMinutes": 5,
+          "minCycles": 2,
+          "timeGranularityInMinutes": 29,
           "allowMultipleMaintenanceWindowsPerCycle": true
         }
       }

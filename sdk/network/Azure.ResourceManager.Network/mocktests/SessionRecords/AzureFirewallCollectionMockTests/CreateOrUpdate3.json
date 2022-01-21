@@ -9,7 +9,7 @@
         "Content-Length": "108",
         "Content-Type": "application/json",
         "User-Agent": [
-          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220119.1",
+          "azsdk-net-ResourceManager.Network/1.0.0-alpha.20220120.1",
           "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
         ],
         "x-ms-client-request-id": "46da6a2d2df56a317db84edf5dbf9a83",
@@ -28,27 +28,103 @@
       "StatusCode": 200,
       "ResponseHeaders": {
         "Connection": "keep-alive",
-        "Content-Length": "4086",
+        "Content-Length": "4104",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 19 Jan 2022 07:28:49 GMT",
-        "ETag": "W/\u0022ff6-ZlVoWs0eZOLfIcDFDy0ikJ9qtLA\u0022",
+        "Date": "Thu, 20 Jan 2022 09:33:56 GMT",
+        "ETag": "W/\u00221008-Hg90FhXx40BYJH9ul6HKS9D292g\u0022",
         "Keep-Alive": "timeout=5",
         "X-Powered-By": "Express"
       },
       "ResponseBody": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall",
         "name": "azurefirewall",
-        "type": "/Microsoft.Network/azureFirewalls",
-        "location": "aaaaaa",
+        "type": "Microsoft.Network/azureFirewalls",
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "tags": {
-          "key9319": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "key6978": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
         },
         "properties": {
           "applicationRuleCollections": [
             {
               "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
               "properties": {
-                "priority": 23765,
+                "priority": 257,
+                "action": {
+                  "type": "Allow"
+                },
+                "rules": [
+                  {
+                    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "description": "aaaaaaaaaaaaa",
+                    "sourceAddresses": [
+                      "aaaaaaaaaa"
+                    ],
+                    "protocols": [
+                      {
+                        "protocolType": "Http",
+                        "port": 30347
+                      }
+                    ],
+                    "targetFqdns": [
+                      "aaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "fqdnTags": [
+                      "aaaaaaaaaaaaaaaaaa"
+                    ],
+                    "sourceIpGroups": [
+                      "aaaaaa"
+                    ]
+                  }
+                ],
+                "provisioningState": "Succeeded"
+              },
+              "name": "mockName",
+              "etag": "aaaaaaaaa"
+            }
+          ],
+          "natRuleCollections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "priority": 40061,
+                "action": {
+                  "type": "Snat"
+                },
+                "rules": [
+                  {
+                    "name": "aaaaaaaaaaaaa",
+                    "description": "aaaaa",
+                    "sourceAddresses": [
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    ],
+                    "destinationAddresses": [
+                      "a"
+                    ],
+                    "destinationPorts": [
+                      "aaaaaaaaaaaaa"
+                    ],
+                    "protocols": [
+                      "TCP"
+                    ],
+                    "translatedAddress": "aaaaaaaaaaaaaaaaaa",
+                    "translatedPort": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "translatedFqdn": "aaaaaaaaaaaaaaaaaaaaa",
+                    "sourceIpGroups": [
+                      "aaaaaaaaaa"
+                    ]
+                  }
+                ],
+                "provisioningState": "Succeeded"
+              },
+              "name": "mockName",
+              "etag": "aaaaa"
+            }
+          ],
+          "networkRuleCollections": [
+            {
+              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
+              "properties": {
+                "priority": 49720,
                 "action": {
                   "type": "Allow"
                 },
@@ -56,109 +132,33 @@
                   {
                     "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     "description": "aa",
+                    "protocols": [
+                      "TCP"
+                    ],
                     "sourceAddresses": [
+                      "aaaaaaaaaaa"
+                    ],
+                    "destinationAddresses": [
                       "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     ],
-                    "protocols": [
-                      {
-                        "protocolType": "Http",
-                        "port": 11792
-                      }
-                    ],
-                    "targetFqdns": [
-                      "aaaaaaaaaaaaa"
-                    ],
-                    "fqdnTags": [
-                      "aaaaaaaaaaaaaaaaa"
-                    ],
-                    "sourceIpGroups": [
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                    ]
-                  }
-                ],
-                "provisioningState": "Succeeded"
-              },
-              "name": "mockName",
-              "etag": "a"
-            }
-          ],
-          "natRuleCollections": [
-            {
-              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-              "properties": {
-                "priority": 51971,
-                "action": {
-                  "type": "Snat"
-                },
-                "rules": [
-                  {
-                    "name": "aaaaaaaa",
-                    "description": "aaaaaaaaaaaaaaaaaaaaaaaa",
-                    "sourceAddresses": [
-                      "aaaaaaa"
-                    ],
-                    "destinationAddresses": [
-                      "aaaaaaaa"
-                    ],
                     "destinationPorts": [
-                      "aaaaaaaaaaaaaaaaaaa"
-                    ],
-                    "protocols": [
-                      "TCP"
-                    ],
-                    "translatedAddress": "aaaaaaaaaaaaaaaaaaaaaaaa",
-                    "translatedPort": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "translatedFqdn": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "sourceIpGroups": [
-                      "a"
-                    ]
-                  }
-                ],
-                "provisioningState": "Succeeded"
-              },
-              "name": "mockName",
-              "etag": "aaa"
-            }
-          ],
-          "networkRuleCollections": [
-            {
-              "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
-              "properties": {
-                "priority": 37915,
-                "action": {
-                  "type": "Allow"
-                },
-                "rules": [
-                  {
-                    "name": "aaaaaaaaaaaa",
-                    "description": "aaaaaaaaaaaaaaaaaaa",
-                    "protocols": [
-                      "TCP"
-                    ],
-                    "sourceAddresses": [
-                      "aaaaaaaaaaaaaa"
-                    ],
-                    "destinationAddresses": [
-                      "aaaaaaaaaaaaaaaa"
-                    ],
-                    "destinationPorts": [
-                      "aa"
+                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     ],
                     "destinationFqdns": [
-                      "aaaaaaaaaaaaaaaa"
+                      "aaaaaa"
                     ],
                     "sourceIpGroups": [
-                      "aaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaaaaaaaa"
                     ],
                     "destinationIpGroups": [
-                      "aaaaaaaaaaaaaaaaaaaaaa"
+                      "aaaaaaaaaaaaaaaaaaaaaaa"
                     ]
                   }
                 ],
                 "provisioningState": "Succeeded"
               },
               "name": "mockName",
-              "etag": "aa"
+              "etag": "aaaaaaaaaaaaaaaaaaa"
             }
           ],
           "ipConfigurations": [
@@ -175,14 +175,14 @@
                 "provisioningState": "Succeeded"
               },
               "name": "mockName",
-              "etag": "aaaaaaaaaaaaaaaaaaaaaaa",
+              "etag": "aaaaaaaaaaa",
               "type": "Microsoft.Resources/mockResource"
             }
           ],
           "managementIpConfiguration": {
             "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName",
             "properties": {
-              "privateIPAddress": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privateIPAddress": "a",
               "subnet": {
                 "id": "/subscriptions/a9cbceed-cd54-47f1-b7a2-bad149218603/resourceGroups/mockRg/providers/Microsoft.Resources/mockResource/mockName"
               },
@@ -192,7 +192,7 @@
               "provisioningState": "Succeeded"
             },
             "name": "mockName",
-            "etag": "aaaaaaaaaa",
+            "etag": "a",
             "type": "Microsoft.Resources/mockResource"
           },
           "provisioningState": "Succeeded",
@@ -207,17 +207,17 @@
             "publicIPs": {
               "addresses": [
                 {
-                  "address": "aaaaaaaaaaaa"
+                  "address": "aaaaaaa"
                 }
               ],
-              "count": 3
+              "count": 4
             },
-            "privateIPAddress": "aaaaaaaaa"
+            "privateIPAddress": "aaaaaaaaaaaaaaaaaaaa"
           },
           "ipGroups": [
             {
               "id": "aaaaaaaaaaaaaaa",
-              "changeNumber": "aaaaaaaaaaaa"
+              "changeNumber": "aaaaaaaaaaaaaaaaaaaaaaaa"
             }
           ],
           "sku": {
@@ -225,13 +225,13 @@
             "tier": "Standard"
           },
           "additionalProperties": {
-            "key1427": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            "key5021": "aaaaaaaaaaaaa"
           }
         },
         "zones": [
-          "aaaaaaaaaaaaaaaaaaaaaaaaa"
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
         ],
-        "etag": "aaaaaaaa"
+        "etag": "aaaaaaaaaaaaaaaaaaaaaaaaa"
       }
     }
   ],

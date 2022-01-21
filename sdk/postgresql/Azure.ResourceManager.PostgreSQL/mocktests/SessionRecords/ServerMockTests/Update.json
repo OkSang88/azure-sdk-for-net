@@ -1,0 +1,109 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://localhost:8443/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4?api-version=2021-06-01",
+      "RequestMethod": "PATCH",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "227",
+        "Content-Type": "application/json",
+        "User-Agent": [
+          "azsdk-net-ResourceManager.PostgreSQL/1.0.0-alpha.20220120.1",
+          "(.NET 6.0.1; Microsoft Windows 10.0.22000)"
+        ],
+        "x-ms-client-request-id": "08cb3037353ccec717d51c0d07c37779",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "location": "westus",
+        "sku": {
+          "name": "Standard_D8s_v3",
+          "tier": "GeneralPurpose"
+        },
+        "properties": {
+          "administratorLoginPassword": "newpassword",
+          "storage": {
+            "storageSizeGB": 1024
+          },
+          "backup": {
+            "backupRetentionDays": 20
+          },
+          "createMode": "Update"
+        }
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Connection": "keep-alive",
+        "Content-Length": "1440",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 20 Jan 2022 09:35:19 GMT",
+        "ETag": "W/\u00225a0-pfnIhCpjsIE/YA35igpd/D8qvvI\u0022",
+        "Keep-Alive": "timeout=5",
+        "X-Powered-By": "Express"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4",
+        "name": "pgtestsvc4",
+        "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+        "tags": {
+          "key5473": "aaaaaaaaaaaaaaaaaa"
+        },
+        "location": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sku": {
+          "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "tier": "Burstable"
+        },
+        "properties": {
+          "administratorLogin": "aaa",
+          "administratorLoginPassword": "aaaaaa",
+          "version": "13",
+          "minorVersion": "aaaaaaa",
+          "state": "Ready",
+          "fullyQualifiedDomainName": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "storage": {
+            "storageSizeGB": 18
+          },
+          "backup": {
+            "backupRetentionDays": 9,
+            "geoRedundantBackup": "Enabled",
+            "earliestRestoreDate": "2022-01-20T09:35:19.205Z"
+          },
+          "network": {
+            "publicNetworkAccess": "Enabled",
+            "delegatedSubnetResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privateDnsZoneArmResourceId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "highAvailability": {
+            "mode": "Disabled",
+            "state": "NotEnabled",
+            "standbyAvailabilityZone": "aaaaaaaaaaaaaaaaaaaaa"
+          },
+          "maintenanceWindow": {
+            "customWindow": "aaaaaaaaaaaaaaaaaaaaaaaa",
+            "startHour": 23,
+            "startMinute": 5,
+            "dayOfWeek": 17
+          },
+          "sourceServerResourceId": "aaaaaaaaaaaaa",
+          "pointInTimeUTC": "2022-01-20T09:35:19.205Z",
+          "availabilityZone": "aa",
+          "createMode": "Default"
+        },
+        "systemData": {
+          "createdBy": "aaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdByType": "User",
+          "createdAt": "2022-01-20T09:35:19.205Z",
+          "lastModifiedBy": "aaaaaaaa",
+          "lastModifiedByType": "User",
+          "lastModifiedAt": "2022-01-20T09:35:19.205Z"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1590629751",
+    "RESOURCE_MANAGER_URL": "https://localhost:8443",
+    "SUBSCRIPTION_ID": "00000000-0000-0000-0000-000000000000"
+  }
+}

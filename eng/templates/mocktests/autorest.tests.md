@@ -8,3 +8,4 @@ require:
 clear-output-folder: true
 skip-csproj: true
 namespace: Azure.ResourceManager.Template
+```

@@ -1,3 +1,20 @@
+function Remove-EmptyTrack2Folder {
+    # Remove exist sdk from $RPMapping
+    $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
+    $sdkFolder  | ForEach-Object {
+        $curSdkFolder = @(Get-ChildItem $_) 
+        foreach ($existSdk in $curSdkFolder) {
+            if ($existSdk.Name -match "Azure.ResourceManager.") {
+                $curSdk = Get-ChildItem $existSdk.FullName
+                if ($curSdk.Length -le 3) {
+                    Remove-Item -Path $existSdk.FullName -Recurse -Force
+                    Write-Host "["$existSdk.FullName"] has been deleted"
+                }
+            }
+        }
+    }
+}
+
 function Update-Sln([string]$path, [string]$RPName) {
     $slnFile = $item.ToString() + "\" + $item.Name + ".sln"
     $content = Get-Content $slnFile
@@ -14,7 +31,7 @@ function Run-MockTests {
         [string]
         $ResultOutFolder
     )
-
+    Remove-EmptyTrack2Folder
     $sdkFolder = Get-ChildItem $PSScriptRoot\..\..\sdk
     $RPList = @()
     $FailedList = @()
@@ -65,7 +82,7 @@ function Run-MockTests {
         # record each error cases
         foreach ($item in $response) {
             if ($item.Tostring().Contains("Failed!  - Failed:") -or ($item.Tostring().Contains("Passed!  - Failed:"))) {
-                $FinalStatics += @{ $RPName.Replace("Azure.ResourceManager.","") = $item.Substring(0, $item.IndexOf(", Duration")) }
+                $FinalStatics += @{ $RPName.Replace("Azure.ResourceManager.", "") = $item.Substring(0, $item.IndexOf(", Duration")) }
                 break
             }
             if ($item.Tostring().Contains("Error Message:")) {
@@ -87,6 +104,7 @@ function Run-MockTests {
     Write-Host -ForegroundColor Green "Error cases record to $ResultOutFolder"
     Write-Host -ForegroundColor Green "Statistics: "
     $FinalStatics
+    $FinalStatics | Out-File -FilePath "$ResultOutFolder\FinalStatics.txt"
     $RPList | Out-File -FilePath "$ResultOutFolder\RPList.txt"
     $FailedList | Out-File -FilePath "$ResultOutFolder\FailedList.txt"
 }

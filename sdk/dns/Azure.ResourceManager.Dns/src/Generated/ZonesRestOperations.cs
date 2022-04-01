@@ -50,7 +50,7 @@ namespace Azure.ResourceManager.Dns
             _pipeline = pipeline;
         }
 
-        internal HttpMessage CreateCreateOrUpdateRequest(string resourceGroupName, string zoneName, Zone parameters, string ifMatch, string ifNoneMatch)
+        internal HttpMessage CreateCreateOrUpdateRequest(string resourceGroupName, string zoneName, DnsZone parameters, string ifMatch, string ifNoneMatch)
         {
             var message = _pipeline.CreateMessage();
             var request = message.Request;
@@ -89,7 +89,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifNoneMatch"> Set to &apos;*&apos; to allow a new DNS zone to be created, but to prevent updating an existing zone. Other values will be ignored. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/>, <paramref name="zoneName"/>, or <paramref name="parameters"/> is null. </exception>
-        public async Task<Response<Zone>> CreateOrUpdateAsync(string resourceGroupName, string zoneName, Zone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
+        public async Task<Response<DnsZone>> CreateOrUpdateAsync(string resourceGroupName, string zoneName, DnsZone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -111,9 +111,9 @@ namespace Azure.ResourceManager.Dns
                 case 200:
                 case 201:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = await JsonDocument.ParseAsync(message.Response.ContentStream, default, cancellationToken).ConfigureAwait(false);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:
@@ -129,7 +129,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifNoneMatch"> Set to &apos;*&apos; to allow a new DNS zone to be created, but to prevent updating an existing zone. Other values will be ignored. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/>, <paramref name="zoneName"/>, or <paramref name="parameters"/> is null. </exception>
-        public Response<Zone> CreateOrUpdate(string resourceGroupName, string zoneName, Zone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
+        public Response<DnsZone> CreateOrUpdate(string resourceGroupName, string zoneName, DnsZone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -151,9 +151,9 @@ namespace Azure.ResourceManager.Dns
                 case 200:
                 case 201:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = JsonDocument.Parse(message.Response.ContentStream);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:
@@ -268,7 +268,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="zoneName"> The name of the DNS zone (without a terminating dot). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/> or <paramref name="zoneName"/> is null. </exception>
-        public async Task<Response<Zone>> GetAsync(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
+        public async Task<Response<DnsZone>> GetAsync(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -285,9 +285,9 @@ namespace Azure.ResourceManager.Dns
             {
                 case 200:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = await JsonDocument.ParseAsync(message.Response.ContentStream, default, cancellationToken).ConfigureAwait(false);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:
@@ -300,7 +300,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="zoneName"> The name of the DNS zone (without a terminating dot). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/> or <paramref name="zoneName"/> is null. </exception>
-        public Response<Zone> Get(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
+        public Response<DnsZone> Get(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -317,9 +317,9 @@ namespace Azure.ResourceManager.Dns
             {
                 case 200:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = JsonDocument.Parse(message.Response.ContentStream);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:
@@ -327,7 +327,7 @@ namespace Azure.ResourceManager.Dns
             }
         }
 
-        internal HttpMessage CreateUpdateRequest(string resourceGroupName, string zoneName, ZoneUpdate parameters, string ifMatch)
+        internal HttpMessage CreateUpdateRequest(string resourceGroupName, string zoneName, ZoneUpdateOptions parameters, string ifMatch)
         {
             var message = _pipeline.CreateMessage();
             var request = message.Request;
@@ -361,7 +361,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/>, <paramref name="zoneName"/>, or <paramref name="parameters"/> is null. </exception>
-        public async Task<Response<Zone>> UpdateAsync(string resourceGroupName, string zoneName, ZoneUpdate parameters, string ifMatch = null, CancellationToken cancellationToken = default)
+        public async Task<Response<DnsZone>> UpdateAsync(string resourceGroupName, string zoneName, ZoneUpdateOptions parameters, string ifMatch = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -382,9 +382,9 @@ namespace Azure.ResourceManager.Dns
             {
                 case 200:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = await JsonDocument.ParseAsync(message.Response.ContentStream, default, cancellationToken).ConfigureAwait(false);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:
@@ -399,7 +399,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/>, <paramref name="zoneName"/>, or <paramref name="parameters"/> is null. </exception>
-        public Response<Zone> Update(string resourceGroupName, string zoneName, ZoneUpdate parameters, string ifMatch = null, CancellationToken cancellationToken = default)
+        public Response<DnsZone> Update(string resourceGroupName, string zoneName, ZoneUpdateOptions parameters, string ifMatch = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
@@ -420,9 +420,9 @@ namespace Azure.ResourceManager.Dns
             {
                 case 200:
                     {
-                        Zone value = default;
+                        DnsZone value = default;
                         using var document = JsonDocument.Parse(message.Response.ContentStream);
-                        value = Zone.DeserializeZone(document.RootElement);
+                        value = DnsZone.DeserializeDnsZone(document.RootElement);
                         return Response.FromValue(value, message.Response);
                     }
                 default:

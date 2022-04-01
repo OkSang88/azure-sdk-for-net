@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="ifNoneMatch"> Set to &apos;*&apos; to allow a new DNS zone to be created, but to prevent updating an existing zone. Other values will be ignored. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response<Zone>> CreateOrUpdateAsync(string resourceGroupName, string zoneName, Zone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<DnsZone>> CreateOrUpdateAsync(string resourceGroupName, string zoneName, DnsZone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.CreateOrUpdate");
             scope.Start();
@@ -69,7 +69,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="ifNoneMatch"> Set to &apos;*&apos; to allow a new DNS zone to be created, but to prevent updating an existing zone. Other values will be ignored. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response<Zone> CreateOrUpdate(string resourceGroupName, string zoneName, Zone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
+        public virtual Response<DnsZone> CreateOrUpdate(string resourceGroupName, string zoneName, DnsZone parameters, string ifMatch = null, string ifNoneMatch = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.CreateOrUpdate");
             scope.Start();
@@ -88,7 +88,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="zoneName"> The name of the DNS zone (without a terminating dot). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response<Zone>> GetAsync(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<DnsZone>> GetAsync(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.Get");
             scope.Start();
@@ -107,7 +107,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="zoneName"> The name of the DNS zone (without a terminating dot). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response<Zone> Get(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
+        public virtual Response<DnsZone> Get(string resourceGroupName, string zoneName, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.Get");
             scope.Start();
@@ -128,7 +128,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="parameters"> Parameters supplied to the Update operation. </param>
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response<Zone>> UpdateAsync(string resourceGroupName, string zoneName, ZoneUpdate parameters, string ifMatch = null, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<DnsZone>> UpdateAsync(string resourceGroupName, string zoneName, ZoneUpdateOptions parameters, string ifMatch = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.Update");
             scope.Start();
@@ -149,7 +149,7 @@ namespace Azure.ResourceManager.Dns
         /// <param name="parameters"> Parameters supplied to the Update operation. </param>
         /// <param name="ifMatch"> The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response<Zone> Update(string resourceGroupName, string zoneName, ZoneUpdate parameters, string ifMatch = null, CancellationToken cancellationToken = default)
+        public virtual Response<DnsZone> Update(string resourceGroupName, string zoneName, ZoneUpdateOptions parameters, string ifMatch = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("ZonesOperations.Update");
             scope.Start();
@@ -169,14 +169,14 @@ namespace Azure.ResourceManager.Dns
         /// <param name="top"> The maximum number of record sets to return. If not specified, returns up to 100 record sets. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/> is null. </exception>
-        public virtual AsyncPageable<Zone> ListByResourceGroupAsync(string resourceGroupName, int? top = null, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<DnsZone> ListByResourceGroupAsync(string resourceGroupName, int? top = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
                 throw new ArgumentNullException(nameof(resourceGroupName));
             }
 
-            async Task<Page<Zone>> FirstPageFunc(int? pageSizeHint)
+            async Task<Page<DnsZone>> FirstPageFunc(int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.ListByResourceGroup");
                 scope.Start();
@@ -191,7 +191,7 @@ namespace Azure.ResourceManager.Dns
                     throw;
                 }
             }
-            async Task<Page<Zone>> NextPageFunc(string nextLink, int? pageSizeHint)
+            async Task<Page<DnsZone>> NextPageFunc(string nextLink, int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.ListByResourceGroup");
                 scope.Start();
@@ -214,14 +214,14 @@ namespace Azure.ResourceManager.Dns
         /// <param name="top"> The maximum number of record sets to return. If not specified, returns up to 100 record sets. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="resourceGroupName"/> is null. </exception>
-        public virtual Pageable<Zone> ListByResourceGroup(string resourceGroupName, int? top = null, CancellationToken cancellationToken = default)
+        public virtual Pageable<DnsZone> ListByResourceGroup(string resourceGroupName, int? top = null, CancellationToken cancellationToken = default)
         {
             if (resourceGroupName == null)
             {
                 throw new ArgumentNullException(nameof(resourceGroupName));
             }
 
-            Page<Zone> FirstPageFunc(int? pageSizeHint)
+            Page<DnsZone> FirstPageFunc(int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.ListByResourceGroup");
                 scope.Start();
@@ -236,7 +236,7 @@ namespace Azure.ResourceManager.Dns
                     throw;
                 }
             }
-            Page<Zone> NextPageFunc(string nextLink, int? pageSizeHint)
+            Page<DnsZone> NextPageFunc(string nextLink, int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.ListByResourceGroup");
                 scope.Start();
@@ -257,9 +257,9 @@ namespace Azure.ResourceManager.Dns
         /// <summary> Lists the DNS zones in all resource groups in a subscription. </summary>
         /// <param name="top"> The maximum number of DNS zones to return. If not specified, returns up to 100 zones. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual AsyncPageable<Zone> ListAsync(int? top = null, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<DnsZone> ListAsync(int? top = null, CancellationToken cancellationToken = default)
         {
-            async Task<Page<Zone>> FirstPageFunc(int? pageSizeHint)
+            async Task<Page<DnsZone>> FirstPageFunc(int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.List");
                 scope.Start();
@@ -274,7 +274,7 @@ namespace Azure.ResourceManager.Dns
                     throw;
                 }
             }
-            async Task<Page<Zone>> NextPageFunc(string nextLink, int? pageSizeHint)
+            async Task<Page<DnsZone>> NextPageFunc(string nextLink, int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.List");
                 scope.Start();
@@ -295,9 +295,9 @@ namespace Azure.ResourceManager.Dns
         /// <summary> Lists the DNS zones in all resource groups in a subscription. </summary>
         /// <param name="top"> The maximum number of DNS zones to return. If not specified, returns up to 100 zones. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Pageable<Zone> List(int? top = null, CancellationToken cancellationToken = default)
+        public virtual Pageable<DnsZone> List(int? top = null, CancellationToken cancellationToken = default)
         {
-            Page<Zone> FirstPageFunc(int? pageSizeHint)
+            Page<DnsZone> FirstPageFunc(int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.List");
                 scope.Start();
@@ -312,7 +312,7 @@ namespace Azure.ResourceManager.Dns
                     throw;
                 }
             }
-            Page<Zone> NextPageFunc(string nextLink, int? pageSizeHint)
+            Page<DnsZone> NextPageFunc(string nextLink, int? pageSizeHint)
             {
                 using var scope = _clientDiagnostics.CreateScope("ZonesOperations.List");
                 scope.Start();

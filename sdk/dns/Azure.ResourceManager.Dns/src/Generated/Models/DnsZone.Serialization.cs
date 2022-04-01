@@ -11,7 +11,7 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.Dns.Models
 {
-    public partial class Zone : IUtf8JsonSerializable
+    public partial class DnsZone : IUtf8JsonSerializable
     {
         void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
@@ -65,7 +65,7 @@ namespace Azure.ResourceManager.Dns.Models
             writer.WriteEndObject();
         }
 
-        internal static Zone DeserializeZone(JsonElement element)
+        internal static DnsZone DeserializeDnsZone(JsonElement element)
         {
             Optional<string> etag = default;
             Optional<string> id = default;
@@ -74,6 +74,7 @@ namespace Azure.ResourceManager.Dns.Models
             string location = default;
             Optional<IDictionary<string, string>> tags = default;
             Optional<long> maxNumberOfRecordSets = default;
+            Optional<long?> maxNumberOfRecordsPerRecordSet = default;
             Optional<long> numberOfRecordSets = default;
             Optional<IReadOnlyList<string>> nameServers = default;
             Optional<ZoneType> zoneType = default;
@@ -138,6 +139,16 @@ namespace Azure.ResourceManager.Dns.Models
                                 continue;
                             }
                             maxNumberOfRecordSets = property0.Value.GetInt64();
+                            continue;
+                        }
+                        if (property0.NameEquals("maxNumberOfRecordsPerRecordSet"))
+                        {
+                            if (property0.Value.ValueKind == JsonValueKind.Null)
+                            {
+                                maxNumberOfRecordsPerRecordSet = null;
+                                continue;
+                            }
+                            maxNumberOfRecordsPerRecordSet = property0.Value.GetInt64();
                             continue;
                         }
                         if (property0.NameEquals("numberOfRecordSets"))
@@ -209,7 +220,7 @@ namespace Azure.ResourceManager.Dns.Models
                     continue;
                 }
             }
-            return new Zone(id.Value, name.Value, type.Value, location, Optional.ToDictionary(tags), etag.Value, Optional.ToNullable(maxNumberOfRecordSets), Optional.ToNullable(numberOfRecordSets), Optional.ToList(nameServers), Optional.ToNullable(zoneType), Optional.ToList(registrationVirtualNetworks), Optional.ToList(resolutionVirtualNetworks));
+            return new DnsZone(id.Value, name.Value, type.Value, location, Optional.ToDictionary(tags), etag.Value, Optional.ToNullable(maxNumberOfRecordSets), Optional.ToNullable(maxNumberOfRecordsPerRecordSet), Optional.ToNullable(numberOfRecordSets), Optional.ToList(nameServers), Optional.ToNullable(zoneType), Optional.ToList(registrationVirtualNetworks), Optional.ToList(resolutionVirtualNetworks));
         }
     }
 }

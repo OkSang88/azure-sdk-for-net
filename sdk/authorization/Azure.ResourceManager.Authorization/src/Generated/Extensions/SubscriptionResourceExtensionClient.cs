@@ -19,12 +19,8 @@ namespace Azure.ResourceManager.Authorization
     /// <summary> A class to add extension methods to SubscriptionResource. </summary>
     internal partial class SubscriptionResourceExtensionClient : ArmResource
     {
-        private ClientDiagnostics _accessReviewScheduleDefinitionsClientDiagnostics;
-        private AccessReviewScheduleDefinitionsRestOperations _accessReviewScheduleDefinitionsRestClient;
-        private ClientDiagnostics _accessReviewInstanceClientDiagnostics;
-        private AccessReviewInstanceRestOperations _accessReviewInstanceRestClient;
-        private ClientDiagnostics _accessReviewInstanceContactedReviewersClientDiagnostics;
-        private AccessReviewInstanceContactedReviewersRestOperations _accessReviewInstanceContactedReviewersRestClient;
+        private ClientDiagnostics _classicAdministratorsClientDiagnostics;
+        private ClassicAdministratorsRestOperations _classicAdministratorsRestClient;
 
         /// <summary> Initializes a new instance of the <see cref="SubscriptionResourceExtensionClient"/> class for mocking. </summary>
         protected SubscriptionResourceExtensionClient()
@@ -38,282 +34,31 @@ namespace Azure.ResourceManager.Authorization
         {
         }
 
-        private ClientDiagnostics AccessReviewScheduleDefinitionsClientDiagnostics => _accessReviewScheduleDefinitionsClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
-        private AccessReviewScheduleDefinitionsRestOperations AccessReviewScheduleDefinitionsRestClient => _accessReviewScheduleDefinitionsRestClient ??= new AccessReviewScheduleDefinitionsRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
-        private ClientDiagnostics AccessReviewInstanceClientDiagnostics => _accessReviewInstanceClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
-        private AccessReviewInstanceRestOperations AccessReviewInstanceRestClient => _accessReviewInstanceRestClient ??= new AccessReviewInstanceRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
-        private ClientDiagnostics AccessReviewInstanceContactedReviewersClientDiagnostics => _accessReviewInstanceContactedReviewersClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
-        private AccessReviewInstanceContactedReviewersRestOperations AccessReviewInstanceContactedReviewersRestClient => _accessReviewInstanceContactedReviewersRestClient ??= new AccessReviewInstanceContactedReviewersRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
+        private ClientDiagnostics ClassicAdministratorsClientDiagnostics => _classicAdministratorsClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
+        private ClassicAdministratorsRestOperations ClassicAdministratorsRestClient => _classicAdministratorsRestClient ??= new ClassicAdministratorsRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
 
-        private string GetApiVersionOrNull(ResourceType resourceType)
+        private string GetApiVersionOrNull(Core.ResourceType resourceType)
         {
             TryGetApiVersion(resourceType, out string apiVersion);
             return apiVersion;
         }
 
-        /// <summary> Gets an object representing a AccessReviewDefaultSettingsResource along with the instance operations that can be performed on it in the SubscriptionResource. </summary>
-        /// <returns> Returns a <see cref="AccessReviewDefaultSettingsResource" /> object. </returns>
-        public virtual AccessReviewDefaultSettingsResource GetAccessReviewDefaultSettings()
-        {
-            return new AccessReviewDefaultSettingsResource(Client, new ResourceIdentifier(Id.ToString() + "/providers/Microsoft.Authorization/accessReviewScheduleSettings/default"));
-        }
-
         /// <summary>
-        /// Stop access review definition
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/stop
-        /// Operation Id: AccessReviewScheduleDefinitions_Stop
+        /// Gets service administrator, account administrator, and co-administrators for the subscription.
+        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/classicAdministrators
+        /// Operation Id: ClassicAdministrators_List
         /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> StopAccessReviewScheduleDefinitionAsync(string scheduleDefinitionId, CancellationToken cancellationToken = default)
+        /// <returns> An async collection of <see cref="ClassicAdministrator" /> that may take multiple service requests to iterate over. </returns>
+        public virtual AsyncPageable<ClassicAdministrator> GetClassicAdministratorsAsync(CancellationToken cancellationToken = default)
         {
-            using var scope = AccessReviewScheduleDefinitionsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.StopAccessReviewScheduleDefinition");
-            scope.Start();
-            try
+            async Task<Page<ClassicAdministrator>> FirstPageFunc(int? pageSizeHint)
             {
-                var response = await AccessReviewScheduleDefinitionsRestClient.StopAsync(Id.SubscriptionId, scheduleDefinitionId, cancellationToken).ConfigureAwait(false);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Stop access review definition
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/stop
-        /// Operation Id: AccessReviewScheduleDefinitions_Stop
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response StopAccessReviewScheduleDefinition(string scheduleDefinitionId, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewScheduleDefinitionsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.StopAccessReviewScheduleDefinition");
-            scope.Start();
-            try
-            {
-                var response = AccessReviewScheduleDefinitionsRestClient.Stop(Id.SubscriptionId, scheduleDefinitionId, cancellationToken);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to stop an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/stop
-        /// Operation Id: AccessReviewInstance_Stop
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> StopAccessReviewInstanceAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.StopAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = await AccessReviewInstanceRestClient.StopAsync(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to stop an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/stop
-        /// Operation Id: AccessReviewInstance_Stop
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response StopAccessReviewInstance(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.StopAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = AccessReviewInstanceRestClient.Stop(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to reset all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/resetDecisions
-        /// Operation Id: AccessReviewInstance_ResetDecisions
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> ResetDecisionsAccessReviewInstanceAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.ResetDecisionsAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = await AccessReviewInstanceRestClient.ResetDecisionsAsync(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to reset all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/resetDecisions
-        /// Operation Id: AccessReviewInstance_ResetDecisions
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response ResetDecisionsAccessReviewInstance(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.ResetDecisionsAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = AccessReviewInstanceRestClient.ResetDecisions(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to apply all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/applyDecisions
-        /// Operation Id: AccessReviewInstance_ApplyDecisions
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> ApplyDecisionsAccessReviewInstanceAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.ApplyDecisionsAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = await AccessReviewInstanceRestClient.ApplyDecisionsAsync(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to apply all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/applyDecisions
-        /// Operation Id: AccessReviewInstance_ApplyDecisions
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response ApplyDecisionsAccessReviewInstance(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.ApplyDecisionsAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = AccessReviewInstanceRestClient.ApplyDecisions(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to send reminders for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/sendReminders
-        /// Operation Id: AccessReviewInstance_SendReminders
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> SendRemindersAccessReviewInstanceAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.SendRemindersAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = await AccessReviewInstanceRestClient.SendRemindersAsync(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// An action to send reminders for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/sendReminders
-        /// Operation Id: AccessReviewInstance_SendReminders
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response SendRemindersAccessReviewInstance(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.SendRemindersAccessReviewInstance");
-            scope.Start();
-            try
-            {
-                var response = AccessReviewInstanceRestClient.SendReminders(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken);
-                return response;
-            }
-            catch (Exception e)
-            {
-                scope.Failed(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: AccessReviewInstanceContactedReviewers_List
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <returns> An async collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public virtual AsyncPageable<AccessReviewContactedReviewer> GetAccessReviewInstanceContactedReviewersAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            async Task<Page<AccessReviewContactedReviewer>> FirstPageFunc(int? pageSizeHint)
-            {
-                using var scope = AccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetAccessReviewInstanceContactedReviewers");
+                using var scope = ClassicAdministratorsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetClassicAdministrators");
                 scope.Start();
                 try
                 {
-                    var response = await AccessReviewInstanceContactedReviewersRestClient.ListAsync(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken: cancellationToken).ConfigureAwait(false);
+                    var response = await ClassicAdministratorsRestClient.ListAsync(Id.SubscriptionId, cancellationToken: cancellationToken).ConfigureAwait(false);
                     return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
                 }
                 catch (Exception e)
@@ -322,13 +67,13 @@ namespace Azure.ResourceManager.Authorization
                     throw;
                 }
             }
-            async Task<Page<AccessReviewContactedReviewer>> NextPageFunc(string nextLink, int? pageSizeHint)
+            async Task<Page<ClassicAdministrator>> NextPageFunc(string nextLink, int? pageSizeHint)
             {
-                using var scope = AccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetAccessReviewInstanceContactedReviewers");
+                using var scope = ClassicAdministratorsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetClassicAdministrators");
                 scope.Start();
                 try
                 {
-                    var response = await AccessReviewInstanceContactedReviewersRestClient.ListNextPageAsync(nextLink, Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken: cancellationToken).ConfigureAwait(false);
+                    var response = await ClassicAdministratorsRestClient.ListNextPageAsync(nextLink, Id.SubscriptionId, cancellationToken: cancellationToken).ConfigureAwait(false);
                     return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
                 }
                 catch (Exception e)
@@ -341,23 +86,21 @@ namespace Azure.ResourceManager.Authorization
         }
 
         /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: AccessReviewInstanceContactedReviewers_List
+        /// Gets service administrator, account administrator, and co-administrators for the subscription.
+        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/classicAdministrators
+        /// Operation Id: ClassicAdministrators_List
         /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <returns> A collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public virtual Pageable<AccessReviewContactedReviewer> GetAccessReviewInstanceContactedReviewers(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <returns> A collection of <see cref="ClassicAdministrator" /> that may take multiple service requests to iterate over. </returns>
+        public virtual Pageable<ClassicAdministrator> GetClassicAdministrators(CancellationToken cancellationToken = default)
         {
-            Page<AccessReviewContactedReviewer> FirstPageFunc(int? pageSizeHint)
+            Page<ClassicAdministrator> FirstPageFunc(int? pageSizeHint)
             {
-                using var scope = AccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetAccessReviewInstanceContactedReviewers");
+                using var scope = ClassicAdministratorsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetClassicAdministrators");
                 scope.Start();
                 try
                 {
-                    var response = AccessReviewInstanceContactedReviewersRestClient.List(Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken: cancellationToken);
+                    var response = ClassicAdministratorsRestClient.List(Id.SubscriptionId, cancellationToken: cancellationToken);
                     return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
                 }
                 catch (Exception e)
@@ -366,13 +109,13 @@ namespace Azure.ResourceManager.Authorization
                     throw;
                 }
             }
-            Page<AccessReviewContactedReviewer> NextPageFunc(string nextLink, int? pageSizeHint)
+            Page<ClassicAdministrator> NextPageFunc(string nextLink, int? pageSizeHint)
             {
-                using var scope = AccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetAccessReviewInstanceContactedReviewers");
+                using var scope = ClassicAdministratorsClientDiagnostics.CreateScope("SubscriptionResourceExtensionClient.GetClassicAdministrators");
                 scope.Start();
                 try
                 {
-                    var response = AccessReviewInstanceContactedReviewersRestClient.ListNextPage(nextLink, Id.SubscriptionId, scheduleDefinitionId, id, cancellationToken: cancellationToken);
+                    var response = ClassicAdministratorsRestClient.ListNextPage(nextLink, Id.SubscriptionId, cancellationToken: cancellationToken);
                     return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
                 }
                 catch (Exception e)

@@ -28,133 +28,146 @@ namespace Azure.ResourceManager.Authorization
             );
         }
 
-        /// <summary> Gets a collection of AccessReviewDecisionResources in the TenantResource. </summary>
+        /// <summary> Gets a collection of RoleDefinitionByIdResources in the TenantResource. </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        /// <returns> An object representing collection of AccessReviewDecisionResources and their operations over a AccessReviewDecisionResource. </returns>
-        public static AccessReviewDecisionCollection GetAccessReviewDecisions(this TenantResource tenantResource, string scheduleDefinitionId, string id)
+        /// <returns> An object representing collection of RoleDefinitionByIdResources and their operations over a RoleDefinitionByIdResource. </returns>
+        public static RoleDefinitionByIdCollection GetRoleDefinitionByIds(this TenantResource tenantResource)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return GetExtensionClient(tenantResource).GetAccessReviewDecisions(scheduleDefinitionId, id);
+            return GetExtensionClient(tenantResource).GetRoleDefinitionByIds();
         }
 
         /// <summary>
-        /// Get my single access review instance decision.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/decisions/{decisionId}
-        /// Operation Id: AccessReviewInstanceMyDecisions_GetById
+        /// Gets a role definition by ID.
+        /// Request Path: /{roleDefinitionId}
+        /// Operation Id: RoleDefinitions_GetById
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="decisionId"> The id of the decision record. </param>
+        /// <param name="roleDefinitionId"> The fully qualified role definition ID. Use the format, /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} for subscription level role definitions, or /providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} for tenant level role definitions. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/>, <paramref name="id"/> or <paramref name="decisionId"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/>, <paramref name="id"/> or <paramref name="decisionId"/> is null. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
         [ForwardsClientCalls]
-        public static async Task<Response<AccessReviewDecisionResource>> GetAccessReviewDecisionAsync(this TenantResource tenantResource, string scheduleDefinitionId, string id, string decisionId, CancellationToken cancellationToken = default)
+        public static async Task<Response<RoleDefinitionByIdResource>> GetRoleDefinitionByIdAsync(this TenantResource tenantResource, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            return await tenantResource.GetAccessReviewDecisions(scheduleDefinitionId, id).GetAsync(decisionId, cancellationToken).ConfigureAwait(false);
+            return await tenantResource.GetRoleDefinitionByIds().GetAsync(roleDefinitionId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Get my single access review instance decision.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/decisions/{decisionId}
-        /// Operation Id: AccessReviewInstanceMyDecisions_GetById
+        /// Gets a role definition by ID.
+        /// Request Path: /{roleDefinitionId}
+        /// Operation Id: RoleDefinitions_GetById
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="decisionId"> The id of the decision record. </param>
+        /// <param name="roleDefinitionId"> The fully qualified role definition ID. Use the format, /subscriptions/{guid}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} for subscription level role definitions, or /providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} for tenant level role definitions. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/>, <paramref name="id"/> or <paramref name="decisionId"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/>, <paramref name="id"/> or <paramref name="decisionId"/> is null. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
         [ForwardsClientCalls]
-        public static Response<AccessReviewDecisionResource> GetAccessReviewDecision(this TenantResource tenantResource, string scheduleDefinitionId, string id, string decisionId, CancellationToken cancellationToken = default)
+        public static Response<RoleDefinitionByIdResource> GetRoleDefinitionById(this TenantResource tenantResource, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            return tenantResource.GetAccessReviewDecisions(scheduleDefinitionId, id).Get(decisionId, cancellationToken);
+            return tenantResource.GetRoleDefinitionByIds().Get(roleDefinitionId, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of ProviderOperationsMetadataResources in the TenantResource. </summary>
+        /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of ProviderOperationsMetadataResources and their operations over a ProviderOperationsMetadataResource. </returns>
+        public static ProviderOperationsMetadataCollection GetAllProviderOperationsMetadata(this TenantResource tenantResource)
+        {
+            return GetExtensionClient(tenantResource).GetAllProviderOperationsMetadata();
         }
 
         /// <summary>
-        /// An action to accept recommendations for decision in an access review instance.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations
-        /// Operation Id: AccessReviewInstance_AcceptRecommendations
+        /// Gets provider operations metadata for the specified resource provider.
+        /// Request Path: /providers/Microsoft.Authorization/providerOperations/{resourceProviderNamespace}
+        /// Operation Id: ProviderOperationsMetadata_Get
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceProviderNamespace"> The namespace of the resource provider. </param>
+        /// <param name="expand"> Specifies whether to expand the values. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static async Task<Response> AcceptRecommendationsAccessReviewInstanceAsync(this TenantResource tenantResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="resourceProviderNamespace"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="resourceProviderNamespace"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<ProviderOperationsMetadataResource>> GetProviderOperationsMetadataAsync(this TenantResource tenantResource, string resourceProviderNamespace, string expand = null, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return await GetExtensionClient(tenantResource).AcceptRecommendationsAccessReviewInstanceAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+            return await tenantResource.GetAllProviderOperationsMetadata().GetAsync(resourceProviderNamespace, expand, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// An action to accept recommendations for decision in an access review instance.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations
-        /// Operation Id: AccessReviewInstance_AcceptRecommendations
+        /// Gets provider operations metadata for the specified resource provider.
+        /// Request Path: /providers/Microsoft.Authorization/providerOperations/{resourceProviderNamespace}
+        /// Operation Id: ProviderOperationsMetadata_Get
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceProviderNamespace"> The namespace of the resource provider. </param>
+        /// <param name="expand"> Specifies whether to expand the values. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static Response AcceptRecommendationsAccessReviewInstance(this TenantResource tenantResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="resourceProviderNamespace"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="resourceProviderNamespace"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<ProviderOperationsMetadataResource> GetProviderOperationsMetadata(this TenantResource tenantResource, string resourceProviderNamespace, string expand = null, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            return tenantResource.GetAllProviderOperationsMetadata().Get(resourceProviderNamespace, expand, cancellationToken);
+        }
 
-            return GetExtensionClient(tenantResource).AcceptRecommendationsAccessReviewInstance(scheduleDefinitionId, id, cancellationToken);
+        /// <summary> Gets a collection of RoleAssignmentByIdResources in the TenantResource. </summary>
+        /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleAssignmentByIdResources and their operations over a RoleAssignmentByIdResource. </returns>
+        public static RoleAssignmentByIdCollection GetRoleAssignmentByIds(this TenantResource tenantResource)
+        {
+            return GetExtensionClient(tenantResource).GetRoleAssignmentByIds();
         }
 
         /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: TenantLevelAccessReviewInstanceContactedReviewers_List
+        /// Gets a role assignment by ID.
+        /// Request Path: /{roleAssignmentId}
+        /// Operation Id: RoleAssignments_GetById
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="roleAssignmentId"> The fully qualified ID of the role assignment, including the scope, resource name and resource type. Use the format, /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}. Example: /subscriptions/{subId}/resourcegroups/{rgname}//providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        /// <returns> An async collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public static AsyncPageable<AccessReviewContactedReviewer> GetTenantLevelAccessReviewInstanceContactedReviewersAsync(this TenantResource tenantResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentId"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleAssignmentByIdResource>> GetRoleAssignmentByIdAsync(this TenantResource tenantResource, ResourceIdentifier roleAssignmentId, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return GetExtensionClient(tenantResource).GetTenantLevelAccessReviewInstanceContactedReviewersAsync(scheduleDefinitionId, id, cancellationToken);
+            return await tenantResource.GetRoleAssignmentByIds().GetAsync(roleAssignmentId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: TenantLevelAccessReviewInstanceContactedReviewers_List
+        /// Gets a role assignment by ID.
+        /// Request Path: /{roleAssignmentId}
+        /// Operation Id: RoleAssignments_GetById
         /// </summary>
         /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="roleAssignmentId"> The fully qualified ID of the role assignment, including the scope, resource name and resource type. Use the format, /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}. Example: /subscriptions/{subId}/resourcegroups/{rgname}//providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        /// <returns> A collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public static Pageable<AccessReviewContactedReviewer> GetTenantLevelAccessReviewInstanceContactedReviewers(this TenantResource tenantResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentId"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleAssignmentByIdResource> GetRoleAssignmentById(this TenantResource tenantResource, ResourceIdentifier roleAssignmentId, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            return tenantResource.GetRoleAssignmentByIds().Get(roleAssignmentId, cancellationToken);
+        }
 
-            return GetExtensionClient(tenantResource).GetTenantLevelAccessReviewInstanceContactedReviewers(scheduleDefinitionId, id, cancellationToken);
+        /// <summary>
+        /// Elevates access for a Global Administrator.
+        /// Request Path: /providers/Microsoft.Authorization/elevateAccess
+        /// Operation Id: GlobalAdministrator_ElevateAccess
+        /// </summary>
+        /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        public static async Task<Response> ElevateAccessGlobalAdministratorAsync(this TenantResource tenantResource, CancellationToken cancellationToken = default)
+        {
+            return await GetExtensionClient(tenantResource).ElevateAccessGlobalAdministratorAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Elevates access for a Global Administrator.
+        /// Request Path: /providers/Microsoft.Authorization/elevateAccess
+        /// Operation Id: GlobalAdministrator_ElevateAccess
+        /// </summary>
+        /// <param name="tenantResource"> The <see cref="TenantResource" /> instance the method will execute against. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        public static Response ElevateAccessGlobalAdministrator(this TenantResource tenantResource, CancellationToken cancellationToken = default)
+        {
+            return GetExtensionClient(tenantResource).ElevateAccessGlobalAdministrator(cancellationToken);
         }
 
         private static SubscriptionResourceExtensionClient GetExtensionClient(SubscriptionResource subscriptionResource)
@@ -166,273 +179,766 @@ namespace Azure.ResourceManager.Authorization
             );
         }
 
-        /// <summary> Gets an object representing a AccessReviewDefaultSettingsResource along with the instance operations that can be performed on it in the SubscriptionResource. </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <returns> Returns a <see cref="AccessReviewDefaultSettingsResource" /> object. </returns>
-        public static AccessReviewDefaultSettingsResource GetAccessReviewDefaultSettings(this SubscriptionResource subscriptionResource)
-        {
-            return GetExtensionClient(subscriptionResource).GetAccessReviewDefaultSettings();
-        }
-
         /// <summary>
-        /// Stop access review definition
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/stop
-        /// Operation Id: AccessReviewScheduleDefinitions_Stop
+        /// Gets service administrator, account administrator, and co-administrators for the subscription.
+        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/classicAdministrators
+        /// Operation Id: ClassicAdministrators_List
         /// </summary>
         /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> is null. </exception>
-        public static async Task<Response> StopAccessReviewScheduleDefinitionAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, CancellationToken cancellationToken = default)
+        /// <returns> An async collection of <see cref="ClassicAdministrator" /> that may take multiple service requests to iterate over. </returns>
+        public static AsyncPageable<ClassicAdministrator> GetClassicAdministratorsAsync(this SubscriptionResource subscriptionResource, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-
-            return await GetExtensionClient(subscriptionResource).StopAccessReviewScheduleDefinitionAsync(scheduleDefinitionId, cancellationToken).ConfigureAwait(false);
+            return GetExtensionClient(subscriptionResource).GetClassicAdministratorsAsync(cancellationToken);
         }
 
         /// <summary>
-        /// Stop access review definition
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/stop
-        /// Operation Id: AccessReviewScheduleDefinitions_Stop
+        /// Gets service administrator, account administrator, and co-administrators for the subscription.
+        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/classicAdministrators
+        /// Operation Id: ClassicAdministrators_List
         /// </summary>
         /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> is null. </exception>
-        public static Response StopAccessReviewScheduleDefinition(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, CancellationToken cancellationToken = default)
+        /// <returns> A collection of <see cref="ClassicAdministrator" /> that may take multiple service requests to iterate over. </returns>
+        public static Pageable<ClassicAdministrator> GetClassicAdministrators(this SubscriptionResource subscriptionResource, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
+            return GetExtensionClient(subscriptionResource).GetClassicAdministrators(cancellationToken);
+        }
 
-            return GetExtensionClient(subscriptionResource).StopAccessReviewScheduleDefinition(scheduleDefinitionId, cancellationToken);
+        private static ResourceGroupResourceExtensionClient GetExtensionClient(ResourceGroupResource resourceGroupResource)
+        {
+            return resourceGroupResource.GetCachedClient((client) =>
+            {
+                return new ResourceGroupResourceExtensionClient(client, resourceGroupResource.Id);
+            }
+            );
         }
 
         /// <summary>
-        /// An action to stop an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/stop
-        /// Operation Id: AccessReviewInstance_Stop
+        /// Gets all permissions the caller has for a resource group.
+        /// Request Path: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/permissions
+        /// Operation Id: Permissions_ListForResourceGroup
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceGroupResource"> The <see cref="ResourceGroupResource" /> instance the method will execute against. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static async Task<Response> StopAccessReviewInstanceAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <returns> An async collection of <see cref="Permission" /> that may take multiple service requests to iterate over. </returns>
+        public static AsyncPageable<Permission> GetForResourceGroupPermissionsAsync(this ResourceGroupResource resourceGroupResource, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return await GetExtensionClient(subscriptionResource).StopAccessReviewInstanceAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+            return GetExtensionClient(resourceGroupResource).GetForResourceGroupPermissionsAsync(cancellationToken);
         }
 
         /// <summary>
-        /// An action to stop an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/stop
-        /// Operation Id: AccessReviewInstance_Stop
+        /// Gets all permissions the caller has for a resource group.
+        /// Request Path: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/permissions
+        /// Operation Id: Permissions_ListForResourceGroup
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceGroupResource"> The <see cref="ResourceGroupResource" /> instance the method will execute against. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static Response StopAccessReviewInstance(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <returns> A collection of <see cref="Permission" /> that may take multiple service requests to iterate over. </returns>
+        public static Pageable<Permission> GetForResourceGroupPermissions(this ResourceGroupResource resourceGroupResource, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return GetExtensionClient(subscriptionResource).StopAccessReviewInstance(scheduleDefinitionId, id, cancellationToken);
+            return GetExtensionClient(resourceGroupResource).GetForResourceGroupPermissions(cancellationToken);
         }
 
         /// <summary>
-        /// An action to reset all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/resetDecisions
-        /// Operation Id: AccessReviewInstance_ResetDecisions
+        /// Gets all permissions the caller has for a resource.
+        /// Request Path: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/permissions
+        /// Operation Id: Permissions_ListForResource
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceGroupResource"> The <see cref="ResourceGroupResource" /> instance the method will execute against. </param>
+        /// <param name="resourceProviderNamespace"> The namespace of the resource provider. </param>
+        /// <param name="parentResourcePath"> The parent resource identity. </param>
+        /// <param name="resourceType"> The resource type of the resource. </param>
+        /// <param name="resourceName"> The name of the resource to get the permissions for. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static async Task<Response> ResetDecisionsAccessReviewInstanceAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="resourceProviderNamespace"/> or <paramref name="resourceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="resourceProviderNamespace"/>, <paramref name="parentResourcePath"/>, <paramref name="resourceType"/> or <paramref name="resourceName"/> is null. </exception>
+        /// <returns> An async collection of <see cref="Permission" /> that may take multiple service requests to iterate over. </returns>
+        public static AsyncPageable<Permission> GetForResourcePermissionsAsync(this ResourceGroupResource resourceGroupResource, string resourceProviderNamespace, string parentResourcePath, string resourceType, string resourceName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            Argument.AssertNotNullOrEmpty(resourceProviderNamespace, nameof(resourceProviderNamespace));
+            Argument.AssertNotNull(parentResourcePath, nameof(parentResourcePath));
+            Argument.AssertNotNull(resourceType, nameof(resourceType));
+            Argument.AssertNotNullOrEmpty(resourceName, nameof(resourceName));
 
-            return await GetExtensionClient(subscriptionResource).ResetDecisionsAccessReviewInstanceAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+            return GetExtensionClient(resourceGroupResource).GetForResourcePermissionsAsync(resourceProviderNamespace, parentResourcePath, resourceType, resourceName, cancellationToken);
         }
 
         /// <summary>
-        /// An action to reset all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/resetDecisions
-        /// Operation Id: AccessReviewInstance_ResetDecisions
+        /// Gets all permissions the caller has for a resource.
+        /// Request Path: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/permissions
+        /// Operation Id: Permissions_ListForResource
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="resourceGroupResource"> The <see cref="ResourceGroupResource" /> instance the method will execute against. </param>
+        /// <param name="resourceProviderNamespace"> The namespace of the resource provider. </param>
+        /// <param name="parentResourcePath"> The parent resource identity. </param>
+        /// <param name="resourceType"> The resource type of the resource. </param>
+        /// <param name="resourceName"> The name of the resource to get the permissions for. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static Response ResetDecisionsAccessReviewInstance(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="resourceProviderNamespace"/> or <paramref name="resourceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="resourceProviderNamespace"/>, <paramref name="parentResourcePath"/>, <paramref name="resourceType"/> or <paramref name="resourceName"/> is null. </exception>
+        /// <returns> A collection of <see cref="Permission" /> that may take multiple service requests to iterate over. </returns>
+        public static Pageable<Permission> GetForResourcePermissions(this ResourceGroupResource resourceGroupResource, string resourceProviderNamespace, string parentResourcePath, string resourceType, string resourceName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            Argument.AssertNotNullOrEmpty(resourceProviderNamespace, nameof(resourceProviderNamespace));
+            Argument.AssertNotNull(parentResourcePath, nameof(parentResourcePath));
+            Argument.AssertNotNull(resourceType, nameof(resourceType));
+            Argument.AssertNotNullOrEmpty(resourceName, nameof(resourceName));
 
-            return GetExtensionClient(subscriptionResource).ResetDecisionsAccessReviewInstance(scheduleDefinitionId, id, cancellationToken);
+            return GetExtensionClient(resourceGroupResource).GetForResourcePermissions(resourceProviderNamespace, parentResourcePath, resourceType, resourceName, cancellationToken);
+        }
+
+        private static ArmResourceExtensionClient GetExtensionClient(ArmResource armResource)
+        {
+            return armResource.GetCachedClient((client) =>
+            {
+                return new ArmResourceExtensionClient(client, armResource.Id);
+            }
+            );
+        }
+
+        /// <summary> Gets a collection of RoleDefinitionResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleDefinitionResources and their operations over a RoleDefinitionResource. </returns>
+        public static RoleDefinitionCollection GetRoleDefinitions(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleDefinitions();
         }
 
         /// <summary>
-        /// An action to apply all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/applyDecisions
-        /// Operation Id: AccessReviewInstance_ApplyDecisions
+        /// Get role definition by name (GUID).
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}
+        /// Operation Id: RoleDefinitions_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleDefinitionId"> The ID of the role definition. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static async Task<Response> ApplyDecisionsAccessReviewInstanceAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleDefinitionId"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleDefinitionResource>> GetRoleDefinitionAsync(this ArmResource armResource, string roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return await GetExtensionClient(subscriptionResource).ApplyDecisionsAccessReviewInstanceAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+            return await armResource.GetRoleDefinitions().GetAsync(roleDefinitionId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// An action to apply all decisions for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/applyDecisions
-        /// Operation Id: AccessReviewInstance_ApplyDecisions
+        /// Get role definition by name (GUID).
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}
+        /// Operation Id: RoleDefinitions_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleDefinitionId"> The ID of the role definition. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static Response ApplyDecisionsAccessReviewInstance(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleDefinitionId"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleDefinitionResource> GetRoleDefinition(this ArmResource armResource, string roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            return armResource.GetRoleDefinitions().Get(roleDefinitionId, cancellationToken);
+        }
 
-            return GetExtensionClient(subscriptionResource).ApplyDecisionsAccessReviewInstance(scheduleDefinitionId, id, cancellationToken);
+        /// <summary> Gets a collection of RoleAssignmentResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleAssignmentResources and their operations over a RoleAssignmentResource. </returns>
+        public static RoleAssignmentCollection GetRoleAssignments(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleAssignments();
         }
 
         /// <summary>
-        /// An action to send reminders for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/sendReminders
-        /// Operation Id: AccessReviewInstance_SendReminders
+        /// Get the specified role assignment.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}
+        /// Operation Id: RoleAssignments_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentName"> The name of the role assignment to get. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static async Task<Response> SendRemindersAccessReviewInstanceAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleAssignmentResource>> GetRoleAssignmentAsync(this ArmResource armResource, string roleAssignmentName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return await GetExtensionClient(subscriptionResource).SendRemindersAccessReviewInstanceAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+            return await armResource.GetRoleAssignments().GetAsync(roleAssignmentName, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// An action to send reminders for an access review instance.
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/sendReminders
-        /// Operation Id: AccessReviewInstance_SendReminders
+        /// Get the specified role assignment.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}
+        /// Operation Id: RoleAssignments_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentName"> The name of the role assignment to get. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        public static Response SendRemindersAccessReviewInstance(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleAssignmentResource> GetRoleAssignment(this ArmResource armResource, string roleAssignmentName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
+            return armResource.GetRoleAssignments().Get(roleAssignmentName, cancellationToken);
+        }
 
-            return GetExtensionClient(subscriptionResource).SendRemindersAccessReviewInstance(scheduleDefinitionId, id, cancellationToken);
+        /// <summary> Gets a collection of RoleAssignmentScheduleResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleAssignmentScheduleResources and their operations over a RoleAssignmentScheduleResource. </returns>
+        public static RoleAssignmentScheduleCollection GetRoleAssignmentSchedules(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleAssignmentSchedules();
         }
 
         /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: AccessReviewInstanceContactedReviewers_List
+        /// Get the specified role assignment schedule for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentSchedules/{roleAssignmentScheduleName}
+        /// Operation Id: RoleAssignmentSchedules_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleName"> The name (guid) of the role assignment schedule to get. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        /// <returns> An async collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public static AsyncPageable<AccessReviewContactedReviewer> GetAccessReviewInstanceContactedReviewersAsync(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleAssignmentScheduleResource>> GetRoleAssignmentScheduleAsync(this ArmResource armResource, string roleAssignmentScheduleName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return GetExtensionClient(subscriptionResource).GetAccessReviewInstanceContactedReviewersAsync(scheduleDefinitionId, id, cancellationToken);
+            return await armResource.GetRoleAssignmentSchedules().GetAsync(roleAssignmentScheduleName, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: AccessReviewInstanceContactedReviewers_List
+        /// Get the specified role assignment schedule for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentSchedules/{roleAssignmentScheduleName}
+        /// Operation Id: RoleAssignmentSchedules_Get
         /// </summary>
-        /// <param name="subscriptionResource"> The <see cref="SubscriptionResource" /> instance the method will execute against. </param>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleName"> The name (guid) of the role assignment schedule to get. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is an empty string, and was expected to be non-empty. </exception>
-        /// <exception cref="ArgumentNullException"> <paramref name="scheduleDefinitionId"/> or <paramref name="id"/> is null. </exception>
-        /// <returns> A collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public static Pageable<AccessReviewContactedReviewer> GetAccessReviewInstanceContactedReviewers(this SubscriptionResource subscriptionResource, string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleAssignmentScheduleResource> GetRoleAssignmentSchedule(this ArmResource armResource, string roleAssignmentScheduleName, CancellationToken cancellationToken = default)
         {
-            Argument.AssertNotNullOrEmpty(scheduleDefinitionId, nameof(scheduleDefinitionId));
-            Argument.AssertNotNullOrEmpty(id, nameof(id));
-
-            return GetExtensionClient(subscriptionResource).GetAccessReviewInstanceContactedReviewers(scheduleDefinitionId, id, cancellationToken);
+            return armResource.GetRoleAssignmentSchedules().Get(roleAssignmentScheduleName, cancellationToken);
         }
 
-        #region AccessReviewDefaultSettingsResource
+        /// <summary> Gets a collection of RoleAssignmentScheduleInstanceResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleAssignmentScheduleInstanceResources and their operations over a RoleAssignmentScheduleInstanceResource. </returns>
+        public static RoleAssignmentScheduleInstanceCollection GetRoleAssignmentScheduleInstances(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleAssignmentScheduleInstances();
+        }
+
         /// <summary>
-        /// Gets an object representing an <see cref="AccessReviewDefaultSettingsResource" /> along with the instance operations that can be performed on it but with no data.
-        /// You can use <see cref="AccessReviewDefaultSettingsResource.CreateResourceIdentifier" /> to create an <see cref="AccessReviewDefaultSettingsResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// Gets the specified role assignment schedule instance.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleInstances/{roleAssignmentScheduleInstanceName}
+        /// Operation Id: RoleAssignmentScheduleInstances_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleInstanceName"> The name (hash of schedule name + time) of the role assignment schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleInstanceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleInstanceName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleAssignmentScheduleInstanceResource>> GetRoleAssignmentScheduleInstanceAsync(this ArmResource armResource, string roleAssignmentScheduleInstanceName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleAssignmentScheduleInstances().GetAsync(roleAssignmentScheduleInstanceName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Gets the specified role assignment schedule instance.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleInstances/{roleAssignmentScheduleInstanceName}
+        /// Operation Id: RoleAssignmentScheduleInstances_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleInstanceName"> The name (hash of schedule name + time) of the role assignment schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleInstanceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleInstanceName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleAssignmentScheduleInstanceResource> GetRoleAssignmentScheduleInstance(this ArmResource armResource, string roleAssignmentScheduleInstanceName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleAssignmentScheduleInstances().Get(roleAssignmentScheduleInstanceName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleAssignmentScheduleRequestResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleAssignmentScheduleRequestResources and their operations over a RoleAssignmentScheduleRequestResource. </returns>
+        public static RoleAssignmentScheduleRequestCollection GetRoleAssignmentScheduleRequests(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleAssignmentScheduleRequests();
+        }
+
+        /// <summary>
+        /// Get the specified role assignment schedule request.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}
+        /// Operation Id: RoleAssignmentScheduleRequests_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleRequestName"> The name (guid) of the role assignment schedule request to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleRequestName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleRequestName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleAssignmentScheduleRequestResource>> GetRoleAssignmentScheduleRequestAsync(this ArmResource armResource, string roleAssignmentScheduleRequestName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleAssignmentScheduleRequests().GetAsync(roleAssignmentScheduleRequestName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the specified role assignment schedule request.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}
+        /// Operation Id: RoleAssignmentScheduleRequests_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleAssignmentScheduleRequestName"> The name (guid) of the role assignment schedule request to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleAssignmentScheduleRequestName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleAssignmentScheduleRequestName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleAssignmentScheduleRequestResource> GetRoleAssignmentScheduleRequest(this ArmResource armResource, string roleAssignmentScheduleRequestName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleAssignmentScheduleRequests().Get(roleAssignmentScheduleRequestName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleEligibilityScheduleResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleEligibilityScheduleResources and their operations over a RoleEligibilityScheduleResource. </returns>
+        public static RoleEligibilityScheduleCollection GetRoleEligibilitySchedules(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleEligibilitySchedules();
+        }
+
+        /// <summary>
+        /// Get the specified role eligibility schedule for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}
+        /// Operation Id: RoleEligibilitySchedules_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleName"> The name (guid) of the role eligibility schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleEligibilityScheduleResource>> GetRoleEligibilityScheduleAsync(this ArmResource armResource, string roleEligibilityScheduleName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleEligibilitySchedules().GetAsync(roleEligibilityScheduleName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the specified role eligibility schedule for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}
+        /// Operation Id: RoleEligibilitySchedules_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleName"> The name (guid) of the role eligibility schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleEligibilityScheduleResource> GetRoleEligibilitySchedule(this ArmResource armResource, string roleEligibilityScheduleName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleEligibilitySchedules().Get(roleEligibilityScheduleName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleEligibilityScheduleInstanceResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleEligibilityScheduleInstanceResources and their operations over a RoleEligibilityScheduleInstanceResource. </returns>
+        public static RoleEligibilityScheduleInstanceCollection GetRoleEligibilityScheduleInstances(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleEligibilityScheduleInstances();
+        }
+
+        /// <summary>
+        /// Gets the specified role eligibility schedule instance.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}
+        /// Operation Id: RoleEligibilityScheduleInstances_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleInstanceName"> The name (hash of schedule name + time) of the role eligibility schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleInstanceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleInstanceName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleEligibilityScheduleInstanceResource>> GetRoleEligibilityScheduleInstanceAsync(this ArmResource armResource, string roleEligibilityScheduleInstanceName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleEligibilityScheduleInstances().GetAsync(roleEligibilityScheduleInstanceName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Gets the specified role eligibility schedule instance.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}
+        /// Operation Id: RoleEligibilityScheduleInstances_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleInstanceName"> The name (hash of schedule name + time) of the role eligibility schedule to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleInstanceName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleInstanceName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleEligibilityScheduleInstanceResource> GetRoleEligibilityScheduleInstance(this ArmResource armResource, string roleEligibilityScheduleInstanceName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleEligibilityScheduleInstances().Get(roleEligibilityScheduleInstanceName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleEligibilityScheduleRequestResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleEligibilityScheduleRequestResources and their operations over a RoleEligibilityScheduleRequestResource. </returns>
+        public static RoleEligibilityScheduleRequestCollection GetRoleEligibilityScheduleRequests(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleEligibilityScheduleRequests();
+        }
+
+        /// <summary>
+        /// Get the specified role eligibility schedule request.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}
+        /// Operation Id: RoleEligibilityScheduleRequests_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleRequestName"> The name (guid) of the role eligibility schedule request to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleRequestName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleRequestName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleEligibilityScheduleRequestResource>> GetRoleEligibilityScheduleRequestAsync(this ArmResource armResource, string roleEligibilityScheduleRequestName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleEligibilityScheduleRequests().GetAsync(roleEligibilityScheduleRequestName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the specified role eligibility schedule request.
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}
+        /// Operation Id: RoleEligibilityScheduleRequests_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleEligibilityScheduleRequestName"> The name (guid) of the role eligibility schedule request to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleEligibilityScheduleRequestName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleEligibilityScheduleRequestName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleEligibilityScheduleRequestResource> GetRoleEligibilityScheduleRequest(this ArmResource armResource, string roleEligibilityScheduleRequestName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleEligibilityScheduleRequests().Get(roleEligibilityScheduleRequestName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleManagementPolicyResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleManagementPolicyResources and their operations over a RoleManagementPolicyResource. </returns>
+        public static RoleManagementPolicyCollection GetRoleManagementPolicies(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleManagementPolicies();
+        }
+
+        /// <summary>
+        /// Get the specified role management policy for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}
+        /// Operation Id: RoleManagementPolicies_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleManagementPolicyName"> The name (guid) of the role management policy to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleManagementPolicyName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleManagementPolicyName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleManagementPolicyResource>> GetRoleManagementPolicyAsync(this ArmResource armResource, string roleManagementPolicyName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleManagementPolicies().GetAsync(roleManagementPolicyName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the specified role management policy for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}
+        /// Operation Id: RoleManagementPolicies_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleManagementPolicyName"> The name (guid) of the role management policy to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleManagementPolicyName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleManagementPolicyName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleManagementPolicyResource> GetRoleManagementPolicy(this ArmResource armResource, string roleManagementPolicyName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleManagementPolicies().Get(roleManagementPolicyName, cancellationToken);
+        }
+
+        /// <summary> Gets a collection of RoleManagementPolicyAssignmentResources in the ArmResource. </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <returns> An object representing collection of RoleManagementPolicyAssignmentResources and their operations over a RoleManagementPolicyAssignmentResource. </returns>
+        public static RoleManagementPolicyAssignmentCollection GetRoleManagementPolicyAssignments(this ArmResource armResource)
+        {
+            return GetExtensionClient(armResource).GetRoleManagementPolicyAssignments();
+        }
+
+        /// <summary>
+        /// Get the specified role management policy assignment for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}
+        /// Operation Id: RoleManagementPolicyAssignments_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleManagementPolicyAssignmentName"> The name of format {guid_guid} the role management policy assignment to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleManagementPolicyAssignmentName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleManagementPolicyAssignmentName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static async Task<Response<RoleManagementPolicyAssignmentResource>> GetRoleManagementPolicyAssignmentAsync(this ArmResource armResource, string roleManagementPolicyAssignmentName, CancellationToken cancellationToken = default)
+        {
+            return await armResource.GetRoleManagementPolicyAssignments().GetAsync(roleManagementPolicyAssignmentName, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the specified role management policy assignment for a resource scope
+        /// Request Path: /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}
+        /// Operation Id: RoleManagementPolicyAssignments_Get
+        /// </summary>
+        /// <param name="armResource"> The <see cref="ArmResource" /> instance the method will execute against. </param>
+        /// <param name="roleManagementPolicyAssignmentName"> The name of format {guid_guid} the role management policy assignment to get. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentException"> <paramref name="roleManagementPolicyAssignmentName"/> is an empty string, and was expected to be non-empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="roleManagementPolicyAssignmentName"/> is null. </exception>
+        [ForwardsClientCalls]
+        public static Response<RoleManagementPolicyAssignmentResource> GetRoleManagementPolicyAssignment(this ArmResource armResource, string roleManagementPolicyAssignmentName, CancellationToken cancellationToken = default)
+        {
+            return armResource.GetRoleManagementPolicyAssignments().Get(roleManagementPolicyAssignmentName, cancellationToken);
+        }
+
+        #region RoleDefinitionResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleDefinitionResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleDefinitionResource.CreateResourceIdentifier" /> to create a <see cref="RoleDefinitionResource" /> <see cref="ResourceIdentifier" /> from its components.
         /// </summary>
         /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
         /// <param name="id"> The resource ID of the resource to get. </param>
-        /// <returns> Returns a <see cref="AccessReviewDefaultSettingsResource" /> object. </returns>
-        public static AccessReviewDefaultSettingsResource GetAccessReviewDefaultSettingsResource(this ArmClient client, ResourceIdentifier id)
+        /// <returns> Returns a <see cref="RoleDefinitionResource" /> object. </returns>
+        public static RoleDefinitionResource GetRoleDefinitionResource(this ArmClient client, ResourceIdentifier id)
         {
             return client.GetResourceClient(() =>
             {
-                AccessReviewDefaultSettingsResource.ValidateResourceId(id);
-                return new AccessReviewDefaultSettingsResource(client, id);
+                RoleDefinitionResource.ValidateResourceId(id);
+                return new RoleDefinitionResource(client, id);
             }
             );
         }
         #endregion
 
-        #region AccessReviewDecisionResource
+        #region RoleDefinitionByIdResource
         /// <summary>
-        /// Gets an object representing an <see cref="AccessReviewDecisionResource" /> along with the instance operations that can be performed on it but with no data.
-        /// You can use <see cref="AccessReviewDecisionResource.CreateResourceIdentifier" /> to create an <see cref="AccessReviewDecisionResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// Gets an object representing a <see cref="RoleDefinitionByIdResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleDefinitionByIdResource.CreateResourceIdentifier" /> to create a <see cref="RoleDefinitionByIdResource" /> <see cref="ResourceIdentifier" /> from its components.
         /// </summary>
         /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
         /// <param name="id"> The resource ID of the resource to get. </param>
-        /// <returns> Returns a <see cref="AccessReviewDecisionResource" /> object. </returns>
-        public static AccessReviewDecisionResource GetAccessReviewDecisionResource(this ArmClient client, ResourceIdentifier id)
+        /// <returns> Returns a <see cref="RoleDefinitionByIdResource" /> object. </returns>
+        public static RoleDefinitionByIdResource GetRoleDefinitionByIdResource(this ArmClient client, ResourceIdentifier id)
         {
             return client.GetResourceClient(() =>
             {
-                AccessReviewDecisionResource.ValidateResourceId(id);
-                return new AccessReviewDecisionResource(client, id);
+                RoleDefinitionByIdResource.ValidateResourceId(id);
+                return new RoleDefinitionByIdResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region ProviderOperationsMetadataResource
+        /// <summary>
+        /// Gets an object representing a <see cref="ProviderOperationsMetadataResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="ProviderOperationsMetadataResource.CreateResourceIdentifier" /> to create a <see cref="ProviderOperationsMetadataResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="ProviderOperationsMetadataResource" /> object. </returns>
+        public static ProviderOperationsMetadataResource GetProviderOperationsMetadataResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                ProviderOperationsMetadataResource.ValidateResourceId(id);
+                return new ProviderOperationsMetadataResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleAssignmentResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleAssignmentResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleAssignmentResource.CreateResourceIdentifier" /> to create a <see cref="RoleAssignmentResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleAssignmentResource" /> object. </returns>
+        public static RoleAssignmentResource GetRoleAssignmentResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleAssignmentResource.ValidateResourceId(id);
+                return new RoleAssignmentResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleAssignmentByIdResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleAssignmentByIdResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleAssignmentByIdResource.CreateResourceIdentifier" /> to create a <see cref="RoleAssignmentByIdResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleAssignmentByIdResource" /> object. </returns>
+        public static RoleAssignmentByIdResource GetRoleAssignmentByIdResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleAssignmentByIdResource.ValidateResourceId(id);
+                return new RoleAssignmentByIdResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleAssignmentScheduleResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleAssignmentScheduleResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleAssignmentScheduleResource.CreateResourceIdentifier" /> to create a <see cref="RoleAssignmentScheduleResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleAssignmentScheduleResource" /> object. </returns>
+        public static RoleAssignmentScheduleResource GetRoleAssignmentScheduleResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleAssignmentScheduleResource.ValidateResourceId(id);
+                return new RoleAssignmentScheduleResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleAssignmentScheduleInstanceResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleAssignmentScheduleInstanceResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleAssignmentScheduleInstanceResource.CreateResourceIdentifier" /> to create a <see cref="RoleAssignmentScheduleInstanceResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleAssignmentScheduleInstanceResource" /> object. </returns>
+        public static RoleAssignmentScheduleInstanceResource GetRoleAssignmentScheduleInstanceResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleAssignmentScheduleInstanceResource.ValidateResourceId(id);
+                return new RoleAssignmentScheduleInstanceResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleAssignmentScheduleRequestResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleAssignmentScheduleRequestResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleAssignmentScheduleRequestResource.CreateResourceIdentifier" /> to create a <see cref="RoleAssignmentScheduleRequestResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleAssignmentScheduleRequestResource" /> object. </returns>
+        public static RoleAssignmentScheduleRequestResource GetRoleAssignmentScheduleRequestResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleAssignmentScheduleRequestResource.ValidateResourceId(id);
+                return new RoleAssignmentScheduleRequestResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleEligibilityScheduleResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleEligibilityScheduleResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleEligibilityScheduleResource.CreateResourceIdentifier" /> to create a <see cref="RoleEligibilityScheduleResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleEligibilityScheduleResource" /> object. </returns>
+        public static RoleEligibilityScheduleResource GetRoleEligibilityScheduleResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleEligibilityScheduleResource.ValidateResourceId(id);
+                return new RoleEligibilityScheduleResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleEligibilityScheduleInstanceResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleEligibilityScheduleInstanceResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleEligibilityScheduleInstanceResource.CreateResourceIdentifier" /> to create a <see cref="RoleEligibilityScheduleInstanceResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleEligibilityScheduleInstanceResource" /> object. </returns>
+        public static RoleEligibilityScheduleInstanceResource GetRoleEligibilityScheduleInstanceResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleEligibilityScheduleInstanceResource.ValidateResourceId(id);
+                return new RoleEligibilityScheduleInstanceResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleEligibilityScheduleRequestResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleEligibilityScheduleRequestResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleEligibilityScheduleRequestResource.CreateResourceIdentifier" /> to create a <see cref="RoleEligibilityScheduleRequestResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleEligibilityScheduleRequestResource" /> object. </returns>
+        public static RoleEligibilityScheduleRequestResource GetRoleEligibilityScheduleRequestResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleEligibilityScheduleRequestResource.ValidateResourceId(id);
+                return new RoleEligibilityScheduleRequestResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleManagementPolicyResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleManagementPolicyResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleManagementPolicyResource.CreateResourceIdentifier" /> to create a <see cref="RoleManagementPolicyResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleManagementPolicyResource" /> object. </returns>
+        public static RoleManagementPolicyResource GetRoleManagementPolicyResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleManagementPolicyResource.ValidateResourceId(id);
+                return new RoleManagementPolicyResource(client, id);
+            }
+            );
+        }
+        #endregion
+
+        #region RoleManagementPolicyAssignmentResource
+        /// <summary>
+        /// Gets an object representing a <see cref="RoleManagementPolicyAssignmentResource" /> along with the instance operations that can be performed on it but with no data.
+        /// You can use <see cref="RoleManagementPolicyAssignmentResource.CreateResourceIdentifier" /> to create a <see cref="RoleManagementPolicyAssignmentResource" /> <see cref="ResourceIdentifier" /> from its components.
+        /// </summary>
+        /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
+        /// <param name="id"> The resource ID of the resource to get. </param>
+        /// <returns> Returns a <see cref="RoleManagementPolicyAssignmentResource" /> object. </returns>
+        public static RoleManagementPolicyAssignmentResource GetRoleManagementPolicyAssignmentResource(this ArmClient client, ResourceIdentifier id)
+        {
+            return client.GetResourceClient(() =>
+            {
+                RoleManagementPolicyAssignmentResource.ValidateResourceId(id);
+                return new RoleManagementPolicyAssignmentResource(client, id);
             }
             );
         }

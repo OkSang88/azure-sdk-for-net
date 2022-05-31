@@ -12,17 +12,14 @@ using Azure;
 using Azure.Core;
 using Azure.Core.Pipeline;
 using Azure.ResourceManager;
-using Azure.ResourceManager.Authorization.Models;
 
 namespace Azure.ResourceManager.Authorization
 {
     /// <summary> A class to add extension methods to TenantResource. </summary>
     internal partial class TenantResourceExtensionClient : ArmResource
     {
-        private ClientDiagnostics _accessReviewInstanceClientDiagnostics;
-        private AccessReviewInstanceRestOperations _accessReviewInstanceRestClient;
-        private ClientDiagnostics _tenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics;
-        private TenantLevelAccessReviewInstanceContactedReviewersRestOperations _tenantLevelAccessReviewInstanceContactedReviewersRestClient;
+        private ClientDiagnostics _globalAdministratorClientDiagnostics;
+        private GlobalAdministratorRestOperations _globalAdministratorRestClient;
 
         /// <summary> Initializes a new instance of the <see cref="TenantResourceExtensionClient"/> class for mocking. </summary>
         protected TenantResourceExtensionClient()
@@ -36,10 +33,8 @@ namespace Azure.ResourceManager.Authorization
         {
         }
 
-        private ClientDiagnostics AccessReviewInstanceClientDiagnostics => _accessReviewInstanceClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
-        private AccessReviewInstanceRestOperations AccessReviewInstanceRestClient => _accessReviewInstanceRestClient ??= new AccessReviewInstanceRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
-        private ClientDiagnostics TenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics => _tenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
-        private TenantLevelAccessReviewInstanceContactedReviewersRestOperations TenantLevelAccessReviewInstanceContactedReviewersRestClient => _tenantLevelAccessReviewInstanceContactedReviewersRestClient ??= new TenantLevelAccessReviewInstanceContactedReviewersRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
+        private ClientDiagnostics GlobalAdministratorClientDiagnostics => _globalAdministratorClientDiagnostics ??= new ClientDiagnostics("Azure.ResourceManager.Authorization", ProviderConstants.DefaultProviderNamespace, Diagnostics);
+        private GlobalAdministratorRestOperations GlobalAdministratorRestClient => _globalAdministratorRestClient ??= new GlobalAdministratorRestOperations(Pipeline, Diagnostics.ApplicationId, Endpoint);
 
         private string GetApiVersionOrNull(ResourceType resourceType)
         {
@@ -47,30 +42,40 @@ namespace Azure.ResourceManager.Authorization
             return apiVersion;
         }
 
-        /// <summary> Gets a collection of AccessReviewDecisionResources in the TenantResource. </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <returns> An object representing collection of AccessReviewDecisionResources and their operations over a AccessReviewDecisionResource. </returns>
-        public virtual AccessReviewDecisionCollection GetAccessReviewDecisions(string scheduleDefinitionId, string id)
+        /// <summary> Gets a collection of RoleDefinitionByIdResources in the TenantResource. </summary>
+        /// <returns> An object representing collection of RoleDefinitionByIdResources and their operations over a RoleDefinitionByIdResource. </returns>
+        public virtual RoleDefinitionByIdCollection GetRoleDefinitionByIds()
         {
-            return new AccessReviewDecisionCollection(Client, Id, scheduleDefinitionId, id);
+            return GetCachedClient(Client => new RoleDefinitionByIdCollection(Client, Id));
+        }
+
+        /// <summary> Gets a collection of ProviderOperationsMetadataResources in the TenantResource. </summary>
+        /// <returns> An object representing collection of ProviderOperationsMetadataResources and their operations over a ProviderOperationsMetadataResource. </returns>
+        public virtual ProviderOperationsMetadataCollection GetAllProviderOperationsMetadata()
+        {
+            return GetCachedClient(Client => new ProviderOperationsMetadataCollection(Client, Id));
+        }
+
+        /// <summary> Gets a collection of RoleAssignmentByIdResources in the TenantResource. </summary>
+        /// <returns> An object representing collection of RoleAssignmentByIdResources and their operations over a RoleAssignmentByIdResource. </returns>
+        public virtual RoleAssignmentByIdCollection GetRoleAssignmentByIds()
+        {
+            return GetCachedClient(Client => new RoleAssignmentByIdCollection(Client, Id));
         }
 
         /// <summary>
-        /// An action to accept recommendations for decision in an access review instance.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations
-        /// Operation Id: AccessReviewInstance_AcceptRecommendations
+        /// Elevates access for a Global Administrator.
+        /// Request Path: /providers/Microsoft.Authorization/elevateAccess
+        /// Operation Id: GlobalAdministrator_ElevateAccess
         /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual async Task<Response> AcceptRecommendationsAccessReviewInstanceAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ElevateAccessGlobalAdministratorAsync(CancellationToken cancellationToken = default)
         {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("TenantResourceExtensionClient.AcceptRecommendationsAccessReviewInstance");
+            using var scope = GlobalAdministratorClientDiagnostics.CreateScope("TenantResourceExtensionClient.ElevateAccessGlobalAdministrator");
             scope.Start();
             try
             {
-                var response = await AccessReviewInstanceRestClient.AcceptRecommendationsAsync(scheduleDefinitionId, id, cancellationToken).ConfigureAwait(false);
+                var response = await GlobalAdministratorRestClient.ElevateAccessAsync(cancellationToken).ConfigureAwait(false);
                 return response;
             }
             catch (Exception e)
@@ -81,20 +86,18 @@ namespace Azure.ResourceManager.Authorization
         }
 
         /// <summary>
-        /// An action to accept recommendations for decision in an access review instance.
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations
-        /// Operation Id: AccessReviewInstance_AcceptRecommendations
+        /// Elevates access for a Global Administrator.
+        /// Request Path: /providers/Microsoft.Authorization/elevateAccess
+        /// Operation Id: GlobalAdministrator_ElevateAccess
         /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public virtual Response AcceptRecommendationsAccessReviewInstance(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
+        public virtual Response ElevateAccessGlobalAdministrator(CancellationToken cancellationToken = default)
         {
-            using var scope = AccessReviewInstanceClientDiagnostics.CreateScope("TenantResourceExtensionClient.AcceptRecommendationsAccessReviewInstance");
+            using var scope = GlobalAdministratorClientDiagnostics.CreateScope("TenantResourceExtensionClient.ElevateAccessGlobalAdministrator");
             scope.Start();
             try
             {
-                var response = AccessReviewInstanceRestClient.AcceptRecommendations(scheduleDefinitionId, id, cancellationToken);
+                var response = GlobalAdministratorRestClient.ElevateAccess(cancellationToken);
                 return response;
             }
             catch (Exception e)
@@ -102,94 +105,6 @@ namespace Azure.ResourceManager.Authorization
                 scope.Failed(e);
                 throw;
             }
-        }
-
-        /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: TenantLevelAccessReviewInstanceContactedReviewers_List
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <returns> An async collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public virtual AsyncPageable<AccessReviewContactedReviewer> GetTenantLevelAccessReviewInstanceContactedReviewersAsync(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            async Task<Page<AccessReviewContactedReviewer>> FirstPageFunc(int? pageSizeHint)
-            {
-                using var scope = TenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("TenantResourceExtensionClient.GetTenantLevelAccessReviewInstanceContactedReviewers");
-                scope.Start();
-                try
-                {
-                    var response = await TenantLevelAccessReviewInstanceContactedReviewersRestClient.ListAsync(scheduleDefinitionId, id, cancellationToken: cancellationToken).ConfigureAwait(false);
-                    return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
-                }
-                catch (Exception e)
-                {
-                    scope.Failed(e);
-                    throw;
-                }
-            }
-            async Task<Page<AccessReviewContactedReviewer>> NextPageFunc(string nextLink, int? pageSizeHint)
-            {
-                using var scope = TenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("TenantResourceExtensionClient.GetTenantLevelAccessReviewInstanceContactedReviewers");
-                scope.Start();
-                try
-                {
-                    var response = await TenantLevelAccessReviewInstanceContactedReviewersRestClient.ListNextPageAsync(nextLink, scheduleDefinitionId, id, cancellationToken: cancellationToken).ConfigureAwait(false);
-                    return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
-                }
-                catch (Exception e)
-                {
-                    scope.Failed(e);
-                    throw;
-                }
-            }
-            return PageableHelpers.CreateAsyncEnumerable(FirstPageFunc, NextPageFunc);
-        }
-
-        /// <summary>
-        /// Get access review instance contacted reviewers
-        /// Request Path: /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/contactedReviewers
-        /// Operation Id: TenantLevelAccessReviewInstanceContactedReviewers_List
-        /// </summary>
-        /// <param name="scheduleDefinitionId"> The id of the access review schedule definition. </param>
-        /// <param name="id"> The id of the access review instance. </param>
-        /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <returns> A collection of <see cref="AccessReviewContactedReviewer" /> that may take multiple service requests to iterate over. </returns>
-        public virtual Pageable<AccessReviewContactedReviewer> GetTenantLevelAccessReviewInstanceContactedReviewers(string scheduleDefinitionId, string id, CancellationToken cancellationToken = default)
-        {
-            Page<AccessReviewContactedReviewer> FirstPageFunc(int? pageSizeHint)
-            {
-                using var scope = TenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("TenantResourceExtensionClient.GetTenantLevelAccessReviewInstanceContactedReviewers");
-                scope.Start();
-                try
-                {
-                    var response = TenantLevelAccessReviewInstanceContactedReviewersRestClient.List(scheduleDefinitionId, id, cancellationToken: cancellationToken);
-                    return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
-                }
-                catch (Exception e)
-                {
-                    scope.Failed(e);
-                    throw;
-                }
-            }
-            Page<AccessReviewContactedReviewer> NextPageFunc(string nextLink, int? pageSizeHint)
-            {
-                using var scope = TenantLevelAccessReviewInstanceContactedReviewersClientDiagnostics.CreateScope("TenantResourceExtensionClient.GetTenantLevelAccessReviewInstanceContactedReviewers");
-                scope.Start();
-                try
-                {
-                    var response = TenantLevelAccessReviewInstanceContactedReviewersRestClient.ListNextPage(nextLink, scheduleDefinitionId, id, cancellationToken: cancellationToken);
-                    return Page.FromValues(response.Value.Value, response.Value.NextLink, response.GetRawResponse());
-                }
-                catch (Exception e)
-                {
-                    scope.Failed(e);
-                    throw;
-                }
-            }
-            return PageableHelpers.CreateEnumerable(FirstPageFunc, NextPageFunc);
         }
     }
 }

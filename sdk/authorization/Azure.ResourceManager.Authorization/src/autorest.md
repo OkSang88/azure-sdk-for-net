@@ -6,14 +6,16 @@ Run `dotnet build /t:GenerateCode` to generate code.
 
 azure-arm: true
 csharp: true
+tag: package-2020-10-01
 library-name: Authorization
 namespace: Azure.ResourceManager.Identity.Authorization
-# require: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/a416080c85111fbe4e0a483a1b99f1126ca6e97c/specification/authorization/resource-manager/readme.md
-require: https://raw.githubusercontent.com/dvbb/azure-rest-api-specs/fe96f19d9de14cc9b2a151f550a1e2ebe37771df/specification/authorization/resource-manager/readme.md
+require: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/a416080c85111fbe4e0a483a1b99f1126ca6e97c/specification/authorization/resource-manager/readme.md
+# require: https://raw.githubusercontent.com/dvbb/azure-rest-api-specs/845bc0373c6e13683f62cd78435354d2116b5087/specification/authorization/resource-manager/readme.md
 output-folder: Generated/
 clear-output-folder: true
 skip-csproj: true
- 
+modelerfour:
+  lenient-model-deduplication: true
 
 rename-rules:
   CPU: Cpu
@@ -36,23 +38,27 @@ rename-rules:
   SSO: Sso
   URI: Uri
 
-# directive:
-#   - from: authorization-AccessReviewCalls.json
-#     where: $.definitions.AccessReviewHistoryDefinitionProperties.decisions.items
-#     transform: >
-#         $ = {
-#             "type": "string",
-#             "description": "Represents a reviewer's decision for a given review",
-#             "enum": [
-#               "Approve",
-#               "Deny",
-#               "NotReviewed",
-#               "DontKnow",
-#               "NotNotified"
-#             ],
-#             "x-ms-enum": {
-#               "name": "AccessReviewResult",
-#               "modelAsString": true
-#             }
-#           }
+list-exception: 
+- /{roleDefinitionId}
+- /{roleAssignmentId}
+
+directive:
+  - from: RoleAssignmentScheduleRequest.json
+    where: $.definitions.RoleAssignmentScheduleRequestProperties.properties.scheduleInfo.properties.expiration.properties.type
+    transform: $['x-ms-client-name'] = 'FooType' 
+  - from: RoleAssignmentScheduleRequest.json
+    where: $.definitions.RoleAssignmentScheduleRequestProperties.properties.scheduleInfo.properties.expiration.properties.duration
+    transform: $['x-ms-format'] = 'duration-constant'
+    
+  - from: RoleEligibilityScheduleRequest.json
+    where: $.definitions.RoleEligibilityScheduleRequestProperties.properties.scheduleInfo.properties.expiration.properties.type
+    transform: $['x-ms-client-name'] = 'RoleEligibilityExpirationType' 
+  - from: RoleEligibilityScheduleRequest.json
+    where: $.definitions.RoleEligibilityScheduleRequestProperties.properties.scheduleInfo.properties.expiration.properties.duration
+    transform: $['x-ms-format'] = 'duration-constant'
+
+  - from: common-types.json
+    where: $.definitions.RoleManagementPolicyExpirationRule.properties.maximumDuration
+    transform: $['x-ms-format'] = 'duration-constant'
+    
 ```

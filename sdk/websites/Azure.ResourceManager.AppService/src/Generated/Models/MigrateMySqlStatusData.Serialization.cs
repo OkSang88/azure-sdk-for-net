@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.AppService
             string name = default;
             ResourceType type = default;
             Optional<SystemData> systemData = default;
-            Optional<OperationStatus> migrationOperationStatus = default;
+            Optional<MigrationOperationStatus> migrationOperationStatus = default;
             Optional<string> operationId = default;
             Optional<bool> localMySqlEnabled = default;
             foreach (var property in element.EnumerateObject())
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.AppService
                                 property0.ThrowNonNullablePropertyIsNull();
                                 continue;
                             }
-                            migrationOperationStatus = property0.Value.GetString().ToOperationStatus();
+                            migrationOperationStatus = property0.Value.GetString().ToMigrationOperationStatus();
                             continue;
                         }
                         if (property0.NameEquals("operationId"))

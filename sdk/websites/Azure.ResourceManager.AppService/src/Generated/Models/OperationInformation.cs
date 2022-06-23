@@ -30,7 +30,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <param name="modifiedOn"> Time when operation has been updated. </param>
         /// <param name="expirationOn"> Time when operation will expire. </param>
         /// <param name="geoMasterOperationId"> Applicable only for stamp operation ids. </param>
-        internal OperationInformation(string id, string name, OperationStatus? status, IReadOnlyList<ResponseError> errors, DateTimeOffset? createdOn, DateTimeOffset? modifiedOn, DateTimeOffset? expirationOn, Guid? geoMasterOperationId)
+        internal OperationInformation(string id, string name, CommonOperationStatus? status, IReadOnlyList<ResponseError> errors, DateTimeOffset? createdOn, DateTimeOffset? modifiedOn, DateTimeOffset? expirationOn, Guid? geoMasterOperationId)
         {
             Id = id;
             Name = name;
@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <summary> Operation name. </summary>
         public string Name { get; }
         /// <summary> The current status of the operation. </summary>
-        public OperationStatus? Status { get; }
+        public CommonOperationStatus? Status { get; }
         /// <summary> Any errors associate with the operation. </summary>
         public IReadOnlyList<ResponseError> Errors { get; }
         /// <summary> Time when operation has started. </summary>

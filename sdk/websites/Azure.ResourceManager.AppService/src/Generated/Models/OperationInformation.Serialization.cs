@@ -19,7 +19,7 @@ namespace Azure.ResourceManager.AppService.Models
         {
             Optional<string> id = default;
             Optional<string> name = default;
-            Optional<OperationStatus> status = default;
+            Optional<CommonOperationStatus> status = default;
             Optional<IReadOnlyList<ResponseError>> errors = default;
             Optional<DateTimeOffset> createdTime = default;
             Optional<DateTimeOffset> modifiedTime = default;
@@ -44,7 +44,7 @@ namespace Azure.ResourceManager.AppService.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    status = property.Value.GetString().ToOperationStatus();
+                    status = property.Value.GetString().ToCommonOperationStatus();
                     continue;
                 }
                 if (property.NameEquals("errors"))

@@ -17,7 +17,6 @@ clear-output-folder: true
 skip-csproj: true
 modelerfour:
   flatten-payloads: false
-  lenient-model-deduplication: true
   naming:
     override:
       Site: WebSite
@@ -394,4 +393,18 @@ directive:
 #     where: $.definitions.SiteConfig.properties.apiManagementConfig
 #     transform: >
 #         $["x-nullable"] = true;
+
+# Remove [lenient-model-deduplication: true]
+  - from: CommonDefinitions.json
+    where: $.definitions.AppServiceEnvironment
+    transform: $["x-ms-client-name"] = "WebAppServiceEnvironment";
+  - from: WebApps.json
+    where: $.definitions.MigrateMySqlStatus.properties.properties.properties.migrationOperationStatus
+    transform: $["x-ms-enum"].name = "MigrationOperationStatus";
+  - from: CommonDefinitions.json
+    where: $.definitions.Operation.properties.status
+    transform: $["x-ms-enum"].name = "CommonOperationStatus";
+  - from: Diagnostics.json
+    where: $.definitions.DetectorDefinition
+    transform: $["x-ms-client-name"] = "DiagnosticDetectorDefinition";
 ```

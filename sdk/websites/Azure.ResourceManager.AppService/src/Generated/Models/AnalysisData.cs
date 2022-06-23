@@ -26,7 +26,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <param name="metrics"> Source Metrics. </param>
         /// <param name="data"> Additional Source Data. </param>
         /// <param name="detectorMetaData"> Detector Meta Data. </param>
-        internal AnalysisData(string source, DetectorDefinition detectorDefinition, IList<DiagnosticMetricSet> metrics, IList<IList<NameValuePair>> data, ResponseMetaData detectorMetaData)
+        internal AnalysisData(string source, DiagnosticDetectorDefinition detectorDefinition, IList<DiagnosticMetricSet> metrics, IList<IList<NameValuePair>> data, ResponseMetaData detectorMetaData)
         {
             Source = source;
             DetectorDefinition = detectorDefinition;
@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <summary> Name of the Detector. </summary>
         public string Source { get; set; }
         /// <summary> Detector Definition. </summary>
-        public DetectorDefinition DetectorDefinition { get; set; }
+        public DiagnosticDetectorDefinition DetectorDefinition { get; set; }
         /// <summary> Source Metrics. </summary>
         public IList<DiagnosticMetricSet> Metrics { get; }
         /// <summary> Additional Source Data. </summary>

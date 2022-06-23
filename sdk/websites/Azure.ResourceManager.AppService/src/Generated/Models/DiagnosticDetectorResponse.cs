@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <param name="data"> Additional Data that detector wants to send. </param>
         /// <param name="responseMetaData"> Meta Data. </param>
         /// <param name="kind"> Kind of resource. </param>
-        internal DiagnosticDetectorResponse(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, DateTimeOffset? startOn, DateTimeOffset? endOn, bool? issueDetected, DetectorDefinition detectorDefinition, IList<DiagnosticMetricSet> metrics, IList<DetectorAbnormalTimePeriod> abnormalTimePeriods, IList<IList<NameValuePair>> data, ResponseMetaData responseMetaData, string kind) : base(id, name, resourceType, systemData)
+        internal DiagnosticDetectorResponse(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, DateTimeOffset? startOn, DateTimeOffset? endOn, bool? issueDetected, DiagnosticDetectorDefinition detectorDefinition, IList<DiagnosticMetricSet> metrics, IList<DetectorAbnormalTimePeriod> abnormalTimePeriods, IList<IList<NameValuePair>> data, ResponseMetaData responseMetaData, string kind) : base(id, name, resourceType, systemData)
         {
             StartOn = startOn;
             EndOn = endOn;
@@ -57,7 +57,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <summary> Flag representing Issue was detected. </summary>
         public bool? IssueDetected { get; set; }
         /// <summary> Detector&apos;s definition. </summary>
-        public DetectorDefinition DetectorDefinition { get; set; }
+        public DiagnosticDetectorDefinition DetectorDefinition { get; set; }
         /// <summary> Metrics provided by the detector. </summary>
         public IList<DiagnosticMetricSet> Metrics { get; }
         /// <summary> List of Correlated events found by the detector. </summary>

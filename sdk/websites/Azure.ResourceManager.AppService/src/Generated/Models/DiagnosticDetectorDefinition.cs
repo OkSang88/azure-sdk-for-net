@@ -8,19 +8,19 @@
 namespace Azure.ResourceManager.AppService.Models
 {
     /// <summary> Class representing detector definition. </summary>
-    public partial class DetectorDefinition
+    public partial class DiagnosticDetectorDefinition
     {
-        /// <summary> Initializes a new instance of DetectorDefinition. </summary>
-        public DetectorDefinition()
+        /// <summary> Initializes a new instance of DiagnosticDetectorDefinition. </summary>
+        public DiagnosticDetectorDefinition()
         {
         }
 
-        /// <summary> Initializes a new instance of DetectorDefinition. </summary>
+        /// <summary> Initializes a new instance of DiagnosticDetectorDefinition. </summary>
         /// <param name="displayName"> Display name of the detector. </param>
         /// <param name="description"> Description of the detector. </param>
         /// <param name="rank"> Detector Rank. </param>
         /// <param name="isEnabled"> Flag representing whether detector is enabled or not. </param>
-        internal DetectorDefinition(string displayName, string description, double? rank, bool? isEnabled)
+        internal DiagnosticDetectorDefinition(string displayName, string description, double? rank, bool? isEnabled)
         {
             DisplayName = displayName;
             Description = description;

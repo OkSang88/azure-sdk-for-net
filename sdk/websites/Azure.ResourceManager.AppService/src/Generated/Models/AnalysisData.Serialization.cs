@@ -62,7 +62,7 @@ namespace Azure.ResourceManager.AppService.Models
         internal static AnalysisData DeserializeAnalysisData(JsonElement element)
         {
             Optional<string> source = default;
-            Optional<DetectorDefinition> detectorDefinition = default;
+            Optional<DiagnosticDetectorDefinition> detectorDefinition = default;
             Optional<IList<DiagnosticMetricSet>> metrics = default;
             Optional<IList<IList<NameValuePair>>> data = default;
             Optional<ResponseMetaData> detectorMetaData = default;
@@ -80,7 +80,7 @@ namespace Azure.ResourceManager.AppService.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    detectorDefinition = DetectorDefinition.DeserializeDetectorDefinition(property.Value);
+                    detectorDefinition = DiagnosticDetectorDefinition.DeserializeDiagnosticDetectorDefinition(property.Value);
                     continue;
                 }
                 if (property.NameEquals("metrics"))

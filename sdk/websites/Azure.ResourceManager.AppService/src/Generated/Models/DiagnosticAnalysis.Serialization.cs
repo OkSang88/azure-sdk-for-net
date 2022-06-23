@@ -80,7 +80,7 @@ namespace Azure.ResourceManager.AppService.Models
             Optional<DateTimeOffset> endTime = default;
             Optional<IList<AbnormalTimePeriod>> abnormalTimePeriods = default;
             Optional<IList<AnalysisData>> payload = default;
-            Optional<IList<DetectorDefinition>> nonCorrelatedDetectors = default;
+            Optional<IList<DiagnosticDetectorDefinition>> nonCorrelatedDetectors = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("kind"))
@@ -179,10 +179,10 @@ namespace Azure.ResourceManager.AppService.Models
                                 property0.ThrowNonNullablePropertyIsNull();
                                 continue;
                             }
-                            List<DetectorDefinition> array = new List<DetectorDefinition>();
+                            List<DiagnosticDetectorDefinition> array = new List<DiagnosticDetectorDefinition>();
                             foreach (var item in property0.Value.EnumerateArray())
                             {
-                                array.Add(DetectorDefinition.DeserializeDetectorDefinition(item));
+                                array.Add(DiagnosticDetectorDefinition.DeserializeDiagnosticDetectorDefinition(item));
                             }
                             nonCorrelatedDetectors = array;
                             continue;

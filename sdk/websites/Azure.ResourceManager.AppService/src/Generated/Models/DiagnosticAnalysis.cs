@@ -20,7 +20,7 @@ namespace Azure.ResourceManager.AppService.Models
         {
             AbnormalTimePeriods = new ChangeTrackingList<AbnormalTimePeriod>();
             Payload = new ChangeTrackingList<AnalysisData>();
-            NonCorrelatedDetectors = new ChangeTrackingList<DetectorDefinition>();
+            NonCorrelatedDetectors = new ChangeTrackingList<DiagnosticDetectorDefinition>();
         }
 
         /// <summary> Initializes a new instance of DiagnosticAnalysis. </summary>
@@ -34,7 +34,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <param name="payload"> Data by each detector. </param>
         /// <param name="nonCorrelatedDetectors"> Data by each detector for detectors that did not corelate. </param>
         /// <param name="kind"> Kind of resource. </param>
-        internal DiagnosticAnalysis(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, DateTimeOffset? startOn, DateTimeOffset? endOn, IList<AbnormalTimePeriod> abnormalTimePeriods, IList<AnalysisData> payload, IList<DetectorDefinition> nonCorrelatedDetectors, string kind) : base(id, name, resourceType, systemData)
+        internal DiagnosticAnalysis(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, DateTimeOffset? startOn, DateTimeOffset? endOn, IList<AbnormalTimePeriod> abnormalTimePeriods, IList<AnalysisData> payload, IList<DiagnosticDetectorDefinition> nonCorrelatedDetectors, string kind) : base(id, name, resourceType, systemData)
         {
             StartOn = startOn;
             EndOn = endOn;
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.AppService.Models
         /// <summary> Data by each detector. </summary>
         public IList<AnalysisData> Payload { get; }
         /// <summary> Data by each detector for detectors that did not corelate. </summary>
-        public IList<DetectorDefinition> NonCorrelatedDetectors { get; }
+        public IList<DiagnosticDetectorDefinition> NonCorrelatedDetectors { get; }
         /// <summary> Kind of resource. </summary>
         public string Kind { get; set; }
     }

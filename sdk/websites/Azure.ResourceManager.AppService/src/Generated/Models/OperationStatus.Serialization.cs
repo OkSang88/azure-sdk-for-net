@@ -5,30 +5,52 @@
 
 #nullable disable
 
-using System;
+using System.Text.Json;
+using Azure.Core;
 
 namespace Azure.ResourceManager.AppService.Models
 {
-    internal static partial class OperationStatusExtensions
+    public partial class OperationStatus : IUtf8JsonSerializable
     {
-        public static string ToSerialString(this OperationStatus value) => value switch
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
-            OperationStatus.InProgress => "InProgress",
-            OperationStatus.Failed => "Failed",
-            OperationStatus.Succeeded => "Succeeded",
-            OperationStatus.TimedOut => "TimedOut",
-            OperationStatus.Created => "Created",
-            _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown OperationStatus value.")
-        };
+            writer.WriteStartObject();
+            if (Optional.IsDefined(Message))
+            {
+                writer.WritePropertyName("message");
+                writer.WriteStringValue(Message);
+            }
+            if (Optional.IsDefined(StatusId))
+            {
+                writer.WritePropertyName("statusId");
+                writer.WriteStringValue(StatusId.Value.ToSerialString());
+            }
+            writer.WriteEndObject();
+        }
 
-        public static OperationStatus ToOperationStatus(this string value)
+        internal static OperationStatus DeserializeOperationStatus(JsonElement element)
         {
-            if (string.Equals(value, "InProgress", StringComparison.InvariantCultureIgnoreCase)) return OperationStatus.InProgress;
-            if (string.Equals(value, "Failed", StringComparison.InvariantCultureIgnoreCase)) return OperationStatus.Failed;
-            if (string.Equals(value, "Succeeded", StringComparison.InvariantCultureIgnoreCase)) return OperationStatus.Succeeded;
-            if (string.Equals(value, "TimedOut", StringComparison.InvariantCultureIgnoreCase)) return OperationStatus.TimedOut;
-            if (string.Equals(value, "Created", StringComparison.InvariantCultureIgnoreCase)) return OperationStatus.Created;
-            throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown OperationStatus value.");
+            Optional<string> message = default;
+            Optional<InsightStatus> statusId = default;
+            foreach (var property in element.EnumerateObject())
+            {
+                if (property.NameEquals("message"))
+                {
+                    message = property.Value.GetString();
+                    continue;
+                }
+                if (property.NameEquals("statusId"))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        property.ThrowNonNullablePropertyIsNull();
+                        continue;
+                    }
+                    statusId = property.Value.GetString().ToInsightStatus();
+                    continue;
+                }
+            }
+            return new OperationStatus(message.Value, Optional.ToNullable(statusId));
         }
     }
 }

@@ -10,7 +10,7 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.AppService.Models
 {
-    public partial class DetectorDefinition : IUtf8JsonSerializable
+    public partial class DiagnosticDetectorDefinition : IUtf8JsonSerializable
     {
         void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
@@ -18,7 +18,7 @@ namespace Azure.ResourceManager.AppService.Models
             writer.WriteEndObject();
         }
 
-        internal static DetectorDefinition DeserializeDetectorDefinition(JsonElement element)
+        internal static DiagnosticDetectorDefinition DeserializeDiagnosticDetectorDefinition(JsonElement element)
         {
             Optional<string> displayName = default;
             Optional<string> description = default;
@@ -57,7 +57,7 @@ namespace Azure.ResourceManager.AppService.Models
                     continue;
                 }
             }
-            return new DetectorDefinition(displayName.Value, description.Value, Optional.ToNullable(rank), Optional.ToNullable(isEnabled));
+            return new DiagnosticDetectorDefinition(displayName.Value, description.Value, Optional.ToNullable(rank), Optional.ToNullable(isEnabled));
         }
     }
 }

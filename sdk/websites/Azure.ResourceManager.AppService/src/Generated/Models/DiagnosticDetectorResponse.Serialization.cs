@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.AppService.Models
             Optional<DateTimeOffset> startTime = default;
             Optional<DateTimeOffset> endTime = default;
             Optional<bool> issueDetected = default;
-            Optional<DetectorDefinition> detectorDefinition = default;
+            Optional<DiagnosticDetectorDefinition> detectorDefinition = default;
             Optional<IList<DiagnosticMetricSet>> metrics = default;
             Optional<IList<DetectorAbnormalTimePeriod>> abnormalTimePeriods = default;
             Optional<IList<IList<NameValuePair>>> data = default;
@@ -182,7 +182,7 @@ namespace Azure.ResourceManager.AppService.Models
                                 property0.ThrowNonNullablePropertyIsNull();
                                 continue;
                             }
-                            detectorDefinition = DetectorDefinition.DeserializeDetectorDefinition(property0.Value);
+                            detectorDefinition = DiagnosticDetectorDefinition.DeserializeDiagnosticDetectorDefinition(property0.Value);
                             continue;
                         }
                         if (property0.NameEquals("metrics"))

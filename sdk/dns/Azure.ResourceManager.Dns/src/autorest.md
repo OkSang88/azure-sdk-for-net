@@ -73,6 +73,8 @@ rename-rules:
 override-operation-name:
   RecordSets_ListByDnsZone: GetRecordSets
   RecordSets_ListAllByDnsZone: GetAllRecordSets
+  DnsResourceReference_GetByTargetResources: GetDnsResourceReferencesByTargetResources
+  Zones_List: GetDnsZones
 
 request-path-to-resource-name:
   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/{recordType}/{relativeRecordSetName}|Microsoft.Network/dnsZones/A: ARecord
@@ -110,28 +112,20 @@ directive:
 
 # FooTime => FooTimeInSeconds
   - from: swagger-document
-    where: $.definitions.SoaRecord.properties.expireTime
-    transform: $["x-ms-client-name"] = "expireTimeInSeconds";
-  - from: swagger-document
-    where: $.definitions.SoaRecord.properties.retryTime
-    transform: $["x-ms-client-name"] = "retryTimeInSeconds";
-  - from: swagger-document
-    where: $.definitions.SoaRecord.properties.minimumTTL
-    transform: $["x-ms-client-name"] = "minimumTtlInSeconds";
-  - from: swagger-document
-    where: $.definitions.SoaRecord.properties.refreshTime
-    transform: $["x-ms-client-name"] = "refreshTimeInSeconds";
+    where: $.definitions
+    transform: >
+      $.SoaRecord.properties.expireTime["x-ms-client-name"] = "expireTimeInSeconds";
+      $.SoaRecord.properties.retryTime["x-ms-client-name"] = "retryTimeInSeconds";
+      $.SoaRecord.properties.minimumTTL["x-ms-client-name"] = "minimumTtlInSeconds";
+      $.SoaRecord.properties.refreshTime["x-ms-client-name"] = "refreshTimeInSeconds";
 
 # Add Prepend Name
   - from: swagger-document
-    where: $.definitions.Zone
-    transform: $["x-ms-client-name"] = "DnsZone";
-  - from: swagger-document
-    where: $.definitions.ZoneProperties.properties.zoneType
-    transform: $["x-ms-enum"].name = "DnsZoneType";
-  - from: swagger-document
-    where: $.definitions.ZoneListResult
-    transform: $["x-ms-client-name"] = "DnsZoneListResult";
+    where: $.definitions
+    transform: >
+      $.Zone["x-ms-client-name"] = "DnsZone";
+      $.ZoneProperties.properties.zoneType["x-ms-enum"].name = "DnsZoneType";
+      $.ZoneListResult["x-ms-client-name"] = "DnsZoneListResult";
 
 # Mx Ns => MX NS
   - from: swagger-document

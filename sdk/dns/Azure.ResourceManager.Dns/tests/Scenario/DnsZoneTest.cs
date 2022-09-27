@@ -16,35 +16,25 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
 {
     internal class DnsZoneTest : DnsServiceClientTestBase
     {
-        private ResourceIdentifier _resourceGroupIdentifier;
         private ResourceGroupResource _resourceGroup;
 
-        private DnsZoneCollection dnsZoneCollection => dnsZoneCollection;
+        private DnsZoneCollection _dnsZoneCollection;
 
         public DnsZoneTest(bool isAsync) : base(isAsync)
         {
         }
 
-        [OneTimeSetUp]
-        public async Task GlobalSetUp()
-        {
-            string rgName = SessionRecording.GenerateAssetName("Dns-RG-");
-            var rgLro = await GlobalClient.GetDefaultSubscriptionAsync().Result.GetResourceGroups().CreateOrUpdateAsync(WaitUntil.Completed, rgName, new ResourceGroupData(AzureLocation.WestUS2));
-            _resourceGroupIdentifier = rgLro.Value.Data.Id;
-
-            await StopSessionRecordingAsync();
-        }
-
         [SetUp]
         public async Task TestSetUp()
         {
-            _resourceGroup = await Client.GetResourceGroupResource(_resourceGroupIdentifier).GetAsync();
+            _resourceGroup = await CreateResourceGroup();
+            _dnsZoneCollection = _resourceGroup.GetDnsZones();
         }
 
         [TearDown]
         public async Task TearDown()
         {
-            var list = await dnsZoneCollection.GetAllAsync().ToEnumerableAsync();
+            var list = await _dnsZoneCollection.GetAllAsync().ToEnumerableAsync();
             foreach (var item in list)
             {
                 await item.DeleteAsync(WaitUntil.Completed);
@@ -69,11 +59,11 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
         {
             string dnsZoneName = $"{SessionRecording.GenerateAssetName("sample")}.com";
             var dnsZone = await CreateADnsZone(dnsZoneName, _resourceGroup);
-            bool flag = await dnsZoneCollection.ExistsAsync(dnsZoneName);
+            bool flag = await _dnsZoneCollection.ExistsAsync(dnsZoneName);
             Assert.IsTrue(flag);
 
             await dnsZone.DeleteAsync(WaitUntil.Completed);
-            flag = await dnsZoneCollection.ExistsAsync(dnsZoneName);
+            flag = await _dnsZoneCollection.ExistsAsync(dnsZoneName);
             Assert.IsFalse(flag);
         }
 
@@ -84,7 +74,7 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
         {
             string dnsZoneName = $"{SessionRecording.GenerateAssetName("sample")}.com";
             await CreateADnsZone(dnsZoneName, _resourceGroup);
-            bool flag = await dnsZoneCollection.ExistsAsync(dnsZoneName);
+            bool flag = await _dnsZoneCollection.ExistsAsync(dnsZoneName);
             Assert.IsTrue(flag);
         }
 
@@ -95,7 +85,7 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
         {
             string dnsZoneName = $"{SessionRecording.GenerateAssetName("sample")}.com";
             await CreateADnsZone(dnsZoneName, _resourceGroup);
-            var dnsZone = await dnsZoneCollection.GetAsync(dnsZoneName);
+            var dnsZone = await _dnsZoneCollection.GetAsync(dnsZoneName);
             Assert.IsNotNull(dnsZone);
             Assert.Equals(dnsZoneName, dnsZone.Value.Data.Name);
         }
@@ -107,7 +97,7 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
         {
             string dnsZoneName = $"{SessionRecording.GenerateAssetName("sample")}.com";
             await CreateADnsZone(dnsZoneName, _resourceGroup);
-            var list = await dnsZoneCollection.GetAllAsync().ToEnumerableAsync();
+            var list = await _dnsZoneCollection.GetAllAsync().ToEnumerableAsync();
             Assert.IsNotNull(list);
             Assert.AreEqual(1, list.Count);
             Assert.AreEqual(dnsZoneName, list.FirstOrDefault().Data.Name);

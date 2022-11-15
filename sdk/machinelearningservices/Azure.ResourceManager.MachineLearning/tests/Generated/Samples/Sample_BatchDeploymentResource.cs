@@ -130,10 +130,10 @@ namespace Azure.ResourceManager.MachineLearning
                     LoggingLevel = BatchLoggingLevel.Info,
                     MaxConcurrencyPerInstance = 1,
                     MiniBatchSize = 1,
-                    Model = new PartialAssetReferenceBase()
-                    {
-                        ReferenceType = ReferenceType.Id,
-                    },
+                    //Model = new PartialAssetReferenceBase()       // issue 1
+                    //{
+                    //    ReferenceType = ReferenceType.Id,
+                    //},
                     OutputAction = BatchOutputAction.SummaryOnly,
                     OutputFileName = "string",
                     Properties =

@@ -148,7 +148,7 @@ namespace Azure.ResourceManager.MachineLearning
             {
                 ComponentSpec = BinaryData.FromObjectAsJson(new
                 {
-                    8ced901b - d826 - 477d - bfef - 329da9672513 = null
+                    x315x = "null"
                 }),
                 IsAnonymous = false,
                 Description = "string",

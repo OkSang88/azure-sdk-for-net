@@ -142,7 +142,7 @@ namespace Azure.ResourceManager.MachineLearning
                 },
                 Kind = "string",
                 Location = new AzureLocation("string"),
-                Properties = new PartialOnlineDeployment()
+                Properties = new PartialKubernetesOnlineDeployment()
                 {
                     EndpointComputeType = EndpointComputeType.Kubernetes,
                 },
@@ -204,7 +204,7 @@ namespace Azure.ResourceManager.MachineLearning
                 },
                 Kind = "string",
                 Location = new AzureLocation("string"),
-                Properties = new PartialOnlineDeployment()
+                Properties = new PartialKubernetesOnlineDeployment()
                 {
                     EndpointComputeType = EndpointComputeType.Managed,
                 },

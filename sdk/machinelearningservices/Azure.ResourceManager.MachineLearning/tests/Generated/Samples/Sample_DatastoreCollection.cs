@@ -148,7 +148,7 @@ namespace Azure.ResourceManager.MachineLearning
 
             // invoke the operation
             string name = "string";
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.ServicePrincipal,
             })
@@ -198,7 +198,7 @@ namespace Azure.ResourceManager.MachineLearning
 
             // invoke the operation
             string name = "string";
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.ServicePrincipal,
             })
@@ -248,7 +248,7 @@ namespace Azure.ResourceManager.MachineLearning
 
             // invoke the operation
             string name = "string";
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.AccountKey,
             })
@@ -298,7 +298,7 @@ namespace Azure.ResourceManager.MachineLearning
 
             // invoke the operation
             string name = "string";
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.AccountKey,
             })

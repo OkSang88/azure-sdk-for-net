@@ -231,7 +231,7 @@ namespace Azure.ResourceManager.MachineLearning
                     MaxQueueWait = XmlConvert.ToTimeSpan("PT5M"),
                     RequestTimeout = XmlConvert.ToTimeSpan("PT5M"),
                 },
-                ScaleSettings = new OnlineScaleSettings()
+                ScaleSettings = new TargetUtilizationScaleSettings()
                 {
                     ScaleType = ScaleType.Default,
                 },
@@ -334,7 +334,7 @@ namespace Azure.ResourceManager.MachineLearning
                     MaxQueueWait = XmlConvert.ToTimeSpan("PT5M"),
                     RequestTimeout = XmlConvert.ToTimeSpan("PT5M"),
                 },
-                ScaleSettings = new OnlineScaleSettings()
+                ScaleSettings = new TargetUtilizationScaleSettings()
                 {
                     ScaleType = ScaleType.Default,
                 },

@@ -94,7 +94,7 @@ namespace Azure.ResourceManager.MachineLearning
             DatastoreResource datastore = client.GetDatastoreResource(datastoreResourceId);
 
             // invoke the operation
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.ServicePrincipal,
             })
@@ -141,7 +141,7 @@ namespace Azure.ResourceManager.MachineLearning
             DatastoreResource datastore = client.GetDatastoreResource(datastoreResourceId);
 
             // invoke the operation
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new KerberosKeytabCredentials(null,"","","")
             {
                 CredentialsType = CredentialsType.ServicePrincipal,
             })
@@ -188,7 +188,7 @@ namespace Azure.ResourceManager.MachineLearning
             DatastoreResource datastore = client.GetDatastoreResource(datastoreResourceId);
 
             // invoke the operation
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.AccountKey,
             })
@@ -235,7 +235,7 @@ namespace Azure.ResourceManager.MachineLearning
             DatastoreResource datastore = client.GetDatastoreResource(datastoreResourceId);
 
             // invoke the operation
-            DatastoreData data = new DatastoreData(new DatastoreProperties(new DatastoreCredentials()
+            DatastoreData data = new DatastoreData(new DatastoreProperties(new NoneDatastoreCredentials()
             {
                 CredentialsType = CredentialsType.AccountKey,
             })

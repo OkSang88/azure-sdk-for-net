@@ -440,20 +440,20 @@ namespace Azure.ResourceManager.MachineLearning
                 ComputeId = "string",
                 DisplayName = "string",
                 ExperimentName = "string",
-                Identity = new IdentityConfiguration()
-                {
-                    IdentityType = IdentityConfigurationType.AMLToken,
-                },
+                //Identity = new IdentityConfiguration()
+                //{
+                //    IdentityType = IdentityConfigurationType.AMLToken,
+                //},
                 IsArchived = false,
                 JobType = JobType.AutoML,
-                Schedule = new ScheduleBase()
-                {
-                    EndOn = DateTimeOffset.Parse("2020-01-01T12:34:56.999Z"),
-                    ScheduleStatus = ScheduleStatus.Disabled,
-                    ScheduleType = ScheduleType.Cron,
-                    StartOn = DateTimeOffset.Parse("2020-01-01T12:34:56.999Z"),
-                    TimeZone = "string",
-                },
+                //Schedule = new ScheduleBase()
+                //{
+                //    EndOn = DateTimeOffset.Parse("2020-01-01T12:34:56.999Z"),
+                //    ScheduleStatus = ScheduleStatus.Disabled,
+                //    ScheduleType = ScheduleType.Cron,
+                //    StartOn = DateTimeOffset.Parse("2020-01-01T12:34:56.999Z"),
+                //    TimeZone = "string",
+                //},
                 Services =
 {
 ["string"] = new JobService()
@@ -516,10 +516,6 @@ Properties =
                 ComputeId = "string",
                 DisplayName = "string",
                 ExperimentName = "string",
-                Identity = new IdentityConfiguration()
-                {
-                    IdentityType = IdentityConfigurationType.AMLToken,
-                },
                 JobType = JobType.Command,
                 Services =
 {

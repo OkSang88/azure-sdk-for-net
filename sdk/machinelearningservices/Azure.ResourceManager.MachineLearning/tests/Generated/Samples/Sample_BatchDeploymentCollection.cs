@@ -153,10 +153,10 @@ namespace Azure.ResourceManager.MachineLearning
                 LoggingLevel = BatchLoggingLevel.Info,
                 MaxConcurrencyPerInstance = 1,
                 MiniBatchSize = 1,
-                Model = new AssetReferenceBase()
-                {
-                    ReferenceType = ReferenceType.Id,
-                },
+                //Model = new AssetReferenceBase()          // issue 1
+                //{
+                //    ReferenceType = ReferenceType.Id,
+                //},
                 OutputAction = BatchOutputAction.SummaryOnly,
                 OutputFileName = "string",
                 Resources = new ResourceConfiguration()
@@ -167,7 +167,7 @@ namespace Azure.ResourceManager.MachineLearning
 {
 ["string"] = BinaryData.FromObjectAsJson(new
 {
-cd3c37dc-2876-4ca4-8a54-21bd7619724a = null}),
+cd3c37d = "null"}),
 },
                 },
                 RetrySettings = new BatchRetrySettings()

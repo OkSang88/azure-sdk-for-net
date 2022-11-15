@@ -326,7 +326,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.Kubernetes,
                     Description = "some compute",
@@ -369,7 +369,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.AmlCompute,
                 },
@@ -410,7 +410,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.DataFactory,
                 },
@@ -451,7 +451,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.Aks,
                 },
@@ -492,7 +492,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.ComputeInstance,
                 },
@@ -533,7 +533,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.ComputeInstance,
                 },
@@ -574,7 +574,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.AmlCompute,
                     Description = "some compute",
@@ -616,7 +616,7 @@ namespace Azure.ResourceManager.MachineLearning
             string computeName = "compute123";
             MachineLearningComputeData data = new MachineLearningComputeData(new AzureLocation("eastus"))
             {
-                Properties = new Compute()
+                Properties = new DataFactoryCompute()
                 {
                     ComputeType = ComputeType.Aks,
                     Description = "some compute",

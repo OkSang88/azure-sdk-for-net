@@ -189,13 +189,13 @@ namespace Azure.ResourceManager.MachineLearning
                 ComputeId = "string",
                 DisplayName = "string",
                 ExperimentName = "string",
-                Identity = new IdentityConfiguration()
+                Identity = new UserIdentity()
                 {
                     IdentityType = IdentityConfigurationType.AMLToken,
                 },
                 IsArchived = false,
                 JobType = JobType.AutoML,
-                Schedule = new ScheduleBase()
+                Schedule = new CronSchedule("")
                 {
                     EndOn = DateTimeOffset.Parse("2020-01-01T12:34:56.999Z"),
                     ScheduleStatus = ScheduleStatus.Disabled,
@@ -262,10 +262,10 @@ Properties =
                 ComputeId = "string",
                 DisplayName = "string",
                 ExperimentName = "string",
-                Identity = new IdentityConfiguration()
-                {
-                    IdentityType = IdentityConfigurationType.AMLToken,
-                },
+                //Identity = new IdentityConfiguration()
+                //{
+                //    IdentityType = IdentityConfigurationType.AMLToken,
+                //},
                 JobType = JobType.Command,
                 Services =
 {

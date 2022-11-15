@@ -6,7 +6,6 @@
 #nullable disable
 
 using System;
-using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -387,12 +386,12 @@ Value = "value-2",
 {
 new TrafficManagerEndpointSubnetInfo()
 {
-First = IPAddress.Parse("1.2.3.0"),
+First = "1.2.3.0",
 Scope = 24,
 },new TrafficManagerEndpointSubnetInfo()
 {
-First = IPAddress.Parse("1.2.3.0"),
-Last = IPAddress.Parse("1.2.3.0"),
+First = "25.26.27.28",
+Last = "29.30.31.32",
 }
 },
                 Name = "My external endpoint",

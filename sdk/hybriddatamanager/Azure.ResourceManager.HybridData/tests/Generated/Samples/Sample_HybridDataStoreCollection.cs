@@ -205,7 +205,7 @@ namespace Azure.ResourceManager.HybridData
                 RepositoryId = new ResourceIdentifier("/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.Storage/storageAccounts/dmsdatasink"),
                 ExtendedProperties = BinaryData.FromObjectAsJson(new
                 {
-                    extendedSaKey = null,
+                    extendedSaKey = "null",
                     extendedSaName = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.Storage/storageAccounts/dmsdatasink",
                     storageAccountNameForQueue = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.Storage/storageAccounts/dmsdatasink"
                 }),

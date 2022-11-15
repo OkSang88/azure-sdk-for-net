@@ -71,7 +71,8 @@ namespace Azure.ResourceManager.Sql
             string schemaName = "dbo";
             string tableName = "myTable";
             string columnName = "myColumn";
-            ResourceIdentifier managedDatabaseSensitivityLabelResourceId = ManagedDatabaseSensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, managedInstanceName, databaseName, schemaName, tableName, columnName);
+            SensitivityLabelSource sensitivityLabelSource = SensitivityLabelSource.Current;
+            ResourceIdentifier managedDatabaseSensitivityLabelResourceId = ManagedDatabaseSensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, managedInstanceName, databaseName, schemaName, tableName, columnName, sensitivityLabelSource);
             ManagedDatabaseSensitivityLabelResource managedDatabaseSensitivityLabel = client.GetManagedDatabaseSensitivityLabelResource(managedDatabaseSensitivityLabelResourceId);
 
             // invoke the operation
@@ -113,7 +114,8 @@ namespace Azure.ResourceManager.Sql
             string schemaName = "dbo";
             string tableName = "myTable";
             string columnName = "myColumn";
-            ResourceIdentifier managedDatabaseSensitivityLabelResourceId = ManagedDatabaseSensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, managedInstanceName, databaseName, schemaName, tableName, columnName);
+            SensitivityLabelSource sensitivityLabelSource = SensitivityLabelSource.Current;
+            ResourceIdentifier managedDatabaseSensitivityLabelResourceId = ManagedDatabaseSensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, managedInstanceName, databaseName, schemaName, tableName, columnName, sensitivityLabelSource);
             ManagedDatabaseSensitivityLabelResource managedDatabaseSensitivityLabel = client.GetManagedDatabaseSensitivityLabelResource(managedDatabaseSensitivityLabelResourceId);
 
             // invoke the operation

@@ -95,7 +95,7 @@ namespace Azure.ResourceManager.Sql
                     RetryAttempts = 42,
                     InitialRetryIntervalSeconds = 11,
                     MaximumRetryIntervalSeconds = 222,
-                    RetryIntervalBackoffMultiplier = "3",
+                    RetryIntervalBackoffMultiplier = 3,
                 },
             };
             ArmOperation<SqlServerJobStepResource> lro = await sqlServerJobStep.UpdateAsync(WaitUntil.Completed, data);

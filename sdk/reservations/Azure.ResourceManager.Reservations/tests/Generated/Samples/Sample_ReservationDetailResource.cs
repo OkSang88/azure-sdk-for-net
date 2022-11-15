@@ -172,8 +172,8 @@ namespace Azure.ResourceManager.Reservations
             // invoke the operation and iterate over the result
             string filter = "(properties%2farchived+eq+false)";
             string orderby = "properties/displayName asc";
-            float? skiptoken = "50";
-            float? take = "1";
+            float? skiptoken = 50;
+            float? take = 1;
             await foreach (ReservationDetailResource item in tenantResource.GetReservationDetailsAsync(filter: filter, orderby: orderby, skiptoken: skiptoken, take: take))
             {
                 // the variable item is a resource, you could call other operations on this instance as well

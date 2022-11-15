@@ -154,11 +154,6 @@ namespace Azure.ResourceManager.SecurityCenter
             string assessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e";
             SecurityAssessmentCreateOrUpdateContent content = new SecurityAssessmentCreateOrUpdateContent()
             {
-                ResourceDetails = new SecurityCenterResourceDetails()
-                {
-                    Source = Source.Azure,
-                },
-                Status = new SecurityAssessmentStatus(SecurityAssessmentStatusCode.Healthy),
             };
             ArmOperation<SecurityAssessmentResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, assessmentName, content);
             SecurityAssessmentResource result = lro.Value;

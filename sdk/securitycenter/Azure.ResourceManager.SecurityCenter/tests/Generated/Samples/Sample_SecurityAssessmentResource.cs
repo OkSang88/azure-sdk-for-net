@@ -95,11 +95,6 @@ namespace Azure.ResourceManager.SecurityCenter
             // invoke the operation
             SecurityAssessmentCreateOrUpdateContent content = new SecurityAssessmentCreateOrUpdateContent()
             {
-                ResourceDetails = new SecurityCenterResourceDetails()
-                {
-                    Source = Source.Azure,
-                },
-                Status = new SecurityAssessmentStatus(SecurityAssessmentStatusCode.Healthy),
             };
             ArmOperation<SecurityAssessmentResource> lro = await securityAssessment.UpdateAsync(WaitUntil.Completed, content);
             SecurityAssessmentResource result = lro.Value;

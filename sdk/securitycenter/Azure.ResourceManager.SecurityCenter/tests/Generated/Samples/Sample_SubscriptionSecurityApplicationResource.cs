@@ -75,7 +75,7 @@ BinaryData.FromObjectAsJson(new
 {
 conditions = new[] { new
 {
-operator = "contains",
+operatoxr = "contains",
 property = "$.Id",
 value = "-bil-"} }})
 },

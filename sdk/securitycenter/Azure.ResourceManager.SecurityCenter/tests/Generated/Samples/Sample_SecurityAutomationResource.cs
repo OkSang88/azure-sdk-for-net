@@ -116,13 +116,6 @@ new SecurityAutomationSource()
 EventSource = SecurityEventSource.Assessments,
 }
 },
-                Actions =
-{
-new SecurityAutomationAction()
-{
-ActionType = ActionType.LogicApp,
-}
-},
                 ETag = new ETag("etag value (must be supplied for update)"),
                 Tags =
 {
@@ -193,13 +186,6 @@ Operator = AutomationTriggeringRuleOperator.EqualsValue,
 },
 }
 },
-                Actions =
-{
-new SecurityAutomationAction()
-{
-ActionType = ActionType.LogicApp,
-}
-},
                 ETag = new ETag("etag value (must be supplied for update)"),
                 Tags =
 {
@@ -268,13 +254,6 @@ Operator = AutomationTriggeringRuleOperator.EqualsValue,
 },
 }
 },
-}
-},
-                Actions =
-{
-new SecurityAutomationAction()
-{
-ActionType = ActionType.LogicApp,
 }
 },
                 ETag = new ETag("etag value (must be supplied for update)"),
@@ -370,13 +349,6 @@ Operator = AutomationTriggeringRuleOperator.EqualsValue,
 },
 }
 },
-}
-},
-                Actions =
-{
-new SecurityAutomationAction()
-{
-ActionType = ActionType.LogicApp,
 }
 },
                 Tags =

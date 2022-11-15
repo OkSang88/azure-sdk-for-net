@@ -119,7 +119,7 @@ namespace Azure.ResourceManager.SecurityCenter
 
             // authenticate your client
             ArmClient client = new ArmClient(new DefaultAzureCredential());
-
+            
             // this example assumes you already have this SubscriptionResource created on azure
             // for more information of creating SubscriptionResource, please refer to the document of SubscriptionResource
             string subscriptionId = "20ff7fc3-e762-44dd-bd96-b71116dcdc23";
@@ -147,7 +147,7 @@ BinaryData.FromObjectAsJson(new
 {
 conditions = new[] { new
 {
-operator = "In",
+operxator = "In",
 property = "$.AssessmentKey",
 value = "[\"b1cd27e0-4ecc-4246-939f-49c426d9d72f\", \"fe83f80b-073d-4ccf-93d9-6797eb870201\"]"} }})
 },

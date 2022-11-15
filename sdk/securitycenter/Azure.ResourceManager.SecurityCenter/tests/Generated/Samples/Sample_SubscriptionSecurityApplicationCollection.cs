@@ -137,15 +137,19 @@ namespace Azure.ResourceManager.SecurityCenter
                 Description = "An application on critical recommendations",
                 SourceResourceType = ApplicationSourceResourceType.Assessments,
                 ConditionSets =
-{
-BinaryData.FromObjectAsJson(new
-{
-conditions = new[] { new
-{
-operator = "contains",
-property = "$.Id",
-value = "-bil-"} }})
-},
+                {
+                    BinaryData.FromObjectAsJson(new
+                    {
+                        conditions = new[]
+                        {
+                            new
+                            {
+                                operatorx = "contains",
+                                property = "$.Id",
+                                value = "-bil-"
+                            }
+                        }})
+                    },
             };
             ArmOperation<SubscriptionSecurityApplicationResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, applicationId, data);
             SubscriptionSecurityApplicationResource result = lro.Value;

@@ -101,21 +101,6 @@ namespace Azure.ResourceManager.SecurityCenter
             {
                 HierarchyIdentifier = "exampleHierarchyId",
                 EnvironmentName = SecurityCenterCloudName.Aws,
-                Offerings =
-{
-new SecurityCenterCloudOffering()
-{
-OfferingType = OfferingType.CspmMonitorAws,
-}
-},
-                EnvironmentData = new SecurityConnectorEnvironment()
-                {
-                    EnvironmentType = EnvironmentType.AwsAccount,
-                },
-                ETag = new ETag("etag value (must be supplied for update)"),
-                Tags =
-{
-},
             };
             SecurityConnectorResource result = await securityConnector.UpdateAsync(data);
 

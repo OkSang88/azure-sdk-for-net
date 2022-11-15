@@ -148,10 +148,6 @@ namespace Azure.ResourceManager.SecurityCenter
                         Secret = "<secret>",
                     },
                 },
-                AuthenticationDetails = new AuthenticationDetailsProperties()
-                {
-                    AuthenticationType = AuthenticationType.AwsAssumeRole,
-                },
             };
             ArmOperation<SecurityCloudConnectorResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, connectorName, data);
             SecurityCloudConnectorResource result = lro.Value;
@@ -202,10 +198,6 @@ namespace Azure.ResourceManager.SecurityCenter
                         Secret = "<secret>",
                     },
                 },
-                AuthenticationDetails = new AuthenticationDetailsProperties()
-                {
-                    AuthenticationType = AuthenticationType.AwsCreds,
-                },
             };
             ArmOperation<SecurityCloudConnectorResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, connectorName, data);
             SecurityCloudConnectorResource result = lro.Value;
@@ -242,10 +234,6 @@ namespace Azure.ResourceManager.SecurityCenter
             SecurityCloudConnectorData data = new SecurityCloudConnectorData()
             {
                 HybridComputeSettings = new HybridComputeSettingsProperties(AutoProvisionState.Off),
-                AuthenticationDetails = new AuthenticationDetailsProperties()
-                {
-                    AuthenticationType = AuthenticationType.GcpCredentials,
-                },
             };
             ArmOperation<SecurityCloudConnectorResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, connectorName, data);
             SecurityCloudConnectorResource result = lro.Value;

@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.ResourceMover
             {
                 Properties = new MoverResourceProperties(new ResourceIdentifier("/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1"))
                 {
-                    ResourceSettings = new MoverResourceSettings("westusvm1")
+                    ResourceSettings = new KeyVaultResourceSettings("westusvm1")
                     {
                         ResourceType = "Microsoft.Compute/virtualMachines",
                     },

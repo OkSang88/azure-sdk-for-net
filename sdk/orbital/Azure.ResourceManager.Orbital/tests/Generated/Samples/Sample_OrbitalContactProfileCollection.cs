@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using System.Xml;
 using Azure;
@@ -105,7 +106,7 @@ namespace Azure.ResourceManager.Orbital
             OrbitalContactProfileData data = new OrbitalContactProfileData(new AzureLocation("eastus2"))
             {
                 MinimumViableContactDuration = XmlConvert.ToTimeSpan("PT1M"),
-                MinimumElevationDegrees = "5",
+                MinimumElevationDegrees = 5,
                 AutoTrackingConfiguration = AutoTrackingConfiguration.Disabled,
                 EventHubUri = new Uri("/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub"),
                 NetworkSubnetId = new ResourceIdentifier("/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet"),
@@ -113,18 +114,18 @@ namespace Azure.ResourceManager.Orbital
 {
 new OrbitalContactProfileLink("contoso-uplink",OrbitalLinkPolarization.Lhcp,OrbitalLinkDirection.Uplink,new OrbitalContactProfileLinkChannel[]
 {
-new OrbitalContactProfileLinkChannel("contoso-uplink-channel","2250","2",new OrbitalContactEndpoint("10.1.0.4","ContosoTest_Uplink","50000",OrbitalContactProtocol.Tcp))
+new OrbitalContactProfileLinkChannel("contoso-uplink-channel",5,1,new OrbitalContactEndpoint(IPAddress.Parse("1.1.1.1"),"ContosoTest_Uplink","50000",OrbitalContactProtocol.Tcp))
 })
 {
-GainOverTemperature = "0",
-EirpdBW = "45",
+GainOverTemperature = 5,
+EirpdBW = 5,
 },new OrbitalContactProfileLink("contoso-downlink",OrbitalLinkPolarization.Rhcp,OrbitalLinkDirection.Downlink,new OrbitalContactProfileLinkChannel[]
 {
-new OrbitalContactProfileLinkChannel("contoso-downlink-channel","8160","15",new OrbitalContactEndpoint("10.1.0.5","ContosoTest_Downlink","50001",OrbitalContactProtocol.Udp))
+new OrbitalContactProfileLinkChannel("contoso-downlink-channel",5,5,new OrbitalContactEndpoint(IPAddress.Parse("1.1.1.1"),"ContosoTest_Downlink","50001",OrbitalContactProtocol.Udp))
 })
 {
-GainOverTemperature = "25",
-EirpdBW = "0",
+GainOverTemperature = 5,
+EirpdBW = 5,
 }
 },
             };

@@ -143,7 +143,7 @@ namespace Azure.ResourceManager.Orbital
                 TleLine2 = "2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982",
                 Links =
 {
-new OrbitalSpacecraftLink("uplink_lhcp1","2250","2",OrbitalLinkDirection.Uplink,OrbitalLinkPolarization.Lhcp),new OrbitalSpacecraftLink("downlink_rhcp1","8160","15",OrbitalLinkDirection.Downlink,OrbitalLinkPolarization.Rhcp)
+new OrbitalSpacecraftLink("uplink_lhcp1",1,1,OrbitalLinkDirection.Uplink,OrbitalLinkPolarization.Lhcp),new OrbitalSpacecraftLink("downlink_rhcp1",5,5,OrbitalLinkDirection.Downlink,OrbitalLinkPolarization.Rhcp)
 },
             };
             ArmOperation<OrbitalSpacecraftResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, spacecraftName, data);

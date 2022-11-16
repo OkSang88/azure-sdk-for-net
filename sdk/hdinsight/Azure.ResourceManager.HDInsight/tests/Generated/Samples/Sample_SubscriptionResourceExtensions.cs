@@ -166,9 +166,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },

@@ -59,9 +59,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -118,9 +118,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -177,9 +177,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -236,9 +236,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -295,9 +295,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -362,9 +362,9 @@ namespace Azure.ResourceManager.HDInsight
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -441,9 +441,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -496,9 +496,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -553,20 +553,20 @@ new Uri("ldaps://10.10.0.4:636")
                         Kind = "hadoop",
                         Configurations = BinaryData.FromObjectAsJson(new
                         {
-                            ambari - conf = new
+                            ambariconf = new
                             {
-                                database - name = "{ambari database name}",
-                                database - server = "{sql server name}.database.windows.net",
-                                database - user - name = "**********",
-                                database - user - password = "**********"
+                                databasename = "{ambari database name}",
+                                databaseserver = "{sql server name}.database.windows.net",
+                                databaseusername = "**********",
+                                databaseuserpassword = "**********"
                             },
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             },
-                            hive - env = new
+                            hiveenv = new
                             {
                                 hive_database = "Existing MSSQL Server database with SQL authentication",
                                 hive_database_name = "{hive metastore name}",
@@ -575,14 +575,14 @@ new Uri("ldaps://10.10.0.4:636")
                                 hive_existing_mssql_server_host = "{sql server name}.database.windows.net",
                                 hive_hostname = "{sql server name}.database.windows.net"
                             },
-                            hive - site = new
+                            hivesite = new
                             {
-                                javax.jdo.option.ConnectionDriverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-                                javax.jdo.option.ConnectionPassword = "**********!",
-                                javax.jdo.option.ConnectionURL = "jdbc:sqlserver://{sql server name}.database.windows.net;database={hive metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0",
-                                javax.jdo.option.ConnectionUserName = "**********"
+                                javaxjdooptionConnectionDriverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                                javaxjdooptionConnectionPassword = "**********!",
+                                javaxjdooptionConnectionURL = "jdbc:sqlserver://{sql server name}.database.windows.net;database={hive metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0",
+                                javaxjdooptionConnectionUserName = "**********"
                             },
-                            oozie - env = new
+                            oozieenv = new
                             {
                                 oozie_database = "Existing MSSQL Server database with SQL authentication",
                                 oozie_database_name = "{oozie metastore name}",
@@ -591,13 +591,13 @@ new Uri("ldaps://10.10.0.4:636")
                                 oozie_existing_mssql_server_host = "{sql server name}.database.windows.net",
                                 oozie_hostname = "{sql server name}.database.windows.net"
                             },
-                            oozie - site = new
+                            ooziesite = new
                             {
-                                oozie.db.schema.name = "oozie",
-                                oozie.service.JPAService.jdbc.driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-                                oozie.service.JPAService.jdbc.password = "**********",
-                                oozie.service.JPAService.jdbc.url = "jdbc:sqlserver://{sql server name}.database.windows.net;database={oozie metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0",
-                                oozie.service.JPAService.jdbc.username = "**********"
+                                ooziedbschemaname = "oozie",
+                                oozieserviceJPAServicejdbcdriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                                oozieserviceJPAServicejdbcpassword = "**********",
+                                oozieserviceJPAServicejdbcurl = "jdbc:sqlserver://{sql server name}.database.windows.net;database={oozie metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0",
+                                oozieserviceJPAServicejdbcusername = "**********"
                             }
                         }),
                     },
@@ -649,9 +649,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -709,9 +709,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -768,9 +768,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },
@@ -823,9 +823,9 @@ new Uri("ldaps://10.10.0.4:636")
                         {
                             gateway = new
                             {
-                                restAuthCredential.isEnabled = "true",
-                                restAuthCredential.password = "**********",
-                                restAuthCredential.username = "admin"
+                                restAuthCredentialisEnabled = "true",
+                                restAuthCredentialpassword = "**********",
+                                restAuthCredentialusername = "admin"
                             }
                         }),
                     },

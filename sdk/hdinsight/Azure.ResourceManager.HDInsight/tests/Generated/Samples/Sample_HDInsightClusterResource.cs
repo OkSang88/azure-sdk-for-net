@@ -543,7 +543,7 @@ Parameters = "",
 
             // invoke the operation
             string configurationName = "gateway";
-            IDictionary<string, string> clusterConfiguration = new System.Collections.Generic.IDictionary<string, string>()
+            IDictionary<string, string> clusterConfiguration = new System.Collections.Generic.Dictionary<string, string>()
             {
                 ["restAuthCredential.isEnabled"] = "false",
             };
@@ -573,7 +573,7 @@ Parameters = "",
 
             // invoke the operation
             string configurationName = "gateway";
-            IDictionary<string, string> clusterConfiguration = new System.Collections.Generic.IDictionary<string, string>()
+            IDictionary<string, string> clusterConfiguration = new System.Collections.Generic.Dictionary<string, string>()
             {
                 ["restAuthCredential.isEnabled"] = "true",
                 ["restAuthCredential.password"] = "**********",
@@ -605,7 +605,7 @@ Parameters = "",
 
             // invoke the operation
             string configurationName = "core-site";
-            IReadOnlyDictionary<string, string> result = await hdInsightCluster.GetConfigurationAsync(configurationName);
+            IReadOnlyDictionary<string, string> result = (await hdInsightCluster.GetConfigurationAsync(configurationName)).Value;
 
             Console.WriteLine($"Succeeded: {result}");
         }

@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -57,7 +58,7 @@ namespace Azure.ResourceManager.Redis
                 ShardCount = 2,
                 MinimumTlsVersion = RedisTlsVersion.Tls1_2,
                 SubnetId = new ResourceIdentifier("/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1"),
-                StaticIP = "192.168.0.5",
+                StaticIP = IPAddress.Parse("192.168.1.1"),
             };
             ArmOperation<RedisResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, name, content);
             RedisResource result = lro.Value;

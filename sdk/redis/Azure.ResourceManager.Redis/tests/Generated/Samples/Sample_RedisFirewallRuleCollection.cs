@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -75,7 +76,7 @@ namespace Azure.ResourceManager.Redis
 
             // invoke the operation
             string ruleName = "rule1";
-            RedisFirewallRuleData data = new RedisFirewallRuleData("192.168.1.1", "192.168.1.4");
+            RedisFirewallRuleData data = new RedisFirewallRuleData(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.1"));
             ArmOperation<RedisFirewallRuleResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, ruleName, data);
             RedisFirewallRuleResource result = lro.Value;
 

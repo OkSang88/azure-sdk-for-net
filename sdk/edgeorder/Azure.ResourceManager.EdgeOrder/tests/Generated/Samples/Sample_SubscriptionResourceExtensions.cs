@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.EdgeOrder
             SubscriptionResource subscriptionResource = client.GetSubscriptionResource(subscriptionResourceId);
 
             // invoke the operation and iterate over the result
-            ProductFamiliesContent content = new ProductFamiliesContent(new System.Collections.Generic.IDictionary<string, IList<FilterableProperty>>()
+            ProductFamiliesContent content = new ProductFamiliesContent(new System.Collections.Generic.Dictionary<string, IList<FilterableProperty>>()
             {
                 ["azurestackedge"] = new FilterableProperty[]
             {

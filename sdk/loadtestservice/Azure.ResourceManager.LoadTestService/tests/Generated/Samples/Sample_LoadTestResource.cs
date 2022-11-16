@@ -113,15 +113,15 @@ namespace Azure.ResourceManager.LoadTestService
 },
                 },
                 Description = "This is new load test resource",
-                Encryption = new EncryptionProperties()
-                {
-                    Identity = new EncryptionPropertiesIdentity()
-                    {
-                        IdentityType = Type.SystemAssigned,
-                        ResourceId = null,
-                    },
-                    KeyUri = new Uri("https://dummy.vault.azure.net/keys/dummykey1"),
-                },
+                //Encryption = new EncryptionProperties()
+                //{
+                //    Identity = new EncryptionPropertiesIdentity()
+                //    {
+                //        IdentityType = Type.SystemAssigned,
+                //        ResourceId = null,
+                //    },
+                //    KeyUri = new Uri("https://dummy.vault.azure.net/keys/dummykey1"),
+                //},
             };
             ArmOperation<LoadTestResource> lro = await loadTestResource.UpdateAsync(WaitUntil.Completed, patch);
             LoadTestResource result = lro.Value;

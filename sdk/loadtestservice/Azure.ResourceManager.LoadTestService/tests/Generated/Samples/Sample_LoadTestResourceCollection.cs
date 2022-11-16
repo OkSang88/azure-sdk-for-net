@@ -146,15 +146,15 @@ namespace Azure.ResourceManager.LoadTestService
 },
                 },
                 Description = "This is new load test resource",
-                Encryption = new EncryptionProperties()
-                {
-                    Identity = new EncryptionPropertiesIdentity()
-                    {
-                        IdentityType = Type.UserAssigned,
-                        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
-                    },
-                    KeyUri = new Uri("https://dummy.vault.azure.net/keys/dummykey1"),
-                },
+                //Encryption = new EncryptionProperties()
+                //{
+                //    Identity = new EncryptionPropertiesIdentity()
+                //    {
+                //        IdentityType = Type.UserAssigned,
+                //        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                //    },
+                //    KeyUri = new Uri("https://dummy.vault.azure.net/keys/dummykey1"),
+                //},
                 Tags =
 {
 ["Team"] = "Dev Exp",

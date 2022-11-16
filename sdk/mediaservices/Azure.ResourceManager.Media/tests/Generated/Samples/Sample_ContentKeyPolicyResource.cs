@@ -99,10 +99,10 @@ namespace Azure.ResourceManager.Media
                 Description = "Updated Policy",
                 Options =
 {
-new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
 })

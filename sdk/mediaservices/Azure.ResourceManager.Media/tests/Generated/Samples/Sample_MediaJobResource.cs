@@ -100,13 +100,13 @@ namespace Azure.ResourceManager.Media
             MediaJobData data = new MediaJobData()
             {
                 Description = "Example job to illustrate update.",
-                Input = new MediaJobInputBasicProperties()
+                Input = new MediaJobInputs()
                 {
                     OdataType = "#Microsoft.Media.JobInputAsset",
                 },
                 Outputs =
 {
-new MediaJobOutput()
+new MediaJobOutputAsset("")
 {
 OdataType = "#Microsoft.Media.JobOutputAsset",
 }

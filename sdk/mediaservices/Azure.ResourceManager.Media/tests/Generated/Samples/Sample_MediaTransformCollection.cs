@@ -254,7 +254,7 @@ namespace Azure.ResourceManager.Media
                 Description = "Example Transform to illustrate create and update.",
                 Outputs =
 {
-new MediaTransformOutput(new MediaTransformPreset()
+new MediaTransformOutput(new AudioAnalyzerPreset()
 {
 OdataType = "#Microsoft.Media.BuiltInStandardEncoderPreset",
 })

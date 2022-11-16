@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.Media
             // invoke the operation
             MediaAssetTrackData data = new MediaAssetTrackData()
             {
-                Track = new MediaAssetTrackBase()
+                Track = new AudioTrack()
                 {
                     OdataType = "#Microsoft.Media.TextTrack",
                 },

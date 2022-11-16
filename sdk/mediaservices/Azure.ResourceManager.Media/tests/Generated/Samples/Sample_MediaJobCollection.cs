@@ -369,13 +369,13 @@ namespace Azure.ResourceManager.Media
             string jobName = "job1";
             MediaJobData data = new MediaJobData()
             {
-                Input = new MediaJobInputBasicProperties()
+                Input = new MediaJobInputClip()
                 {
                     OdataType = "#Microsoft.Media.JobInputAsset",
                 },
                 Outputs =
 {
-new MediaJobOutput()
+new MediaJobOutputAsset("")
 {
 OdataType = "#Microsoft.Media.JobOutputAsset",
 }

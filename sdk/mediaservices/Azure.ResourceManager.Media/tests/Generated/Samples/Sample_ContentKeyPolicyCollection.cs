@@ -215,10 +215,10 @@ namespace Azure.ResourceManager.Media
                 Description = "ArmPolicyDescription",
                 Options =
 {
-new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
 })
@@ -266,10 +266,10 @@ Name = "ClearKeyOption",
                 Description = "ArmPolicyDescription",
                 Options =
 {
-new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
 })
@@ -317,10 +317,10 @@ Name = "ArmPolicyOptionName",
                 Description = "ArmPolicyDescription",
                 Options =
 {
-new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
 })
@@ -368,19 +368,19 @@ Name = "widevineoption",
                 Description = "ArmPolicyDescription",
                 Options =
 {
-new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
 })
 {
 Name = "ClearKeyOption",
-},new ContentKeyPolicyOption(new ContentKeyPolicyConfiguration()
+},new ContentKeyPolicyOption(new ContentKeyPolicyClearKeyConfiguration()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
-},new ContentKeyPolicyRestriction()
+},new ContentKeyPolicyOpenRestriction()
 {
 OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
 })

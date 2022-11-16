@@ -144,7 +144,7 @@ namespace Azure.ResourceManager.Media
             string trackName = "text3";
             MediaAssetTrackData data = new MediaAssetTrackData()
             {
-                Track = new MediaAssetTrackBase()
+                Track = new AudioTrack()
                 {
                     OdataType = "#Microsoft.Media.TextTrack",
                 },

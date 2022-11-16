@@ -74,7 +74,7 @@ namespace Azure.ResourceManager.FrontDoor
 {
 new RulesEngineRule("Rule1",1,new RulesEngineAction()
 {
-RouteConfigurationOverride = new RouteConfiguration()
+RouteConfigurationOverride = new RedirectConfiguration()
 {
 OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
 },
@@ -114,7 +114,7 @@ RulesEngineMatchTransform.Lowercase
 },
 },new RulesEngineRule("Rule3",3,new RulesEngineAction()
 {
-RouteConfigurationOverride = new RouteConfiguration()
+RouteConfigurationOverride = new RedirectConfiguration()
 {
 OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
 },

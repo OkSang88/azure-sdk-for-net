@@ -123,7 +123,7 @@ PatternsToMatch =
 "/*"
 },
 EnabledState = RoutingRuleEnabledState.Enabled,
-RouteConfiguration = new RouteConfiguration()
+RouteConfiguration = new RedirectConfiguration()
 {
 OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
 },

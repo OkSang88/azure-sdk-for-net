@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -163,9 +164,9 @@ namespace Azure.ResourceManager.StorageCache
                 },
                 DirectoryServicesSettings = new StorageCacheDirectorySettings()
                 {
-                    ActiveDirectory = new StorageCacheActiveDirectorySettings("192.0.2.10", "contosoAd.contoso.local", "contosoAd", "contosoSmb")
+                    ActiveDirectory = new StorageCacheActiveDirectorySettings(IPAddress.Parse("192.0.2.10"), "contosoAd.contoso.local", "contosoAd", "contosoSmb")
                     {
-                        SecondaryDnsIPAddress = "192.0.2.11",
+                        SecondaryDnsIPAddress = IPAddress.Parse("192.0.2.10"),
                         Credentials = new StorageCacheActiveDirectorySettingsCredentials("consotoAdmin", "<password>"),
                     },
                     UsernameDownload = new StorageCacheUsernameDownloadSettings()

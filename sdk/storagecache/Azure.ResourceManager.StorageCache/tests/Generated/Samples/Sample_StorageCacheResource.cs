@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -138,16 +139,16 @@ namespace Azure.ResourceManager.StorageCache
                     Mtu = 1500,
                     DnsServers =
 {
-"10.1.22.33","10.1.12.33"
+IPAddress.Parse("192.0.2.10"),IPAddress.Parse("192.0.2.10")
 },
                     DnsSearchDomain = "contoso.com",
                     NtpServer = "time.contoso.com",
                 },
                 DirectoryServicesSettings = new StorageCacheDirectorySettings()
                 {
-                    ActiveDirectory = new StorageCacheActiveDirectorySettings("192.0.2.10", "contosoAd.contoso.local", "contosoAd", "contosoSmb")
+                    ActiveDirectory = new StorageCacheActiveDirectorySettings(IPAddress.Parse("192.0.2.10"), "contosoAd.contoso.local", "contosoAd", "contosoSmb")
                     {
-                        SecondaryDnsIPAddress = "192.0.2.11",
+                        SecondaryDnsIPAddress = IPAddress.Parse("192.0.2.10"),
                     },
                     UsernameDownload = new StorageCacheUsernameDownloadSettings()
                     {
@@ -204,7 +205,7 @@ namespace Azure.ResourceManager.StorageCache
                     Mtu = 1500,
                     DnsServers =
 {
-"10.1.22.33","10.1.12.33"
+IPAddress.Parse("192.0.2.10"),IPAddress.Parse("192.0.2.10")
 },
                     DnsSearchDomain = "contoso.com",
                     NtpServer = "time.contoso.com",

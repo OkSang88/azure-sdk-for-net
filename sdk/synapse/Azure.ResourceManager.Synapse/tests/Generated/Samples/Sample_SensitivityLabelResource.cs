@@ -37,7 +37,8 @@ namespace Azure.ResourceManager.Synapse
             string schemaName = "dbo";
             string tableName = "myTable";
             string columnName = "myColumn";
-            ResourceIdentifier sensitivityLabelResourceId = SensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, sqlPoolName, schemaName, tableName, columnName);
+            SensitivityLabelSource xx = SensitivityLabelSource.Current;
+            ResourceIdentifier sensitivityLabelResourceId = SensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, sqlPoolName, schemaName, tableName, columnName,xx);
             SensitivityLabelResource sensitivityLabel = client.GetSensitivityLabelResource(sensitivityLabelResourceId);
 
             // invoke the operation
@@ -78,7 +79,8 @@ namespace Azure.ResourceManager.Synapse
             string schemaName = "dbo";
             string tableName = "myTable";
             string columnName = "myColumn";
-            ResourceIdentifier sensitivityLabelResourceId = SensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, sqlPoolName, schemaName, tableName, columnName);
+            SensitivityLabelSource xx = SensitivityLabelSource.Current;
+            ResourceIdentifier sensitivityLabelResourceId = SensitivityLabelResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, sqlPoolName, schemaName, tableName, columnName,xx);
             SensitivityLabelResource sensitivityLabel = client.GetSensitivityLabelResource(sensitivityLabelResourceId);
 
             // invoke the operation

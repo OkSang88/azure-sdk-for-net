@@ -77,7 +77,7 @@ namespace Azure.ResourceManager.Synapse
 {
 new MaintenanceWindowTimeRange()
 {
-DayOfWeek = DayOfWeek.Saturday,
+//DayOfWeek = DayOfWeek.Saturday,
 StartTime = "00:00:00",
 Duration = XmlConvert.ToTimeSpan("PT60M"),
 }

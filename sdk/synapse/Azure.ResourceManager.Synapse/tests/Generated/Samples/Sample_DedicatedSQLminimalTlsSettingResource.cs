@@ -34,7 +34,7 @@ namespace Azure.ResourceManager.Synapse
             string resourceGroupName = "workspace-6852";
             string workspaceName = "workspace-2080";
             DedicatedSQLMinimalTlsSettingsName dedicatedSQLminimalTlsSettingsName = DedicatedSQLMinimalTlsSettingsName.Default;
-            ResourceIdentifier dedicatedSQLminimalTlsSettingResourceId = DedicatedSQLminimalTlsSettingResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, dedicatedSQLminimalTlsSettingsName);
+            ResourceIdentifier dedicatedSQLminimalTlsSettingResourceId = DedicatedSQLminimalTlsSettingResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, workspaceName, dedicatedSQLminimalTlsSettingsName.ToString());
             DedicatedSQLminimalTlsSettingResource dedicatedSQLminimalTlsSetting = client.GetDedicatedSQLminimalTlsSettingResource(dedicatedSQLminimalTlsSettingResourceId);
 
             // invoke the operation

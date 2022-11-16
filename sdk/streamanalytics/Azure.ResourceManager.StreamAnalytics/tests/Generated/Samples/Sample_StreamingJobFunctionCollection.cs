@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             string functionName = "function588";
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Inputs =
@@ -96,7 +96,7 @@ DataType = "nvarchar(max)",
             string functionName = "function8197";
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Inputs =
@@ -149,7 +149,7 @@ DataType = "Any",
             string functionName = "function588";
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Inputs =
@@ -202,7 +202,7 @@ DataType = "nvarchar(max)",
             string functionName = "function588";
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Inputs =

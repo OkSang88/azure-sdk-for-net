@@ -43,7 +43,7 @@ namespace Azure.ResourceManager.StreamAnalytics
                 Properties = new StreamingJobInputProperties()
                 {
                     InputPropertiesType = "Reference",
-                    Serialization = new StreamAnalyticsDataSerialization()
+                    Serialization = new CustomClrFormatSerialization()
                     {
                         EventSerializationType = EventSerializationType.Csv,
                     },
@@ -84,7 +84,7 @@ namespace Azure.ResourceManager.StreamAnalytics
                 Properties = new StreamingJobInputProperties()
                 {
                     InputPropertiesType = "Stream",
-                    Serialization = new StreamAnalyticsDataSerialization()
+                    Serialization = new CustomClrFormatSerialization()
                     {
                         EventSerializationType = EventSerializationType.Avro,
                     },
@@ -125,7 +125,7 @@ namespace Azure.ResourceManager.StreamAnalytics
                 Properties = new StreamingJobInputProperties()
                 {
                     InputPropertiesType = "Stream",
-                    Serialization = new StreamAnalyticsDataSerialization()
+                    Serialization = new CustomClrFormatSerialization()
                     {
                         EventSerializationType = EventSerializationType.Csv,
                     },
@@ -166,7 +166,7 @@ namespace Azure.ResourceManager.StreamAnalytics
                 Properties = new StreamingJobInputProperties()
                 {
                     InputPropertiesType = "Stream",
-                    Serialization = new StreamAnalyticsDataSerialization()
+                    Serialization = new CustomClrFormatSerialization()
                     {
                         EventSerializationType = EventSerializationType.Csv,
                     },

@@ -57,7 +57,7 @@ new StreamingJobInputData()
 Properties = new StreamingJobInputProperties()
 {
 InputPropertiesType = "Stream",
-Serialization = new StreamAnalyticsDataSerialization()
+Serialization = new CustomClrFormatSerialization()
 {
 EventSerializationType = EventSerializationType.Json,
 },
@@ -75,7 +75,7 @@ Name = "inputtest",
 {
 new StreamingJobOutputData()
 {
-Datasource = new StreamingJobOutputDataSource()
+Datasource = new BlobOutputDataSource()
 {
 OutputDataSourceType = "Microsoft.Sql/Server/Database",
 },

@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Binding = new StreamingJobFunctionBinding()
@@ -81,7 +81,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobFunctionData data = new StreamingJobFunctionData()
             {
-                Properties = new StreamingJobFunctionProperties()
+                Properties = new CSharpFunctionBinding()
                 {
                     FunctionPropertiesType = "Scalar",
                     Binding = new StreamingJobFunctionBinding()

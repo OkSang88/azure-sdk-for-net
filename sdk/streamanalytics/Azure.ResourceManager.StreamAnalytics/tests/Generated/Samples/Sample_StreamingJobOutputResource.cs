@@ -40,7 +40,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.Storage/DocumentDB",
                 },
@@ -77,7 +77,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "PowerBI",
                 },
@@ -114,11 +114,11 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.ServiceBus/Queue",
                 },
-                Serialization = new StreamAnalyticsDataSerialization()
+                Serialization = new CustomClrFormatSerialization()
                 {
                     EventSerializationType = EventSerializationType.Json,
                 },
@@ -155,11 +155,11 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.ServiceBus/Topic",
                 },
-                Serialization = new StreamAnalyticsDataSerialization()
+                Serialization = new CustomClrFormatSerialization()
                 {
                     EventSerializationType = EventSerializationType.Csv,
                 },
@@ -196,11 +196,11 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.Storage/Blob",
                 },
-                Serialization = new StreamAnalyticsDataSerialization()
+                Serialization = new CustomClrFormatSerialization()
                 {
                     EventSerializationType = EventSerializationType.Csv,
                 },
@@ -237,11 +237,11 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.DataLake/Accounts",
                 },
-                Serialization = new StreamAnalyticsDataSerialization()
+                Serialization = new CustomClrFormatSerialization()
                 {
                     EventSerializationType = EventSerializationType.Json,
                 },
@@ -278,7 +278,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.Sql/Server/Database",
                 },
@@ -315,7 +315,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.AzureFunction",
                 },
@@ -352,7 +352,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.Sql/Server/Database",
                 },
@@ -389,7 +389,7 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.Storage/Table",
                 },
@@ -426,11 +426,11 @@ namespace Azure.ResourceManager.StreamAnalytics
             // invoke the operation
             StreamingJobOutputData data = new StreamingJobOutputData()
             {
-                Datasource = new StreamingJobOutputDataSource()
+                Datasource = new BlobOutputDataSource()
                 {
                     OutputDataSourceType = "Microsoft.ServiceBus/EventHub",
                 },
-                Serialization = new StreamAnalyticsDataSerialization()
+                Serialization = new CustomClrFormatSerialization()
                 {
                     EventSerializationType = EventSerializationType.Json,
                 },

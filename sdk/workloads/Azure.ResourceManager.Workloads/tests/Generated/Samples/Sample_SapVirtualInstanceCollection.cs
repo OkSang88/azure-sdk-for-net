@@ -41,9 +41,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.Deployment,
             })
             {
                 Tags =
@@ -83,9 +82,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.Deployment,
             })
             {
                 Tags =
@@ -125,9 +123,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.Deployment,
             })
             {
                 Tags =
@@ -167,9 +164,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.NonProd, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.NonProd, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.Deployment,
             })
             {
                 Tags =
@@ -209,9 +205,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.DeploymentWithOSConfig,
             })
             {
                 Tags =
@@ -251,9 +246,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.DeploymentWithOSConfig,
             })
             {
                 Tags =
@@ -293,9 +287,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.Prod, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.DeploymentWithOSConfig,
             })
             {
                 Tags =
@@ -335,9 +328,8 @@ namespace Azure.ResourceManager.Workloads
 
             // invoke the operation
             string sapVirtualInstanceName = "X00";
-            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.NonProd, SapProductType.S4Hana, new SapConfiguration()
+            SapVirtualInstanceData data = new SapVirtualInstanceData(new AzureLocation("westcentralus"), SapEnvironmentType.NonProd, SapProductType.S4Hana, new DiscoveryConfiguration()
             {
-                ConfigurationType = SapConfigurationType.DeploymentWithOSConfig,
             })
             {
                 Tags =

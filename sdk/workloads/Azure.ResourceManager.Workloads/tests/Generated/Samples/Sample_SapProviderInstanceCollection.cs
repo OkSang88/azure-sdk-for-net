@@ -450,7 +450,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "Db2",
                 },
@@ -491,7 +491,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "MsSqlServer",
                 },
@@ -532,7 +532,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "PrometheusOS",
                 },
@@ -573,7 +573,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "PrometheusHaCluster",
                 },
@@ -614,7 +614,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "SapHana",
                 },
@@ -655,7 +655,7 @@ namespace Azure.ResourceManager.Workloads
             string providerInstanceName = "myProviderInstance";
             SapProviderInstanceData data = new SapProviderInstanceData()
             {
-                ProviderSettings = new ProviderSpecificProperties()
+                ProviderSettings = new HanaDBProviderInstanceProperties()
                 {
                     ProviderType = "SapNetWeaver",
                 },

@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.MarketplaceOrdering
             MarketplaceAgreementCollection collection = subscriptionResource.GetMarketplaceAgreements();
 
             // invoke the operation and iterate over the result
-            await foreach (MarketplaceAgreementTermData item in collection.GetAllAsync())
+            await foreach (MarketplaceAgreementTermData item in collection.GetAllDataAsync())
             {
                 // for demo we just print out the id
                 Console.WriteLine($"Succeeded on id: {item.Id}");

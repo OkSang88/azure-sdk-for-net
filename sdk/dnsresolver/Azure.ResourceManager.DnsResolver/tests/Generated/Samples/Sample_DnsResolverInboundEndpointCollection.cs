@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -49,7 +50,7 @@ new InboundEndpointIPConfiguration(new WritableSubResource()
 Id = new ResourceIdentifier("/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet"),
 })
 {
-PrivateIPAddress = "255.255.255.255",
+PrivateIPAddress = IPAddress.Parse("10.0.0.1"),
 PrivateIPAllocationMethod = InboundEndpointIPAllocationMethod.Static,
 }
             })

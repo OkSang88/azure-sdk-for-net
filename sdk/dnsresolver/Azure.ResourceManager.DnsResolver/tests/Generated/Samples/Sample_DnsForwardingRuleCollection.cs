@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Core;
@@ -43,10 +44,10 @@ namespace Azure.ResourceManager.DnsResolver
             string forwardingRuleName = "sampleForwardingRule";
             DnsForwardingRuleData data = new DnsForwardingRuleData("contoso.com.", new TargetDnsServer[]
             {
-new TargetDnsServer("10.0.0.1")
+new TargetDnsServer(IPAddress.Parse("10.0.0.1"))
 {
 Port = 53,
-},new TargetDnsServer("10.0.0.2")
+},new TargetDnsServer(IPAddress.Parse("10.0.0.1"))
 {
 Port = 53,
 }

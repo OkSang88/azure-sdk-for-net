@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Blueprint.Samples
             AssignmentResource assignment = client.GetAssignmentResource(assignmentResourceId);
 
             // invoke the operation
-            AssignmentData data = new AssignmentData(new ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned), new Dictionary<string, ParameterValue>()
+            AssignmentData data = new AssignmentData(new Models.ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned), new Dictionary<string, ParameterValue>()
             {
                 ["costCenter"] = new ParameterValue()
                 {
@@ -99,7 +99,7 @@ namespace Azure.ResourceManager.Blueprint.Samples
             AssignmentResource assignment = client.GetAssignmentResource(assignmentResourceId);
 
             // invoke the operation
-            AssignmentData data = new AssignmentData(new ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned), new Dictionary<string, ParameterValue>()
+            AssignmentData data = new AssignmentData(new Models.ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned), new Dictionary<string, ParameterValue>()
             {
                 ["costCenter"] = new ParameterValue()
                 {
@@ -156,7 +156,7 @@ namespace Azure.ResourceManager.Blueprint.Samples
             AssignmentResource assignment = client.GetAssignmentResource(assignmentResourceId);
 
             // invoke the operation
-            AssignmentData data = new AssignmentData(new ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
+            AssignmentData data = new AssignmentData(new Models.ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
             {
                 UserAssignedIdentities =
 {
@@ -220,7 +220,7 @@ namespace Azure.ResourceManager.Blueprint.Samples
             AssignmentResource assignment = client.GetAssignmentResource(assignmentResourceId);
 
             // invoke the operation
-            AssignmentData data = new AssignmentData(new ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
+            AssignmentData data = new AssignmentData(new Models.ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
             {
                 UserAssignedIdentities =
 {

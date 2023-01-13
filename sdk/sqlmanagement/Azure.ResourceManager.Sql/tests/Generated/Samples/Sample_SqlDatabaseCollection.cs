@@ -755,7 +755,7 @@ namespace Azure.ResourceManager.Sql.Samples
             string databaseName = "testdb";
             SqlDatabaseData data = new SqlDatabaseData(new AzureLocation("southeastasia"))
             {
-                PreferredEnclaveType = AlwaysEncryptedEnclaveType.Default,
+                PreferredEnclaveType = SqlAlwaysEncryptedEnclaveType.Default,
             };
             ArmOperation<SqlDatabaseResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, databaseName, data);
             SqlDatabaseResource result = lro.Value;
@@ -795,7 +795,7 @@ namespace Azure.ResourceManager.Sql.Samples
             string databaseName = "testdb";
             SqlDatabaseData data = new SqlDatabaseData(new AzureLocation("southeastasia"))
             {
-                PreferredEnclaveType = AlwaysEncryptedEnclaveType.VBS,
+                PreferredEnclaveType = SqlAlwaysEncryptedEnclaveType.Vbs,
             };
             ArmOperation<SqlDatabaseResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, databaseName, data);
             SqlDatabaseResource result = lro.Value;

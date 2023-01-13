@@ -644,7 +644,9 @@ Parameters = "",
 
             // invoke the operation
             string configurationName = "core-site";
-            IReadOnlyDictionary<string, string> result =  (await hdInsightCluster.GetConfigurationAsync(configurationName)).Value;
+            Response<IReadOnlyDictionary<string, string>> response = await hdInsightCluster.GetConfigurationAsync(configurationName);
+            IReadOnlyDictionary<string, string> result = response.Value;
+
             Console.WriteLine($"Succeeded: {result}");
         }
 

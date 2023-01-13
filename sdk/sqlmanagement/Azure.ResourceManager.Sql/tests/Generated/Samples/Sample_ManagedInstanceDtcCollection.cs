@@ -200,8 +200,8 @@ namespace Azure.ResourceManager.Sql.Samples
                     },
                     XaTransactionsEnabled = false,
                     SnaLu6Point2TransactionsEnabled = false,
-                    XaTransactionsDefaultTimeout = 1000,
-                    XaTransactionsMaximumTimeout = 3000,
+                    XATransactionsDefaultTimeoutInSeconds = 1000,
+                    XATransactionsMaximumTimeoutInSeconds = 3000,
                 },
                 ExternalDnsSuffixSearchList =
 {

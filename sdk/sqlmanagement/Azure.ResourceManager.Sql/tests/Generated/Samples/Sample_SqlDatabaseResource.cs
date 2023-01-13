@@ -553,35 +553,6 @@ Column = "column3",
             Console.WriteLine($"Succeeded");
         }
 
-        // Executes a database's vulnerability assessment scan.
-        [NUnit.Framework.Test]
-        [NUnit.Framework.Ignore("Only verifying that the sample builds")]
-        public async Task ExecuteDatabaseSqlVulnerabilityAssessmentExecuteScan_ExecutesADatabaseSVulnerabilityAssessmentScan()
-        {
-            // Generated from example definition: specification/sql/resource-manager/Microsoft.Sql/preview/2022-02-01-preview/examples/DatabaseSqlVulnerabilityAssessmentScansExecute.json
-            // this example is just showing the usage of "DatabaseSqlVulnerabilityAssessmentExecuteScan_Execute" operation, for the dependent resources, they will have to be created separately.
-
-            // get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
-            TokenCredential cred = new DefaultAzureCredential();
-            // authenticate your client
-            ArmClient client = new ArmClient(cred);
-
-            // this example assumes you already have this SqlDatabaseResource created on azure
-            // for more information of creating SqlDatabaseResource, please refer to the document of SqlDatabaseResource
-            string subscriptionId = "00000000-1111-2222-3333-444444444444";
-            string resourceGroupName = "vulnerabilityassessmenttest-4711";
-            string serverName = "vulnerabilityassessmenttest-6411";
-            string databaseName = "testdb";
-            ResourceIdentifier sqlDatabaseResourceId = SqlDatabaseResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, serverName, databaseName);
-            SqlDatabaseResource sqlDatabase = client.GetSqlDatabaseResource(sqlDatabaseResourceId);
-
-            // invoke the operation
-            VulnerabilityAssessmentName vulnerabilityAssessmentName = VulnerabilityAssessmentName.Default;
-            await sqlDatabase.ExecuteDatabaseSqlVulnerabilityAssessmentExecuteScanAsync(WaitUntil.Completed, vulnerabilityAssessmentName);
-
-            Console.WriteLine($"Succeeded");
-        }
-
         // List all synapselink workspaces for the given database.
         [NUnit.Framework.Test]
         [NUnit.Framework.Ignore("Only verifying that the sample builds")]
@@ -605,7 +576,7 @@ Column = "column3",
             SqlDatabaseResource sqlDatabase = client.GetSqlDatabaseResource(sqlDatabaseResourceId);
 
             // invoke the operation and iterate over the result
-            await foreach (SynapseLinkWorkspace item in sqlDatabase.GetSynapseLinkWorkspacesAsync())
+            await foreach (SqlSynapseLinkWorkspace item in sqlDatabase.GetSynapseLinkWorkspacesAsync())
             {
                 Console.WriteLine($"Succeeded: {item}");
             }
@@ -800,7 +771,7 @@ Column = "column3",
             // invoke the operation
             SqlDatabasePatch patch = new SqlDatabasePatch()
             {
-                PreferredEnclaveType = AlwaysEncryptedEnclaveType.VBS,
+                PreferredEnclaveType = SqlAlwaysEncryptedEnclaveType.Vbs,
             };
             ArmOperation<SqlDatabaseResource> lro = await sqlDatabase.UpdateAsync(WaitUntil.Completed, patch);
             SqlDatabaseResource result = lro.Value;
@@ -875,7 +846,7 @@ Column = "column3",
             // invoke the operation
             SqlDatabasePatch patch = new SqlDatabasePatch()
             {
-                PreferredEnclaveType = AlwaysEncryptedEnclaveType.Default,
+                PreferredEnclaveType = SqlAlwaysEncryptedEnclaveType.Default,
             };
             ArmOperation<SqlDatabaseResource> lro = await sqlDatabase.UpdateAsync(WaitUntil.Completed, patch);
             SqlDatabaseResource result = lro.Value;

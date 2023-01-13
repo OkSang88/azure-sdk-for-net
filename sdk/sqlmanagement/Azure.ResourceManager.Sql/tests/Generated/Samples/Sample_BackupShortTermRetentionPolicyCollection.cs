@@ -116,7 +116,7 @@ namespace Azure.ResourceManager.Sql.Samples
             BackupShortTermRetentionPolicyData data = new BackupShortTermRetentionPolicyData()
             {
                 RetentionDays = 7,
-                DiffBackupIntervalInHours = new DiffBackupIntervalInHours("24"),
+                DiffBackupIntervalInHours = DiffBackupIntervalInHours.TwentyFour,
             };
             ArmOperation<BackupShortTermRetentionPolicyResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, policyName, data);
             BackupShortTermRetentionPolicyResource result = lro.Value;

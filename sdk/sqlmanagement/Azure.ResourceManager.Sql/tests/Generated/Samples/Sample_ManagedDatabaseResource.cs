@@ -653,7 +653,7 @@ Column = "Column3",
             ManagedDatabaseResource managedDatabase = client.GetManagedDatabaseResource(managedDatabaseResourceId);
 
             // invoke the operation
-            ManagedDatabaseMoveDefinition managedDatabaseMoveDefinition = new ManagedDatabaseMoveDefinition("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase");
+            ManagedDatabaseMoveDefinition managedDatabaseMoveDefinition = new ManagedDatabaseMoveDefinition(new ResourceIdentifier("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase"));
             await managedDatabase.CancelMoveAsync(WaitUntil.Completed, managedDatabaseMoveDefinition);
 
             Console.WriteLine($"Succeeded");
@@ -682,7 +682,7 @@ Column = "Column3",
             ManagedDatabaseResource managedDatabase = client.GetManagedDatabaseResource(managedDatabaseResourceId);
 
             // invoke the operation
-            ManagedDatabaseMoveDefinition managedDatabaseMoveDefinition = new ManagedDatabaseMoveDefinition("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase");
+            ManagedDatabaseMoveDefinition managedDatabaseMoveDefinition = new ManagedDatabaseMoveDefinition(new ResourceIdentifier("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase"));
             await managedDatabase.CompleteMoveAsync(WaitUntil.Completed, managedDatabaseMoveDefinition);
 
             Console.WriteLine($"Succeeded");
@@ -740,9 +740,9 @@ Column = "Column3",
             ManagedDatabaseResource managedDatabase = client.GetManagedDatabaseResource(managedDatabaseResourceId);
 
             // invoke the operation
-            ManagedDatabaseStartMoveDefinition managedDatabaseStartMoveDefinition = new ManagedDatabaseStartMoveDefinition("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase")
+            ManagedDatabaseStartMoveDefinition managedDatabaseStartMoveDefinition = new ManagedDatabaseStartMoveDefinition(new ResourceIdentifier("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase"))
             {
-                OperationMode = MoveOperationMode.Copy,
+                OperationMode = ManagedDatabaseMoveOperationMode.Copy,
             };
             await managedDatabase.StartMoveAsync(WaitUntil.Completed, managedDatabaseStartMoveDefinition);
 
@@ -772,7 +772,7 @@ Column = "Column3",
             ManagedDatabaseResource managedDatabase = client.GetManagedDatabaseResource(managedDatabaseResourceId);
 
             // invoke the operation
-            ManagedDatabaseStartMoveDefinition managedDatabaseStartMoveDefinition = new ManagedDatabaseStartMoveDefinition("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase");
+            ManagedDatabaseStartMoveDefinition managedDatabaseStartMoveDefinition = new ManagedDatabaseStartMoveDefinition(new ResourceIdentifier("subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/testInstanceTgt/databases/testDatabase"));
             await managedDatabase.StartMoveAsync(WaitUntil.Completed, managedDatabaseStartMoveDefinition);
 
             Console.WriteLine($"Succeeded");

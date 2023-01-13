@@ -233,7 +233,8 @@ namespace Azure.ResourceManager.Logic.Samples
             IntegrationServiceEnvironmentResource integrationServiceEnvironment = client.GetIntegrationServiceEnvironmentResource(integrationServiceEnvironmentResourceId);
 
             // invoke the operation
-            IReadOnlyDictionary<string, IntegrationServiceEnvironmentSubnetNetworkHealth> result = await integrationServiceEnvironment.GetIntegrationServiceEnvironmentNetworkHealthAsync();
+            Response<IReadOnlyDictionary<string, IntegrationServiceEnvironmentSubnetNetworkHealth>> response = await integrationServiceEnvironment.GetIntegrationServiceEnvironmentNetworkHealthAsync();
+            IReadOnlyDictionary<string, IntegrationServiceEnvironmentSubnetNetworkHealth> result = response.Value;
 
             Console.WriteLine($"Succeeded: {result}");
         }

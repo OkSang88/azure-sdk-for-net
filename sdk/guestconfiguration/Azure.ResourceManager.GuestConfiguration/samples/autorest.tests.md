@@ -15,5 +15,10 @@ testgen:
   - GuestConfigurationHCRPAssignments_CreateOrUpdate
   - GuestConfigurationHCRPAssignments_Get
   - GuestConfigurationHCRPAssignments_List
-  
+  - GuestConfigurationAssignmentsVMSS_Get
+  - GuestConfigurationAssignmentsVMSS_List
+  - GuestConfigurationAssignments_CreateOrUpdate
+  - GuestConfigurationAssignments_Get
+  - GuestConfigurationAssignments_List
+  - GuestConfigurationAssignments_SubscriptionList
 ```

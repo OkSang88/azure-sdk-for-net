@@ -17,4 +17,5 @@ testgen:
   - EventSubscriptions_ListRegionalByResourceGroup
   - EventSubscriptions_ListRegionalBySubscriptionForTopicType
   - EventSubscriptions_ListRegionalByResourceGroupForTopicType
+  - Topics_ListEventTypes
 ```

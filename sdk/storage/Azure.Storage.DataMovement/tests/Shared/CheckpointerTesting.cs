@@ -1,12 +1,18 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+extern alias DMBlobs;
+
 using Azure.Storage.Test;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+#if BlobDataMovementSDK
+using DMBlobs::Azure.Storage.DataMovement.JobPlan;
+#else
 using Azure.Storage.DataMovement.JobPlan;
+#endif
 using NUnit.Framework;
 
 namespace Azure.Storage.DataMovement.Tests
@@ -48,6 +54,8 @@ namespace Azure.Storage.DataMovement.Tests
         internal const JobPartPlanRehydratePriorityType DefaultRehydratePriorityType = JobPartPlanRehydratePriorityType.None;
         internal const DataTransferStatus DefaultJobStatus = DataTransferStatus.Queued;
         internal const DataTransferStatus DefaultPartStatus = DataTransferStatus.Queued;
+        internal static readonly DateTimeOffset DefaultCreateTime = new DateTimeOffset(2023, 08, 28, 17, 26, 0, default);
+        internal const JobPlanStatus DefaultJobPlanStatus = JobPlanStatus.Queued;
 
         internal static JobPartPlanHeader CreateDefaultJobPartHeader(
             string version = DataMovementConstants.JobPartPlanFile.SchemaVersion,
@@ -163,6 +171,32 @@ namespace Azure.Storage.DataMovement.Tests
                 rehydratePriorityType: rehydratePriorityType,
                 atomicJobStatus: atomicJobStatus,
                 atomicPartStatus: atomicPartStatus);
+        }
+
+        internal static JobPlanHeader CreateDefaultJobHeader(
+            string version = DataMovementConstants.JobPlanFile.SchemaVersion,
+            string transferId = DefaultTransferId,
+            DateTimeOffset createTime = default,
+            JobPlanOperation operationType = DefaultJobPlanOperation,
+            bool enumerationComplete = false,
+            JobPlanStatus jobStatus = DefaultJobPlanStatus,
+            string parentSourcePath = DefaultSourcePath,
+            string parentDestinationPath = DefaultDestinationPath)
+        {
+            if (createTime == default)
+            {
+                createTime = DefaultCreateTime;
+            }
+
+            return new JobPlanHeader(
+                version,
+                transferId,
+                createTime,
+                operationType,
+                enumerationComplete,
+                jobStatus,
+                parentSourcePath,
+                parentDestinationPath);
         }
 
         internal static async Task AssertJobPlanHeaderAsync(JobPartPlanHeader header, Stream stream)

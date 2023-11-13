@@ -59,13 +59,13 @@ namespace Azure.Communication.JobRouter
         /// <summary> Notes attached to a job, sorted by timestamp. </summary>
         public IList<RouterJobNote> Notes { get; } = new List<RouterJobNote>();
 
-        /// <summary> A set of non-identifying attributes attached to this job. </summary>
-        public IDictionary<string, LabelValue> Tags { get; } = new Dictionary<string, LabelValue>();
+        /// <summary> A set of non-identifying attributes attached to this job. Values must be primitive values - number, string, boolean. </summary>
+        public IDictionary<string, RouterValue> Tags { get; } = new Dictionary<string, RouterValue>();
 
         /// <summary>
-        /// A set of key/value pairs that are identifying attributes used by the rules engines to make decisions.
+        /// A set of key/value pairs that are identifying attributes used by the rules engines to make decisions. Values must be primitive values - number, string, boolean.
         /// </summary>
-        public IDictionary<string, LabelValue> Labels { get; } = new Dictionary<string, LabelValue>();
+        public IDictionary<string, RouterValue> Labels { get; } = new Dictionary<string, RouterValue>();
 
         /// <summary>
         /// If provided, will determine how job matching will be carried out. Default mode: QueueAndMatchMode.

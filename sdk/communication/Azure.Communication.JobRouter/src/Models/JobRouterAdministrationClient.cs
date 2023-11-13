@@ -10,6 +10,8 @@ using Azure.Core.Pipeline;
 
 namespace Azure.Communication.JobRouter
 {
+    [CodeGenSuppress("JobRouterAdministrationClient", typeof(Uri))]
+    [CodeGenSuppress("JobRouterAdministrationClient", typeof(Uri), typeof(JobRouterClientOptions))]
     [CodeGenSuppress("CreateGetExceptionPoliciesNextPageRequest", typeof(string), typeof(int?), typeof(RequestContext))]
     [CodeGenSuppress("CreateGetClassificationPoliciesNextPageRequest", typeof(string), typeof(int?), typeof(RequestContext))]
     [CodeGenSuppress("CreateGetQueuesNextPageRequest", typeof(string), typeof(int?), typeof(RequestContext))]
@@ -20,17 +22,8 @@ namespace Azure.Communication.JobRouter
 
         /// <summary> Initializes a new instance of <see cref="JobRouterAdministrationClient"/>.</summary>
         /// <param name="connectionString">Connection string acquired from the Azure Communication Services resource.</param>
-        public JobRouterAdministrationClient(string connectionString)
-            : this(
-                ConnectionString.Parse(Argument.CheckNotNullOrEmpty(connectionString, nameof(connectionString))),
-                new JobRouterClientOptions())
-        {
-        }
-
-        /// <summary> Initializes a new instance of <see cref="JobRouterAdministrationClient"/>.</summary>
-        /// <param name="connectionString">Connection string acquired from the Azure Communication Services resource.</param>
         /// <param name="options">Client option exposing <see cref="ClientOptions.Diagnostics"/>, <see cref="ClientOptions.Retry"/>, <see cref="ClientOptions.Transport"/>, etc.</param>
-        public JobRouterAdministrationClient(string connectionString, JobRouterClientOptions options)
+        public JobRouterAdministrationClient(string connectionString, JobRouterClientOptions options = default)
             : this(
                 ConnectionString.Parse(Argument.CheckNotNullOrEmpty(connectionString, nameof(connectionString))),
                 options ?? new JobRouterClientOptions())
@@ -38,7 +31,7 @@ namespace Azure.Communication.JobRouter
         }
 
         /// <summary> Initializes a new instance of <see cref="JobRouterAdministrationClient"/>.</summary>
-        /// <param name="endpoint">The URI of the Azure Communication Services resource.</param>
+        /// <param name="endpoint"> The <see cref="Uri"/> endpoint of the Azure Communication Services resource. </param>
         /// <param name="credential">The <see cref="AzureKeyCredential"/> used to authenticate requests.</param>
         /// <param name="options">Client option exposing <see cref="ClientOptions.Diagnostics"/>, <see cref="ClientOptions.Retry"/>, <see cref="ClientOptions.Transport"/>, etc.</param>
         public JobRouterAdministrationClient(Uri endpoint, AzureKeyCredential credential, JobRouterClientOptions options = default)
@@ -50,8 +43,8 @@ namespace Azure.Communication.JobRouter
         }
 
         /// <summary> Initializes a new instance of <see cref="JobRouterAdministrationClient"/>.</summary>
-        /// <param name="endpoint">The URI of the Azure Communication Services resource.</param>
-        /// <param name="credential">The TokenCredential used to authenticate requests, such as DefaultAzureCredential.</param>
+        /// <param name="endpoint"> The <see cref="Uri"/> endpoint of the Azure Communication Services resource. </param>
+        /// <param name="credential">The <see cref="TokenCredential"/> used to authenticate requests, such as DefaultAzureCredential. </param>
         /// <param name="options">Client option exposing <see cref="ClientOptions.Diagnostics"/>, <see cref="ClientOptions.Retry"/>, <see cref="ClientOptions.Transport"/>, etc.</param>
         public JobRouterAdministrationClient(Uri endpoint, TokenCredential credential, JobRouterClientOptions options = default)
             : this(
@@ -62,6 +55,32 @@ namespace Azure.Communication.JobRouter
         }
 
         #endregion public constructors
+
+        #region internal constructors
+
+        /// <summary> Initializes a new instance of JobRouterClient. </summary>
+        /// <param name="endpoint"> The Uri to use. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="endpoint"/> is null. </exception>
+        internal JobRouterAdministrationClient(Uri endpoint) : this(endpoint, new JobRouterClientOptions())
+        {
+        }
+
+        /// <summary> Initializes a new instance of JobRouterClient. </summary>
+        /// <param name="endpoint"> The Uri to use. </param>
+        /// <param name="options"> The options for configuring the client. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="endpoint"/> is null. </exception>
+        internal JobRouterAdministrationClient(Uri endpoint, JobRouterClientOptions options)
+        {
+            Argument.AssertNotNull(endpoint, nameof(endpoint));
+            options ??= new JobRouterClientOptions();
+
+            ClientDiagnostics = new ClientDiagnostics(options, true);
+            _pipeline = HttpPipelineBuilder.Build(options, Array.Empty<HttpPipelinePolicy>(), Array.Empty<HttpPipelinePolicy>(), new ResponseClassifier());
+            _endpoint = endpoint;
+            _apiVersion = options.Version;
+        }
+
+        #endregion
 
         #region private constructors
 
